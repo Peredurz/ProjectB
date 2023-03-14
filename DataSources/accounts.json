@@ -1,0 +1,14 @@
+﻿[
+	{
+		"id": 1,
+		"emailAddress": "n@b.c",
+		"password": "xyz",
+		"fullName": "Nikola Tesla"
+	},
+	{
+		"id": 2,
+		"emailAddress": "t@b.c",
+		"password": "xyz",
+		"fullName": "Thomas Edison"
+	}
+]
