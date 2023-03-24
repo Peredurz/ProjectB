@@ -9,7 +9,7 @@ class AuditoriumModel
     public List<int> Chairs { get; set; }
 
     [JsonPropertyName("totalchairs")]
-    public int TotalChais { get; set; }
+    public int TotalChairs { get; set; }
 
     [JsonPropertyName("totalrows")]
     public int TotalRows { get; set; }
@@ -19,11 +19,11 @@ class AuditoriumModel
 
     public AuditoriumModel(int id, List<int> chairs, int totalChairs, int totalRows, int totalCols)
     {
-		ID = id;
-		Chairs = chairs;
-		TotalChais = totalChairs;
-		TotalRows = totalRows;
-		TotalCols = totalCols;
+        ID = id;
+        Chairs = chairs;
+        TotalChairs = totalChairs;
+        TotalRows = totalRows;
+        TotalCols = totalCols;
     }
 
 }

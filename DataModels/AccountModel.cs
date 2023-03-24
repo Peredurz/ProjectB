@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 
-
 class AccountModel
 {
     [JsonPropertyName("id")]
@@ -22,9 +21,4 @@ class AccountModel
         Password = password;
         FullName = fullName;
     }
-
 }
-
-
-
-
