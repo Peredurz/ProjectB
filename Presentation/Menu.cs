@@ -31,6 +31,7 @@ static class Menu
         else if (inputUser == "M")
         {
             Console.WriteLine("");
+            Auditorium.Start();
         }
         else if (inputUser == "Q")
         {

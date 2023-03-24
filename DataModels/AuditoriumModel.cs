@@ -25,5 +25,4 @@ class AuditoriumModel
         TotalRows = totalRows;
         TotalCols = totalCols;
     }
-
 }
