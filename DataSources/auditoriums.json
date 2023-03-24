@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"chairs": [],
+		"totalchais": 150,
+		"totalrows": 14,
+		"totalcols": 12
+	},
+	{
+		"id": 2,
+		"chairs": [],
+		"totalchais": 300,
+		"totalrows": 19,
+		"totalcols": 18
+	},
+	{
+		"id": 3,
+		"chairs": [],
+		"totalchais": 500,
+		"totalrows": 20,
+		"totalcols": 30
+	}
+]
