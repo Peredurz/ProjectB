@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"chairs": [],
+		"chairs": [1,2,3],
 		"totalchairs": 150,
 		"totalrows": 14,
 		"totalcols": 12

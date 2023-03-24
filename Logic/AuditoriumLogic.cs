@@ -59,7 +59,7 @@ class AuditoriumLogic
                     chairPrice = 15.0;
 
                 // maak een nieuwe stoel aan en voeg die aan onze stoelen toe.
-                chairModels.Add(new ChairModel(i, j, (int)chairPrice, colourName));
+                chairModels.Add(new ChairModel(i, j, (int)chairPrice, colourName, Status.Available));
             }
         }
         // de lijst van de ids van de stoelen worden uiteindelijk opgeslagen die later voor andere
@@ -78,11 +78,12 @@ class AuditoriumLogic
 
     public string ChairPrint()
     {
+        int chairsAmount = this._chairLogic.Chairs.Count;
         List<int> chairs = _auditoriums[--AuditoriumID].Chairs;
         int length = _auditoriums[AuditoriumID].TotalCols;
         int pos = 1;
         string chairPrint = "";
-        for (int i = 0; i < chairs.Count; i++)
+        for (int i = 0; i < chairsAmount; i++)
         {
             if (pos == length)
             {
@@ -90,19 +91,22 @@ class AuditoriumLogic
                 pos = 1;
             }
             ChairModel chair = _chairLogic.Chairs[i];
-            if (chair.Status == Status.Available)
+            if (chairs.Contains(chair.ID))
             {
-                chairPrint += "# ";
+                if (chair.Status == Status.Available)
+                {
+                    chairPrint += "# ";
+                }
+                else if (chair.Status == Status.Pending)
+                {
+                    chairPrint += "? ";
+                }
+                else if (chair.Status == Status.Reserved)
+                {
+                    chairPrint += "X ";
+                }
+                pos++;
             }
-            else if (chair.Status == Status.Pending)
-            {
-                chairPrint += "? ";
-            }
-            else if (chair.Status == Status.Reserved)
-            {
-                chairPrint += "X ";
-            }
-            pos++;
         }
         return chairPrint;
     }
