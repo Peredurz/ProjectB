@@ -6,22 +6,40 @@ static class Menu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
-        Console.WriteLine("Enter 1 to login");
-        Console.WriteLine("Enter 2 to do something else in the future");
+        Console.WriteLine("L: Login: ");
+        Console.WriteLine("I: Info: ");
+        Console.WriteLine("M: Movies");
+        Console.WriteLine("Q: Quit");
+        Console.Write(">");
 
-        string input = Console.ReadLine();
-        if (input == "1")
+        string inputUser = Console.ReadLine().ToUpper();
+        if (inputUser == "L")
         {
             UserLogin.Start();
         }
-        else if (input == "2")
+        else if (inputUser == "I")
         {
-            Console.WriteLine("This feature is not yet implemented");
+
+            Console.WriteLine(@"
+            Telephone number:   010 123 123 12.
+            Address:            Wijnhaven 107.
+            Zip code:           3011 WN in Rotterdam.
+            Opening hours:      We are open fifteen minutes before the start of the first performance.
+                                The cinema closes 10 minutes after the start of the last performance.");
+            Menu.Start();
+        }
+        else if (inputUser == "M")
+        {
+            Console.WriteLine("");
+        }
+        else if (inputUser == "Q")
+        {
+            Console.WriteLine("Thanks for visiting us.");
         }
         else
         {
             Console.WriteLine("Invalid input");
-            Start();
+            Menu.Start();
         }
 
     }
