@@ -12,10 +12,10 @@ static class AuditoriumAccess
     }
 
 
-    public static void WriteAll(List<AuditoriumModel> accounts)
+    public static void WriteAll(List<AuditoriumModel> auditoriums)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(accounts, options);
+        string json = JsonSerializer.Serialize(auditoriums, options);
         File.WriteAllText(path, json);
     }
 
