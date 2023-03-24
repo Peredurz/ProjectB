@@ -40,6 +40,10 @@ static class Menu
         {
             Movie.ShowMovies();
         }
+        else if (input == "3")
+        {
+            Movie.ShowMovies();
+        }
         else
         {
             Console.WriteLine("Invalid input");
