@@ -18,6 +18,10 @@ static class Menu
         {
             Console.WriteLine("This feature is not yet implemented");
         }
+        else if (input == "3")
+        {
+            Movie.ShowMovies();
+        }
         else
         {
             Console.WriteLine("Invalid input");
