@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+
 public enum Status
 {
     Available,
@@ -10,7 +11,6 @@ public class ChairModel
 {
     [JsonPropertyName("id")]
     public int ID { get; set; }
-    private int _id;
 
     [JsonPropertyName("row")]
     public int Row { get; set; }
@@ -19,7 +19,7 @@ public class ChairModel
     public int Column { get; set; }
 
     [JsonPropertyName("price")]
-    public double price { get; set; }
+    public int Price { get; set; }
 
     [JsonPropertyName("color")]
     public string Color { get; set; }
@@ -27,13 +27,15 @@ public class ChairModel
     [JsonPropertyName("status")]
     public Status Status { get; set; }
 
-    public ChairModel(int _Row, int _Column, int _Price, string _Color)
+    private static int _idCounter = 0;
+
+    public ChairModel(int row, int column, int price, string color, Status status)
     {
-        Row = _Row;
-        Column = _Column;
-        price = _Price;
-        Color = _Color;
-        ID = ++_id;
-        Status = Status.Available;
+        Row = row;
+        Column = column;
+        Price = price;
+        Color = color;
+        ID = ++_idCounter;
+        Status = status;
     }
 }

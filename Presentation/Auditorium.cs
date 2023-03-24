@@ -12,7 +12,6 @@ static class Auditorium
 
     public static void PrintChairs()
     {
-        // Console.WriteLine(_auditoriumLogic.ChairPrint());
-        Console.WriteLine("Press any key to go back to the menu");
+        Console.WriteLine(_auditoriumLogic.ChairPrint());
     }
 }
