@@ -19,11 +19,10 @@ class AuditoriumModel
 
     public AuditoriumModel(int id, List<int> chairs, int totalChairs, int totalRows, int totalCols)
     {
-		ID = id;
-		Chairs = chairs;
-		TotalChais = totalChairs;
-		TotalRows = totalRows;
-		TotalCols = totalCols;
+        ID = id;
+        Chairs = chairs;
+        TotalChais = totalChairs;
+        TotalRows = totalRows;
+        TotalCols = totalCols;
     }
-
 }
