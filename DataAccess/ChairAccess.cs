@@ -2,7 +2,7 @@ using System.Text.Json;
 
 static class ChairAccess
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, "DataSources/chairs.json"));
+    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairs.json"));
 
     public static List<ChairModel> LoadAll()
     {

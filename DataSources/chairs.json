@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "row": 1,
+    "column": 1,
+    "price": 0,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 2,
+    "row": 1,
+    "column": 2,
+    "price": 0,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 3,
+    "row": 1,
+    "column": 3,
+    "price": 0,
+    "color": "Red",
+    "status": 0
+  }
+]
