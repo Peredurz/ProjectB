@@ -71,40 +71,53 @@ class AuditoriumLogic
 
         return chairIDs;
     }
+
     public void Write(List<AuditoriumModel> auditoriums)
     {
+        // De meegegeven lijst van auditoriums schrijven naar de json file via AuditoriumAccess
         AuditoriumAccess.WriteAll(auditoriums);
     }
 
     public string ChairPrint()
     {
+        // Hoeveelheid stoelen in de lijst met stoelen checken
         int chairsAmount = this._chairLogic.Chairs.Count;
+        // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
+        // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
         List<int> chairs = _auditoriums[--AuditoriumID].Chairs;
+        // Lengte van het auditorium
         int length = _auditoriums[AuditoriumID].TotalCols;
+        // Positie van de rij zet ik op 1 omdat je begint met kolom 1
         int pos = 1;
+        // String dat uiteindelijk wordt gereturned
         string chairPrint = "";
+
+        // Loopen totdat je bij de chairsamount komt.
         for (int i = 0; i < chairsAmount; i++)
         {
+            // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 1 gezet
             if (pos == length)
             {
                 chairPrint += "\n";
                 pos = 1;
             }
+
+            // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
             ChairModel chair = _chairLogic.Chairs[i];
+
+            // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
+            // Want je wilt geen stoelen uit een andere zaal printen
             if (chairs.Contains(chair.ID))
             {
-                if (chair.Status == Status.Available)
+                // Op basis van de status van de stoel wordt er een andere string toegevoegd aan chairPrint
+                string result = chair.Status switch
                 {
-                    chairPrint += "# ";
-                }
-                else if (chair.Status == Status.Pending)
-                {
-                    chairPrint += "? ";
-                }
-                else if (chair.Status == Status.Reserved)
-                {
-                    chairPrint += "X ";
-                }
+                    Status.Available => "# ",
+                    Status.Pending => "? ",
+                    Status.Reserved => "X ",
+                    _ => " ",
+                };
+                chairPrint += result;
                 pos++;
             }
         }
