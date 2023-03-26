@@ -12,6 +12,6 @@ static class Auditorium
 
     public static void PrintChairs()
     {
-        Console.WriteLine(_auditoriumLogic.ChairPrint());
+        _auditoriumLogic.ChairPrint();
     }
 }

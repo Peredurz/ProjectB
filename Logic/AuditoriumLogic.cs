@@ -78,7 +78,7 @@ class AuditoriumLogic
         AuditoriumAccess.WriteAll(auditoriums);
     }
 
-    public string ChairPrint()
+    public void ChairPrint()
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
         int chairsAmount = this._chairLogic.Chairs.Count;
@@ -87,19 +87,19 @@ class AuditoriumLogic
         List<int> chairs = _auditoriums[--AuditoriumID].Chairs;
         // Lengte van het auditorium
         int length = _auditoriums[AuditoriumID].TotalCols;
-        // Positie van de rij zet ik op 1 omdat je begint met kolom 1
-        int pos = 1;
+        // Positie van de rij zet ik op 0 omdat je begint met kolom 1 maar de eerste keer dat je een stoel print is de positie 0 (nog geen stoel geprint)
+        int pos = 0;
         // String dat uiteindelijk wordt gereturned
-        string chairPrint = "";
+        //string chairPrint = "";
 
         // Loopen totdat je bij de chairsamount komt.
         for (int i = 0; i < chairsAmount; i++)
         {
-            // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 1 gezet
+            // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet
             if (pos == length)
             {
-                chairPrint += "\n";
-                pos = 1;
+                Console.Write("\n");
+                pos = 0;
             }
 
             // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
@@ -117,10 +117,19 @@ class AuditoriumLogic
                     Status.Reserved => "X ",
                     _ => " ",
                 };
-                chairPrint += result;
+                // De kleur van de stoel wordt bepaald op basis van de kleur van de stoel
+                ConsoleColor color = chair.Color.ToLower() switch
+                {
+                    "red" => ConsoleColor.Red,
+                    "blue" => ConsoleColor.Blue,
+                    "orange" => ConsoleColor.DarkYellow,
+                    "white" => ConsoleColor.White,
+                    _ => ConsoleColor.White,
+                };
+                Console.ForegroundColor = color;
+                Console.Write(result);
                 pos++;
             }
         }
-        return chairPrint;
     }
 }
