@@ -44,9 +44,6 @@ class AuditoriumLogic
                 SKColor pixelColour = bmp.GetPixel(i, j);
                 // koppel een HTML kleur naam aan de hex code van de string om duidelijker te kunnen zoeken.
                 string colourName = ColorTranslator.FromHtml(pixelColour.ToString()).Name;
-                //// check of de kleur wit is want dan kan het geskipped worden
-                if (colourName == "White")
-                    continue;
 
                 // bepaal de prijs van de stoel op basis van de kleur (dus locatie)
                 double chairPrice = 0.0;
