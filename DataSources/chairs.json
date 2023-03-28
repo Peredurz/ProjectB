@@ -1,26 +1,4050 @@
 [
   {
-    "id": 1,
+    "id": 1649,
+    "row": 0,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1650,
+    "row": 0,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1651,
+    "row": 0,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1652,
+    "row": 0,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1653,
+    "row": 0,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1654,
+    "row": 0,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1655,
     "row": 1,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1656,
+    "row": 1,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1657,
+    "row": 1,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1658,
+    "row": 1,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1659,
+    "row": 1,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1660,
+    "row": 1,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1661,
+    "row": 1,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1662,
+    "row": 1,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1663,
+    "row": 2,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1664,
+    "row": 2,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1665,
+    "row": 2,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1666,
+    "row": 2,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1667,
+    "row": 2,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1668,
+    "row": 2,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1669,
+    "row": 2,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1670,
+    "row": 2,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1671,
+    "row": 2,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1672,
+    "row": 2,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1673,
+    "row": 2,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1674,
+    "row": 3,
     "column": 1,
-    "price": 0,
-    "color": "Red",
+    "price": 5,
+    "color": "Blue",
     "status": 0
   },
   {
-    "id": 2,
-    "row": 1,
+    "id": 1675,
+    "row": 3,
     "column": 2,
-    "price": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1676,
+    "row": 3,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1677,
+    "row": 3,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1678,
+    "row": 3,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1679,
+    "row": 3,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1680,
+    "row": 3,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1681,
+    "row": 3,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1682,
+    "row": 3,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1683,
+    "row": 3,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1684,
+    "row": 3,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1685,
+    "row": 3,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1686,
+    "row": 3,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1687,
+    "row": 3,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1688,
+    "row": 3,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1689,
+    "row": 3,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1690,
+    "row": 4,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1691,
+    "row": 4,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1692,
+    "row": 4,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1693,
+    "row": 4,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1694,
+    "row": 4,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1695,
+    "row": 4,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1696,
+    "row": 4,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1697,
+    "row": 4,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1698,
+    "row": 4,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1699,
+    "row": 4,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1700,
+    "row": 4,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1701,
+    "row": 4,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1702,
+    "row": 4,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1703,
+    "row": 4,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1704,
+    "row": 4,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1705,
+    "row": 4,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1706,
+    "row": 4,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1707,
+    "row": 5,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1708,
+    "row": 5,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1709,
+    "row": 5,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1710,
+    "row": 5,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1711,
+    "row": 5,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1712,
+    "row": 5,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1713,
+    "row": 5,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1714,
+    "row": 5,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1715,
+    "row": 5,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1716,
+    "row": 5,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1717,
+    "row": 5,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1718,
+    "row": 5,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1719,
+    "row": 5,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1720,
+    "row": 5,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1721,
+    "row": 5,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1722,
+    "row": 5,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1723,
+    "row": 5,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1724,
+    "row": 5,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1725,
+    "row": 6,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1726,
+    "row": 6,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1727,
+    "row": 6,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1728,
+    "row": 6,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1729,
+    "row": 6,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1730,
+    "row": 6,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1731,
+    "row": 6,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1732,
+    "row": 6,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1733,
+    "row": 6,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1734,
+    "row": 6,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1735,
+    "row": 6,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1736,
+    "row": 6,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1737,
+    "row": 6,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1738,
+    "row": 6,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1739,
+    "row": 6,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1740,
+    "row": 6,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1741,
+    "row": 6,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1742,
+    "row": 6,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1743,
+    "row": 7,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1744,
+    "row": 7,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1745,
+    "row": 7,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1746,
+    "row": 7,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1747,
+    "row": 7,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1748,
+    "row": 7,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1749,
+    "row": 7,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1750,
+    "row": 7,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1751,
+    "row": 7,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1752,
+    "row": 7,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1753,
+    "row": 7,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1754,
+    "row": 7,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1755,
+    "row": 7,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1756,
+    "row": 7,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1757,
+    "row": 7,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1758,
+    "row": 7,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1759,
+    "row": 7,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1760,
+    "row": 7,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1761,
+    "row": 7,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1762,
+    "row": 8,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1763,
+    "row": 8,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1764,
+    "row": 8,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1765,
+    "row": 8,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1766,
+    "row": 8,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1767,
+    "row": 8,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1768,
+    "row": 8,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1769,
+    "row": 8,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1770,
+    "row": 8,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1771,
+    "row": 8,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1772,
+    "row": 8,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1773,
+    "row": 8,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1774,
+    "row": 8,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1775,
+    "row": 8,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1776,
+    "row": 8,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1777,
+    "row": 8,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1778,
+    "row": 8,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1779,
+    "row": 8,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1780,
+    "row": 8,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1781,
+    "row": 8,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1782,
+    "row": 9,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1783,
+    "row": 9,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1784,
+    "row": 9,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1785,
+    "row": 9,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1786,
+    "row": 9,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1787,
+    "row": 9,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1788,
+    "row": 9,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1789,
+    "row": 9,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1790,
+    "row": 9,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1791,
+    "row": 9,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1792,
+    "row": 9,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1793,
+    "row": 9,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1794,
+    "row": 9,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1795,
+    "row": 9,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1796,
+    "row": 9,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1797,
+    "row": 9,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1798,
+    "row": 9,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1799,
+    "row": 9,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1800,
+    "row": 9,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1801,
+    "row": 9,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1802,
+    "row": 10,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1803,
+    "row": 10,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1804,
+    "row": 10,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1805,
+    "row": 10,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1806,
+    "row": 10,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1807,
+    "row": 10,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1808,
+    "row": 10,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1809,
+    "row": 10,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1810,
+    "row": 10,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1811,
+    "row": 10,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1812,
+    "row": 10,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1813,
+    "row": 10,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1814,
+    "row": 10,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1815,
+    "row": 10,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1816,
+    "row": 10,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1817,
+    "row": 10,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1818,
+    "row": 10,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1819,
+    "row": 10,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1820,
+    "row": 10,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1821,
+    "row": 10,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1822,
+    "row": 11,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1823,
+    "row": 11,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1824,
+    "row": 11,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1825,
+    "row": 11,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1826,
+    "row": 11,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1827,
+    "row": 11,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1828,
+    "row": 11,
+    "column": 6,
+    "price": 15,
     "color": "Red",
     "status": 0
   },
   {
-    "id": 3,
-    "row": 1,
-    "column": 3,
-    "price": 0,
+    "id": 1829,
+    "row": 11,
+    "column": 7,
+    "price": 15,
     "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1830,
+    "row": 11,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1831,
+    "row": 11,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1832,
+    "row": 11,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1833,
+    "row": 11,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1834,
+    "row": 11,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1835,
+    "row": 11,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1836,
+    "row": 11,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1837,
+    "row": 11,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1838,
+    "row": 11,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1839,
+    "row": 11,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1840,
+    "row": 11,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1841,
+    "row": 11,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1842,
+    "row": 12,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1843,
+    "row": 12,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1844,
+    "row": 12,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1845,
+    "row": 12,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1846,
+    "row": 12,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1847,
+    "row": 12,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1848,
+    "row": 12,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1849,
+    "row": 12,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1850,
+    "row": 12,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1851,
+    "row": 12,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1852,
+    "row": 12,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1853,
+    "row": 12,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1854,
+    "row": 12,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1855,
+    "row": 12,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1856,
+    "row": 12,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1857,
+    "row": 12,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1858,
+    "row": 12,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1859,
+    "row": 12,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1860,
+    "row": 12,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1861,
+    "row": 12,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1862,
+    "row": 13,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1863,
+    "row": 13,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1864,
+    "row": 13,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1865,
+    "row": 13,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1866,
+    "row": 13,
+    "column": 4,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1867,
+    "row": 13,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1868,
+    "row": 13,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1869,
+    "row": 13,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1870,
+    "row": 13,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1871,
+    "row": 13,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1872,
+    "row": 13,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1873,
+    "row": 13,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1874,
+    "row": 13,
+    "column": 12,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1875,
+    "row": 13,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1876,
+    "row": 13,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1877,
+    "row": 13,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1878,
+    "row": 13,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1879,
+    "row": 13,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1880,
+    "row": 13,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1881,
+    "row": 13,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1882,
+    "row": 14,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1883,
+    "row": 14,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1884,
+    "row": 14,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1885,
+    "row": 14,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1886,
+    "row": 14,
+    "column": 4,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1887,
+    "row": 14,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1888,
+    "row": 14,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1889,
+    "row": 14,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1890,
+    "row": 14,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1891,
+    "row": 14,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1892,
+    "row": 14,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1893,
+    "row": 14,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1894,
+    "row": 14,
+    "column": 12,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1895,
+    "row": 14,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1896,
+    "row": 14,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1897,
+    "row": 14,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1898,
+    "row": 14,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1899,
+    "row": 14,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1900,
+    "row": 14,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1901,
+    "row": 14,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1902,
+    "row": 15,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1903,
+    "row": 15,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1904,
+    "row": 15,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1905,
+    "row": 15,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1906,
+    "row": 15,
+    "column": 4,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1907,
+    "row": 15,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1908,
+    "row": 15,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1909,
+    "row": 15,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1910,
+    "row": 15,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1911,
+    "row": 15,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1912,
+    "row": 15,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1913,
+    "row": 15,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1914,
+    "row": 15,
+    "column": 12,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1915,
+    "row": 15,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1916,
+    "row": 15,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1917,
+    "row": 15,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1918,
+    "row": 15,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1919,
+    "row": 15,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1920,
+    "row": 15,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1921,
+    "row": 15,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1922,
+    "row": 16,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1923,
+    "row": 16,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1924,
+    "row": 16,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1925,
+    "row": 16,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1926,
+    "row": 16,
+    "column": 4,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1927,
+    "row": 16,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1928,
+    "row": 16,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1929,
+    "row": 16,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1930,
+    "row": 16,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1931,
+    "row": 16,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1932,
+    "row": 16,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1933,
+    "row": 16,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1934,
+    "row": 16,
+    "column": 12,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1935,
+    "row": 16,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1936,
+    "row": 16,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1937,
+    "row": 16,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1938,
+    "row": 16,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1939,
+    "row": 16,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1940,
+    "row": 16,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1941,
+    "row": 16,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1942,
+    "row": 17,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1943,
+    "row": 17,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1944,
+    "row": 17,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1945,
+    "row": 17,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1946,
+    "row": 17,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1947,
+    "row": 17,
+    "column": 5,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1948,
+    "row": 17,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1949,
+    "row": 17,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1950,
+    "row": 17,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1951,
+    "row": 17,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1952,
+    "row": 17,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1953,
+    "row": 17,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1954,
+    "row": 17,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1955,
+    "row": 17,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1956,
+    "row": 17,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1957,
+    "row": 17,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1958,
+    "row": 17,
+    "column": 16,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1959,
+    "row": 17,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1960,
+    "row": 17,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1961,
+    "row": 17,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1962,
+    "row": 18,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1963,
+    "row": 18,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1964,
+    "row": 18,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1965,
+    "row": 18,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1966,
+    "row": 18,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1967,
+    "row": 18,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1968,
+    "row": 18,
+    "column": 6,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1969,
+    "row": 18,
+    "column": 7,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1970,
+    "row": 18,
+    "column": 8,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1971,
+    "row": 18,
+    "column": 9,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1972,
+    "row": 18,
+    "column": 10,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1973,
+    "row": 18,
+    "column": 11,
+    "price": 15,
+    "color": "Red",
+    "status": 0
+  },
+  {
+    "id": 1974,
+    "row": 18,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1975,
+    "row": 18,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1976,
+    "row": 18,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1977,
+    "row": 18,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1978,
+    "row": 18,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1979,
+    "row": 18,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1980,
+    "row": 18,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1981,
+    "row": 18,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1982,
+    "row": 19,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1983,
+    "row": 19,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1984,
+    "row": 19,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1985,
+    "row": 19,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1986,
+    "row": 19,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1987,
+    "row": 19,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1988,
+    "row": 19,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1989,
+    "row": 19,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1990,
+    "row": 19,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1991,
+    "row": 19,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1992,
+    "row": 19,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1993,
+    "row": 19,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1994,
+    "row": 19,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1995,
+    "row": 19,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1996,
+    "row": 19,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1997,
+    "row": 19,
+    "column": 15,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 1998,
+    "row": 19,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 1999,
+    "row": 19,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2000,
+    "row": 19,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2001,
+    "row": 19,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2002,
+    "row": 20,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2003,
+    "row": 20,
+    "column": 1,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2004,
+    "row": 20,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2005,
+    "row": 20,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2006,
+    "row": 20,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2007,
+    "row": 20,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2008,
+    "row": 20,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2009,
+    "row": 20,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2010,
+    "row": 20,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2011,
+    "row": 20,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2012,
+    "row": 20,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2013,
+    "row": 20,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2014,
+    "row": 20,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2015,
+    "row": 20,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2016,
+    "row": 20,
+    "column": 14,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2017,
+    "row": 20,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2018,
+    "row": 20,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2019,
+    "row": 20,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2020,
+    "row": 20,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2021,
+    "row": 20,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2022,
+    "row": 21,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2023,
+    "row": 21,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2024,
+    "row": 21,
+    "column": 2,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2025,
+    "row": 21,
+    "column": 3,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2026,
+    "row": 21,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2027,
+    "row": 21,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2028,
+    "row": 21,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2029,
+    "row": 21,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2030,
+    "row": 21,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2031,
+    "row": 21,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2032,
+    "row": 21,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2033,
+    "row": 21,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2034,
+    "row": 21,
+    "column": 12,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2035,
+    "row": 21,
+    "column": 13,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2036,
+    "row": 21,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2037,
+    "row": 21,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2038,
+    "row": 21,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2039,
+    "row": 21,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2040,
+    "row": 21,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2041,
+    "row": 21,
+    "column": 19,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2042,
+    "row": 22,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2043,
+    "row": 22,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2044,
+    "row": 22,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2045,
+    "row": 22,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2046,
+    "row": 22,
+    "column": 4,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2047,
+    "row": 22,
+    "column": 5,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2048,
+    "row": 22,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2049,
+    "row": 22,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2050,
+    "row": 22,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2051,
+    "row": 22,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2052,
+    "row": 22,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2053,
+    "row": 22,
+    "column": 11,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2054,
+    "row": 22,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2055,
+    "row": 22,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2056,
+    "row": 22,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2057,
+    "row": 22,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2058,
+    "row": 22,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2059,
+    "row": 22,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2060,
+    "row": 22,
+    "column": 18,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2061,
+    "row": 23,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2062,
+    "row": 23,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2063,
+    "row": 23,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2064,
+    "row": 23,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2065,
+    "row": 23,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2066,
+    "row": 23,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2067,
+    "row": 23,
+    "column": 6,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2068,
+    "row": 23,
+    "column": 7,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2069,
+    "row": 23,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2070,
+    "row": 23,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2071,
+    "row": 23,
+    "column": 10,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2072,
+    "row": 23,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2073,
+    "row": 23,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2074,
+    "row": 23,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2075,
+    "row": 23,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2076,
+    "row": 23,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2077,
+    "row": 23,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2078,
+    "row": 23,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2079,
+    "row": 24,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2080,
+    "row": 24,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2081,
+    "row": 24,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2082,
+    "row": 24,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2083,
+    "row": 24,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2084,
+    "row": 24,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2085,
+    "row": 24,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2086,
+    "row": 24,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2087,
+    "row": 24,
+    "column": 8,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2088,
+    "row": 24,
+    "column": 9,
+    "price": 10,
+    "color": "Orange",
+    "status": 0
+  },
+  {
+    "id": 2089,
+    "row": 24,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2090,
+    "row": 24,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2091,
+    "row": 24,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2092,
+    "row": 24,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2093,
+    "row": 24,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2094,
+    "row": 24,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2095,
+    "row": 24,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2096,
+    "row": 24,
+    "column": 17,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2097,
+    "row": 25,
+    "column": 0,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2098,
+    "row": 25,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2099,
+    "row": 25,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2100,
+    "row": 25,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2101,
+    "row": 25,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2102,
+    "row": 25,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2103,
+    "row": 25,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2104,
+    "row": 25,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2105,
+    "row": 25,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2106,
+    "row": 25,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2107,
+    "row": 25,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2108,
+    "row": 25,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2109,
+    "row": 25,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2110,
+    "row": 25,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2111,
+    "row": 25,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2112,
+    "row": 25,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2113,
+    "row": 25,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2114,
+    "row": 26,
+    "column": 1,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2115,
+    "row": 26,
+    "column": 2,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2116,
+    "row": 26,
+    "column": 3,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2117,
+    "row": 26,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2118,
+    "row": 26,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2119,
+    "row": 26,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2120,
+    "row": 26,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2121,
+    "row": 26,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2122,
+    "row": 26,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2123,
+    "row": 26,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2124,
+    "row": 26,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2125,
+    "row": 26,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2126,
+    "row": 26,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2127,
+    "row": 26,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2128,
+    "row": 26,
+    "column": 15,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2129,
+    "row": 26,
+    "column": 16,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2130,
+    "row": 27,
+    "column": 4,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2131,
+    "row": 27,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2132,
+    "row": 27,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2133,
+    "row": 27,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2134,
+    "row": 27,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2135,
+    "row": 27,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2136,
+    "row": 27,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2137,
+    "row": 27,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2138,
+    "row": 27,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2139,
+    "row": 27,
+    "column": 13,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2140,
+    "row": 27,
+    "column": 14,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2141,
+    "row": 28,
+    "column": 5,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2142,
+    "row": 28,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2143,
+    "row": 28,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2144,
+    "row": 28,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2145,
+    "row": 28,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2146,
+    "row": 28,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2147,
+    "row": 28,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2148,
+    "row": 28,
+    "column": 12,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2149,
+    "row": 29,
+    "column": 6,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2150,
+    "row": 29,
+    "column": 7,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2151,
+    "row": 29,
+    "column": 8,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2152,
+    "row": 29,
+    "column": 9,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2153,
+    "row": 29,
+    "column": 10,
+    "price": 5,
+    "color": "Blue",
+    "status": 0
+  },
+  {
+    "id": 2154,
+    "row": 29,
+    "column": 11,
+    "price": 5,
+    "color": "Blue",
     "status": 0
   }
 ]
