@@ -16,16 +16,25 @@ class AuditoriumLogic
 
     public void InitializeSeats()
     {
+        List<ChairModel> chairModels = new List<ChairModel>();
         for (int i = 1; i <= 3; i++)
         {
-            List<int> chairIds = AuditoriumLogic.ParsePNG(i);
+            List<ChairModel> chairModelList = AuditoriumLogic.ParsePNG(i);
+            chairModelList.ForEach(x => chairModels.Add(x));
+
+            // de lijst van de ids van de stoelen worden uiteindelijk opgeslagen die later voor andere
+            // dingen gebruikt kunnen worden.
+            List<int> chairIDs = new List<int>();
+            chairModelList.ForEach(x => chairIDs.Add(x.ID));
+
             AuditoriumModel auditorium = _auditoriums[i - 1];
-            auditorium.Chairs = chairIds;
+            auditorium.Chairs = chairIDs;
             AuditoriumAccess.WriteAll(_auditoriums);
         }
+        ChairAccess.WriteAll(chairModels);
     }
 
-    public static List<int> ParsePNG(int auditoriumID)
+    public static List<ChairModel> ParsePNG(int auditoriumID)
     {
         // maak een string van de filepath waar de plattegrond van de zaal zit.
         // met dit plaatje wordt dan een lijst aan stoelen gegenereerd die in de zaal zitten.
@@ -58,14 +67,8 @@ class AuditoriumLogic
                 chairModels.Add(new ChairModel(i, j, (int)chairPrice, colourName, Status.Available));
             }
         }
-        // de lijst van de ids van de stoelen worden uiteindelijk opgeslagen die later voor andere
-        // dingen gebruikt kunnen worden.
-        List<int> chairIDs = new List<int>();
-        chairModels.ForEach(x => chairIDs.Add(x.ID));
 
-        ChairAccess.WriteAll(chairModels);
-
-        return chairIDs;
+        return chairModels;
     }
 
     public void Write(List<AuditoriumModel> auditoriums)

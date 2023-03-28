@@ -35,6 +35,8 @@ static class Menu
         {
             Console.WriteLine("");
             Auditorium.Start();
+            // terug naar menu start
+            Menu.Start();
         }
         else if (inputUser == "Q")
         {
