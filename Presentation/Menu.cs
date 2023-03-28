@@ -36,14 +36,6 @@ static class Menu
         {
             Console.WriteLine("Thanks for visiting us.");
         }
-        else if (input == "3")
-        {
-            Movie.ShowMovies();
-        }
-        else if (input == "3")
-        {
-            Movie.ShowMovies();
-        }
         else
         {
             Console.WriteLine("Invalid input");
