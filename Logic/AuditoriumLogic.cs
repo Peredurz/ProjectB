@@ -17,6 +17,7 @@ class AuditoriumLogic
     public void InitializeSeats()
     {
         List<ChairModel> chairModels = new List<ChairModel>();
+        List<AuditoriumModel> auditoriumModels = new List<AuditoriumModel>();
         for (int i = 1; i <= 3; i++)
         {
             List<ChairModel> chairModelList = AuditoriumLogic.ParsePNG(i);
@@ -29,8 +30,9 @@ class AuditoriumLogic
 
             AuditoriumModel auditorium = _auditoriums[i - 1];
             auditorium.Chairs = chairIDs;
-            AuditoriumAccess.WriteAll(_auditoriums);
+            auditoriumModels.Add(auditorium);
         }
+        AuditoriumAccess.WriteAll(_auditoriums);
         ChairAccess.WriteAll(chairModels);
     }
 
@@ -44,16 +46,15 @@ class AuditoriumLogic
 
         // maak een bitmap van de png file waar we door heen kunnen loopen en waar we data van kunnen maken.
         SKBitmap bmp = SKBitmap.Decode(filePath);
-        for (int i = 0; i < bmp.Width; i++)
+        for (int i = 0; i < bmp.Height; i++)
         {
-            for (int j = 0; j < bmp.Height; j++)
+            for (int j = 0; j < bmp.Width; j++)
             {
                 // haal de pixel op van de huidige col (j) en row (i).
                 // hier halen we een kleur uit om te bepalen wat voor stoel het is.
-                SKColor pixelColour = bmp.GetPixel(i, j);
+                SKColor pixelColour = bmp.GetPixel(j, i);
                 // koppel een HTML kleur naam aan de hex code van de string om duidelijker te kunnen zoeken.
                 string colourName = ColorTranslator.FromHtml(pixelColour.ToString()).Name;
-
                 // bepaal de prijs van de stoel op basis van de kleur (dus locatie)
                 double chairPrice = 0.0;
                 if (colourName == "Blue")
@@ -130,5 +131,6 @@ class AuditoriumLogic
                 pos++;
             }
         }
+        Console.WriteLine();
     }
 }
