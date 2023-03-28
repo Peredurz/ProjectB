@@ -1,6 +1,7 @@
 static class Auditorium
 {
     private static AuditoriumLogic _auditoriumLogic;
+
     public static void Start()
     {
         Console.WriteLine("Please enter the auditorium number");
