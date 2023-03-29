@@ -3,14 +3,12 @@ using System.Drawing;
 
 class AuditoriumLogic
 {
-    public static int AuditoriumID;
     private ChairLogic _chairLogic = new ChairLogic();
     private List<AuditoriumModel> _auditoriums = new List<AuditoriumModel>();
 
-    public AuditoriumLogic(int auditoriumID = 1)
+    public AuditoriumLogic()
     {
         _auditoriums = AuditoriumAccess.LoadAll();
-        AuditoriumID = auditoriumID;
         _chairLogic = new ChairLogic();
     }
 
@@ -84,9 +82,9 @@ class AuditoriumLogic
         int chairsAmount = this._chairLogic.Chairs.Count;
         // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
         // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
-        List<int> chairs = _auditoriums[--AuditoriumID].Chairs;
+        List<int> chairs = _auditoriums[--Movie.AuditoriumID].Chairs;
         // Lengte van het auditorium
-        int length = _auditoriums[AuditoriumID].TotalCols;
+        int length = _auditoriums[Movie.AuditoriumID].TotalCols;
         // Positie van de rij zet ik op 0 omdat je begint met kolom 1 maar de eerste keer dat je een stoel print is de positie 0 (nog geen stoel geprint)
         int pos = 0;
         // String dat uiteindelijk wordt gereturned

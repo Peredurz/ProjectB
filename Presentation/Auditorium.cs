@@ -1,13 +1,9 @@
-static class Auditorium
+class Auditorium
 {
-    private static AuditoriumLogic _auditoriumLogic;
+    private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
 
     public static void Start()
     {
-        Console.WriteLine("Please enter the auditorium number");
-        Console.Write(">");
-        int auditoriumID = int.Parse(Console.ReadLine());
-        _auditoriumLogic = new AuditoriumLogic(auditoriumID);
         PrintChairs();
     }
 

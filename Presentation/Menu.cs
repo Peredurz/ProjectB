@@ -34,7 +34,8 @@ static class Menu
         else if (inputUser == "M")
         {
             Console.WriteLine("");
-            Auditorium.Start();
+            Movie.Start();
+            
             // terug naar menu start
             Menu.Start();
         }
