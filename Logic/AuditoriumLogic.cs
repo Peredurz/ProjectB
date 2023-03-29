@@ -7,7 +7,7 @@ class AuditoriumLogic
     private ChairLogic _chairLogic = new ChairLogic();
     private List<AuditoriumModel> _auditoriums = new List<AuditoriumModel>();
 
-    public AuditoriumLogic(int auditoriumID = 0)
+    public AuditoriumLogic(int auditoriumID = 1)
     {
         _auditoriums = AuditoriumAccess.LoadAll();
         AuditoriumID = auditoriumID;
