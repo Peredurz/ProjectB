@@ -40,6 +40,7 @@ static class Menu
         }
         else if (inputUser == "Q")
         {
+
             Console.WriteLine("Thanks for visiting us.");
         }
         else
