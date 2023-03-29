@@ -1,11 +1,14 @@
 static class Menu
 {
-
+    private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
+        // maak de stoelen voor de zalen
+        _auditoriumLogic.InitializeSeats();
+
         Console.WriteLine("L: Login: ");
         Console.WriteLine("I: Info: ");
         Console.WriteLine("M: Movies");
@@ -31,9 +34,13 @@ static class Menu
         else if (inputUser == "M")
         {
             Console.WriteLine("");
+            Auditorium.Start();
+            // terug naar menu start
+            Menu.Start();
         }
         else if (inputUser == "Q")
         {
+
             Console.WriteLine("Thanks for visiting us.");
         }
         else
