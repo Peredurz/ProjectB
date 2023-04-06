@@ -1,10 +1,10 @@
-static class Menu
+public class Menu : IPresentation
 {
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
-    static public void Start()
+    public static void Start()
     {
         // maak de stoelen voor de zalen
         _auditoriumLogic.InitializeSeats();
