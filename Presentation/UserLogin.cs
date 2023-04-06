@@ -1,4 +1,4 @@
-static class UserLogin
+public class UserLogin : IPresentation
 {
     static private AccountsLogic accountsLogic = new AccountsLogic();
 

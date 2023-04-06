@@ -1,4 +1,4 @@
-class Auditorium
+class Auditorium : IPresentation
 {
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
 
