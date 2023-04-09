@@ -38,10 +38,14 @@ static class UserLogin
                     break;
                 case "n":
                     Console.WriteLine("Full name");
+                    string fullName = Console.ReadLine();
                     Console.Write("> ");
                     Console.WriteLine("Email");
+                    string emailAddress = Console.ReadLine();
                     Console.Write("> ");
                     Console.WriteLine("Password");
+                    string _password = Console.ReadLine();
+                    accountsLogic.NewAccount(fullName, emailAddress, _password);
                     break;
                 case "b":
                     loop = false;

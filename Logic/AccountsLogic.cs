@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using BCrypt.Net;
 
 
 //This class is not static so later on we can use inheritance and interfaces
@@ -19,7 +20,12 @@ class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
-
+    public void NewAccount(string fullName, string email, string password)
+    {
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
+        AccountModel acc = new(email, passwordHash, fullName, "Customer");
+        UpdateList(acc);
+    }
     public void UpdateList(AccountModel acc)
     {
         //Find if there is already an model with the same id
@@ -49,7 +55,10 @@ class AccountsLogic
         {
             return null;
         }
-        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        return CurrentAccount;
+        CurrentAccount = _accounts.Find(i => i.EmailAddress == email);
+        var result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
+        if (result)
+            return CurrentAccount;
+        return null;
     }
 }
