@@ -2,9 +2,8 @@
 
 class AccountModel
 {
-
     [JsonPropertyName("id")]
-    public int Id { get; set; } = 2;
+    public int Id { get; set; }
 
     [JsonPropertyName("emailAddress")]
     public string EmailAddress { get; set; }
@@ -18,9 +17,9 @@ class AccountModel
     [JsonPropertyName("userType")]
     public string UserType { get; set; }
 
-    public AccountModel(string emailAddress, string password, string fullName, string userType)
+    public AccountModel(int id, string emailAddress, string password, string fullName, string userType)
     {
-        Id++;
+        Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;

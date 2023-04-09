@@ -11,13 +11,6 @@
     "emailAddress": "t@b.c",
     "password": "$2a$10$Fneb.y/ZDL0IzN3vs.Gx4OUKaZo2VW1cRNSThdh0pyZpZGjd5Urs.",
     "fullName": "Thomas Edison",
-    "userType": null
-  },
-  {
-    "id": 3,
-    "emailAddress": "Douwezumker@gmail.com",
-    "password": "$2a$10$0.yKR351OQaX.lUPTeDYEOUrAXhBC5.oldLyHetPgMphVOhKdHSQO",
-    "fullName": "Douwe Zumker",
     "userType": "Customer"
   }
 ]

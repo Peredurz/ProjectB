@@ -22,8 +22,9 @@ class AccountsLogic
 
     public void NewAccount(string fullName, string email, string password)
     {
-        var passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
-        AccountModel acc = new(email, passwordHash, fullName, "Customer");
+        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
+        int id = _accounts.Count();
+        AccountModel acc = new(++id, email, passwordHash, fullName, "Customer");
         UpdateList(acc);
     }
     public void UpdateList(AccountModel acc)
@@ -56,7 +57,7 @@ class AccountsLogic
             return null;
         }
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email);
-        var result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
+        bool result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
         if (result)
             return CurrentAccount;
         return null;
