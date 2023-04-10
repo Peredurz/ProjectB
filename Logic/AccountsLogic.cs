@@ -20,6 +20,7 @@ class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
+    // Nieuw account object wordt aangemaakt en het wachtwoord wordt ook meteen gehashed
     public void NewAccount(string fullName, string email, string password)
     {
         string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
@@ -50,6 +51,7 @@ class AccountsLogic
         return _accounts.Find(i => i.Id == id);
     }
 
+    // Login wordt gecheckt op emailadres en wachtwoord
     public AccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
