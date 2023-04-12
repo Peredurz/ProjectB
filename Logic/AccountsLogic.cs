@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using BCrypt.Net;
 
 
 //This class is not static so later on we can use inheritance and interfaces
@@ -19,7 +20,14 @@ class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
-
+    // Nieuw account object wordt aangemaakt en het wachtwoord wordt ook meteen gehashed
+    public void NewAccount(string fullName, string email, string password)
+    {
+        string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
+        int id = _accounts.Count();
+        AccountModel acc = new AccountModel(++id, email, passwordHash, fullName, "Customer");
+        UpdateList(acc);
+    }
     public void UpdateList(AccountModel acc)
     {
         //Find if there is already an model with the same id
@@ -36,7 +44,6 @@ class AccountsLogic
             _accounts.Add(acc);
         }
         AccountsAccess.WriteAll(_accounts);
-
     }
 
     public AccountModel GetById(int id)
@@ -44,13 +51,17 @@ class AccountsLogic
         return _accounts.Find(i => i.Id == id);
     }
 
+    // Login wordt gecheckt op emailadres en wachtwoord
     public AccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
         {
             return null;
         }
-        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        return CurrentAccount;
+        CurrentAccount = _accounts.Find(i => i.EmailAddress == email);
+        bool result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
+        if (result)
+            return CurrentAccount;
+        return null;
     }
 }
