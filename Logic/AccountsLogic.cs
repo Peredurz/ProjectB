@@ -25,7 +25,7 @@ class AccountsLogic
     {
         string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
         int id = _accounts.Count();
-        AccountModel acc = new(++id, email, passwordHash, fullName, "Customer");
+        AccountModel acc = new AccountModel(++id, email, passwordHash, fullName, "Customer");
         UpdateList(acc);
     }
     public void UpdateList(AccountModel acc)
