@@ -1,1 +1,3 @@
-﻿Menu.Start();
+using BCrypt.Net;
+ 
+Menu.Start();

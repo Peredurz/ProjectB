@@ -110,7 +110,7 @@ class AuditoriumLogic
                 // Op basis van de status van de stoel wordt er een andere string toegevoegd aan chairPrint
                 string result = chair.Status switch
                 {
-                    Status.Available => "# ",
+                    Status.Available => "∩ ",
                     Status.Pending => "? ",
                     Status.Reserved => "X ",
                     _ => " ",
