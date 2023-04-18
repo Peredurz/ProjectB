@@ -1,4 +1,4 @@
-static class UserLogin
+public class UserLogin : IPresentation
 {
     static private AccountsLogic accountsLogic = new AccountsLogic();
 
@@ -6,14 +6,11 @@ static class UserLogin
     public static void Start()
     {
 
+        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        
         bool loop = true;
         while (loop)
         {
-            Console.WriteLine("Welcome to the login page");
-            Console.WriteLine("L: Login");
-            Console.WriteLine("N: New user?");
-            Console.WriteLine("B: Back");
-            Console.Write("> ");
             string input = Console.ReadLine();
             switch (input.ToLower())
             {
@@ -25,11 +22,10 @@ static class UserLogin
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
                     {
+                        AccountsLogic.CurrentAccount = acc;
                         Console.WriteLine("Welcome back " + acc.FullName);
                         Console.WriteLine("Your email number is " + acc.EmailAddress);
-
-                        //Write some code to go back to the menu
-                        //Menu.Start();
+                        loop = false;
                     }
                     else
                     {

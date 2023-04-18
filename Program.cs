@@ -1,4 +1,3 @@
-﻿using BCrypt.Net;
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to this amazing program");
-Menu.Start();
+﻿﻿using BCrypt.Net;
+
+﻿Menu.Start();

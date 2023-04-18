@@ -1,4 +1,4 @@
-class Movie
+class Movie : IPresentation
 {
     public static int AuditoriumID;
     public static int MovieID;
