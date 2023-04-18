@@ -8,6 +8,8 @@ static class ChairAccess
     {
 
         string json = File.ReadAllText(path);
+        if (json == "")
+            return new List<ChairModel>();
         return JsonSerializer.Deserialize<List<ChairModel>>(json);
     }
 
