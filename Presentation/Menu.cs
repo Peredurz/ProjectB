@@ -26,7 +26,8 @@ public class Menu : IPresentation
     public static void Start()
     {
         // maak de stoelen voor de zalen
-        _auditoriumLogic.InitializeSeats();
+        if (ChairAccess.LoadAll().Count == 0)
+            _auditoriumLogic.InitializeSeats();
         // geef deze aan de presentation logic om daar verder mee te kunnen werken
         if (PresentationLogic.IsEmpty() == true)
             PresentationLogic.SetPresentations(presentationModels);
@@ -62,7 +63,7 @@ public class Menu : IPresentation
         {
             Console.WriteLine("");
             Movie.Start();
-            
+
             // terug naar menu start
             Menu.Start();
         }
