@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-class ChairReservationModel
+public class ChairReservationModel
 {
     [JsonPropertyName("id")]
     public int ID { get; set; }
@@ -20,6 +20,7 @@ class ChairReservationModel
 
     public ChairReservationModel(string emailAdress, int chairId, int auditoriumId, DateTime time)
     {
+        ID = ++_idCounter;
         EmailAdress = emailAdress;
         ChairID = chairId;
         AuditoriumID = auditoriumId;

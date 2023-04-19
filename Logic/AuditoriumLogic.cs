@@ -4,7 +4,7 @@ using System.Drawing;
 class AuditoriumLogic
 {
     private ChairLogic _chairLogic = new ChairLogic();
-    private List<AuditoriumModel> _auditoriums = new List<AuditoriumModel>();
+    private static List<AuditoriumModel> _auditoriums = new List<AuditoriumModel>();
 
     public AuditoriumLogic()
     {
@@ -156,4 +156,6 @@ class AuditoriumLogic
         }
         Console.WriteLine();
     }
+
+    public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID].Chairs;
 }
