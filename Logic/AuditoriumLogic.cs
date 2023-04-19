@@ -75,7 +75,7 @@ class AuditoriumLogic
         // De meegegeven lijst van auditoriums schrijven naar de json file via AuditoriumAccess
         AuditoriumAccess.WriteAll(auditoriums);
     }
-
+    
     public void ChairPrint()
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
@@ -90,18 +90,32 @@ class AuditoriumLogic
         // String dat uiteindelijk wordt gereturned
         //string chairPrint = "";
 
+        // Rij bijhouden van de stoelen
+        int rij = 1;
+
         // Loopen totdat je bij de chairsamount komt.
-        for (int i = 0; i < chairsAmount; i++)
+        for (int i = 0; i < chairsAmount + 1; i++)
         {
-            // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet
-            if (pos == length)
+            if (i == 0)
             {
+                for (int j = 1; j <= length; j++)
+                {
+                    if (j > 26)
+                    {
+                        Console.Write($"{Convert.ToChar(j + 70)} ");
+
+                    }
+                    else
+                    {
+                        Console.Write($"{Convert.ToChar(j + 64)} ");
+                    }
+                }
                 Console.Write("\n");
-                pos = 0;
+                continue;
             }
 
             // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
-            ChairModel chair = _chairLogic.Chairs[i];
+            ChairModel chair = _chairLogic.Chairs[i - 1];
 
             // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
             // Want je wilt geen stoelen uit een andere zaal printen
@@ -120,6 +134,7 @@ class AuditoriumLogic
                 {
                     "red" => ConsoleColor.Red,
                     "blue" => ConsoleColor.Blue,
+
                     "orange" => ConsoleColor.DarkYellow,
                     "white" => ConsoleColor.White,
                     _ => ConsoleColor.White,
@@ -127,6 +142,16 @@ class AuditoriumLogic
                 Console.ForegroundColor = color;
                 Console.Write(result);
                 pos++;
+                 // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
+                if (pos == length)
+                {
+                    // Verandert de kleur van de rij zodat het wit blijft 
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"{rij++}");
+                    Console.Write("\n");
+                    pos = 0;
+                }
+
             }
         }
         Console.WriteLine();

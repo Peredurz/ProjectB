@@ -20,7 +20,7 @@ class Movie : IPresentation
         }
         else 
         {
-            Console.WriteLine("The movieID does not exist");
+            Console.WriteLine("De film met dit ID bestaat niet");
         }
     }
 

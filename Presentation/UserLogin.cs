@@ -15,39 +15,40 @@ public class UserLogin : IPresentation
             switch (input.ToLower())
             {
                 case "l":
-                    Console.WriteLine("Please enter your email address");
+                    Console.WriteLine("Email.");
                     string email = Console.ReadLine();
-                    Console.WriteLine("Please enter your password");
+                    Console.WriteLine("Wachtwoord.");
                     string password = Console.ReadLine();
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
                     {
                         AccountsLogic.CurrentAccount = acc;
-                        Console.WriteLine("Welcome back " + acc.FullName);
-                        Console.WriteLine("Your email number is " + acc.EmailAddress);
+                        Console.WriteLine("Ingelogd als: " + acc.FullName);
                         loop = false;
                     }
                     else
                     {
-                        Console.WriteLine("No account found with that email and password");
+                        Console.WriteLine("Geen account gevonden met dit email adres en wachtwoord.");
                     }
                     break;
                 case "n":
-                    Console.WriteLine("Full name");
+                    Console.WriteLine("Volledige naam ");
                     string fullName = Console.ReadLine();
                     Console.Write("> ");
                     Console.WriteLine("Email");
                     string emailAddress = Console.ReadLine();
                     Console.Write("> ");
-                    Console.WriteLine("Password");
+                    Console.WriteLine("Wachtwoord");
                     string _password = Console.ReadLine();
                     accountsLogic.NewAccount(fullName, emailAddress, _password);
+                    Console.WriteLine("Account succesvol aangemaakt. ");
+                    loop = false;
                     break;
                 case "b":
                     loop = false;
                     break;
                 default:
-                    Console.WriteLine("Wrong input");
+                    Console.WriteLine("Verkeerde invoer.");
                     break;
             }
         }
