@@ -23,9 +23,38 @@ class ChairReservationLogic
         if (AccountsLogic.CurrentAccount != null)
             userEmail = AccountsLogic.CurrentAccount.EmailAddress;
 
+        if (CheckChairAvailability(chairID, movieTime, auditoriumID) == false)
+        {
+            return false;
+        }
+        else
+        {
         _chairReservation.Add(new ChairReservationModel(userEmail, chairID, auditoriumID, movieTime));
 
         ChairReservationAccess.WriteAll(_chairReservation);
         return true;
+        }
     }
+
+    public bool CheckChairAvailability(int id, DateTime time, int auditoriumId)
+        {
+            bool available = true;
+
+            foreach (var chairReservation in _chairReservation)
+            {
+                if (chairReservation.ChairID == id && chairReservation.Time == time && chairReservation.AuditoriumID == auditoriumId)
+                {
+                    available = false;
+                    break;
+                }
+            }
+            if (available)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 }

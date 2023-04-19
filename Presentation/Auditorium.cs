@@ -42,8 +42,14 @@ class Auditorium : IPresentation
             //Maakt een reservering terwel die de gegevens controleert 
             bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, chosenRow - 1, chosenChairNumber);
             if (ret == false)
+            {
+                Console.WriteLine("Stoel is niet beschikbaar");
                 return;
-            Console.WriteLine("Stoel gereserveerd!");
+            }
+            else
+            {
+                Console.WriteLine("Stoel gereserveerd!");
+            }
         } catch (FormatException ex)
         {
             Console.WriteLine("Je moet een nummer invoeren");
