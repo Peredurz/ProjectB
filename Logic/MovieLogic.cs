@@ -87,5 +87,5 @@ public class MovieLogic
         return output;
     }
 
-    public static MovieModel GetMovie(int movieID) => _movies[movieID];
+    public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
 }

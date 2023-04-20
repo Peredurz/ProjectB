@@ -67,7 +67,7 @@ class Auditorium : IPresentation
         }
         else if (choisCombiDeals == "n")
         {
-            Menu.Start();   
+            return;
         }
     }
 }
