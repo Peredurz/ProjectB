@@ -49,10 +49,25 @@ class Auditorium : IPresentation
             else
             {
                 Console.WriteLine("Stoel gereserveerd!");
+                Auditorium.ChooseCombi();
             }
         } catch (FormatException ex)
         {
             Console.WriteLine("Je moet een nummer invoeren");
+        }
+    }
+    public static void ChooseCombi()
+    {
+        Console.WriteLine($"Wilt u de Combi deals bekijken. Y/N");
+        Console.Write(">");
+        string choisCombiDeals = Console.ReadLine().ToLower();
+        if (choisCombiDeals == "y")
+        {
+            Console.WriteLine("De Combi Deals zijn nog niet beschikbaar.");
+        }
+        else if (choisCombiDeals == "n")
+        {
+            Menu.Start();   
         }
     }
 }
