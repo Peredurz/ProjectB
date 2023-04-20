@@ -25,14 +25,15 @@ class ChairReservationLogic
 
         if (CheckChairAvailability(chairID, movieTime, auditoriumID) == false)
         {
+            Console.WriteLine("Deze stoel is al gereserveerd.");
             return false;
         }
         else
         {
-        _chairReservation.Add(new ChairReservationModel(userEmail, chairID, auditoriumID, movieTime));
+            _chairReservation.Add(new ChairReservationModel(userEmail, chairID, auditoriumID, movieTime));
 
-        ChairReservationAccess.WriteAll(_chairReservation);
-        return true;
+            ChairReservationAccess.WriteAll(_chairReservation);
+            return true;
         }
     }
 
