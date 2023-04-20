@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "emailAdress": "",
+    "chairId": 796,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 2,
+    "emailAdress": "",
+    "chairId": 62,
+    "auditoriumId": 0,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 3,
+    "emailAdress": "",
+    "chairId": 754,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 4,
+    "emailAdress": "",
+    "chairId": 649,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 5,
+    "emailAdress": "",
+    "chairId": 125,
+    "auditoriumId": 0,
+    "time": "2023-03-24T12:00:00"
+  }
+]
