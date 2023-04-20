@@ -48,13 +48,6 @@ class ChairReservationLogic
                     break;
                 }
             }
-            if (available)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return available;
         }
 }
