@@ -7,6 +7,8 @@ static class AnnuleringAccess
     public static List<AnnuleringModel> LoadAll()
     {
         string json = File.ReadAllText(path);
+        if (json == "")
+            return new List<AnnuleringModel>();
         return JsonSerializer.Deserialize<List<AnnuleringModel>>(json);
     }
 
