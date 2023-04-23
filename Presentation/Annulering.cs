@@ -43,7 +43,8 @@ class Annulering
     {
         List<ChairReservationModel> annulering = annuleringLogic.Annuleringen(email);
         List<MovieModel> movies = annuleringLogic.Movie();
-        Console.WriteLine("Dit zijn alle geboekte films: ");
+        List<string> moviesList = new List<string>();
+
         foreach (ChairReservationModel reservation in annulering)
         {
             if (reservation.EmailAdress.ToLower() == email)
@@ -52,13 +53,19 @@ class Annulering
                 {
                     if (movie.AuditoriumID == reservation.AuditoriumID && movie.Time == reservation.Time && movie.Time > DateTime.Now)
                     {
-                        Console.WriteLine($"ID: {reservation.ID}\nFilm: {movie.Title}\nDatum en tijd: {reservation.Time}\nStoel: {reservation.ChairID}\n");
+                        moviesList.Add($"\nID: {reservation.ID}\nFilm: {movie.Title}\nDatum en tijd: {reservation.Time}\nStoel: {reservation.ChairID}\n");
                     }
-                    Console.WriteLine();
                 }
             }
         }
+        if (moviesList.Count == 0)
+        {
+            Console.WriteLine("U heeft geen geboekte films.\n");
+            return;
+        }
 
+        Console.WriteLine("Dit zijn alle geboekte films: ");
+        Console.WriteLine(string.Join("", moviesList));
         Console.WriteLine("Welke film wilt u annuleren? (ID)");
         Console.Write("> ");
         int id = Int32.TryParse(Console.ReadLine(), out id) ? id : -1;
