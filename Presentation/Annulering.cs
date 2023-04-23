@@ -50,10 +50,11 @@ class Annulering
             {
                 foreach (MovieModel movie in movies)
                 {
-                    if (movie.AuditoriumID == reservation.AuditoriumID && movie.Time == reservation.Time)
+                    if (movie.AuditoriumID == reservation.AuditoriumID && movie.Time == reservation.Time && movie.Time > DateTime.Now)
                     {
                         Console.WriteLine($"ID: {reservation.ID}\nFilm: {movie.Title}\nDatum en tijd: {reservation.Time}\nStoel: {reservation.ChairID}\n");
                     }
+                    Console.WriteLine();
                 }
             }
         }
