@@ -5,7 +5,7 @@ using System.Text.Json;
 
 public class MovieLogic
 {
-    private List<MovieModel> _movies;
+    private static List<MovieModel> _movies;
     public const int RULE_LENGTH = 45;
 
     public MovieLogic()
@@ -87,4 +87,5 @@ public class MovieLogic
         return output;
     }
 
+    public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
 }

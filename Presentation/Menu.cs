@@ -70,11 +70,11 @@ public class Menu : IPresentation
         else if (inputUser == "Q")
         {
 
-            Console.WriteLine("Thanks for visiting us.");
+            Console.WriteLine("Bedankt voor uw bezoek.");
         }
         else
         {
-            Console.WriteLine("Invalid input");
+            Console.WriteLine("Geen geldig invoer.");
             Menu.Start();
         }
 
