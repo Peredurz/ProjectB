@@ -52,11 +52,11 @@ public class Menu : IPresentation
         {
 
             Console.WriteLine(@"
-            Telephone number:   010 123 123 12.
-            Address:            Wijnhaven 107.
-            Zip code:           3011 WN in Rotterdam.
-            Opening hours:      git are open fifteen minutes before the start of the first performance.
-                                The cinema closes ten minutes after the start of the last performance.");
+            Telefoon nummer:   010 123 123 12.
+            adres:            Wijnhaven 107.
+            postcode:           3011 WN in Rotterdam.
+            Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
+                                De bioscoop sluit vijftien minuten na de laatste film");
             Menu.Start();
         }
         else if (inputUser == "M")
