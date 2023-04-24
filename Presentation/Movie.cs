@@ -9,8 +9,26 @@ class Movie : IPresentation
     {
         string movieOuput = Movie._movieLogic.ShowMovies();
         Console.WriteLine(movieOuput);
-        Console.Write(">");
-        int userMovieID = Convert.ToInt32(Console.ReadLine());
+        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        string userOption = Console.ReadLine();
+        if (int.TryParse(userOption, out _) == true)
+        {
+            ChooseMovie(Convert.ToInt32(userOption));
+        }
+        else if (userOption.ToLower() == "b")
+        {
+            PresentationLogic.CurrentPresentation = "menu";
+            Menu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Geen geldige invoer.");
+            Movie.Start();
+        }
+    }
+
+    public static void ChooseMovie(int userMovieID)
+    {
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
         {
@@ -20,8 +38,9 @@ class Movie : IPresentation
         }
         else 
         {
+            PresentationLogic.CurrentPresentation = "menu";
             Console.WriteLine("De film met dit ID bestaat niet");
+            return;
         }
     }
-
 }

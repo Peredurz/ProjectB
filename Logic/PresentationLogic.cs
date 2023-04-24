@@ -1,6 +1,7 @@
 public class PresentationLogic
 {
 	private static List<PresentationModel> _presentations = new List<PresentationModel>();
+	public static string CurrentPresentation = "menu";
 
 	public static void SetPresentations(List<PresentationModel> presentations)
 	{
@@ -23,7 +24,9 @@ public class PresentationLogic
 	public static void WriteMenu(List<PresentationModel> presentations, bool inSubMenu)
 	{
 		// als je in een submenu ziet zoals het login ding toon dan alleen die menu items
-		presentations = presentations.Where(x => x.IsSubMenu == inSubMenu).ToList();
+		presentations = presentations
+		              .Where(x => x.IsSubMenu == inSubMenu && (CurrentPresentation == x.PresentationName || x.PresentationName == "all"))
+		              .ToList();
 
 		foreach (PresentationModel _presentation in presentations)
 		{
