@@ -56,6 +56,10 @@ class AccountsLogic
             return null;
         }
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email);
+        if (CurrentAccount == null)
+        {
+            return null;
+        }
         bool result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
         if (result)
             return CurrentAccount;

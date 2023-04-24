@@ -52,11 +52,11 @@ public class Menu : IPresentation
         {
 
             Console.WriteLine(@"
-            Telefoonnummer:     010 123 123 12.
-            Adres:              Wijnhaven 107.
-            Postcode:           3011 WN in Rotterdam.
-            Openingstijden:     Wij zijn 30 minuten voor de eerste film geopend. 
-                                Wij sluiten 30 minuten na de laatste film.");
+            Telefoon nummer:   010 123 123 12.
+            adres:            Wijnhaven 107.
+            postcode:           3011 WN in Rotterdam.
+            Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
+                                De bioscoop sluit vijftien minuten na de laatste film");
             Menu.Start();
         }
         else if (inputUser == "M")

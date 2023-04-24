@@ -15,42 +15,50 @@ public class UserLogin : IPresentation
             switch (input.ToLower())
             {
                 case "l":
-                    Console.WriteLine("Email.");
+                    Console.WriteLine("Voer uw e-mail in");
+                    Console.Write("> ");
                     string email = Console.ReadLine();
-                    Console.WriteLine("Wachtwoord.");
+                    
+                    Console.WriteLine("Voer uw wachtwoord in");
+                    Console.Write("> ");
                     string password = Console.ReadLine();
+                    
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
                     {
                         AccountsLogic.CurrentAccount = acc;
-                        Console.WriteLine("Ingelogd als: " + acc.FullName);
+                        Console.WriteLine("Welkom terug " + acc.FullName);
+                        Console.WriteLine("Jou email is " + acc.EmailAddress);
                         loop = false;
                     }
                     else
                     {
-                        Console.WriteLine("Geen account gevonden met dit email adres en wachtwoord.");
+                        Console.WriteLine("Geen account gevonden met dat e-mailadres en wachtwoord");
                     }
                     break;
                 case "n":
-                    Console.WriteLine("Volledige naam ");
+                    Console.WriteLine("Voor-en achternaam");
+                    Console.Write("> ");
                     string fullName = Console.ReadLine();
-                    Console.Write("> ");
+                    
                     Console.WriteLine("Email");
-                    string emailAddress = Console.ReadLine();
                     Console.Write("> ");
+                    string emailAddress = Console.ReadLine();
+                    
+                    
                     Console.WriteLine("Wachtwoord");
+                    Console.Write("> ");
                     string _password = Console.ReadLine();
                     accountsLogic.NewAccount(fullName, emailAddress, _password);
-                    Console.WriteLine("Account succesvol aangemaakt. ");
-                    loop = false;
                     break;
                 case "b":
                     loop = false;
                     break;
                 default:
-                    Console.WriteLine("Verkeerde invoer.");
+                    Console.WriteLine("Verkeerde invoer");
                     break;
             }
+            PresentationLogic.WriteMenu(Menu.presentationModels, true);
         }
         Menu.Start();
     }
