@@ -12,6 +12,7 @@ public class Menu : IPresentation
         new PresentationModel("L", "Login", _allClearance),
         new PresentationModel("I", "Info", _allClearance),
         new PresentationModel("M", "Films", _allClearance),
+        new PresentationModel("R", "Annulering", _allClearance),
         new PresentationModel("Q", "Afsluiten", _allClearance),
         new PresentationModel("L", "Login", _allClearance, true),
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, true),
@@ -66,6 +67,10 @@ public class Menu : IPresentation
 
             // terug naar menu start
             Menu.Start();
+        }
+        else if (inputUser == "R")
+        {
+            Annulering.Start();
         }
         else if (inputUser == "Q")
         {
