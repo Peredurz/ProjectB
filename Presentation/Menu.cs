@@ -19,6 +19,7 @@ public class Menu : IPresentation
         new PresentationModel("A", "Film Toevoegen (Nog niet te gebruiken)", _managerClearance, "menu"),
         new PresentationModel("R", "Anuleringen (Nog niet te gebruiken)", _nonCustomerClearance, "menu"),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
+        new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 
