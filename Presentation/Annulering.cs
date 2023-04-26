@@ -21,6 +21,8 @@ class Annulering : IPresentation
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
+                PresentationLogic.CurrentPresentation = "menu";
+                Menu.Start();
                 break;
         }
     }
