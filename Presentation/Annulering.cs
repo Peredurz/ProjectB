@@ -1,42 +1,28 @@
-class Annulering
+class Annulering : IPresentation
 {
     private static AnnuleringLogic annuleringLogic = new AnnuleringLogic();
 
-    // Lijst met alle access
-    private static readonly List<string> _allClearance = new List<string>() { "Manager", "Worker", "Customer" };
-
-    // Lijst met alle presentatiemodellen die nodig zijn voor annuleringen aanvragen
-    private static readonly List<PresentationModel> _presentationModels = new()
-    {
-        new PresentationModel("R", "Annulering", _allClearance, true),
-        new PresentationModel("B", "Terug", _allClearance, true),
-    };
     public static void Start()
     {
-        PresentationLogic.WriteMenu(_presentationModels, true);
+        PresentationLogic.WriteMenu(Menu.presentationModels, true);
 
-        bool loop = true;
-        while (loop)
+        string input = Console.ReadLine().ToLower();
+        switch (input)
         {
-            string input = Console.ReadLine().ToLower();
-            switch (input)
-            {
-                case "r":
-                    Console.WriteLine("Email");
-                    Console.Write("> ");
-                    string email = Console.ReadLine().ToLower();
-                    displayAnnuleringen(email);
-                    break;
-                case "b":
-                    loop = false;
-                    break;
-                default:
-                    Console.WriteLine("Verkeerde invoer");
-                    break;
-            }
-            PresentationLogic.WriteMenu(_presentationModels, true);
+            case "r":
+                Console.WriteLine("Email");
+                Console.Write("> ");
+                string email = Console.ReadLine().ToLower();
+                displayAnnuleringen(email);
+                break;
+            case "b":
+                PresentationLogic.CurrentPresentation = "menu";
+                Menu.Start();
+                break;
+            default:
+                Console.WriteLine("Verkeerde invoer");
+                break;
         }
-        Menu.Start();
     }
 
     public static void displayAnnuleringen(string email)
@@ -64,20 +50,31 @@ class Annulering
             return;
         }
 
-        Console.WriteLine("Dit zijn alle geboekte films: ");
-        Console.WriteLine(string.Join("", moviesList));
-        Console.WriteLine("Welke film wilt u annuleren? (ID)");
-        Console.Write("> ");
-        int id = Int32.TryParse(Console.ReadLine(), out id) ? id : -1;
-        if (id < 0)
+        bool isValid = false;
+        do
         {
-            Console.WriteLine("Verkeerde invoer");
-            return;
+            Console.WriteLine("Dit zijn alle geboekte films: ");
+            Console.WriteLine(string.Join("", moviesList));
+            Console.WriteLine("Welke film wilt u annuleren? (ID)");
+            Console.Write("> ");
+            int id = Int32.TryParse(Console.ReadLine(), out id) ? id : -1;
+            if (id < 0)
+            {
+                Console.WriteLine("Verkeerde invoer");
+            }
+            else
+            {
+                if (annuleringLogic.AnnuleringID(id, email))
+                    Console.WriteLine("Uw annulering wordt verwerkt.");
+                isValid = true;
+            }
         }
-        else
+        while (isValid == false);
+
+        if (isValid == true)
         {
-            if (annuleringLogic.AnnuleringID(id, email))
-                Console.WriteLine("Uw annulering wordt verwerkt.");
+            PresentationLogic.CurrentPresentation = "menu";
+            Menu.Start();
         }
     }
 }
