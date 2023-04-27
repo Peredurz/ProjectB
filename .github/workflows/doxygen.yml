@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - Documentation
+      - 'Documentation'
 jobs:
   deploy:
     runs-on: ubuntu-latest
