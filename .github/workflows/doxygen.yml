@@ -7,7 +7,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Doxygen Action
-      uses: mattnotmitt/doxygen-action@1.9.5
-      with:
-        working-directory: 'docs/'
+      - name: Doxygen Action
+        uses: mattnotmitt/doxygen-action@1.9.5
