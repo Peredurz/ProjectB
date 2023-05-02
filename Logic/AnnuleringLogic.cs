@@ -23,6 +23,11 @@ class AnnuleringLogic
 
     public bool AnnuleringID(int id, string email)
     {
+        if (!_annulering.Any(item => item.ReservationID == id))
+        {
+            Console.WriteLine("Dit ID bestaat niet.");
+            return false;
+        }
         foreach (ChairReservationModel reservation in _chairReservation)
         {
             if (reservation.ID == id)
