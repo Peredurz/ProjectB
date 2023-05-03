@@ -6,11 +6,11 @@ public class UserLogin : IPresentation
     public static void Start()
     {
 
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
         
         bool loop = true;
         while (loop)
         {
+            PresentationLogic.WriteMenu(Menu.presentationModels, true);
             string input = Console.ReadLine();
             switch (input.ToLower())
             {
@@ -58,8 +58,8 @@ public class UserLogin : IPresentation
                     Console.WriteLine("Verkeerde invoer");
                     break;
             }
-            PresentationLogic.WriteMenu(Menu.presentationModels, true);
         }
+        PresentationLogic.CurrentPresentation = "menu";
         Menu.Start();
     }
 }

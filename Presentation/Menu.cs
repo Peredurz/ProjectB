@@ -9,16 +9,19 @@ public class Menu : IPresentation
     // definieer alle menu items die wij in onze applicatie hebben
     public static List<PresentationModel> presentationModels = new List<PresentationModel>()
     {
-        new PresentationModel("L", "Login", _allClearance),
-        new PresentationModel("I", "Info", _allClearance),
-        new PresentationModel("M", "Films", _allClearance),
-        new PresentationModel("R", "Annulering", _allClearance),
-        new PresentationModel("Q", "Afsluiten", _allClearance),
-        new PresentationModel("L", "Login", _allClearance, true),
-        new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, true),
-        new PresentationModel("B", "Terug", _allClearance, true),
-        new PresentationModel("A", "Film Toevoegen (Nog niet te gebruiken)", _managerClearance),
-        new PresentationModel("R", "Anuleringen (Nog niet te gebruiken)", _nonCustomerClearance),
+        new PresentationModel("L", "Login", _allClearance, "menu"),
+        new PresentationModel("I", "Info", _allClearance, "menu"),
+        new PresentationModel("M", "Films", _allClearance, "menu"),
+        new PresentationModel("R", "Annulering", _allClearance, "menu"),
+        new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
+        new PresentationModel("L", "Login", _allClearance, "login", true),
+        new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
+        new PresentationModel("A", "Film Toevoegen (Nog niet te gebruiken)", _managerClearance, "menu"),
+        new PresentationModel("R", "Anuleringen (Nog niet te gebruiken)", _nonCustomerClearance, "menu"),
+        new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
+        new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
+        new PresentationModel("R", "Annulering", _allClearance, "annulering", true),
+        new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 
     //This shows the menu. You can call back to this method to show the menu again
@@ -47,14 +50,15 @@ public class Menu : IPresentation
         string inputUser = Console.ReadLine().ToUpper();
         if (inputUser == "L")
         {
+            PresentationLogic.CurrentPresentation = "login";
             UserLogin.Start();
         }
         else if (inputUser == "I")
         {
 
             Console.WriteLine(@"
-            Telefoon nummer:   010 123 123 12.
-            adres:            Wijnhaven 107.
+            Telefoon nummer:    010 123 123 12.
+            adres:              Wijnhaven 107.
             postcode:           3011 WN in Rotterdam.
             Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
                                 De bioscoop sluit vijftien minuten na de laatste film");
@@ -62,14 +66,13 @@ public class Menu : IPresentation
         }
         else if (inputUser == "M")
         {
+            PresentationLogic.CurrentPresentation = "movies";
             Console.WriteLine("");
             Movie.Start();
-
-            // terug naar menu start
-            Menu.Start();
         }
         else if (inputUser == "R")
         {
+            PresentationLogic.CurrentPresentation = "annulering";
             Annulering.Start();
         }
         else if (inputUser == "Q")
