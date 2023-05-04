@@ -3,7 +3,7 @@ class Movie : IPresentation
     public static int AuditoriumID;
     public static int MovieID;
     static private MovieLogic _movieLogic = new MovieLogic();
-    
+
     //Laat de gebruiker zien welke films er draaien. Laat de gebruiker kiezen welke film die wilt bekijken en print de zaal uit.  
     public static void Start()
     {
@@ -35,9 +35,9 @@ class Movie : IPresentation
             PresentationLogic.CurrentPresentation = "auditorium";
             Movie.AuditoriumID = auditoriumID;
             Movie.MovieID = userMovieID;
-            Auditorium.Start();
+            Auditorium.Start(userMovieID);
         }
-        else 
+        else
         {
             PresentationLogic.CurrentPresentation = "menu";
             Console.WriteLine("De film met dit ID bestaat niet");
