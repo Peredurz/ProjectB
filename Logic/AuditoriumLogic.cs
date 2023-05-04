@@ -76,6 +76,15 @@ class AuditoriumLogic
         AuditoriumAccess.WriteAll(auditoriums);
     }
 
+    /// <summary>
+    /// Dit is de functie om alle stoelen van een bepaalde zaal en film te printen in de console.
+    /// Hierbij heb je de verschillende kleuren stoelen die horen bij een bepaalde prijs.
+    /// <c>∩</c> = Beschikbare stoel
+    /// <c>X</c> = Gereserveerde stoel
+    /// </summary>
+    /// <remarks>
+    /// <param name="movieID">Het ID van de film waarvan je de stoelen van wilt printen</param>
+    /// </remarks>
     public void ChairPrint(int movieID)
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
@@ -83,10 +92,15 @@ class AuditoriumLogic
         // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
         // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
         List<int> chairs = _auditoriums[--Movie.AuditoriumID].Chairs;
+
         List<MovieModel> movies = MovieAccess.LoadAll();
+
         MovieModel movie = movies.Find(x => x.ID == movieID);
+
         List<ChairReservationModel> chairReservations = ChairReservationAccess.LoadAll();
+
         DateTime time = movie.Time;
+        // Alle stoelreserveringen voor een bepaalde film en tijd in een lijst zetten
         List<ChairReservationModel> chairReservationsForMovie = chairReservations.FindAll(x => x.Time == time);
         // Lengte van het auditorium
         int length = _auditoriums[Movie.AuditoriumID].TotalCols;
@@ -126,6 +140,7 @@ class AuditoriumLogic
             // Want je wilt geen stoelen uit een andere zaal printen
             if (chairs.Contains(chair.ID))
             {
+                // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
                 if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
                 {
                     // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
