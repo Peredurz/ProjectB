@@ -96,16 +96,22 @@ $(document).ready(function(){initNavTree('class_annulering_logic.html',''); init
   <div class="headertitle"><div class="title">AnnuleringLogic Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>De <code><a class="el" href="class_annulering_logic.html" title="De AnnuleringLogic class zorgt ervoor dat annuleringen kunnen worden aangemaakt, maar ook dat er annu...">AnnuleringLogic</a></code> class zorgt ervoor dat annuleringen kunnen worden aangemaakt, maar ook dat er annuleringen kunnen worden ingezien.  
+ <a href="class_annulering_logic.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae4c3d2063ec2b636cf1cb531215685a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annulering_logic.html#ae4c3d2063ec2b636cf1cb531215685a5">AnnuleringLogic</a> ()</td></tr>
 <tr class="separator:ae4c3d2063ec2b636cf1cb531215685a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f643c4acda7bc40d0cc736f631ec161"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_chair_reservation_model.html">ChairReservationModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annulering_logic.html#a2f643c4acda7bc40d0cc736f631ec161">Annuleringen</a> (string email)</td></tr>
+<tr class="memdesc:a2f643c4acda7bc40d0cc736f631ec161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dit is de method om alle annuleringen te tonen aan een gebruiker die hierdoor dan kan kiezen welke film ticket hij of zij wil annuleren.  <br /></td></tr>
 <tr class="separator:a2f643c4acda7bc40d0cc736f631ec161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17a5e3f927c9271ddc5c981b3f98c78b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annulering_logic.html#a17a5e3f927c9271ddc5c981b3f98c78b">AnnuleringID</a> (int id, string email)</td></tr>
+<tr class="memdesc:a17a5e3f927c9271ddc5c981b3f98c78b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deze method zorgt ervoor dat er een nieuwe annulering wordt aangemaakt als deze nog niet bestaat. Om dan vervolgens dit aan de List<a class="el" href="class_annulering_model.html">AnnuleringModel</a> toe te voegen en vervolgens de json file te updaten.  <br /></td></tr>
 <tr class="separator:a17a5e3f927c9271ddc5c981b3f98c78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c462a9ba3f876c5a839cacbcfe35e42"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_movie_model.html">MovieModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annulering_logic.html#a7c462a9ba3f876c5a839cacbcfe35e42">Movie</a> ()</td></tr>
+<tr class="memdesc:a7c462a9ba3f876c5a839cacbcfe35e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method om een prive lijst van <a class="el" href="class_movie_model.html">MovieModel</a> te returnen. Omdat deze lijst privé is.  <br /></td></tr>
 <tr class="separator:a7c462a9ba3f876c5a839cacbcfe35e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
@@ -114,8 +120,11 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:afbb990fd17555650621e2e4c25acc632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00001">1</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
+<div class="textblock"><p>De <code><a class="el" href="class_annulering_logic.html" title="De AnnuleringLogic class zorgt ervoor dat annuleringen kunnen worden aangemaakt, maar ook dat er annu...">AnnuleringLogic</a></code> class zorgt ervoor dat annuleringen kunnen worden aangemaakt, maar ook dat er annuleringen kunnen worden ingezien. </p>
+<p>Als de class wordt geïnitialiseerd worden eerst drie verschillende lijsten gemaakt namelijk: <a class="el" href="class_movie_model.html">MovieModel</a>, <a class="el" href="class_annulering_model.html">AnnuleringModel</a> en de <a class="el" href="class_chair_reservation_model.html">ChairReservationModel</a> objecten die allemaal in een eigen lijst worden gestopt zodat hier makkelijker mee gewerkt kan worden. De drie lijsten zijn ook alleen maar in deze class te gebruiken. </p>
+<p>De <a class="el" href="class_annulering_logic.html#a2f643c4acda7bc40d0cc736f631ec161" title="Dit is de method om alle annuleringen te tonen aan een gebruiker die hierdoor dan kan kiezen welke fi...">Annuleringen</a> method laten alle annuleringen zien van een bepaalde emailadres, de <a class="el" href="class_annulering_logic.html#a17a5e3f927c9271ddc5c981b3f98c78b" title="Deze method zorgt ervoor dat er een nieuwe annulering wordt aangemaakt als deze nog niet bestaat....">AnnuleringID</a> method maakt een nieuwe annulering aan op basis van <a class="el" href="class_chair_reservation_model.html#a172d78163195f8c54c5141c60d9b3fc5">ChairReservationModel.ID</a> en een <a class="el" href="class_chair_reservation_model.html#a06b6b1b0934d6cbbdc4484f01c79a5ab">ChairReservationModel.EmailAdress</a> en de <a class="el" href="class_movie.html">Movie</a> zorgt ervoor dat de <a class="el" href="class_annulering_logic.html#afbb990fd17555650621e2e4c25acc632">_movies</a> buiten de class nog kan worden gezien." </p>
+
+<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00014">14</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae4c3d2063ec2b636cf1cb531215685a5" name="ae4c3d2063ec2b636cf1cb531215685a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4c3d2063ec2b636cf1cb531215685a5">&#9670;&#160;</a></span>AnnuleringLogic()</h2>
@@ -132,7 +141,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00007">7</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00020">20</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
 
 </div>
 </div>
@@ -153,7 +162,16 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00014">14</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
+<p>Dit is de method om alle annuleringen te tonen aan een gebruiker die hierdoor dan kan kiezen welke film ticket hij of zij wil annuleren. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List<a class="el" href="class_chair_reservation_model.html">ChairReservationModel</a></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00032">32</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
 
 </div>
 </div>
@@ -183,7 +201,17 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00024">24</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
+<p>Deze method zorgt ervoor dat er een nieuwe annulering wordt aangemaakt als deze nog niet bestaat. Om dan vervolgens dit aan de List<a class="el" href="class_annulering_model.html">AnnuleringModel</a> toe te voegen en vervolgens de json file te updaten. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">email</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00049">49</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
 
 </div>
 </div>
@@ -201,6 +229,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Method om een prive lijst van <a class="el" href="class_movie_model.html">MovieModel</a> te returnen. Omdat deze lijst privé is. </p>
+<dl class="section return"><dt>Returns</dt><dd>List<a class="el" href="class_movie_model.html">MovieModel</a></dd></dl>
 
 </div>
 </div>
@@ -225,7 +256,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00004">4</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_annulering_logic_8cs_source.html#l00017">17</a> of file <a class="el" href="_annulering_logic_8cs_source.html">AnnuleringLogic.cs</a>.</p>
 
 </div>
 </div>
