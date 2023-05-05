@@ -35,7 +35,7 @@ class Movie : IPresentation
             PresentationLogic.CurrentPresentation = "auditorium";
             Movie.AuditoriumID = auditoriumID;
             Movie.MovieID = userMovieID;
-            Auditorium.Start();
+            Auditorium.Start(userMovieID);
         }
         else
         {
