@@ -3,9 +3,9 @@ class Auditorium : IPresentation
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
     private static ChairReservationLogic _chairReservationLogic = new ChairReservationLogic();
 
-    public static void Start(int movieID)
+    public static void Start()
     {
-        PrintChairs(movieID);
+        PrintChairs();
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         if (chosenOption == "b")
@@ -16,9 +16,9 @@ class Auditorium : IPresentation
             Console.WriteLine("Incorrecte invoer.");
     }
 
-    public static void PrintChairs(int movieID)
+    public static void PrintChairs()
     {
-        _auditoriumLogic.ChairPrint(movieID);
+        _auditoriumLogic.ChairPrint();
     }
 
     public static void ChooseChair()
