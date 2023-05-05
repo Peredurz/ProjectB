@@ -83,9 +83,10 @@ class AuditoriumLogic
     /// <c>X</c> = Gereserveerde stoel
     /// </summary>
     /// <remarks>
-    /// <param name="movieID">Het ID van de film waarvan je de stoelen van wilt printen</param>
+    /// Dit gebeurt door de statische <see cref="Movie.MovieID"/> variabele die iederekeer opnieuw wordt aangepast.
+    /// Als iemand een andere film kiest in het keuzemenu voor de <see cref="Movie"/> objecten.
     /// </remarks>
-    public void ChairPrint(int movieID)
+    public void ChairPrint()
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
         int chairsAmount = this._chairLogic.Chairs.Count;
@@ -95,7 +96,7 @@ class AuditoriumLogic
 
         List<MovieModel> movies = MovieAccess.LoadAll();
 
-        MovieModel movie = movies.Find(x => x.ID == movieID);
+        MovieModel movie = movies.Find(x => x.ID == Movie.MovieID);
 
         List<ChairReservationModel> chairReservations = ChairReservationAccess.LoadAll();
 
