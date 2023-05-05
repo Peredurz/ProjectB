@@ -7,5 +7,6 @@ var dir_431317b2a5ab8e1409cdf5bbbce19c0e =
     [ "ChairReservationLogic.cs", "_chair_reservation_logic_8cs.html", "_chair_reservation_logic_8cs" ],
     [ "MailLogic.cs", "_mail_logic_8cs.html", "_mail_logic_8cs" ],
     [ "MovieLogic.cs", "_movie_logic_8cs.html", "_movie_logic_8cs" ],
+    [ "PaymentLogic.cs", "_payment_logic_8cs.html", "_payment_logic_8cs" ],
     [ "PresentationLogic.cs", "_presentation_logic_8cs.html", "_presentation_logic_8cs" ]
 ];

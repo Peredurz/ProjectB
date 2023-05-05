@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ProjectB: DataModels/AnnuleringModel.cs Source File</title>
+<title>Project B: DataModels/AnnuleringModel.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProjectB
+   <div id="projectname">Project B
    </div>
   </td>
  </tr>
@@ -95,30 +94,30 @@ $(document).ready(function(){initNavTree('_annulering_model_8cs_source.html','')
 <div class="contents">
 <a href="_annulering_model_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>System.Text.Json.Serialization;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_annulering_model.html">   16</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_annulering_model.html">AnnuleringModel</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    [JsonPropertyName(<span class="stringliteral">&quot;id&quot;</span>)]</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">   19</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">ID</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    [JsonPropertyName(<span class="stringliteral">&quot;emailAddress&quot;</span>)]</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">   22</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">EmailAddress</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    [JsonPropertyName(<span class="stringliteral">&quot;ReservationID&quot;</span>)]</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">   25</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">ReservationID</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">int</span> _id = 0;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">   28</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">AnnuleringModel</a>(<span class="keywordtype">string</span> emailAddress, <span class="keywordtype">int</span> reservationID)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_property" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">ID</a> = _id++;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_property" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">EmailAddress</a> = emailAddress;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_property" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">ReservationID</a> = reservationID;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
-<div class="ttc" id="aclass_annulering_model_html"><div class="ttname"><a href="class_annulering_model.html">AnnuleringModel</a></div><div class="ttdoc">Dit is de AnnuleringModel class. Dit is een model klasse die de attributen van een annulering bevat.</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00016">AnnuleringModel.cs:17</a></div></div>
-<div class="ttc" id="aclass_annulering_model_html_a01b9edf630c62ffa0f972ec965261c97"><div class="ttname"><a href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">AnnuleringModel.ID</a></div><div class="ttdeci">int ID</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00019">AnnuleringModel.cs:19</a></div></div>
-<div class="ttc" id="aclass_annulering_model_html_a99dd04f9a008cea64495a33a411d0853"><div class="ttname"><a href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">AnnuleringModel.ReservationID</a></div><div class="ttdeci">int ReservationID</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00025">AnnuleringModel.cs:25</a></div></div>
-<div class="ttc" id="aclass_annulering_model_html_ab0279763fc6586086637e7149f22781b"><div class="ttname"><a href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">AnnuleringModel.AnnuleringModel</a></div><div class="ttdeci">AnnuleringModel(string emailAddress, int reservationID)</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00028">AnnuleringModel.cs:28</a></div></div>
-<div class="ttc" id="aclass_annulering_model_html_afe6b4b04f167bfe3b8c02f50aa5d758a"><div class="ttname"><a href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">AnnuleringModel.EmailAddress</a></div><div class="ttdeci">string EmailAddress</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00022">AnnuleringModel.cs:22</a></div></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_annulering_model.html">    3</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_annulering_model.html">AnnuleringModel</a></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    [JsonPropertyName(<span class="stringliteral">&quot;id&quot;</span>)]</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">    6</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">ID</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    [JsonPropertyName(<span class="stringliteral">&quot;emailAddress&quot;</span>)]</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">    9</a></span>    <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">EmailAddress</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    [JsonPropertyName(<span class="stringliteral">&quot;ReservationID&quot;</span>)]</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">   12</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_property" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">ReservationID</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">int</span> _id = 0;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">   15</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">AnnuleringModel</a>(<span class="keywordtype">string</span> emailAddress, <span class="keywordtype">int</span> reservationID)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_property" href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">ID</a> = _id++;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_property" href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">EmailAddress</a> = emailAddress;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_property" href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">ReservationID</a> = reservationID;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclass_annulering_model_html"><div class="ttname"><a href="class_annulering_model.html">AnnuleringModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00003">AnnuleringModel.cs:4</a></div></div>
+<div class="ttc" id="aclass_annulering_model_html_a01b9edf630c62ffa0f972ec965261c97"><div class="ttname"><a href="class_annulering_model.html#a01b9edf630c62ffa0f972ec965261c97">AnnuleringModel.ID</a></div><div class="ttdeci">int ID</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00006">AnnuleringModel.cs:6</a></div></div>
+<div class="ttc" id="aclass_annulering_model_html_a99dd04f9a008cea64495a33a411d0853"><div class="ttname"><a href="class_annulering_model.html#a99dd04f9a008cea64495a33a411d0853">AnnuleringModel.ReservationID</a></div><div class="ttdeci">int ReservationID</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00012">AnnuleringModel.cs:12</a></div></div>
+<div class="ttc" id="aclass_annulering_model_html_ab0279763fc6586086637e7149f22781b"><div class="ttname"><a href="class_annulering_model.html#ab0279763fc6586086637e7149f22781b">AnnuleringModel.AnnuleringModel</a></div><div class="ttdeci">AnnuleringModel(string emailAddress, int reservationID)</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00015">AnnuleringModel.cs:15</a></div></div>
+<div class="ttc" id="aclass_annulering_model_html_afe6b4b04f167bfe3b8c02f50aa5d758a"><div class="ttname"><a href="class_annulering_model.html#afe6b4b04f167bfe3b8c02f50aa5d758a">AnnuleringModel.EmailAddress</a></div><div class="ttdeci">string EmailAddress</div><div class="ttdef"><b>Definition:</b> <a href="_annulering_model_8cs_source.html#l00009">AnnuleringModel.cs:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -18,6 +18,7 @@ var annotated_dup =
     [ "Movie", "class_movie.html", null ],
     [ "MovieLogic", "class_movie_logic.html", "class_movie_logic" ],
     [ "MovieModel", "class_movie_model.html", "class_movie_model" ],
+    [ "PaymentLogic", "class_payment_logic.html", null ],
     [ "PresentationLogic", "class_presentation_logic.html", null ],
     [ "PresentationModel", "class_presentation_model.html", "class_presentation_model" ],
     [ "UserLogin", "class_user_login.html", null ]

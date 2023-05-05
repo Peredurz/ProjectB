@@ -20,6 +20,7 @@ var hierarchy =
     [ "MailCode", "class_mail_code.html", null ],
     [ "MovieLogic", "class_movie_logic.html", null ],
     [ "MovieModel", "class_movie_model.html", null ],
+    [ "PaymentLogic", "class_payment_logic.html", null ],
     [ "PresentationLogic", "class_presentation_logic.html", null ],
     [ "PresentationModel", "class_presentation_model.html", null ]
 ];
