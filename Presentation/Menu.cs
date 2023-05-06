@@ -29,6 +29,7 @@ public class Menu : IPresentation
     //You could edit this to show different menus depending on the user's role
     public static void Start()
     {
+        // Aan het begin van de start method aangeven in welk menu je zit.
         PresentationLogic.CurrentPresentation = "menu";
         // maak de stoelen voor de zalen
         if (ChairAccess.LoadAll().Count == 0)
@@ -75,7 +76,6 @@ public class Menu : IPresentation
         }
         else if (inputUser == "Q")
         {
-
             Console.WriteLine("Bedankt voor uw bezoek.");
         }
         else

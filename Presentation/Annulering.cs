@@ -74,7 +74,6 @@ class Annulering : IPresentation
 
         if (isValid == true)
         {
-            PresentationLogic.CurrentPresentation = "menu";
             Menu.Start();
         }
     }
