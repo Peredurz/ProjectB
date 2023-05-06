@@ -4,6 +4,7 @@ class Annulering : IPresentation
 
     public static void Start()
     {
+        PresentationLogic.CurrentPresentation = "annulering";
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
 
         string input = Console.ReadLine().ToLower();
@@ -16,12 +17,10 @@ class Annulering : IPresentation
                 displayAnnuleringen(email);
                 break;
             case "b":
-                PresentationLogic.CurrentPresentation = "menu";
                 Menu.Start();
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
-                PresentationLogic.CurrentPresentation = "menu";
                 Menu.Start();
                 break;
         }

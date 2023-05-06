@@ -5,7 +5,7 @@ public class UserLogin : IPresentation
 
     public static void Start()
     {
-
+        PresentationLogic.CurrentPresentation = "login";
         
         bool loop = true;
         while (loop)
@@ -59,7 +59,6 @@ public class UserLogin : IPresentation
                     break;
             }
         }
-        PresentationLogic.CurrentPresentation = "menu";
         Menu.Start();
     }
 }

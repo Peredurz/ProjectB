@@ -5,6 +5,8 @@ class Auditorium : IPresentation
 
     public static void Start()
     {
+        PresentationLogic.CurrentPresentation = "auditorium";
+
         PrintChairs();
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
@@ -63,7 +65,6 @@ class Auditorium : IPresentation
             bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, chosenRow - 1, chosenChairNumber);
             if (ret == false)
             {
-                PresentationLogic.CurrentPresentation = "menu";
                 Console.WriteLine("Stoel is niet beschikbaar");
                 Menu.Start();
             }
@@ -88,7 +89,6 @@ class Auditorium : IPresentation
         }
         else if (choisCombiDeals == "n")
         {
-            PresentationLogic.CurrentPresentation = "menu";
             Menu.Start();
         }
     }
