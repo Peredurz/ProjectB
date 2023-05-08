@@ -92,4 +92,27 @@ class Auditorium : IPresentation
             Menu.Start();
         }
     }
-}
+
+    public static void ChooseParkingTicket()
+    {
+        Console.WriteLine($"Wilt u een parkeer ticket kopen. Y/N");
+        Console.Write(">");
+        bool choice = false;
+        string choiseParkingTicket = Console.ReadLine().ToLower();
+        while (choice == false)
+            if (choiseParkingTicket == "y")
+            {
+                ParkingTicketLogic.GenerateParkingTicket();
+            }
+            else if (choiseParkingTicket == "n")
+            {
+                PresentationLogic.CurrentPresentation = "menu";
+                Menu.Start();
+            }
+            else
+            {
+                Console.WriteLine("Geen correcte invoer.");
+                continue;
+            }
+    }
+}  
