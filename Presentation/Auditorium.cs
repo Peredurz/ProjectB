@@ -73,7 +73,8 @@ class Auditorium : IPresentation
                 Console.WriteLine("Stoel gereserveerd!");
                 Auditorium.ChooseCombi();
             }
-        } catch (FormatException ex)
+        }
+        catch (FormatException ex)
         {
             Console.WriteLine("Je moet een nummer invoeren");
         }
