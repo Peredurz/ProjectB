@@ -173,8 +173,8 @@ class AuditoriumLogic
                     "blue" => ConsoleColor.Blue,
 
                     "orange" => ConsoleColor.DarkYellow,
-                    "white" => ConsoleColor.White,
-                    _ => ConsoleColor.White,
+                    "white" => ConsoleColor.Black,
+                    _ => ConsoleColor.Black,
                 };
                 Console.ForegroundColor = color;
                 Console.Write(result);
