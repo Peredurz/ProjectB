@@ -31,7 +31,7 @@ class ChairLogic
         {
             ChairModel currentChair = chairs[i];
             // de stoel kan niet wit zijn en moet overeenkomen met de stoel kolom en rij
-            if (currentChair.Row == row && currentChair.Column == col && currentChair.Color != "White")
+            if (currentChair.Row == row && currentChair.Column == col - 1 && currentChair.Color != "White")
                 return currentChair.ID;
         }
         return 0;

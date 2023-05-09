@@ -11,11 +11,18 @@ class Auditorium : IPresentation
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         if (chosenOption == "b")
+        {
             Menu.Start();
+        }
         else if (chosenOption == "s")
+        {
             ChooseChair();
+        }
         else
+        {
             Console.WriteLine("Incorrecte invoer.");
+            Menu.Start();
+        }
     }
 
     public static void PrintChairs()
@@ -101,6 +108,7 @@ class Auditorium : IPresentation
         bool choice = false;
         string choiseParkingTicket = Console.ReadLine().ToLower();
         while (choice == false)
+        {
             if (choiseParkingTicket == "y")
             {
                 ParkingTicketLogic.GenerateParkingTicket();
@@ -115,5 +123,6 @@ class Auditorium : IPresentation
                 Console.WriteLine("Geen correcte invoer.");
                 continue;
             }
+        }
     }
-}  
+}
