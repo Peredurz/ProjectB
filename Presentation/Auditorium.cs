@@ -107,7 +107,6 @@ class Auditorium : IPresentation
             }
             else if (choiseParkingTicket == "n")
             {
-                PresentationLogic.CurrentPresentation = "menu";
                 Menu.Start();
             }
             else
