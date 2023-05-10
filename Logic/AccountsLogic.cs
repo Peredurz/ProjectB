@@ -12,6 +12,7 @@ class AccountsLogic
 
     public static AccountModel? CurrentAccount { get; set; } = null;
     public static double TotaalPrijs = 0;
+    public static int CurrentReservationCode = MailLogic.GenerateCode();
 
     public AccountsLogic()
     {

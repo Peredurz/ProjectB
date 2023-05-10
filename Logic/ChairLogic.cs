@@ -36,4 +36,16 @@ class ChairLogic
         }
         return 0;
     }
+
+    public ChairModel GetChairModel(int chairID)
+    {
+        foreach (ChairModel chair in Chairs)
+        {
+            if (chairID == chair.ID)
+            {
+                return chair;
+            }
+        }
+        return null;
+    }
 }

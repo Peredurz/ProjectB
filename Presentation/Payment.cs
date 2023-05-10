@@ -16,6 +16,7 @@ public class Payment : IPresentation
                 if (validIBAN == true)
                 {
                     Console.WriteLine("Betaling voltooid");
+                    ChairReservationLogic.UpdateChairReservation();
                     Menu.Start();
                 }
                 else
@@ -27,6 +28,7 @@ public class Payment : IPresentation
                         if (checkIBAN == true)
                         {
                             Console.WriteLine("Betaling voltooid");
+                            ChairReservationLogic.UpdateChairReservation();
                             Menu.Start();
                         }
                         Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
