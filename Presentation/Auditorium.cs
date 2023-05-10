@@ -93,7 +93,7 @@ class Auditorium : IPresentation
         string choisCombiDeals = Console.ReadLine().ToLower();
         if (choisCombiDeals == "y")
         {
-            Console.WriteLine("De Combi Deals zijn nog niet beschikbaar.");
+            CombiDeal.Start();
         }
         else if (choisCombiDeals == "n")
         {
@@ -114,6 +114,7 @@ class Auditorium : IPresentation
                 ParkingTicketLogic.GenerateParkingTicket();
                 choice = true;
                 Console.WriteLine("U heeft een parkeer ticket gekocht.");
+                Payment.Start();
             }
             else if (choiseParkingTicket == "n")
             {
