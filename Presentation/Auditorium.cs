@@ -101,7 +101,7 @@ class Auditorium : IPresentation
         }
         else if (choisCombiDeals == "n")
         {
-            Menu.Start();
+            Auditorium.ChooseParkingTicket();
         }
     }
 
@@ -115,6 +115,7 @@ class Auditorium : IPresentation
         {
             if (choiseParkingTicket == "y")
             {
+                ParkingTicketLogic.choiseParkingTicket = true;
                 ParkingTicketLogic.GenerateParkingTicket();
                 choice = true;
                 AccountsLogic.TotaalPrijs += 2;

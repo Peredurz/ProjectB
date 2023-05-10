@@ -12,10 +12,19 @@ class MailLogic
       return RandomInt.Next();
     }
 
-    public static void SendMail(string seat, string auditorium, string movie, bool parkingticket, DateTime time)
+    public static void SendMail()
     {
       string name;
       string emailaddress;
+      List<ChairReservationModel> allReservations = new List<ChairReservationModel>();
+      allReservations = ChairReservationAccess.LoadAll();
+      ChairReservationModel lastReservation = allReservations[allReservations.Count - 1];
+      int auditorium = lastReservation.AuditoriumID + 1;
+      DateTime time = lastReservation.Time;
+      int reservationCode = lastReservation.ReserveringsCode;
+      int chairID = lastReservation.ChairID;
+      double totaalPrijs = AccountsLogic.TotaalPrijs;
+      bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
 
       if (AccountsLogic.CurrentAccount == null)
       {
@@ -38,12 +47,12 @@ class MailLogic
         
 Bedankt voor het reserveren bij Bioscoop Naamloos.
 Uw reservering is succesvol verwerkt.
-Uw reserveringscode is: {GenerateCode()}
-Uw stoelnummer is: {seat}
+Uw reserveringscode is: {reservationCode}
+Uw stoelnummer is: {chairID}
 Uw zaalnummer is: {auditorium}
-Uw film is: {movie}
+Uw film is: blank
 Uw film begint om: {time}
-Uw totaalprijs is: {AccountsLogic.TotaalPrijs}
+Uw totaalprijs is: {totaalPrijs}
 
 Vriendelijke Groet,
 Bioscoop Naamloos
@@ -64,6 +73,7 @@ Bioscoop Naamloos
         Console.WriteLine("The mail has been sent successfully !!");
         smtp.Disconnect(true);
       }
+      ParkingTicketLogic.choiseParkingTicket = false;
     }
 
     public static bool ValidateMailAddress(string mailAddress)
