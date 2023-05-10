@@ -142,7 +142,7 @@ class AuditoriumLogic
             if (chairs.Contains(chair.ID))
             {
                 // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-                if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == (chair.ID + 1))))
+                if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
                 {
                     // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
                     Console.ForegroundColor = ConsoleColor.Gray;
