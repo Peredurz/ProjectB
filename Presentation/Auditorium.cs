@@ -8,6 +8,10 @@ class Auditorium : IPresentation
         PresentationLogic.CurrentPresentation = "auditorium";
 
         PrintChairs();
+        //scherm weergeven
+        AudistoriumScreen();
+        //legenda weergeven
+        PrintLegenda();
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         if (chosenOption == "b")
@@ -128,5 +132,27 @@ class Auditorium : IPresentation
                 continue;
             }
         }
+    }
+
+    public static void AudistoriumScreen()
+    {
+        AuditoriumModel auditorium = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID + 1);
+        if (auditorium != null)
+        {
+            Console.Write("\\");
+            for (int i = 0; i < auditorium.TotalCols; i++)
+            {
+                Console.Write("__");
+            }
+            Console.Write("/\n\n");
+        }
+    }
+
+    public static void PrintLegenda()
+    {
+        Console.WriteLine("Stoelkosten:");
+        Console.WriteLine("Blauw: 5,-  | Oranje: 10,-");
+        Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
+        Console.WriteLine("De stoelen waar X op staat is bezet.");
     }
 }

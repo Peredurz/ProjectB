@@ -4,286 +4,233 @@
     "emailAdress": "",
     "chairId": 796,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 2,
     "emailAdress": "",
     "chairId": 62,
     "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 3,
     "emailAdress": "",
     "chairId": 754,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 4,
     "emailAdress": "",
     "chairId": 649,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 5,
     "emailAdress": "",
     "chairId": 28,
     "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 6,
     "emailAdress": "",
     "chairId": 1096,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 7,
     "emailAdress": "",
     "chairId": 639,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 8,
     "emailAdress": "",
     "chairId": 244,
     "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 9,
     "emailAdress": "",
     "chairId": 638,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 10,
     "emailAdress": "",
     "chairId": 788,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 11,
     "emailAdress": "",
     "chairId": 768,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 12,
     "emailAdress": "",
     "chairId": 91,
     "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 13,
     "emailAdress": "",
     "chairId": 340,
     "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 14,
     "emailAdress": "",
     "chairId": 798,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 15,
     "emailAdress": "douwezumker@gmail.com",
     "chairId": 207,
     "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00"
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 15,
     "emailAdress": "",
     "chairId": 797,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 16,
     "emailAdress": "",
     "chairId": 795,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 35,
     "emailAdress": "",
     "chairId": 1098,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 54,
     "emailAdress": "",
     "chairId": 842,
     "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 39,
     "emailAdress": "",
     "chairId": 38,
     "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00"
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 41,
     "emailAdress": "",
     "chairId": 4,
     "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00"
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
     "id": 43,
     "emailAdress": "",
     "chairId": 5,
     "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00"
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 0
   },
   {
-    "id": 45,
+    "id": 111,
     "emailAdress": "",
-    "chairId": 810,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "chairId": 3,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 0,
+    "reserveringsCode": 41229495
   },
   {
-    "id": 70,
+    "id": 47,
     "emailAdress": "",
-    "chairId": 870,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
+    "chairId": 86,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 1719702546
   },
   {
     "id": 49,
     "emailAdress": "",
-    "chairId": 264,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
+    "chairId": 64,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 236165790
   },
   {
     "id": 51,
     "emailAdress": "",
-    "chairId": 780,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 53,
-    "emailAdress": "",
-    "chairId": 718,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 55,
-    "emailAdress": "",
-    "chairId": 814,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 57,
-    "emailAdress": "",
-    "chairId": 811,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 59,
-    "emailAdress": "",
-    "chairId": 840,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 61,
-    "emailAdress": "",
-    "chairId": 837,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 63,
-    "emailAdress": "",
-    "chairId": 839,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 65,
-    "emailAdress": "",
-    "chairId": 838,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 67,
-    "emailAdress": "",
-    "chairId": 536,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 69,
-    "emailAdress": "",
-    "chairId": 331,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 71,
-    "emailAdress": "",
-    "chairId": 348,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 73,
-    "emailAdress": "",
-    "chairId": 703,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 75,
-    "emailAdress": "",
-    "chairId": 747,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 77,
-    "emailAdress": "",
-    "chairId": 750,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 79,
-    "emailAdress": "",
-    "chairId": 313,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
-  },
-  {
-    "id": 81,
-    "emailAdress": "",
-    "chairId": 314,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00"
+    "chairId": 102,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 570940498
   }
 ]

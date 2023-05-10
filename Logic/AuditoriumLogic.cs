@@ -193,6 +193,18 @@ class AuditoriumLogic
         }
         Console.WriteLine();
     }
+    
+    public AuditoriumModel GetAuditoriumModel(int auditoriumID)
+    {
+        foreach (AuditoriumModel auditorium in _auditoriums)
+        {
+            if (auditoriumID == auditorium.ID)
+            {
+                return auditorium;
+            }
+        }
+        return null;
+    }
 
     public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID].Chairs;
 }

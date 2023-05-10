@@ -18,12 +18,20 @@ public class ChairReservationModel
     public DateTime Time { get; set; }
     private static int _idCounter = 0;
 
-    public ChairReservationModel(string emailAdress, int chairId, int auditoriumId, DateTime time)
+    [JsonPropertyName("totaalPrijs")]
+    public double TotaalPrijs { get; set; }
+
+    [JsonPropertyName("reserveringsCode")]
+    public int ReserveringsCode { get; set; }
+
+    public ChairReservationModel(string emailAdress, int chairId, int auditoriumId, DateTime time, double totaalPrijs, int reserveringsCode)
     {
         ID = ++_idCounter;
         EmailAdress = emailAdress;
         ChairID = chairId;
         AuditoriumID = auditoriumId;
         Time = time;
+        TotaalPrijs = totaalPrijs;
+        ReserveringsCode = reserveringsCode;
     }
 }
