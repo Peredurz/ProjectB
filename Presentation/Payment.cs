@@ -3,6 +3,7 @@ public class Payment : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "payment";
+        Console.WriteLine($"Het totaal bedrag is {AccountsLogic.TotaalPrijs}");
         PresentationLogic.WriteMenu(Menu.presentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         switch (chosenOption)

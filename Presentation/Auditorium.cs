@@ -113,13 +113,14 @@ class Auditorium : IPresentation
             {
                 ParkingTicketLogic.GenerateParkingTicket();
                 choice = true;
+                AccountsLogic.TotaalPrijs += 2;
                 Console.WriteLine("U heeft een parkeer ticket gekocht.");
                 Payment.Start();
             }
             else if (choiseParkingTicket == "n")
             {
                 choice = true;
-                Menu.Start();
+                Payment.Start();
             }
             else
             {

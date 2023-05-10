@@ -9,7 +9,6 @@ class CombiDeal : IPresentation
         while (choice == false)
         {
             // laat de gebruiker alle combideals zien en kiezen.
-            double total = 0;
             Console.WriteLine(@"Je kan de volgende Combideals kiezen.");
             _combiDeal.PrintCombiDeals();
             Console.Write("> ");
@@ -23,7 +22,8 @@ class CombiDeal : IPresentation
                 CombiDealModel selectedCombiDeal = _combiDeal.GetCombiDeal(idUser);
                 _combiDeal.ShowCombiDeal(idUser);
                 Console.WriteLine();
-                Console.WriteLine($"Saldo is {selectedCombiDeal.Price + total}.");
+                AccountsLogic.TotaalPrijs += selectedCombiDeal.Price;
+                Console.WriteLine($"Saldo is {AccountsLogic.TotaalPrijs}.");
                 Console.WriteLine();
                 Console.WriteLine("Weet u zeker dat u deze combideal wilt Y/N. ");
                 Console.Write("> ");
@@ -38,7 +38,7 @@ class CombiDeal : IPresentation
                 // bij verkeerde keuze kan de gebruiker dit opniew doen.
                 else if (inputUser == "N")
                 {
-                    total = selectedCombiDeal.Price - total;
+                    AccountsLogic.TotaalPrijs -= selectedCombiDeal.Price;
                 }
             }
             else

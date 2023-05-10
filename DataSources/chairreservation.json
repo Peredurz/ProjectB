@@ -257,5 +257,33 @@
     "chairId": 703,
     "auditoriumId": 2,
     "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 75,
+    "emailAdress": "",
+    "chairId": 747,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 77,
+    "emailAdress": "",
+    "chairId": 750,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 79,
+    "emailAdress": "",
+    "chairId": 313,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00"
+  },
+  {
+    "id": 81,
+    "emailAdress": "",
+    "chairId": 314,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00"
   }
 ]

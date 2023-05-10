@@ -151,7 +151,7 @@ class AuditoriumLogic
                     // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
                     if (pos == length)
                     {
-                        Console.Write($" {rij}");
+                        Console.Write($"{rij}");
                         Console.Write("\n");
                         pos = 0;
                         rij++;
