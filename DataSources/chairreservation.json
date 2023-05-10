@@ -232,5 +232,14 @@
     "time": "2024-03-24T12:00:00",
     "totaalPrijs": 15,
     "reserveringsCode": 570940498
+  },
+  {
+    "id": 53,
+    "emailAdress": "",
+    "chairId": 54,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 18.990000000000002,
+    "reserveringsCode": 1293690675
   }
 ]
