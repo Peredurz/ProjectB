@@ -38,7 +38,7 @@ class Annulering : IPresentation
             {
                 foreach (MovieModel movie in movies)
                 {
-                    if (movie.AuditoriumID == reservation.AuditoriumID && movie.Time == reservation.Time && movie.Time > DateTime.Now)
+                    if (movie.AuditoriumID == reservation.AuditoriumID + 1 && movie.Time == reservation.Time && movie.Time > DateTime.Now)
                     {
                         moviesList.Add($"\nID: {reservation.ID}\nFilm: {movie.Title}\nDatum en tijd: {reservation.Time}\nStoel: {reservation.ChairID}\n");
                     }
