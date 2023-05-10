@@ -23,7 +23,7 @@ class AnnuleringLogic
 
     public bool AnnuleringID(int id, string email)
     {
-        if (!_annulering.Any(item => item.ReservationID == id))
+        if (!_chairReservation.Any(item => item.ID == id))
         {
             Console.WriteLine("Dit ID bestaat niet.");
             return false;
