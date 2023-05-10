@@ -14,7 +14,7 @@ class MailLogic
 
     public static void SendMail(string name, string emailaddress, string seat, string auditorium, string movie, bool parkingticket)
     {
-        var email = new MimeMessage();
+      var email = new MimeMessage();
 
         email.From.Add(new MailboxAddress("Project Groep 1 INF1F", "projectgroep1fhr@gmail.com"));
         email.To.Add(new MailboxAddress(name, emailaddress));
@@ -39,14 +39,14 @@ Bioscoop Naamloos
         }
         email.Body = builder.ToMessageBody();
 
-        using (var smtp = new SmtpClient())
-        {
-          smtp.Connect("smtp.gmail.com", 587, false);
+      using (var smtp = new SmtpClient())
+      {
+        smtp.Connect("smtp.gmail.com", 587, false);
 
-          smtp.Authenticate("projectgroep1fhr@gmail.com", "gadaklozkmjfzcih");
-          smtp.Send(email);
-          Console.WriteLine("The mail has been sent successfully !!");
-          smtp.Disconnect(true);
-    }
+        smtp.Authenticate("projectgroep1fhr@gmail.com", "gadaklozkmjfzcih");
+        smtp.Send(email);
+        Console.WriteLine("The mail has been sent successfully !!");
+        smtp.Disconnect(true);
+      }
     }
 }

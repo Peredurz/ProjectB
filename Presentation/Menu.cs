@@ -21,6 +21,9 @@ public class Menu : IPresentation
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
         new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
         new PresentationModel("R", "Annulering", _allClearance, "annulering", true),
+        new PresentationModel("I", "betalen met IDeal", _allClearance, "payment", true),
+        new PresentationModel("P", "betalen met PayPal", _allClearance, "payment", true),
+        new PresentationModel("C", "betalen met Creditcard", _allClearance, "payment", true),
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 
