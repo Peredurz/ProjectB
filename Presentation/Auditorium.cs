@@ -112,9 +112,12 @@ class Auditorium : IPresentation
             if (choiseParkingTicket == "y")
             {
                 ParkingTicketLogic.GenerateParkingTicket();
+                choice = true;
+                Console.WriteLine("U heeft een parkeer ticket gekocht.");
             }
             else if (choiseParkingTicket == "n")
             {
+                choice = true;
                 Menu.Start();
             }
             else
