@@ -1,8 +1,9 @@
 using System;
 using SkiaSharp;
 
-class ParkingTicketLogic
+static class ParkingTicketLogic
 {
+    public static bool choiseParkingTicket = false;
     public static void GenerateBarCode()
     {
         int surfaceWidth = 300;

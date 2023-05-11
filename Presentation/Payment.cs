@@ -17,6 +17,7 @@ public class Payment : IPresentation
                 {
                     Console.WriteLine("Betaling voltooid");
                     ChairReservationLogic.UpdateChairReservation();
+                    MailLogic.SendMail();
                     Menu.Start();
                 }
                 else
@@ -29,6 +30,7 @@ public class Payment : IPresentation
                         {
                             Console.WriteLine("Betaling voltooid");
                             ChairReservationLogic.UpdateChairReservation();
+                            MailLogic.SendMail();
                             Menu.Start();
                         }
                         Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");

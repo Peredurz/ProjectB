@@ -241,5 +241,68 @@
     "time": "2024-03-24T12:00:00",
     "totaalPrijs": 18.990000000000002,
     "reserveringsCode": 1293690675
+  },
+  {
+    "id": 55,
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 732,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 40.980000000000004,
+    "reserveringsCode": 891453264
+  },
+  {
+    "id": 83,
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 265,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 32.99,
+    "reserveringsCode": 891453264
+  },
+  {
+    "id": 59,
+    "emailAdress": "",
+    "chairId": 498,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 12.99,
+    "reserveringsCode": 148572326
+  },
+  {
+    "id": 61,
+    "emailAdress": "",
+    "chairId": 325,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 1773591102
+  },
+  {
+    "id": 155,
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 645,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 37.980000000000004,
+    "reserveringsCode": 733726993
+  },
+  {
+    "id": 65,
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 342,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 1571082391
+  },
+  {
+    "id": 67,
+    "emailAdress": "",
+    "chairId": 338,
+    "auditoriumId": 1,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 541912557
   }
 ]
