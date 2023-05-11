@@ -11,6 +11,9 @@ public class ChairReservationModel
     [JsonPropertyName("chairId")]
     public int ChairID { get; set; }
 
+    [JsonPropertyName("movieId")]
+    public int MovieID { get; set; }
+
     [JsonPropertyName("auditoriumId")]
     public int AuditoriumID { get; set; }
 
@@ -24,11 +27,12 @@ public class ChairReservationModel
     [JsonPropertyName("reserveringsCode")]
     public int ReserveringsCode { get; set; }
 
-    public ChairReservationModel(string emailAdress, int chairId, int auditoriumId, DateTime time, double totaalPrijs, int reserveringsCode)
+    public ChairReservationModel(string emailAdress, int chairId, int movieId ,int auditoriumId, DateTime time, double totaalPrijs, int reserveringsCode)
     {
         ID = ++_idCounter;
         EmailAdress = emailAdress;
         ChairID = chairId;
+        MovieID = movieId;
         AuditoriumID = auditoriumId;
         Time = time;
         TotaalPrijs = totaalPrijs;

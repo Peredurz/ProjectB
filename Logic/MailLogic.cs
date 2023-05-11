@@ -16,15 +16,20 @@ class MailLogic
     {
       string name;
       string emailaddress;
-      List<ChairReservationModel> allReservations = new List<ChairReservationModel>();
-      allReservations = ChairReservationAccess.LoadAll();
-      ChairReservationModel lastReservation = allReservations[allReservations.Count - 1];
-      int auditorium = lastReservation.AuditoriumID + 1;
-      DateTime time = lastReservation.Time;
-      int reservationCode = lastReservation.ReserveringsCode;
-      int chairID = lastReservation.ChairID;
+      var reservationLogic = new ChairReservationLogic();
+      var reservation = reservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
+      int auditorium = reservation.Item1.AuditoriumID + 1;
+      DateTime time = reservation.Item1.Time;
+      int reservationCode = reservation.Item1.ReserveringsCode;
+      int chairID = reservation.Item1.ChairID;
+      var chairLogic = new ChairLogic();
+      var chair = chairLogic.GetChairModel(chairID);
+      int chairRow = chair.Row;
+      int chairColumn = chair.Column;
       double totaalPrijs = AccountsLogic.TotaalPrijs;
       bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
+      int movieId = reservation.Item1.MovieID;
+      string movieTitle = MovieLogic.GetMovie(movieId).Title;
 
       if (AccountsLogic.CurrentAccount == null)
       {
@@ -48,14 +53,21 @@ class MailLogic
 Bedankt voor het reserveren bij Bioscoop Naamloos.
 Uw reservering is succesvol verwerkt.
 Uw reserveringscode is: {reservationCode}
-Uw stoelnummer is: {chairID}
-Uw zaalnummer is: {auditorium}
-Uw film is: blank
+Uw stoel bevind zich op: Rij {chairRow}, Stoel {chairColumn}
+Uw zaal is: zaal {auditorium}
+Uw film is: {movieTitle}
 Uw film begint om: {time}
-Uw totaalprijs is: {totaalPrijs}
+Uw totaalprijs is: €{totaalPrijs}
 
 Vriendelijke Groet,
 Bioscoop Naamloos
+
+---------------------------------------
+Telefoon nummer:    010 123 123 12.
+adres:              Wijnhaven 107.
+postcode:           3011 WN in Rotterdam.
+Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
+                    De bioscoop sluit vijftien minuten na de laatste film
 ";
         if (parkingticket)
         {

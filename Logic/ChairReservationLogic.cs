@@ -37,7 +37,7 @@ class ChairReservationLogic
         }
         else
         {
-            _chairReservation.Add(new ChairReservationModel(userEmail, chairID, auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
+            _chairReservation.Add(new ChairReservationModel(userEmail, chairID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
 
             ChairReservationAccess.WriteAll(_chairReservation);
             return true;
