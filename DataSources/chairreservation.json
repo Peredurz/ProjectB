@@ -281,13 +281,13 @@
   },
   {
     "id": 83,
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 265,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 32.99,
-    "reserveringsCode": 891453264
+    "emailAdress": "",
+    "chairId": 6,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 2119903154
   },
   {
     "id": 59,
@@ -408,5 +408,15 @@
     "time": "2023-03-24T12:00:00",
     "totaalPrijs": 15,
     "reserveringsCode": 1367096076
+  },
+  {
+    "id": 83,
+    "emailAdress": "douwezumker@gmail.com",
+    "chairId": 6,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 2119903154
   }
 ]
