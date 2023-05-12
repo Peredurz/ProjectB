@@ -11,11 +11,14 @@ public class AnnuleringModel
     [JsonPropertyName("ReservationID")]
     public int ReservationID { get; set; }
 
+    [JsonPropertyName("AnnuleringDatumTime")]
+    public DateTime AnnuleringDatum { get; set; }
     private static int _id = 0;
-    public AnnuleringModel(string emailAddress, int reservationID)
+    public AnnuleringModel(string emailAddress, int reservationID, DateTime annuleringDatum)
     {
         ID = _id++;
         EmailAddress = emailAddress;
         ReservationID = reservationID;
+        AnnuleringDatum = annuleringDatum;
     }
 }

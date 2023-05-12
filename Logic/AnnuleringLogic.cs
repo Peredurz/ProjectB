@@ -58,7 +58,7 @@ class AnnuleringLogic
         {
             if (reservation.ID == id)
             {
-                AnnuleringModel ann = new AnnuleringModel(email, id);
+                AnnuleringModel ann = new AnnuleringModel(email, id, DateTime.Now);
                 bool containItem = _annulering.Any(item => item.ReservationID == ann.ReservationID);
                 if (containItem)
                 {
