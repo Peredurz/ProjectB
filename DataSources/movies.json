@@ -30,5 +30,13 @@
 		"description": "Neo zit gevangen in de wereld van de Matrix, maar heeft dit niet door. Hij besluit een blauwe pil te nemen en naar de therapeut te gaan. Alles wordt anders als een man Neo verteld dat zijn realiteit nep is. Wat is zijn leven dan wel?",
         "time" : "2023-03-24T12:00:00",
         "duration" : 142
+	},
+	{
+		"id": 5,
+		"auditorium_id": 1,
+		"title": "The Lord of the Rings: The Fellowship of the Ring",
+		"description": "Een jonge hobbit genaamd Frodo krijgt een magische ring in zijn bezit. Deze ring moet vernietigd worden voordat de duistere heerser Sauron hem in handen krijgt.",
+		"time" : "1970-01-01T00:00:00",
+		"duration" : 178
 	}
 ]
