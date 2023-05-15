@@ -17,6 +17,27 @@ class Movie : IPresentation
         {
             ChooseMovie(Convert.ToInt32(userOption));
         }
+        else if (userOption.ToLower() == "f")
+        {
+            string futureMovieOutput = _movieLogic.ShowFutureMovies();
+            Console.WriteLine();
+            Console.WriteLine(futureMovieOutput);
+            PresentationLogic.WriteMenu(Menu.presentationModels, true);
+            string userFutureOption = Console.ReadLine();
+            if (int.TryParse(userFutureOption, out _) == true)
+            {
+                ChooseMovie(Convert.ToInt32(userFutureOption));
+            }
+            else if (userFutureOption.ToLower() == "b")
+            {
+                Movie.Start();
+            }
+            else
+            {
+                Console.WriteLine("Geen geldige invoer.");
+                Movie.Start();
+            }
+        }
         else if (userOption.ToLower() == "b")
         {
             Menu.Start();

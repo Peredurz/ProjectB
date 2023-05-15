@@ -32,12 +32,12 @@
     "duration": 142
   },
   {
-    "id": 5,
-    "auditorium_id": 1,
-    "title": "The Matrix",
-    "description": "Neo heeft het gevoel dat er iets niet klopt in het leven. Hij wordt benaderd door Morpheus, die hem verteld dat de wereld zoals iedereen die kent een gesimuleerde werkelijkheid is. Morpheus denkt dat Neo uitverkoren is om dat te veranderen.",
-    "time": "2023-05-19T13:00:00",
-    "duration": 140
+		"id": 5,
+		"auditorium_id": 1,
+		"title": "The Lord of the Rings: The Fellowship of the Ring",
+		"description": "Een jonge hobbit genaamd Frodo krijgt een magische ring in zijn bezit. Deze ring moet vernietigd worden voordat de duistere heerser Sauron hem in handen krijgt.",
+		"time" : "1970-01-01T00:00:00",
+		"duration" : 178
   },
   {
     "id": 6,
@@ -46,5 +46,5 @@
     "description": "Het is een gruwelijke anime film dat het hoofdkarakter Guts volgt.",
     "time": "1970-01-01T00:00:00",
     "duration": 90
-  }
+	}
 ]
