@@ -68,7 +68,7 @@ public class MovieAmendment : IPresentation
                             loop = false;
                             MovieAmendment.Start();
                         }
-                        if (_movieLogic.StartTimeInterference(movie.Time, auditoriumID, movie))
+                        if (_movieLogic.StartTimeInterference(movie.Time, auditoriumID, movie) || _movieLogic.TimeInterference(movie.Duration, auditoriumID, movie))
                         {
                             Console.WriteLine("Deze tijd is al bezet.");
                             loop = false;
