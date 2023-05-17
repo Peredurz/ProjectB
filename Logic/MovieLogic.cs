@@ -124,7 +124,7 @@ public class MovieLogic
         {
             if (movie.AuditoriumID == auditoriumID && movie.ID != _movie.ID)
             {
-                if (movie.Time.AddMinutes(movie.Duration) <= _movie.Time && _movie.Time <= movie.Time.AddMinutes(movie.Duration + minutes))
+                if (movie.Time <= _movie.Time.AddMinutes(minutes))
                 {
                     return true;
                 }
