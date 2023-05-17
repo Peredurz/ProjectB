@@ -1,7 +1,7 @@
 /// <summary>
 /// Dit is de class <see cref="MovieAmendment"/>. Deze class zorgt ervoor dat de gebruiker ook wel een manager een film kan aanpassen.
 /// Maar ook een film kan toevoegen of verwijderen.
-/// De aanpassing van films is mogelijk gemaakt door de method <see cref="movieAmendment(string)"/> waar een film wordt aangepast op basis van
+/// De aanpassing van films is mogelijk gemaakt door de method <see cref="MovieAmendments(string)"/> waar een film wordt aangepast op basis van
 /// een id of een titel.
 /// </summary>
 public class MovieAmendment : IPresentation
@@ -43,7 +43,7 @@ public class MovieAmendment : IPresentation
                 Console.WriteLine("Geef een film ID of een titel");
                 Console.Write("> ");
                 string inputUser = Console.ReadLine().ToLower();
-                movieAmendment(inputUser);
+                MovieAmendments(inputUser);
                 break;
             case "a":
                 break;
@@ -93,7 +93,7 @@ public class MovieAmendment : IPresentation
     /// </summary>
     /// <param name="input"></param>
     /// <returns><see cref="void"/></returns>
-    public static void movieAmendment(string input)
+    public static void MovieAmendments(string input)
     {
         MovieModel movie = MovieLogic.SearchMovie(input);
         if (movie == null)
