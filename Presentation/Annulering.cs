@@ -5,7 +5,7 @@ class Annulering : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "annulering";
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
 
         string input = Console.ReadLine().ToLower();
         switch (input)

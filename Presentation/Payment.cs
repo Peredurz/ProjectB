@@ -4,7 +4,7 @@ public class Payment : IPresentation
     {
         PresentationLogic.CurrentPresentation = "payment";
         Console.WriteLine($"Het totaal bedrag is {AccountsLogic.TotaalPrijs}");
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         switch (chosenOption)
         {
