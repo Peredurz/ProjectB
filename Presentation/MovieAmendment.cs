@@ -67,6 +67,12 @@ public class MovieAmendment : IPresentation
                             Console.WriteLine("Verkeerde invoer");
                             MovieAmendment.Start();
                         }
+                        if (_movieLogic.StartTimeInterference(movie.Time, auditoriumID, movie))
+                        {
+                            Console.WriteLine("Deze tijd is al bezet.");
+                            MovieAmendment.Start();
+                            break;
+                        }
                         movie.AuditoriumID = auditoriumID;
                         break;
                     case "b":
@@ -78,16 +84,28 @@ public class MovieAmendment : IPresentation
                             Console.WriteLine("Verkeerde invoer");
                             MovieAmendment.Start();
                         }
+                        if (_movieLogic.TimeInterference(duration, movie.AuditoriumID, movie))
+                        {
+                            Console.WriteLine("Deze tijd is al bezet.");
+                            MovieAmendment.Start();
+                            break;
+                        }
                         movie.Duration = duration;
                         break;
                     case "c":
-                        Console.WriteLine("Geef de nieuwe tijd van wanneer de film begint.");
+                        Console.WriteLine("Geef de nieuwe tijd van wanneer de film begint. (YYYY-MM-DDTHH:MM:SS)");
                         Console.Write("> ");
                         DateTime time = DateTime.TryParse(Console.ReadLine(), out time) ? time : DateTime.Now;
                         if (time < DateTime.Now)
                         {
                             Console.WriteLine("Verkeerde invoer");
                             MovieAmendment.Start();
+                        }
+                        if (_movieLogic.StartTimeInterference(time, movie.AuditoriumID, movie))
+                        {
+                            Console.WriteLine("Deze tijd is al bezet.");
+                            MovieAmendment.Start();
+                            break;
                         }
                         movie.Time = time;
                         break;
