@@ -1,7 +1,33 @@
+/// <summary>
+/// Dit is de class <see cref="MovieAmendment"/>. Deze class zorgt ervoor dat de gebruiker ook wel een manager een film kan aanpassen.
+/// Maar ook een film kan toevoegen of verwijderen.
+/// De aanpassing van films is mogelijk gemaakt door de method <see cref="movieAmendment(string)"/> waar een film wordt aangepast op basis van
+/// een id of een titel.
+/// </summary>
 public class MovieAmendment : IPresentation
 {
     private static MovieLogic _movieLogic = new MovieLogic();
     private static List<MovieModel> _movies = MovieLogic.GetMovies();
+
+    /// <summary>
+    /// Dit is de start method om deze class te starten. En uiteindelijk als gebruiker films aan te kunnen passen.
+    /// Of een film toe te voegen of te verwijderen.
+    /// De gebruiker kan uit de volgende opties kiezen:
+    /// <list type="bullet">
+    /// <item>
+    /// <term>R</term>
+    /// <description>Om een film te zoeken op basis van een id of een titel.</description>
+    /// </item>
+    /// <item>
+    /// <term>A</term>
+    /// <description>Om een film toe te voegen of te verwijderen.</description>
+    /// </item>
+    /// <item>
+    /// <term>B</term>
+    /// <description>Om terug te gaan naar het hoofdmenu.</description>
+    /// </item>
+    /// </list>
+    /// </summary>
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "movie_editor";
@@ -31,6 +57,42 @@ public class MovieAmendment : IPresentation
         }
     }
 
+    /// <summary>
+    /// Deze method zorgt ervoor dat de gebruiker een film kan aanpassen op basis van een id of een titel.
+    /// De gebruiker komt in een <see cref="do while"/> loop terecht waar de gebruiker de film kan aanpassen totdat de gebruiker tevreden is.
+    /// Als bijvoorbeeld de tijd wordt aangepast wordt eerst gecheckt of de tijd niet overlapt met een andere film.
+    /// Dit gebeurt ook als de duur van de film wordt aangepast.
+    /// En als de gebruiker de zaal wilt veranderen van de film worden de twee voorgaand genoemde checks uitgevoerd.
+    /// Hier krijgt de gebruiker de volgende opties om dingen aan te passen:
+    /// <list type="bullet">
+    /// <item>
+    /// <term>A</term>
+    /// <description>Om het zaal ID aan te passen.</description>
+    /// </item>
+    /// <item>
+    /// <term>B</term>
+    /// <description>Om de duur van de film aan te passen.</description>
+    /// </item>
+    /// <item>
+    /// <term>C</term>
+    /// <description>Om de start tijd van de film aan te passen.</description>
+    /// </item>
+    /// <item>
+    /// <term>D</term>
+    /// <description>Om de beschrijving van de film aan te passen.</description>
+    /// </item>
+    /// <item>
+    /// <term>T</term>
+    /// <description>Om de titel van de film aan te passen.</description>
+    /// </item>
+    /// <item>
+    /// <term>E</term>
+    /// <description>Om terug te gaan naar het hoofdmenu.</description>
+    /// </item>
+    /// </list>
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns><see cref="void"/></returns>
     public static void movieAmendment(string input)
     {
         MovieModel movie = MovieLogic.SearchMovie(input);
@@ -161,7 +223,7 @@ public class MovieAmendment : IPresentation
         else
         {
             Console.WriteLine("Verkeerde invoer.");
-            Start();
+            MovieAmendment.Start();
         }
     }
 }
