@@ -46,6 +46,7 @@ public class MovieAmendment : IPresentation
                 MovieAmendments(inputUser);
                 break;
             case "a":
+                MovieAdd();
                 break;
             case "b":
                 Menu.Start();
@@ -225,5 +226,15 @@ public class MovieAmendment : IPresentation
             Console.WriteLine("Verkeerde invoer.");
             MovieAmendment.Start();
         }
+    }
+
+    public static void MovieAdd()
+    {
+        Console.WriteLine("Wilt u een nieuwe film toevoegen of een film dat al draait op een andere tijd/zaal overkopiëren? (N/O)");
+        Console.WriteLine("N: Nieuwe film toevoegen");
+        Console.WriteLine("O: Overkopiëren");
+        Console.Write("> ");
+        string inputUser = Console.ReadLine().ToLower();
+
     }
 }
