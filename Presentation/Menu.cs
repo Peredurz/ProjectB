@@ -27,6 +27,7 @@ public class Menu : IPresentation
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 
+
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
@@ -43,13 +44,15 @@ public class Menu : IPresentation
 
         if (AccountsLogic.CurrentAccount != null)
         {
+            AccountsLogic.UserPresentationModels = PresentationLogic.GetUserOptions(AccountsLogic.CurrentAccount.UserType);
             // als een gebruiker is ingelogd kunnen de opties aangepast worden op basis van de type gebruiker
-            PresentationLogic.WriteMenu(PresentationLogic.GetUserOptions(AccountsLogic.CurrentAccount.UserType), false);
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
         else
         {
+            AccountsLogic.UserPresentationModels = PresentationLogic.GetUserOptions("Customer");
             // de basis menu opties zijn die van een customer.
-            PresentationLogic.WriteMenu(PresentationLogic.GetUserOptions("Customer"), false);
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
 
         string inputUser = Console.ReadLine().ToUpper();

@@ -12,7 +12,7 @@ class Auditorium : IPresentation
         AudistoriumScreen();
         //legenda weergeven
         PrintLegenda();
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         if (chosenOption == "b")
         {
