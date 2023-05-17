@@ -89,4 +89,66 @@ class AnnuleringLogic
     /// </summary>
     /// <returns>List<see cref="MovieModel"/></returns>
     public List<MovieModel> Movie() => _movies;
+
+    // optie om alle annuleringen te zien
+    public void ShowAnnulering()
+    {
+        foreach(AnnuleringModel annulering in _annulering)
+        {
+            Console.WriteLine($"ID: {annulering.ID}\nEmailAddress: {annulering.EmailAddress}\nReservationID: {annulering.ReservationID}\nAnnuleringDatum: {annulering.AnnuleringDatum}");
+        Console.WriteLine();
+        }
+    }
+
+    //controleerd of annuleringen bestaat 
+    public AnnuleringModel GetAnnulering(int id)
+    {
+        foreach(AnnuleringModel annulering in _annulering)
+        {
+            if (annulering.ID == id)
+            {
+                Console.WriteLine($"\nU heeft gekozen voor \nID: {annulering.ID}\nEmailAddress: {annulering.EmailAddress}\nReservationID: {annulering.ReservationID}\nAnnuleringDatum: {annulering.AnnuleringDatum}\n");
+                return annulering;
+            }
+        }
+        return null;
+    }
+
+    //annuleringen accepteren
+    public bool AnnuleringAccept(int id)
+    {
+        while(true)
+        {
+            Console.WriteLine("Wilt u de anunulering accepteren of weigeren. A/W ");
+            Console.Write(">");
+            string answerUser = Console.ReadLine().ToUpper();
+            foreach(AnnuleringModel annulering in _annulering)
+            {
+                switch (answerUser)
+                {
+                    case "A":
+                        if (annulering.ID == id)
+                        {
+                            _annulering.Remove(annulering);
+                            Console.WriteLine("Succesvol geaccepteerd.\n");
+                            AnnuleringAccess.WriteAll(_annulering);
+                            return true;
+                        }
+                        break;
+                    case "W":
+                        if (annulering.ID == id)
+                        {
+                            _annulering.Remove(annulering);
+                            Console.WriteLine("Succesvol geweigerd.\n");
+                            AnnuleringAccess.WriteAll(_annulering);
+                            return false;   
+                        }
+                        break;
+                    
+                    default:
+                        break;
+                }
+            }
+        }   
+    }
 }
