@@ -130,7 +130,7 @@ class AnnuleringLogic
                         if (annulering.ID == id)
                         {
                             _annulering.Remove(annulering);
-                            Console.WriteLine("Succesvol geaccepteerd.\n");
+                            Console.WriteLine("Annulering succesvol geaccepteerd.\n");
                             AnnuleringAccess.WriteAll(_annulering);
                             return true;
                         }
@@ -139,7 +139,7 @@ class AnnuleringLogic
                         if (annulering.ID == id)
                         {
                             _annulering.Remove(annulering);
-                            Console.WriteLine("Succesvol geweigerd.\n");
+                            Console.WriteLine("Annulering succesvol geweigerd.\n");
                             AnnuleringAccess.WriteAll(_annulering);
                             return false;   
                         }
