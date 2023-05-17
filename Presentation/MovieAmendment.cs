@@ -31,7 +31,7 @@ public class MovieAmendment : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "movie_editor";
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
 
 
         string input = Console.ReadLine().ToLower();
