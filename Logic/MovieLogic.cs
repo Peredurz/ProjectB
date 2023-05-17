@@ -103,6 +103,35 @@ public class MovieLogic
         }
     }
 
+    public bool StartTimeInterference(DateTime time, int auditoriumID, MovieModel _movie)
+    {
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.AuditoriumID == auditoriumID && movie.ID != _movie.ID)
+            {
+                if (time >= movie.Time && time <= movie.Time.AddMinutes(movie.Duration))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public bool TimeInterference(int minutes, int auditoriumID, MovieModel _movie)
+    {
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.AuditoriumID == auditoriumID && movie.ID != _movie.ID)
+            {
+                if (movie.Time.AddMinutes(movie.Duration) <= _movie.Time && _movie.Time <= movie.Time.AddMinutes(movie.Duration + minutes))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower());
     public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
 
