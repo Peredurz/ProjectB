@@ -16,7 +16,7 @@ public class MovieLogic
     // deze functie controleerd of de input van de user overeen komen met de movieID. 
     public bool MovieExist(int movieID)
     {
-        foreach(MovieModel movie in _movies)
+        foreach (MovieModel movie in _movies)
         {
             if (movieID == movie.ID)
             {
@@ -25,20 +25,20 @@ public class MovieLogic
         }
         return false;
     }
-    
+
     // Deze functie return de zaal nadat die is gecontroleerd door MovieExist. Als het false is return je 0
     public int GetAuditoriumID(int movieID)
     {
         bool movieExist = MovieExist(movieID);
-        if (movieExist == true) 
+        if (movieExist == true)
         {
-            foreach(MovieModel movie in _movies)
+            foreach (MovieModel movie in _movies)
             {
                 if (movieID == movie.ID)
                 {
                     return movie.AuditoriumID;
-                } 
-            }            
+                }
+            }
         }
         return 0;
     }
@@ -52,7 +52,7 @@ public class MovieLogic
             {
                 if (prop.Name == "AuditoriumID")
                 {
-                   output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                 }
                 if (prop.Name == "Description")
                 {
@@ -80,12 +80,31 @@ public class MovieLogic
                 {
                     output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                 }
-                
+
             }
             output += Environment.NewLine;
         }
         return output;
     }
 
+    public static MovieModel SearchMovie(string movie)
+    {
+        if (int.TryParse(movie, out int id))
+        {
+            return MovieLogic.GetMovie(Convert.ToInt32(id));
+        }
+        else if (movie.GetType() == typeof(string))
+        {
+            return MovieLogic.GetMovieByTitle(Convert.ToString(movie));
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower());
     public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
+
+    public static List<MovieModel> GetMovies() => _movies;
 }
