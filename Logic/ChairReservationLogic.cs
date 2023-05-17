@@ -84,9 +84,21 @@ class ChairReservationLogic
         ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
         var chairReservationModel = chairReservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
         chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
+        chairReservationModel.Item1.IsCompleted = true;
         int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
         chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+        chairReservationLogic.RemoveNotCompletedReservations();
         chairReservationLogic.WriteAll();
         AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
+    }
+
+    public void RemoveNotCompletedReservations()
+    {
+        List<ChairReservationModel> chairReservations = new List<ChairReservationModel>();
+        foreach (ChairReservationModel _reservation in _chairReservation)
+            if (_reservation.IsCompleted == true)
+                chairReservations.Add(_reservation);
+
+        _chairReservation = chairReservations;
     }
 }
