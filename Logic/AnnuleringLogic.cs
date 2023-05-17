@@ -49,14 +49,16 @@ class AnnuleringLogic
     /// <returns><see cref="bool"/></returns>
     public bool AnnuleringID(int id, string email)
     {
-        if (!_chairReservation.Any(item => item.ID == id))
+        int lengte = _annulering.Count();
+        if (!_chairReservation.Any(item => item.ReserveringsCode == id))
         {
-            Console.WriteLine("Dit ID bestaat niet.");
+            Console.WriteLine("Deze reserveringscode bestaat niet.");
             return false;
         }
         foreach (ChairReservationModel reservation in _chairReservation)
         {
-            if (reservation.ID == id)
+            // reserveringscode, emailadres en tijd moeten goed overeenkomen
+            if (reservation.ReserveringsCode == id && reservation.EmailAdress == email && DateTime.Now <= reservation.Time)
             {
                 AnnuleringModel ann = new AnnuleringModel(email, id, DateTime.Now);
                 bool containItem = _annulering.Any(item => item.ReservationID == ann.ReservationID);
@@ -68,6 +70,15 @@ class AnnuleringLogic
                 _annulering.Add(ann);
                 break;
             }
+        }
+
+        // Als er niet een nieuwe annulering is aangemaakt dan wordt er met false gereturned
+        if (lengte == _annulering.Count())
+        {
+            Console.WriteLine("\nDe combinatie van emailadres en reserveringscode kloppen niet.");
+            Console.WriteLine("Check of de reservering ook echt is gemaakt met de gegeven email.");
+            Console.WriteLine("Het kan ook zijn dat de film al is geweest. Deze reservering kan je natuurlijk niet annuleren.");
+            return false;
         }
         AnnuleringAccess.WriteAll(_annulering);
         return true;
