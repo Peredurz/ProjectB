@@ -12,8 +12,8 @@
     "auditorium_id": 2,
     "title": "The Matrix Reloaded",
     "description": "De laatste menselijke stad Zion is ontdekt door de machines die de mensheid in hun macht hebben. Morpheus is er echter van overtuigd dat Neo in staat is de Matrix te vernietigen, maar de herboren agent Smith denkt daar anders over.",
-    "time": "2023-03-24T12:00:00",
-    "duration": 132
+    "time": "2024-03-24T12:00:00",
+    "duration": 200
   },
   {
     "id": 3,
@@ -28,7 +28,7 @@
     "auditorium_id": 2,
     "title": "The Matrix Resurrections",
     "description": "Neo zit gevangen in de wereld van de Matrix, maar heeft dit niet door. Hij besluit een blauwe pil te nemen en naar de therapeut te gaan. Alles wordt anders als een man Neo verteld dat zijn realiteit nep is. Wat is zijn leven dan wel?",
-    "time": "2023-03-24T12:00:00",
+    "time": "2024-03-24T14:30:00",
     "duration": 142
   }
 ]
