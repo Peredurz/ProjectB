@@ -240,6 +240,9 @@ public class MovieAmendment : IPresentation
                 NewMovie();
                 break;
             case "o":
+                // De volgende twee regels zijn nodig om de films te laten zien. Maar dit laad ook de films opnieuw in.
+                // Waardoor het in PresentationLogic bij GetMovieByTitle een lijst heeft waar doorheen gezocht kan worden.
+                // Als dit wordt weggehaald werkt het niet meer.
                 string movieOuput = _movieLogic.ShowMovies();
                 Console.WriteLine(movieOuput);
                 CopyMovie();
