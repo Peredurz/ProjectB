@@ -108,7 +108,7 @@ public class MovieAmendment : IPresentation
         if (choice == "y")
         {
             bool loop = true;
-            do
+            while (loop)
             {
                 Console.WriteLine("Wat wilt u aanpassen aan de film?");
                 Console.WriteLine("A: AuditoriumID");
@@ -128,16 +128,15 @@ public class MovieAmendment : IPresentation
                         if (auditoriumID < 0)
                         {
                             Console.WriteLine("Verkeerde invoer");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         if (_movieLogic.StartTimeInterference(movie.Time, auditoriumID, movie) || _movieLogic.TimeInterference(movie.Duration, auditoriumID, movie))
                         {
                             Console.WriteLine("Deze tijd is al bezet.");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         movie.AuditoriumID = auditoriumID;
+                        Console.WriteLine("De nieuwe zaal ID van de film is: " + movie.AuditoriumID);
                         break;
                     case "b":
                         Console.WriteLine("Geef de nieuwe tijd van hoe lang de film duurt in minuten.");
@@ -146,16 +145,15 @@ public class MovieAmendment : IPresentation
                         if (duration < 0)
                         {
                             Console.WriteLine("Verkeerde invoer");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         if (_movieLogic.TimeInterference(duration, movie.AuditoriumID, movie))
                         {
                             Console.WriteLine("Deze eindtijd is al bezet door een andere film.");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         movie.Duration = duration;
+                        Console.WriteLine("De nieuwe duur van de film is: " + movie.Duration);
                         break;
                     case "c":
                         Console.WriteLine("Geef de nieuwe tijd en datum voor de nieuwe start van de film begint. (YYYY-MM-DDTHH:MM:SS 0000-00-00T00:00:00)");
@@ -164,16 +162,15 @@ public class MovieAmendment : IPresentation
                         if (time < DateTime.Now)
                         {
                             Console.WriteLine("Verkeerde invoer");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         if (_movieLogic.StartTimeInterference(time, movie.AuditoriumID, movie))
                         {
                             Console.WriteLine("Deze tijd is al bezet.");
-                            loop = false;
-                            MovieAmendment.Start();
+                            break;
                         }
                         movie.Time = time;
+                        Console.WriteLine("De nieuwe start tijd van de film is: " + movie.Time);
                         break;
                     case "d":
                         Console.WriteLine("Geef de nieuwe beschrijving van de film.");
@@ -188,16 +185,15 @@ public class MovieAmendment : IPresentation
                         movie.Title = title;
                         break;
                     case "e":
-                        MovieAmendment.Start();
-                        break;
+                        loop = false;
+                        continue;
                     default:
+                        loop = false;
                         Console.WriteLine("Verkeerde invoer.");
-                        MovieAmendment.Start();
-                        break;
+                        continue;
                 }
                 _movies[movie.ID - 1] = movie;
                 MovieAccess.WriteAll(_movies);
-                Console.WriteLine("De film is aangepast.");
                 Console.WriteLine("Wilt u nog andere dingen van de huidige gekozen film aanpassen? (Y/N)");
                 Console.Write("> ");
                 string inputUser2 = Console.ReadLine().ToLower();
@@ -208,14 +204,16 @@ public class MovieAmendment : IPresentation
                 else if (inputUser2 == "n")
                 {
                     loop = false;
-                    MovieAmendment.Start();
+                    continue;
                 }
                 else
                 {
+                    loop = false;
                     Console.WriteLine("Verkeerde invoer.");
-                    MovieAmendment.Start();
+                    continue;
                 }
-            } while (loop);
+            }
+            MovieAmendment.Start();
         }
         else if (choice == "n")
         {
@@ -233,8 +231,155 @@ public class MovieAmendment : IPresentation
         Console.WriteLine("Wilt u een nieuwe film toevoegen of een film dat al draait op een andere tijd/zaal overkopiëren? (N/O)");
         Console.WriteLine("N: Nieuwe film toevoegen");
         Console.WriteLine("O: Overkopiëren");
+        Console.WriteLine("B: Terug");
         Console.Write("> ");
         string inputUser = Console.ReadLine().ToLower();
+        switch (inputUser)
+        {
+            case "n":
+                NewMovie();
+                break;
+            case "o":
+                string movieOuput = _movieLogic.ShowMovies();
+                Console.WriteLine(movieOuput);
+                CopyMovie();
+                break;
+            case "b":
+                MovieAmendment.Start();
+                break;
+            default:
+                Console.WriteLine("Verkeerde invoer.");
+                MovieAmendment.Start();
+                break;
+        }
+    }
 
+    public static void CopyMovie()
+    {
+        Console.WriteLine("Geef de titel of het ID van de film die u wilt overkopiëren naar een nieuwe datum en tijd.");
+        string input = Console.ReadLine().ToLower();
+        MovieModel movie = MovieLogic.SearchMovie(input);
+        if (movie == null)
+        {
+            Console.WriteLine("Deze film bestaat niet.");
+            MovieAdd();
+        }
+        Console.WriteLine($"Wilt u de film {movie.Title} overkopiëren? (Y/N)");
+        Console.Write("> ");
+        string choice = Console.ReadLine().ToLower();
+        if (choice == "y")
+        {
+            Console.WriteLine("Geef de nieuwe datum en tijd voor de nieuwe start van de film begint. (YYYY-MM-DDTHH:MM:SS 0000-00-00T00:00:00)");
+            Console.Write("> ");
+            DateTime time = DateTime.TryParse(Console.ReadLine(), out time) ? time : DateTime.Now;
+            if (time < DateTime.Now)
+            {
+                Console.WriteLine("Verkeerde invoer");
+                MovieAmendment.Start();
+            }
+
+            Console.WriteLine("Geef het zaal ID waarin de film draait.");
+            Console.Write("> ");
+            int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
+            MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, movie.Title, movie.Description, time, movie.Duration);
+            if (_movieLogic.StartTimeInterference(time, auditoriumID, Movie) || _movieLogic.TimeInterference(movie.Duration, auditoriumID, Movie))
+            {
+                Console.WriteLine("Deze tijd is al bezet.");
+                MovieAmendment.Start();
+            }
+            if (auditoriumID == 0)
+            {
+                Console.WriteLine("Zaal bestaat niet.");
+                MovieAmendment.Start();
+            }
+
+            Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
+            Console.Write("> ");
+            string inputUser2 = Console.ReadLine().ToLower();
+            if (inputUser2 == "y")
+            {
+                _movies.Add(Movie);
+                MovieAccess.WriteAll(_movies);
+                Console.WriteLine("De film is toegevoegd.");
+                MovieAmendment.Start();
+            }
+            else if (inputUser2 == "n")
+            {
+                Console.WriteLine("De film is niet toegevoegd.");
+                MovieAmendment.Start();
+            }
+            else
+            {
+                Console.WriteLine("Verkeerde invoer.");
+                MovieAmendment.Start();
+            }
+        }
+        else if (choice == "n")
+        {
+            MovieAmendment.Start();
+        }
+    }
+
+    public static void NewMovie()
+    {
+        Console.WriteLine("Geef de titel van de film.");
+        Console.Write("> ");
+        string title = Console.ReadLine();
+
+        Console.WriteLine("Geef een beschrijving van de film.");
+        Console.Write("> ");
+        string description = Console.ReadLine();
+
+        // bool correct = false;
+        // DateTime dateTime;
+        // do
+        // {
+        //     Console.WriteLine("Geef de datum van de dag waarop deze film in de bioscoop gaat draaien in dit formaat: YYYY-MM-DD.");
+        //     Console.Write("> ");
+        //     string date = Console.ReadLine();
+        //     Console.WriteLine("Geef de tijd waarop de film draait in het volgende formaat: HH:MM:SS");
+        //     Console.Write("> ");
+        //     string time = Console.ReadLine();
+        //     string dateTimeString = $"{date}T{time}";
+        //     dateTime = DateTime.TryParse(dateTimeString, out dateTime) ? dateTime : DateTime.Now;
+        //     if (dateTime > DateTime.Now)
+        //     {
+        //         correct = true;
+        //     }
+        // } while (!correct);
+
+        int duration;
+        do
+        {
+            Console.WriteLine("Geef de duur van de film in minuten.");
+            Console.Write("> ");
+            duration = int.TryParse(Console.ReadLine(), out duration) ? duration : -1;
+        } while (duration <= 0);
+
+        Console.WriteLine("Geef het zaal ID waarin de film draait.");
+        Console.Write("> ");
+        int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
+        MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, title, description, new DateTime(1970, 1, 1), duration);
+        Console.WriteLine("De datum en tijd waarop de film draait moet u later nog zetten met de functie om een film aan te passen.");
+        Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
+        Console.Write("> ");
+        string inputUser = Console.ReadLine().ToLower();
+        if (inputUser == "y")
+        {
+            _movies.Add(Movie);
+            MovieAccess.WriteAll(_movies);
+            Console.WriteLine("De film is toegevoegd.");
+            MovieAmendment.Start();
+        }
+        else if (inputUser == "n")
+        {
+            Console.WriteLine("De film is niet toegevoegd.");
+            MovieAmendment.Start();
+        }
+        else
+        {
+            Console.WriteLine("Verkeerde invoer.");
+            MovieAmendment.Start();
+        }
     }
 }

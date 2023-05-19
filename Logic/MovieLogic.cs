@@ -148,7 +148,8 @@ public class MovieLogic
         {
             if (movie.AuditoriumID == auditoriumID && movie.ID != _movie.ID)
             {
-                if (movie.Time <= _movie.Time.AddMinutes(minutes))
+                DateTime endTime = _movie.Time.AddMinutes(minutes);
+                if (movie.Time <= endTime && movie.Time.Date == endTime.Date)
                 {
                     return true;
                 }
@@ -157,13 +158,14 @@ public class MovieLogic
         return false;
     }
 
+
     /// <summary>
     /// Deze method zoekt een film op basisi van de titel.
     /// En geeft dan een <see cref="MovieModel"/> terug.
     /// </summary>
     /// <param name="movie"></param>
     /// <returns><see cref="MovieModel"/></returns>
-    public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower());
+    public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower()) ?? null;
 
     public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
 
