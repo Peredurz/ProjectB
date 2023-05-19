@@ -96,6 +96,7 @@ public class MovieAmendment : IPresentation
     /// <returns><see cref="void"/></returns>
     public static void MovieAmendments(string input)
     {
+        PresentationLogic.CurrentPresentation = "editor_submenu";
         MovieModel movie = MovieLogic.SearchMovie(input);
         if (movie == null)
         {
@@ -110,14 +111,7 @@ public class MovieAmendment : IPresentation
             bool loop = true;
             while (loop)
             {
-                Console.WriteLine("Wat wilt u aanpassen aan de film?");
-                Console.WriteLine("A: AuditoriumID");
-                Console.WriteLine("B: tijd van hoe lang de fim duurt");
-                Console.WriteLine("C: tijd van wanneer de film begint");
-                Console.WriteLine("D: Beschrijving");
-                Console.WriteLine("T: Titel");
-                Console.WriteLine("E: Exit");
-                Console.Write("> ");
+                PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
                 string inputUser = Console.ReadLine().ToLower();
                 switch (inputUser)
                 {
@@ -229,10 +223,8 @@ public class MovieAmendment : IPresentation
     public static void MovieAdd()
     {
         Console.WriteLine("Wilt u een nieuwe film toevoegen of een film dat al draait op een andere tijd/zaal overkopiëren? (N/O)");
-        Console.WriteLine("N: Nieuwe film toevoegen");
-        Console.WriteLine("O: Overkopiëren");
-        Console.WriteLine("B: Terug");
-        Console.Write("> ");
+        PresentationLogic.CurrentPresentation = "editor_movieAdd";
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string inputUser = Console.ReadLine().ToLower();
         switch (inputUser)
         {

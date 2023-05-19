@@ -26,6 +26,14 @@ public class Menu : IPresentation
         new PresentationModel("I", "betalen met IDeal", _allClearance, "payment", true),
         new PresentationModel("P", "betalen met PayPal", _allClearance, "payment", true),
         new PresentationModel("C", "betalen met Creditcard", _allClearance, "payment", true),
+        new PresentationModel("A", "AuditoriumID", _managerClearance, "editor_submenu", true),
+        new PresentationModel("B", "Tijd van hoe lang de fim duurt", _managerClearance, "editor_submenu", true),
+        new PresentationModel("C", "Tijd van wanneer de film begint", _managerClearance, "editor_submenu", true),
+        new PresentationModel("D", "Beschrijving", _managerClearance, "editor_submenu", true),
+        new PresentationModel("T", "Titel", _managerClearance, "editor_submenu", true),
+        new PresentationModel("E", "Exit", _managerClearance, "editor_submenu", true),
+        new PresentationModel("O", "Overkopiëren", _managerClearance, "editor_movieAdd", true),
+        new PresentationModel("N", "Nieuwe film toevoegen", _managerClearance, "editor_movieAdd", true),
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 
