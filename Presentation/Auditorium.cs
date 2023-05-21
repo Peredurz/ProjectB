@@ -154,6 +154,7 @@ class Auditorium : IPresentation
         Console.WriteLine("Stoelkosten:");
         Console.WriteLine("Blauw: 5,-  | Oranje: 10,-");
         Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
-        Console.WriteLine("De stoelen waar X op staat is bezet.");
+        Console.WriteLine("De stoelen waar X op staat zijn bezet.");
+        Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
     }
 }

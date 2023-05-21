@@ -144,9 +144,11 @@ class AuditoriumLogic
                 // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
                 if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
                 {
+                    // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
+                    ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
                     // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
                     Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.Write("X ");
+                    Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
                     pos++;
                     // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
                     if (pos == length)
