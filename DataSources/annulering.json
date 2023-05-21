@@ -16,11 +16,5 @@
     "emailAddress": "douwezumker@gmail.com",
     "ReservationID": 1,
     "AnnuleringDatumTime": "2023-03-12T09:17:38.0648555+01:00"
-  },
-  {
-    "id": 3,
-    "emailAddress": "douwezumker@gmail.com",
-    "ReservationID": 83,
-    "AnnuleringDatumTime": "2023-05-12T10:20:27.9644674+02:00"
   }
 ]
