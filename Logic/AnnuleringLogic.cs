@@ -58,7 +58,7 @@ class AnnuleringLogic
         foreach (ChairReservationModel reservation in _chairReservation)
         {
             // reserveringscode, emailadres en tijd moeten goed overeenkomen
-            if (reservation.ReserveringsCode == id && reservation.EmailAdress == email && DateTime.Now <= reservation.Time)
+            if (reservation.ReserveringsCode == id && reservation.EmailAdress == email)
             {
                 AnnuleringModel ann = new AnnuleringModel(email, id, DateTime.Now);
                 bool containItem = _annulering.Any(item => item.ReservationID == ann.ReservationID);
@@ -93,17 +93,41 @@ class AnnuleringLogic
     // optie om alle annuleringen te zien
     public void ShowAnnulering()
     {
-        foreach(AnnuleringModel annulering in _annulering)
+        foreach (AnnuleringModel annulering in _annulering)
         {
-            Console.WriteLine($"ID: {annulering.ID}\nEmailAddress: {annulering.EmailAddress}\nReservationID: {annulering.ReservationID}\nAnnuleringDatum: {annulering.AnnuleringDatum}");
-        Console.WriteLine();
+            ConsoleColor color = Console.ForegroundColor;
+            ChairReservationModel? reservation = _chairReservation.Find(item => item.ReserveringsCode == annulering.ReservationID);
+            if (reservation == null)
+            {
+                continue;
+            }
+            if (annulering.AnnuleringDatum > reservation.Time)
+            {
+
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            Console.WriteLine($"ID: {annulering.ID}\nEmailAddress: {annulering.EmailAddress}\nReservationID: {annulering.ReservationID}\nAnnuleringDatum: {annulering.AnnuleringDatum}\nFilmdatum: {reservation.Time}\n");
+            Console.WriteLine();
         }
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("Rood: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("nadat de film was gespeeld geannuleerd.");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write("Groen: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("voordat de film was gespeeld geannuleerd.\n");
     }
 
     //controleerd of annuleringen bestaat 
     public AnnuleringModel GetAnnulering(int id)
     {
-        foreach(AnnuleringModel annulering in _annulering)
+        foreach (AnnuleringModel annulering in _annulering)
         {
             if (annulering.ID == id)
             {
@@ -117,12 +141,12 @@ class AnnuleringLogic
     //annuleringen accepteren
     public bool AnnuleringAccept(int id)
     {
-        while(true)
+        while (true)
         {
             Console.WriteLine("Wilt u de anunulering accepteren of weigeren. A/W ");
             Console.Write(">");
             string answerUser = Console.ReadLine().ToUpper();
-            foreach(AnnuleringModel annulering in _annulering)
+            foreach (AnnuleringModel annulering in _annulering)
             {
                 switch (answerUser)
                 {
@@ -141,14 +165,14 @@ class AnnuleringLogic
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geweigerd.\n");
                             AnnuleringAccess.WriteAll(_annulering);
-                            return false;   
+                            return false;
                         }
                         break;
-                    
+
                     default:
                         break;
                 }
             }
-        }   
+        }
     }
 }
