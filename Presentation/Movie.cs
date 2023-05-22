@@ -11,7 +11,7 @@ class Movie : IPresentation
 
         string movieOuput = Movie._movieLogic.ShowMovies();
         Console.WriteLine(movieOuput);
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string userOption = Console.ReadLine();
         if (int.TryParse(userOption, out _) == true)
         {

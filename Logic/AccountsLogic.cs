@@ -11,6 +11,7 @@ class AccountsLogic
     private List<AccountModel> _accounts;
 
     public static AccountModel? CurrentAccount { get; set; } = null;
+    public static List<PresentationModel> UserPresentationModels = new List<PresentationModel>();
     public static double TotaalPrijs = 0;
     public static int CurrentReservationCode = MailLogic.GenerateCode();
 

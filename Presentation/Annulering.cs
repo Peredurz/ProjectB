@@ -4,8 +4,9 @@ class Annulering : IPresentation
 
     public static void Start()
     {
+        
         PresentationLogic.CurrentPresentation = "annulering";
-        PresentationLogic.WriteMenu(Menu.presentationModels, true);
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
 
         string input = Console.ReadLine().ToLower();
         switch (input)
@@ -14,10 +15,13 @@ class Annulering : IPresentation
                 Console.WriteLine("Email");
                 Console.Write("> ");
                 string email = Console.ReadLine().ToLower();
-                displayAnnuleringen(email);
+                AnnuleringCode(email);
                 break;
             case "b":
                 Menu.Start();
+                break;
+            case "o":
+                AnnuleringAccepted();
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
@@ -26,38 +30,16 @@ class Annulering : IPresentation
         }
     }
 
-    public static void displayAnnuleringen(string email)
+    public static void AnnuleringCode(string email)
     {
         List<ChairReservationModel> annulering = annuleringLogic.Annuleringen(email);
         List<MovieModel> movies = annuleringLogic.Movie();
-        List<string> moviesList = new List<string>();
-
-        foreach (ChairReservationModel reservation in annulering)
-        {
-            if (reservation.EmailAdress.ToLower() == email)
-            {
-                foreach (MovieModel movie in movies)
-                {
-                    if (movie.AuditoriumID == reservation.AuditoriumID + 1 && movie.Time == reservation.Time && movie.Time > DateTime.Now)
-                    {
-                        moviesList.Add($"\nID: {reservation.ID}\nFilm: {movie.Title}\nDatum en tijd: {reservation.Time}\nStoel: {reservation.ChairID}\n");
-                    }
-                }
-            }
-        }
-        if (moviesList.Count == 0)
-        {
-            Console.WriteLine("U heeft geen geboekte films.\n");
-            return;
-        }
+        Console.WriteLine("Geef de reserveringscode van de tickets die u wilt annuleren.");
+        Console.Write("> ");
 
         bool isValid = false;
         do
         {
-            Console.WriteLine("Dit zijn alle geboekte films: ");
-            Console.WriteLine(string.Join("", moviesList));
-            Console.WriteLine("Welke film wilt u annuleren? (ID)");
-            Console.Write("> ");
             int id = Int32.TryParse(Console.ReadLine(), out id) ? id : -1;
             if (id < 0)
             {
@@ -70,11 +52,21 @@ class Annulering : IPresentation
                 isValid = true;
             }
         }
-        while (isValid == false);
+        while (!isValid);
 
-        if (isValid == true)
+        if (isValid)
         {
             Menu.Start();
         }
+    }
+    public static void AnnuleringAccepted()
+    {
+        annuleringLogic.ShowAnnulering();
+        System.Console.WriteLine("Kies de ID die je wilt Gebruiken.");
+        Console.Write(">");
+        int idUser = Convert.ToInt32(Console.ReadLine());
+        AnnuleringModel annuleringsModel = annuleringLogic.GetAnnulering(idUser);
+        bool acceptedAnnulering = annuleringLogic.AnnuleringAccept(idUser);
+        Menu.Start();
     }
 }

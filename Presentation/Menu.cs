@@ -13,20 +13,34 @@ public class Menu : IPresentation
         new PresentationModel("I", "Info", _allClearance, "menu"),
         new PresentationModel("M", "Films", _allClearance, "menu"),
         new PresentationModel("R", "Annulering", _allClearance, "menu"),
+        new PresentationModel("A", "Film Toevoegen of aanpassen", _managerClearance, "menu"),
         new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
         new PresentationModel("L", "Login", _allClearance, "login", true),
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
         new PresentationModel("A", "Film Toevoegen (Nog niet te gebruiken)", _managerClearance, "menu"),
         new PresentationModel("R", "Anuleringen (Nog niet te gebruiken)", _nonCustomerClearance, "menu"),
         new PresentationModel("F", "Toekomstige Films", _allClearance, "movies", true),
+        new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
+        new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
+        new PresentationModel("R", "Anuleringen", _nonCustomerClearance, "menu"),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
         new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
         new PresentationModel("R", "Annulering", _allClearance, "annulering", true),
+        new PresentationModel("O", "Overzicht", _nonCustomerClearance, "annulering", true),
         new PresentationModel("I", "betalen met IDeal", _allClearance, "payment", true),
         new PresentationModel("P", "betalen met PayPal", _allClearance, "payment", true),
         new PresentationModel("C", "betalen met Creditcard", _allClearance, "payment", true),
+        new PresentationModel("A", "AuditoriumID", _managerClearance, "editor_submenu", true),
+        new PresentationModel("B", "Tijd van hoe lang de fim duurt", _managerClearance, "editor_submenu", true),
+        new PresentationModel("C", "Tijd van wanneer de film begint", _managerClearance, "editor_submenu", true),
+        new PresentationModel("D", "Beschrijving", _managerClearance, "editor_submenu", true),
+        new PresentationModel("T", "Titel", _managerClearance, "editor_submenu", true),
+        new PresentationModel("E", "Exit", _managerClearance, "editor_submenu", true),
+        new PresentationModel("O", "Overkopiëren", _managerClearance, "editor_movieAdd", true),
+        new PresentationModel("N", "Nieuwe film toevoegen", _managerClearance, "editor_movieAdd", true),
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
+
 
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
@@ -44,13 +58,15 @@ public class Menu : IPresentation
 
         if (AccountsLogic.CurrentAccount != null)
         {
+            AccountsLogic.UserPresentationModels = PresentationLogic.GetUserOptions(AccountsLogic.CurrentAccount.UserType);
             // als een gebruiker is ingelogd kunnen de opties aangepast worden op basis van de type gebruiker
-            PresentationLogic.WriteMenu(PresentationLogic.GetUserOptions(AccountsLogic.CurrentAccount.UserType), false);
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
         else
         {
+            AccountsLogic.UserPresentationModels = PresentationLogic.GetUserOptions("Customer");
             // de basis menu opties zijn die van een customer.
-            PresentationLogic.WriteMenu(PresentationLogic.GetUserOptions("Customer"), false);
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
 
         string inputUser = Console.ReadLine().ToUpper();
@@ -77,6 +93,10 @@ public class Menu : IPresentation
         else if (inputUser == "R")
         {
             Annulering.Start();
+        }
+        else if (inputUser == "A")
+        {
+            MovieAmendment.Start();
         }
         else if (inputUser == "Q")
         {

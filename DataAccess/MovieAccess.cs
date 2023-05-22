@@ -11,4 +11,10 @@ static class MovieAccess
         return movieList;
     }
 
+    public static void WriteAll(List<MovieModel> movies)
+    {
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(movies, options);
+        File.WriteAllText(path, json);
+    }
 }

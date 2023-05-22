@@ -1,325 +1,5 @@
 [
   {
-    "id": 1,
-    "emailAdress": "",
-    "chairId": 796,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 2,
-    "emailAdress": "",
-    "chairId": 62,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 3,
-    "emailAdress": "",
-    "chairId": 754,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 4,
-    "emailAdress": "",
-    "chairId": 649,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 5,
-    "emailAdress": "",
-    "chairId": 28,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 6,
-    "emailAdress": "",
-    "chairId": 1096,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 7,
-    "emailAdress": "",
-    "chairId": 639,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 8,
-    "emailAdress": "",
-    "chairId": 244,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 9,
-    "emailAdress": "",
-    "chairId": 638,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 10,
-    "emailAdress": "",
-    "chairId": 788,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 11,
-    "emailAdress": "",
-    "chairId": 768,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 12,
-    "emailAdress": "",
-    "chairId": 91,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 13,
-    "emailAdress": "",
-    "chairId": 340,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 14,
-    "emailAdress": "",
-    "chairId": 798,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 15,
-    "emailAdress": "douwezumker@gmail.com",
-    "chairId": 207,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 15,
-    "emailAdress": "",
-    "chairId": 797,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 16,
-    "emailAdress": "",
-    "chairId": 795,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 35,
-    "emailAdress": "",
-    "chairId": 1098,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 54,
-    "emailAdress": "",
-    "chairId": 842,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 39,
-    "emailAdress": "",
-    "chairId": 38,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 41,
-    "emailAdress": "",
-    "chairId": 4,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 43,
-    "emailAdress": "",
-    "chairId": 5,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 0
-  },
-  {
-    "id": 111,
-    "emailAdress": "",
-    "chairId": 3,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 0,
-    "reserveringsCode": 41229495
-  },
-  {
-    "id": 47,
-    "emailAdress": "",
-    "chairId": 86,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1719702546
-  },
-  {
-    "id": 49,
-    "emailAdress": "",
-    "chairId": 64,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 236165790
-  },
-  {
-    "id": 51,
-    "emailAdress": "",
-    "chairId": 102,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 570940498
-  },
-  {
-    "id": 53,
-    "emailAdress": "",
-    "chairId": 54,
-    "movieId": 0,
-    "auditoriumId": 0,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 18.990000000000002,
-    "reserveringsCode": 1293690675
-  },
-  {
-    "id": 55,
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 732,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 40.980000000000004,
-    "reserveringsCode": 891453264
-  },
-  {
-    "id": 83,
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 265,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 32.99,
-    "reserveringsCode": 891453264
-  },
-  {
-    "id": 59,
-    "emailAdress": "",
-    "chairId": 498,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 12.99,
-    "reserveringsCode": 148572326
-  },
-  {
-    "id": 61,
-    "emailAdress": "",
-    "chairId": 325,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 1773591102
-  },
-  {
-    "id": 155,
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 645,
-    "movieId": 0,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 37.980000000000004,
-    "reserveringsCode": 733726993
-  },
-  {
     "id": 65,
     "emailAdress": "gilkranendonk@gmail.com",
     "chairId": 342,
@@ -327,86 +7,40 @@
     "auditoriumId": 1,
     "time": "2023-03-24T12:00:00",
     "totaalPrijs": 15,
-    "reserveringsCode": 1571082391
+    "reserveringsCode": 1571082391,
+    "isCompleted": true
   },
   {
-    "id": 67,
-    "emailAdress": "",
-    "chairId": 338,
-    "movieId": 0,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 541912557
-  },
-  {
-    "id": 69,
-    "emailAdress": "",
-    "chairId": 765,
-    "movieId": 3,
-    "auditoriumId": 2,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 20.990000000000002,
-    "reserveringsCode": 34032151
-  },
-  {
-    "id": 71,
-    "emailAdress": "",
-    "chairId": 216,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 962176999
-  },
-  {
-    "id": 73,
-    "emailAdress": "",
-    "chairId": 333,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 1228862347
-  },
-  {
-    "id": 75,
-    "emailAdress": "",
-    "chairId": 189,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
+    "id": 83,
+    "emailAdress": "douwezumker@gmail.com",
+    "chairId": 6,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
     "totaalPrijs": 5,
-    "reserveringsCode": 943962719
+    "reserveringsCode": 2119903154,
+    "isCompleted": true
   },
   {
-    "id": 115,
+    "id": 130,
     "emailAdress": "",
-    "chairId": 198,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 20,
-    "reserveringsCode": 330840440
+    "chairId": 126,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 22,
+    "reserveringsCode": 1859649520,
+    "isCompleted": true
   },
   {
-    "id": 118,
+    "id": 7,
     "emailAdress": "",
-    "chairId": 261,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 521277693
-  },
-  {
-    "id": 81,
-    "emailAdress": "",
-    "chairId": 268,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 1367096076
+    "chairId": 114,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 1217964388,
+    "isCompleted": false
   }
 ]

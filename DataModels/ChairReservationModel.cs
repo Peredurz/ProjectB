@@ -27,7 +27,17 @@ public class ChairReservationModel
     [JsonPropertyName("reserveringsCode")]
     public int ReserveringsCode { get; set; }
 
-    public ChairReservationModel(string emailAdress, int chairId, int movieId ,int auditoriumId, DateTime time, double totaalPrijs, int reserveringsCode)
+    [JsonPropertyName("isCompleted")]
+    public bool IsCompleted { get; set; }
+
+    public ChairReservationModel(string emailAdress,
+                                 int chairId,
+                                 int movieId,
+                                 int auditoriumId,
+                                 DateTime time,
+                                 double totaalPrijs,
+                                 int reserveringsCode,
+                                 bool isCompleted = false)
     {
         ID = ++_idCounter;
         EmailAdress = emailAdress;
@@ -37,5 +47,6 @@ public class ChairReservationModel
         Time = time;
         TotaalPrijs = totaalPrijs;
         ReserveringsCode = reserveringsCode;
+        IsCompleted = isCompleted;
     }
 }
