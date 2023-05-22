@@ -46,20 +46,14 @@ public class MovieLogic
     public string ShowMovies()
     {
         string output = "";
-        DateTime futureDate = new DateTime(1970,1,1);
+        DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
             if (movie.Time != futureDate)
             {
                 foreach (var prop in movie.GetType().GetProperties())
                 {
-                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
-                }
-                if (prop.Name == "Description")
-                {
-                    int RULE_LENGTH = 45;
-                    string Description = prop.GetValue(movie).ToString();
-                    if (Description.Length > RULE_LENGTH)
+                    if (prop.Name == "AuditoriumID")
                     {
                         output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
@@ -89,18 +83,18 @@ public class MovieLogic
                     {
                         output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
-                    
+
                 }
-                output += Environment.NewLine;
             }
+            output += Environment.NewLine;
         }
         return output;
     }
-
+    
     public string ShowFutureMovies()
     {
         string output = "";
-        DateTime futureDate = new DateTime(1970,1,1);
+        DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
             if (movie.Time == futureDate)
@@ -141,7 +135,9 @@ public class MovieLogic
                     {
                         output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
+
                 }
+                output += Environment.NewLine;
             }
         }
         return output;

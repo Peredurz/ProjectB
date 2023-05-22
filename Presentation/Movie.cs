@@ -19,6 +19,7 @@ class Movie : IPresentation
         }
         else if (userOption.ToLower() == "f")
         {
+            PresentationLogic.CurrentPresentation = "moviesFuture";
             string futureMovieOutput = _movieLogic.ShowFutureMovies();
             Console.WriteLine();
             Console.WriteLine(futureMovieOutput);
