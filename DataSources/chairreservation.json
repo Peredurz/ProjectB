@@ -31,5 +31,16 @@
     "totaalPrijs": 22,
     "reserveringsCode": 1859649520,
     "isCompleted": true
+  },
+  {
+    "id": 7,
+    "emailAdress": "",
+    "chairId": 114,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 1217964388,
+    "isCompleted": false
   }
 ]
