@@ -46,11 +46,12 @@ public class MovieLogic
     public string ShowMovies()
     {
         string output = "";
+        DateTime futureDate = new DateTime(1970,1,1);
         foreach (MovieModel movie in _movies)
         {
-            foreach (var prop in movie.GetType().GetProperties())
+            if (movie.Time != futureDate)
             {
-                if (prop.Name == "AuditoriumID")
+                foreach (var prop in movie.GetType().GetProperties())
                 {
                         output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                 }
@@ -60,29 +61,88 @@ public class MovieLogic
                     string Description = prop.GetValue(movie).ToString();
                     if (Description.Length > RULE_LENGTH)
                     {
-                        string[] DescriptionArray = Description.Split(' ');
-                        string DescriptionOutput = "";
-                        int DescriptionLength = 0;
-                        foreach (string word in DescriptionArray)
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                    else if (prop.Name == "Description")
+                    {
+                        int RULE_LENGTH = 45;
+                        string Description = prop.GetValue(movie).ToString();
+                        if (Description.Length > RULE_LENGTH)
                         {
-                            DescriptionLength += word.Length;
-                            if (DescriptionLength > RULE_LENGTH)
+                            string[] DescriptionArray = Description.Split(' ');
+                            string DescriptionOutput = "";
+                            int DescriptionLength = 0;
+                            foreach (string word in DescriptionArray)
                             {
-                                DescriptionOutput += Environment.NewLine;
-                                DescriptionLength = 0;
+                                DescriptionLength += word.Length;
+                                if (DescriptionLength > RULE_LENGTH)
+                                {
+                                    DescriptionOutput += Environment.NewLine;
+                                    DescriptionLength = 0;
+                                }
+                                DescriptionOutput += word + " ";
                             }
-                            DescriptionOutput += word + " ";
+                            output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
                         }
-                        output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
+                    }
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                    
+                }
+                output += Environment.NewLine;
+            }
+        }
+        return output;
+    }
+
+    public string ShowFutureMovies()
+    {
+        string output = "";
+        DateTime futureDate = new DateTime(1970,1,1);
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.Time == futureDate)
+            {
+                foreach (var prop in movie.GetType().GetProperties())
+                {
+                    if (prop.Name == "AuditoriumID")
+                    {
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                    else if (prop.Name == "Description")
+                    {
+                        int RULE_LENGTH = 45;
+                        string Description = prop.GetValue(movie).ToString();
+                        if (Description.Length > RULE_LENGTH)
+                        {
+                            string[] DescriptionArray = Description.Split(' ');
+                            string DescriptionOutput = "";
+                            int DescriptionLength = 0;
+                            foreach (string word in DescriptionArray)
+                            {
+                                DescriptionLength += word.Length;
+                                if (DescriptionLength > RULE_LENGTH)
+                                {
+                                    DescriptionOutput += Environment.NewLine;
+                                    DescriptionLength = 0;
+                                }
+                                DescriptionOutput += word + " ";
+                            }
+                            output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
+                        }
+                    }
+                    else if (prop.Name == "Time")
+                    {
+                        output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
+                    }
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
                 }
-                else
-                {
-                    output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
-                }
-
             }
-            output += Environment.NewLine;
         }
         return output;
     }
