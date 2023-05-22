@@ -35,6 +35,7 @@ public class Menu : IPresentation
         new PresentationModel("E", "Exit", _managerClearance, "editor_submenu", true),
         new PresentationModel("O", "Overkopiëren", _managerClearance, "editor_movieAdd", true),
         new PresentationModel("N", "Nieuwe film toevoegen", _managerClearance, "editor_movieAdd", true),
+        new PresentationModel("C", "Verder", _allClearance, "movie_submenu", true),
         new PresentationModel("B", "Terug", _allClearance, "all", true),
     };
 

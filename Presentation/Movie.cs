@@ -30,17 +30,33 @@ class Movie : IPresentation
 
     public static void ChooseMovie(int userMovieID)
     {
+        PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
         {
             Movie.AuditoriumID = auditoriumID;
             Movie.MovieID = userMovieID;
-            Auditorium.Start();
+            Console.WriteLine(Movie._movieLogic.ShowMovieDetails(userMovieID));
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+            string userInput = Console.ReadLine().ToLower();
+            if (userInput == "b")
+            {
+                Movie.Start();
+            }
+            else if (userInput == "c")
+            {
+                Auditorium.Start();
+            }
+            else
+            {
+                Console.WriteLine("Geen correcte invoer");
+                Movie.Start();
+            }
         }
         else
         {
             Console.WriteLine("De film met dit ID bestaat niet");
-            return;
+            Movie.Start();
         }
     }
 }
