@@ -67,7 +67,6 @@ public class MovieLogic
                     }
     
                 }
-                output += Environment.NewLine;
             }
             output += Environment.NewLine;
         }
@@ -96,6 +95,7 @@ public class MovieLogic
                     {
                         output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
+
                 }
                 output += Environment.NewLine;
             }
