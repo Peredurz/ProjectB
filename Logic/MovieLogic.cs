@@ -54,38 +54,15 @@ public class MovieLogic
                 {
                     output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                 }
-                if (prop.Name == "Description")
-                {
-                    int RULE_LENGTH = 45;
-                    string Description = prop.GetValue(movie).ToString();
-                    if (Description.Length > RULE_LENGTH)
-                    {
-                        string[] DescriptionArray = Description.Split(' ');
-                        string DescriptionOutput = "";
-                        int DescriptionLength = 0;
-                        foreach (string word in DescriptionArray)
-                        {
-                            DescriptionLength += word.Length;
-                            if (DescriptionLength > RULE_LENGTH)
-                            {
-                                DescriptionOutput += Environment.NewLine;
-                                DescriptionLength = 0;
-                            }
-                            DescriptionOutput += word + " ";
-                        }
-                        output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
-                    }
-                }
-                else
-                {
-                    output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
-                }
+                if (prop.Name == "Description" || prop.Name == "AuditoriumID")
+                   continue; 
+                output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
 
             }
             output += Environment.NewLine;
         }
         return output;
-    }
+    }     
 
     /// <summary>
     /// Deze method zoekt een film op basis van de titel of de ID.
@@ -174,4 +151,46 @@ public class MovieLogic
     /// </summary>
     /// <returns>List<see cref="MovieModel"/></returns>
     public static List<MovieModel> GetMovies() => _movies;
+
+    public string ShowMovieDetails(int movieID)
+    {
+        MovieModel movie = MovieLogic.GetMovie(movieID);
+        string output = "";
+        foreach (var prop in movie.GetType().GetProperties())
+        {
+            if (prop.Name == "AuditoriumID")
+            {
+                output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+            }
+            if (prop.Name == "Description")
+            {
+                int RULE_LENGTH = 45;
+                string Description = prop.GetValue(movie).ToString();
+                if (Description.Length > RULE_LENGTH)
+                {
+                    string[] DescriptionArray = Description.Split(' ');
+                    string DescriptionOutput = "";
+                    int DescriptionLength = 0;
+                    foreach (string word in DescriptionArray)
+                    {
+                        DescriptionLength += word.Length;
+                        if (DescriptionLength > RULE_LENGTH)
+                        {
+                            DescriptionOutput += Environment.NewLine;
+                            DescriptionLength = 0;
+                        }
+                        DescriptionOutput += word + " ";
+                    }
+                    output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
+                }
+            }
+            else
+            {
+                output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+            }
+
+        }
+        output += Environment.NewLine;
+        return output;
+    }
 }
