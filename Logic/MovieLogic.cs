@@ -46,7 +46,7 @@ public class MovieLogic
     public string ShowMovies()
     {
         string output = "";
-        DateTime futureDate = new DateTime(1970,1,1);
+        DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
             if (movie.Time != futureDate)
@@ -61,18 +61,23 @@ public class MovieLogic
                     {
                         continue;
                     }
-                output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+    
+                }
+                output += Environment.NewLine;
             }
             output += Environment.NewLine;
-            }
         }
         return output;
-    }  
-
+    }
+    
     public string ShowFutureMovies()
     {
         string output = "";
-        DateTime futureDate = new DateTime(1970,1,1);
+        DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
             if (movie.Time != futureDate)
@@ -87,9 +92,12 @@ public class MovieLogic
                     {
                         continue;
                     }
-                output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
-            }
-            output += Environment.NewLine;
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                }
+                output += Environment.NewLine;
             }
         }
         return output;
