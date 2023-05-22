@@ -52,7 +52,7 @@ public class MovieLogic
             {
                 if (prop.Name == "AuditoriumID")
                 {
-                    output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                 }
                 if (prop.Name == "Description" || prop.Name == "AuditoriumID")
                    continue; 
