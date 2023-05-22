@@ -77,6 +77,8 @@ Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend
           builder.Attachments.Add(Path.Combine("DataDocs/ParkeerKaart", "ticket.png"));
         }
 
+        email.Body = builder.ToMessageBody();
+
       using (var smtp = new SmtpClient())
       {
         smtp.Connect("smtp.gmail.com", 587, false);
