@@ -85,6 +85,7 @@ class ChairReservationLogic
         var chairReservationModel = chairReservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
         chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
         chairReservationModel.Item1.IsCompleted = true;
+        chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
         int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
         chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
         chairReservationLogic.RemoveNotCompletedReservations();
