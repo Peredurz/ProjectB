@@ -55,7 +55,7 @@ public class MovieLogic
                 {
                     if (prop.Name == "AuditoriumID")
                     {
-                            output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
                     if (prop.Name == "Description" || prop.Name == "AuditoriumID")
                     {
@@ -65,7 +65,7 @@ public class MovieLogic
                     {
                         output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
-    
+
                 }
             }
             output += Environment.NewLine;
@@ -79,18 +79,15 @@ public class MovieLogic
         DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
-            if (movie.Time != futureDate)
+            if (movie.Time == futureDate)
             {
                 foreach (var prop in movie.GetType().GetProperties())
                 {
                     if (prop.Name == "Description" || prop.Name == "AuditoriumID")
                     {
-                            output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                        continue;   
                     }
-                    else if (prop.Name == "Description" || prop.Name == "AuditoriumID")
-                    {
-                        continue;
-                    }
+                    
                     else if (prop.Name == "Time")
                     {
                         output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
