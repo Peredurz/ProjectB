@@ -57,7 +57,7 @@ public class MovieLogic
                     {
                         output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
-                    if (prop.Name == "Description" || prop.Name == "AuditoriumID")
+                    else if (prop.Name == "Description")
                     {
                         continue;   
                     }
@@ -83,11 +83,14 @@ public class MovieLogic
             {
                 foreach (var prop in movie.GetType().GetProperties())
                 {
-                    if (prop.Name == "Description" || prop.Name == "AuditoriumID")
+                    if (prop.Name == "Description")
                     {
                         continue;   
                     }
-                    
+                    else if (prop.Name == "AuditoriumID")
+                    {
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
                     else if (prop.Name == "Time")
                     {
                         output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
