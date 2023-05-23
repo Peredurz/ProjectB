@@ -57,27 +57,9 @@ public class MovieLogic
                     {
                         output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
                     }
-                    else if (prop.Name == "Description")
+                    if (prop.Name == "Description" || prop.Name == "AuditoriumID")
                     {
-                        int RULE_LENGTH = 45;
-                        string Description = prop.GetValue(movie).ToString();
-                        if (Description.Length > RULE_LENGTH)
-                        {
-                            string[] DescriptionArray = Description.Split(' ');
-                            string DescriptionOutput = "";
-                            int DescriptionLength = 0;
-                            foreach (string word in DescriptionArray)
-                            {
-                                DescriptionLength += word.Length;
-                                if (DescriptionLength > RULE_LENGTH)
-                                {
-                                    DescriptionOutput += Environment.NewLine;
-                                    DescriptionLength = 0;
-                                }
-                                DescriptionOutput += word + " ";
-                            }
-                            output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
-                        }
+                        continue;   
                     }
                     else
                     {
@@ -101,32 +83,11 @@ public class MovieLogic
             {
                 foreach (var prop in movie.GetType().GetProperties())
                 {
-                    if (prop.Name == "AuditoriumID")
+                    if (prop.Name == "Description" || prop.Name == "AuditoriumID")
                     {
-                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                        continue;   
                     }
-                    else if (prop.Name == "Description")
-                    {
-                        int RULE_LENGTH = 45;
-                        string Description = prop.GetValue(movie).ToString();
-                        if (Description.Length > RULE_LENGTH)
-                        {
-                            string[] DescriptionArray = Description.Split(' ');
-                            string DescriptionOutput = "";
-                            int DescriptionLength = 0;
-                            foreach (string word in DescriptionArray)
-                            {
-                                DescriptionLength += word.Length;
-                                if (DescriptionLength > RULE_LENGTH)
-                                {
-                                    DescriptionOutput += Environment.NewLine;
-                                    DescriptionLength = 0;
-                                }
-                                DescriptionOutput += word + " ";
-                            }
-                            output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
-                        }
-                    }
+                    
                     else if (prop.Name == "Time")
                     {
                         output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
