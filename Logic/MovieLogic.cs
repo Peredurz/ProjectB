@@ -46,23 +46,66 @@ public class MovieLogic
     public string ShowMovies()
     {
         string output = "";
+        DateTime futureDate = new DateTime(1970, 1, 1);
         foreach (MovieModel movie in _movies)
         {
-            foreach (var prop in movie.GetType().GetProperties())
+            if (movie.Time != futureDate)
             {
-                if (prop.Name == "AuditoriumID")
+                foreach (var prop in movie.GetType().GetProperties())
                 {
-                    output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
-                }
-                if (prop.Name == "Description" || prop.Name == "AuditoriumID")
-                   continue; 
-                output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    if (prop.Name == "AuditoriumID")
+                    {
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                    else if (prop.Name == "Description")
+                    {
+                        continue;   
+                    }
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
 
+                }
             }
             output += Environment.NewLine;
         }
         return output;
-    }     
+    }
+    
+    public string ShowFutureMovies()
+    {
+        string output = "";
+        DateTime futureDate = new DateTime(1970, 1, 1);
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.Time == futureDate)
+            {
+                foreach (var prop in movie.GetType().GetProperties())
+                {
+                    if (prop.Name == "Description")
+                    {
+                        continue;   
+                    }
+                    else if (prop.Name == "AuditoriumID")
+                    {
+                        output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                    else if (prop.Name == "Time")
+                    {
+                        output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
+                    }
+                    else
+                    {
+                        output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+
+                }
+                output += Environment.NewLine;
+            }
+        }
+        return output;
+    }   
 
     /// <summary>
     /// Deze method zoekt een film op basis van de titel of de ID.
