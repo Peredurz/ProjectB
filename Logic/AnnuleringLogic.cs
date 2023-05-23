@@ -101,11 +101,17 @@ class AnnuleringLogic
             {
                 continue;
             }
-            if (annulering.AnnuleringDatum > reservation.Time)
+            // Half uur van te voren of later is rood
+            if (annulering.AnnuleringDatum > reservation.Time - TimeSpan.FromMinutes(30))
             {
-
                 Console.ForegroundColor = ConsoleColor.Red;
             }
+            // Tussen 30 minuten en 24 uur van te voren is geel
+            else if (annulering.AnnuleringDatum > reservation.Time - TimeSpan.FromMinutes(1440))
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+            }
+            // Anders is het groen
             else
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -118,10 +124,14 @@ class AnnuleringLogic
         Console.Write("Rood: ");
         Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("nadat de film was gespeeld geannuleerd.");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.Write("Geel: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("tussen 30 minuten en 24 uur voor de film was gespeeld geannuleerd.");
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write("Groen: ");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("voordat de film was gespeeld geannuleerd.\n");
+        Console.WriteLine("Meer dan 24 uur van te voren geannuleerd.\n");
     }
 
     //controleerd of annuleringen bestaat 
