@@ -3,6 +3,7 @@ using System;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using QRCoder;
 
 class MailLogic
 {
@@ -69,11 +70,13 @@ postcode:           3011 WN in Rotterdam.
 Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
                     De bioscoop sluit vijftien minuten na de laatste film
 ";
+
         if (parkingticket)
         {
           builder.TextBody += @$"Uw parkeerkaartje is bijgevoegd.";
           builder.Attachments.Add(Path.Combine("DataDocs/ParkeerKaart", "ticket.png"));
         }
+
         email.Body = builder.ToMessageBody();
 
       using (var smtp = new SmtpClient())
@@ -99,5 +102,15 @@ Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend
       {
         return false;
       }
+    }
+    
+    public static void GenerateQRCode()
+    {
+        string reservationCode = Convert.ToString(AccountsLogic.CurrentReservationCode);
+        QRCodeGenerator qrGenerator = new QRCodeGenerator();
+        QRCodeData qrCodeData = qrGenerator.CreateQrCode(reservationCode, QRCodeGenerator.ECCLevel.Q);
+        QRCode qrCode = new QRCode(qrCodeData);
+        System.Drawing.Bitmap qrCodeImage = qrCode.GetGraphic(20);
+        qrCodeImage.Save("qr-code.png", System.Drawing.Imaging.ImageFormat.Png);
     }
 }
