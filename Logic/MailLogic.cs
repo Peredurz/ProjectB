@@ -4,17 +4,19 @@ using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
 using QRCoder;
+using SkiaSharp.QrCode.Image;
 using MimeKit.Utils;
+using SkiaSharp;
 
 class MailLogic
 {
     private static string _name;
     private static string _emailAddress;
-    public static string EmailAddress 
-    { 
-        get { return _emailAddress; } 
-        set { _emailAddress = value; } 
-    } 
+    public static string EmailAddress
+    {
+        get { return _emailAddress; }
+        set { _emailAddress = value; }
+    }
     public static string Name
     {
         get { return _name; }
@@ -65,7 +67,7 @@ class MailLogic
         var qrImage = builder.LinkedResources.Add(pathQrCode);
 
         qrImage.ContentId = MimeUtils.GenerateMessageId();
-        
+
         builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
         <p>Bedankt voor uw reservering bij Bioscoop Naamloos. <br>
         Uw reserveringscode is de onderstaande QR-code. <br>
@@ -128,15 +130,9 @@ class MailLogic
     public static void GenerateQRCode()
     {
         string reservationCode = Convert.ToString(AccountsLogic.CurrentReservationCode);
-        QRCodeGenerator qrGenerator = new QRCodeGenerator();
-        QRCodeData qrCodeData = qrGenerator.CreateQrCode(reservationCode, QRCodeGenerator.ECCLevel.Q);
-        QRCode qrCode = new QRCode(qrCodeData);
-        System.Drawing.Bitmap qrCodeImage = qrCode.GetGraphic(20);
-        // save the image file to DataDocs/QrTicket/qr-code.png
-        using (System.IO.Stream stream = File.OpenWrite(Path.Combine("DataDocs/QrTicket", "qr-code.png")))
-        {
-            qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-        }
+        using var output = new FileStream(Path.Combine("DataDocs/QrTicket", "qr-code.png"), FileMode.Create);
+        var qrCode = new QrCode(reservationCode, new Vector2Slim(200, 200), SKEncodedImageFormat.Png);
+        qrCode.GenerateImage(output);
     }
 
     public static void SendCancelationMail(AnnuleringModel annulering,
