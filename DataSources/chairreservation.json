@@ -13,14 +13,26 @@
   },
   {
     "id": 4,
-    "name": "Thom Veldhuis",
-    "emailAdress": "thomveldhuis03@gmail.com",
+    "name": "douwe zumker",
+    "emailAdress": "douwezumker@gmail.com",
     "chairId": 115,
     "movieId": 1,
     "auditoriumId": 0,
     "time": "2024-03-24T12:00:00",
     "totaalPrijs": 20,
     "reserveringsCode": 2004036434,
+    "isCompleted": true
+  },
+  {
+    "id": 7,
+    "name": "Douwe Zumker",
+    "emailAdress": "douwezumker@gmail.com",
+    "chairId": 28,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 1554387023,
     "isCompleted": true
   }
 ]
