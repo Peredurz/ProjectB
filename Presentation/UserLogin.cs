@@ -6,7 +6,7 @@ public class UserLogin : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "login";
-        
+
         bool loop = true;
         while (loop)
         {
@@ -18,11 +18,11 @@ public class UserLogin : IPresentation
                     Console.WriteLine("Voer uw e-mail in");
                     Console.Write("> ");
                     string email = Console.ReadLine();
-                    
+
                     Console.WriteLine("Voer uw wachtwoord in");
                     Console.Write("> ");
                     string password = Console.ReadLine();
-                    
+
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
                     {
@@ -40,12 +40,24 @@ public class UserLogin : IPresentation
                     Console.WriteLine("Voor-en achternaam");
                     Console.Write("> ");
                     string fullName = Console.ReadLine();
-                    
+
                     Console.WriteLine("Email");
-                    Console.Write("> ");
-                    string emailAddress = Console.ReadLine();
-                    
-                    
+                    bool loop2 = true;
+                    string emailAddress = "";
+                    while (loop2)
+                    {
+                        Console.Write("> ");
+                        emailAddress = Console.ReadLine();
+                        if (!MailLogic.ValidateMailAddress(emailAddress))
+                        {
+                            Console.WriteLine("Email is niet geldig");
+                            continue;
+                        }
+                        else
+                        {
+                            loop2 = false;
+                        }
+                    }
                     Console.WriteLine("Wachtwoord");
                     Console.Write("> ");
                     string _password = Console.ReadLine();
