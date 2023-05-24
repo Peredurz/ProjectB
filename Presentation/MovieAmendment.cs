@@ -396,7 +396,7 @@ public class MovieAmendment : IPresentation
             Console.WriteLine("Deze film bestaat niet.");
             MovieAmendment.Start();
         }
-        Console.WriteLine($"Wilt u de film {movie.Title} aanpassen? (Y/N)");
+        Console.WriteLine($"Wilt u de film {movie.Title} verwijderen? (Y/N)");
         Console.Write("> ");
         string choice = Console.ReadLine().ToLower();
         if (choice == "y")
