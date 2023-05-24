@@ -18,6 +18,7 @@ class AnnuleringLogic
     protected static List<MovieModel> _movies = new();
 
     private List<AnnuleringModel> _annulering = new List<AnnuleringModel>();
+    private static MovieLogic _movieLogic = new MovieLogic();
     public AnnuleringLogic()
     {
         _chairReservation = ChairReservationAccess.LoadAll();
@@ -151,6 +152,7 @@ class AnnuleringLogic
     //annuleringen accepteren
     public bool AnnuleringAccept(int id)
     {
+        string movieOuput = _movieLogic.ShowMovies();
         while (true)
         {
             Console.WriteLine("Wilt u de anunulering accepteren of weigeren. A/W ");
@@ -163,6 +165,9 @@ class AnnuleringLogic
                     case "A":
                         if (annulering.ID == id)
                         {
+                            ChairReservationModel reservationModel = GetResservationByID(annulering);
+                            MovieModel movie = MovieLogic.GetMovie(reservationModel.MovieID);
+                            double moneyReturn = AnnuleringCalculator(movie, annulering, reservationModel);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geaccepteerd.\n");
                             AnnuleringAccess.WriteAll(_annulering);
@@ -172,6 +177,8 @@ class AnnuleringLogic
                     case "W":
                         if (annulering.ID == id)
                         {
+                            ChairReservationModel reservationModel = GetResservationByID(annulering);
+                            MovieModel movie = MovieLogic.GetMovie(reservationModel.MovieID);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geweigerd.\n");
                             AnnuleringAccess.WriteAll(_annulering);
@@ -185,4 +192,34 @@ class AnnuleringLogic
             }
         }
     }
+
+    // Berekening terug geven van het geld
+    public double AnnuleringCalculator(MovieModel movie, AnnuleringModel annulering, ChairReservationModel reservation)
+    {
+        DateTime timeNow = annulering.AnnuleringDatum;
+        DateTime dateTime = movie.Time;
+        TimeSpan difference = timeNow - dateTime;
+        if (difference.TotalHours >= 24)
+        {
+            return reservation.TotaalPrijs;
+        }
+        else
+        {
+            return reservation.TotaalPrijs / 2;
+        }
+    }
+
+    // Het verkijgen van de Resservation ID
+    public ChairReservationModel GetResservationByID(AnnuleringModel annulering)
+    {
+        foreach (ChairReservationModel reservation in _chairReservation)
+        {
+            if (annulering.ReservationID == reservation.ReserveringsCode)
+            {
+                return reservation;
+            }
+        }
+        return null;
+    }
+
 }

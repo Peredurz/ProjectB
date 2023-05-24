@@ -22,5 +22,23 @@
     "emailAddress": "douwezumker@gmail.com",
     "ReservationID": 2119903154,
     "AnnuleringDatumTime": "2023-03-23T12:00:00+01:00"
+  },
+  {
+    "id": 4,
+    "emailAddress": "redwane1999@live.nl",
+    "ReservationID": 561102557,
+    "AnnuleringDatumTime": "2023-05-23T16:23:29.996332+02:00"
+  },
+  {
+    "id": 5,
+    "emailAddress": "redwane1999@live.nl",
+    "ReservationID": 1600967450,
+    "AnnuleringDatumTime": "2023-05-23T16:35:40.684734+02:00"
+  },
+  {
+    "id": 6,
+    "emailAddress": "redwane1999@live.nl",
+    "ReservationID": 1831972870,
+    "AnnuleringDatumTime": "2023-05-23T16:46:38.292838+02:00"
   }
 ]
