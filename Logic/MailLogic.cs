@@ -44,6 +44,33 @@ class MailLogic
         bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
         int movieId = reservation.Item1.MovieID;
         string movieTitle = MovieLogic.GetMovie(movieId).Title;
+        int movieDuration = MovieLogic.GetMovie(movieId).Duration;
+        string DayinDutch = time.DayOfWeek switch
+        {
+            DayOfWeek.Monday => "Maandag",
+            DayOfWeek.Tuesday => "Dinsdag",
+            DayOfWeek.Wednesday => "Woensdag",
+            DayOfWeek.Thursday => "Donderdag",
+            DayOfWeek.Friday => "Vrijdag",
+            DayOfWeek.Saturday => "Zaterdag",
+            DayOfWeek.Sunday => "Zondag",
+        };
+
+        string MonthinDutch = time.Month switch
+        {
+            1 => "Januari",
+            2 => "Februari",
+            3 => "Maart",
+            4 => "April",
+            5 => "Mei",
+            6 => "Juni",
+            7 => "Juli",
+            8 => "Augustus",
+            9 => "September",
+            10 => "Oktober",
+            11 => "November",
+            12 => "December",
+        };
 
         if (AccountsLogic.CurrentAccount == null)
         {
@@ -65,6 +92,9 @@ class MailLogic
         var pathQrCode = Path.Combine("DataDocs/QrTicket", "qr-code.png");
         var qrImage = builder.LinkedResources.Add(pathQrCode);
 
+        string startTime = time.ToString("HH:mm");
+        string endTime = time.AddMinutes(movieDuration).ToString("HH:mm");
+
         qrImage.ContentId = MimeUtils.GenerateMessageId();
 
         builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
@@ -74,7 +104,7 @@ class MailLogic
         Uw reserveringscode is: {reservationCode} <br>
         Uw reservering is voor de film: {movieTitle} <br>
         Uw film vind plaats in zaal: {auditorium} <br>
-        Uw film begint om: {time} <br>
+        Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
         Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
         Uw totaalprijs is: €{totaalPrijs} <br>
         U kunt uw reservering annuleren tot half uur voor de film begint. <br>
