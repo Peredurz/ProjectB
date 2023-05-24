@@ -3,7 +3,6 @@ using System;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
-using QRCoder;
 using SkiaSharp.QrCode.Image;
 using MimeKit.Utils;
 using SkiaSharp;
