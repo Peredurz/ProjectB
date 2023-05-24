@@ -16,6 +16,7 @@ public class Payment : IPresentation
                 if (validIBAN == true)
                 {
                     Console.WriteLine("Betaling voltooid");
+                    MailLogic.GenerateQRCode();
                     MailLogic.SendMail();
                     ChairReservationLogic.UpdateChairReservation();
                     Menu.Start();
@@ -29,6 +30,7 @@ public class Payment : IPresentation
                         if (checkIBAN == true)
                         {
                             Console.WriteLine("Betaling voltooid");
+                            MailLogic.GenerateQRCode();
                             MailLogic.SendMail();
                             ChairReservationLogic.UpdateChairReservation();
                             Menu.Start();

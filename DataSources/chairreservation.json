@@ -13,14 +13,14 @@
   },
   {
     "id": 15,
-    "name": null,
-    "emailAdress": "douwezumker@gmail.com",
-    "chairId": 6,
-    "movieId": 1,
-    "auditoriumId": 0,
-    "time": "2023-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 2119903154,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 283,
+    "movieId": 2,
+    "auditoriumId": 1,
+    "time": "2023-05-24T12:00:00",
+    "totaalPrijs": 37,
+    "reserveringsCode": 1391029448,
     "isCompleted": true
   },
   {
@@ -66,6 +66,66 @@
     "time": "2023-06-24T12:00:00",
     "totaalPrijs": 15,
     "reserveringsCode": 2138110517,
+    "isCompleted": true
+  },
+  {
+    "id": 11,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 698,
+    "movieId": 3,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 477811745,
+    "isCompleted": true
+  },
+  {
+    "id": 13,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 700,
+    "movieId": 3,
+    "auditoriumId": 2,
+    "time": "2023-03-24T12:00:00",
+    "totaalPrijs": 12,
+    "reserveringsCode": 1814699704,
+    "isCompleted": true
+  },
+  {
+    "id": 15,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 283,
+    "movieId": 2,
+    "auditoriumId": 1,
+    "time": "2023-05-24T12:00:00",
+    "totaalPrijs": 37,
+    "reserveringsCode": 1391029448,
+    "isCompleted": true
+  },
+  {
+    "id": 25,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 229,
+    "movieId": 2,
+    "auditoriumId": 1,
+    "time": "2023-05-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 2048658785,
+    "isCompleted": true
+  },
+  {
+    "id": 21,
+    "name": "gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 67,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 1739566218,
     "isCompleted": true
   }
 ]
