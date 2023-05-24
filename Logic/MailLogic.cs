@@ -4,6 +4,7 @@ using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
 using QRCoder;
+using MimeKit.Utils;
 
 class MailLogic
 {
@@ -60,27 +61,37 @@ class MailLogic
         email.To.Add(new MailboxAddress(Name, EmailAddress));
         email.Subject = "Reservering Bioscoop Naamloos";
         var builder = new BodyBuilder();
-        builder.TextBody = @$"Beste {Name},
+        var pathQrCode = Path.Combine("DataDocs/QrTicket", "qr-code.png");
+        var qrImage = builder.LinkedResources.Add(pathQrCode);
+
+        qrImage.ContentId = MimeUtils.GenerateMessageId();
         
-Bedankt voor het reserveren bij Bioscoop Naamloos.
-Uw reservering is succesvol verwerkt.
-Uw reserveringscode is: {reservationCode}
-Uw stoel bevind zich op: Rij {chairRow}, Stoel {chairColumn}
-Uw zaal is: zaal {auditorium}
-Uw film is: {movieTitle}
-Uw film begint om: {time}
-Uw totaalprijs is: €{totaalPrijs}
-
-Vriendelijke Groet,
-Bioscoop Naamloos
-
----------------------------------------
-Telefoon nummer:    010 123 123 12.
-adres:              Wijnhaven 107.
-postcode:           3011 WN in Rotterdam.
-Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
-                    De bioscoop sluit vijftien minuten na de laatste film
-";
+        builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
+        <p>Bedankt voor uw reservering bij Bioscoop Naamloos. <br>
+        Uw reserveringscode is de onderstaande QR-code. <br>
+        <img src=""cid:{qrImage.ContentId}"" alt=""QR-code"" width=""200"" height=""200""> <br>
+        Uw reserveringscode is: {reservationCode} <br>
+        Uw reservering is voor de film: {movieTitle} <br>
+        Uw film vind plaats in zaal: {auditorium} <br>
+        Uw film begint om: {time} <br>
+        Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
+        Uw totaalprijs is: €{totaalPrijs} <br>
+        U kunt uw reservering annuleren tot half uur voor de film begint. <br>
+        Wij wensen u veel plezier bij de film. <br> <br>
+        Met vriendelijke groet, <br>
+        Bioscoop Naamloos <br> <br>
+        ----------------Contact gegevens---------------- <br>
+        Telefoon nummer: <br>    
+            <strong>010 123 123 12</strong> <br>
+        Adres: <br>             
+            <strong>Wijnhaven 107</strong> <br>
+        Postcode: <br>       
+            <strong>3011 WN in Rotterdam</strong>  <br>
+        Openings tijd: <br>     
+            <strong> Wij zijn dertig minuten voor de eerste film geopend <br>
+            De bioscoop sluit vijftien minuten na de laatste film. </strong></p>
+        <p><strong> Deze mail is automatisch gegenereerd, u kunt hier niet op reageren. </strong></p>
+        ");
 
         if (parkingticket)
         {
@@ -121,6 +132,10 @@ Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend
         QRCodeData qrCodeData = qrGenerator.CreateQrCode(reservationCode, QRCodeGenerator.ECCLevel.Q);
         QRCode qrCode = new QRCode(qrCodeData);
         System.Drawing.Bitmap qrCodeImage = qrCode.GetGraphic(20);
-        qrCodeImage.Save("qr-code.png", System.Drawing.Imaging.ImageFormat.Png);
+        // save the image file to DataDocs/QrTicket/qr-code.png
+        using (System.IO.Stream stream = File.OpenWrite(Path.Combine("DataDocs/QrTicket", "qr-code.png")))
+        {
+            qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+        }
     }
 }
