@@ -92,6 +92,9 @@ class MailLogic
         var pathQrCode = Path.Combine("DataDocs/QrTicket", "qr-code.png");
         var qrImage = builder.LinkedResources.Add(pathQrCode);
 
+        string startTime = time.ToString("HH:mm");
+        string endTime = time.AddMinutes(movieDuration).ToString("HH:mm");
+
         qrImage.ContentId = MimeUtils.GenerateMessageId();
 
         builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
@@ -101,7 +104,7 @@ class MailLogic
         Uw reserveringscode is: {reservationCode} <br>
         Uw reservering is voor de film: {movieTitle} <br>
         Uw film vind plaats in zaal: {auditorium} <br>
-        Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {time.TimeOfDay} tot {time.TimeOfDay + TimeSpan.FromMinutes(movieDuration)} <br>
+        Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
         Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
         Uw totaalprijs is: €{totaalPrijs} <br>
         U kunt uw reservering annuleren tot half uur voor de film begint. <br>
