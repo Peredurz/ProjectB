@@ -19,6 +19,7 @@ public class Menu : IPresentation
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
         new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
         new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
+        new PresentationModel("D", "Films verwijderen", _managerClearance, "movie_editor", true),
         new PresentationModel("R", "Anuleringen", _nonCustomerClearance, "menu"),
         new PresentationModel("F", "Toekomstige Films", _allClearance, "movies", true),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
