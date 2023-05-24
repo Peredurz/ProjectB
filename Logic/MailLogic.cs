@@ -7,6 +7,19 @@ using QRCoder;
 
 class MailLogic
 {
+    private static string _name;
+    private static string _emailAddress;
+    public static string EmailAddress 
+    { 
+        get { return _emailAddress; } 
+        set { _emailAddress = value; } 
+    } 
+    public static string Name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
+
     public static int GenerateCode()
     {
         Random RandomInt = new Random();
@@ -15,8 +28,6 @@ class MailLogic
 
     public static void SendMail()
     {
-        string name;
-        string emailaddress;
         var reservationLogic = new ChairReservationLogic();
         var reservation = reservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
         int auditorium = reservation.Item1.AuditoriumID + 1;
@@ -35,21 +46,21 @@ class MailLogic
         if (AccountsLogic.CurrentAccount == null)
         {
             var info = Mail.AskInfo();
-            emailaddress = info.Item1;
-            name = info.Item2;
+            EmailAddress = info.Item1;
+            Name = info.Item2;
         }
         else
         {
-            name = AccountsLogic.CurrentAccount.FullName;
-            emailaddress = AccountsLogic.CurrentAccount.EmailAddress;
+            Name = AccountsLogic.CurrentAccount.FullName;
+            EmailAddress = AccountsLogic.CurrentAccount.EmailAddress;
         }
         var email = new MimeMessage();
 
         email.From.Add(new MailboxAddress("Project Groep 1 INF1F", "projectgroep1fhr@gmail.com"));
-        email.To.Add(new MailboxAddress(name, emailaddress));
+        email.To.Add(new MailboxAddress(Name, EmailAddress));
         email.Subject = "Reservering Bioscoop Naamloos";
         var builder = new BodyBuilder();
-        builder.TextBody = @$"Beste {name},
+        builder.TextBody = @$"Beste {Name},
         
 Bedankt voor het reserveren bij Bioscoop Naamloos.
 Uw reservering is succesvol verwerkt.
@@ -85,7 +96,6 @@ Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend
 
             smtp.Authenticate("projectgroep1fhr@gmail.com", "gadaklozkmjfzcih");
             smtp.Send(email);
-            Console.WriteLine("The mail has been sent successfully !!");
             smtp.Disconnect(true);
         }
         ParkingTicketLogic.choiseParkingTicket = false;

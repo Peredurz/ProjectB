@@ -26,5 +26,12 @@
     "password": "$2a$10$Un3X/FCx10sBevbGTd0mweYm62AWJng1ldFN96Oq1R8mV.v3S9.U2",
     "fullName": "Gilian Kranendonk",
     "userType": "Customer"
+  },
+  {
+    "id": 5,
+    "emailAddress": "gilkranendonk@gmail.com",
+    "password": "$2a$10$UMet.y5zJUMY6.J6UT3XN.6sP3F625Vdq.Yo6lwnYC2RXfNrfQz96",
+    "fullName": "Gilian",
+    "userType": "Customer"
   }
 ]
