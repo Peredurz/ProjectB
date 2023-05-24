@@ -187,7 +187,25 @@ public class MovieLogic
     /// <returns><see cref="MovieModel"/></returns>
     public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower()) ?? null;
 
-    public static MovieModel GetMovie(int movieID) => _movies[movieID - 1];
+    public static MovieModel GetMovie(int movieID)
+    {
+        foreach (MovieModel _movie in _movies)
+            if (_movie.ID == movieID)
+                return _movie;
+        return null;
+    }
+
+    public static void RemoveMovie(int movieID)
+    {
+        List<MovieModel> nonDeletedMovies = new List<MovieModel>();
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.ID != movieID)
+                nonDeletedMovies.Add(movie);
+        }
+        _movies = nonDeletedMovies;
+        MovieAccess.WriteAll(_movies);
+    }
 
     /// <summary>
     /// Method om een prive lijst van <see cref="MovieModel"/> te returnen. Omdat deze lijst privé is.

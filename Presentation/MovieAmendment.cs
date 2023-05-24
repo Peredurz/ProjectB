@@ -35,14 +35,15 @@ public class MovieAmendment : IPresentation
 
 
         string input = Console.ReadLine().ToLower();
+        string movieOuput = _movieLogic.ShowMovies();
+        string inputUser;
         switch (input)
         {
             case "r":
-                string movieOuput = _movieLogic.ShowMovies();
                 Console.WriteLine(movieOuput);
                 Console.WriteLine("Geef een film ID of een titel");
                 Console.Write("> ");
-                string inputUser = Console.ReadLine().ToLower();
+                inputUser = Console.ReadLine().ToLower();
                 MovieAmendments(inputUser);
                 break;
             case "a":
@@ -50,6 +51,14 @@ public class MovieAmendment : IPresentation
                 break;
             case "b":
                 Menu.Start();
+                break;
+            case "d":
+                Console.WriteLine(movieOuput);
+                Console.WriteLine(_movieLogic.ShowFutureMovies());
+                Console.WriteLine("Geef een film ID of een titel die u wilt verwijderen");
+                Console.Write("> ");
+                inputUser = Console.ReadLine().ToLower();
+                MovieDeletion(inputUser);
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
@@ -369,6 +378,35 @@ public class MovieAmendment : IPresentation
         else if (inputUser == "n")
         {
             Console.WriteLine("De film is niet toegevoegd.");
+            MovieAmendment.Start();
+        }
+        else
+        {
+            Console.WriteLine("Verkeerde invoer.");
+            MovieAmendment.Start();
+        }
+    }
+
+    public static void MovieDeletion(string inputUser)
+    {
+        string movieOuput = _movieLogic.ShowMovies();
+        MovieModel movie = MovieLogic.SearchMovie(inputUser);
+        if (movie == null)
+        {
+            Console.WriteLine("Deze film bestaat niet.");
+            MovieAmendment.Start();
+        }
+        Console.WriteLine($"Wilt u de film {movie.Title} aanpassen? (Y/N)");
+        Console.Write("> ");
+        string choice = Console.ReadLine().ToLower();
+        if (choice == "y")
+        {
+            MovieLogic.RemoveMovie(movie.ID);
+            Console.WriteLine("Film succesvol verwijderd");
+            MovieAmendment.Start();
+        }
+        else if (choice == "n")
+        {
             MovieAmendment.Start();
         }
         else
