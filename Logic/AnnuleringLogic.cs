@@ -170,6 +170,7 @@ class AnnuleringLogic
                             double moneyReturn = AnnuleringCalculator(movie, annulering, reservationModel);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geaccepteerd.\n");
+                            MailLogic.SendCancelationMail(annulering, movie, reservationModel,  moneyReturn);
                             AnnuleringAccess.WriteAll(_annulering);
                             return true;
                         }
@@ -181,6 +182,7 @@ class AnnuleringLogic
                             MovieModel movie = MovieLogic.GetMovie(reservationModel.MovieID);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geweigerd.\n");
+                            MailLogic.SendCancelationMail(annulering, movie, reservationModel, isRejected: true);
                             AnnuleringAccess.WriteAll(_annulering);
                             return false;
                         }
