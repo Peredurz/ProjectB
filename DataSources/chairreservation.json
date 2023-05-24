@@ -36,27 +36,36 @@
     "isCompleted": true
   },
   {
-    "id": 24,
-    "name": null,
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 207,
-    "movieId": 2,
-    "auditoriumId": 1,
-    "time": "2023-05-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 987018933,
+    "id": 9,
+    "emailAdress": "redwane1999@live.nl",
+    "chairId": 40,
+    "movieId": 1,
+    "auditoriumId": 0,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 561102557,
     "isCompleted": true
   },
   {
-    "id": 9,
-    "name": "Gilian Kranendonk",
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 286,
+    "id": 22,
+    "emailAdress": "redwane1999@live.nl",
+    "chairId": 210,
+    "movieId": 4,
+    "auditoriumId": 1,
+    "time": "2023-06-24T12:00:00",
+    "totaalPrijs": 20,
+    "reserveringsCode": 1831972870,
+    "isCompleted": true
+  },
+  {
+    "id": 11,
+    "emailAdress": "redwane1999@live.nl",
+    "chairId": 301,
     "movieId": 4,
     "auditoriumId": 1,
     "time": "2023-06-24T12:00:00",
     "totaalPrijs": 15,
-    "reserveringsCode": 183230648,
+    "reserveringsCode": 2138110517,
     "isCompleted": true
   }
 ]
