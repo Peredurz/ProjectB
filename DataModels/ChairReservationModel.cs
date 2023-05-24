@@ -5,6 +5,9 @@ public class ChairReservationModel
     [JsonPropertyName("id")]
     public int ID { get; set; }
 
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
     [JsonPropertyName("emailAdress")]
     public string EmailAdress { get; set; }
 
