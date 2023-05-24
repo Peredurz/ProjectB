@@ -138,4 +138,71 @@ class MailLogic
             qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
         }
     }
+
+    public static void SendCancelationMail(AnnuleringModel annulering,
+                                           MovieModel movie,
+                                           ChairReservationModel reservation,
+                                           double price = 0.0,
+                                           bool isRejected = false)
+    {
+        var email = new MimeMessage();
+
+        email.From.Add(new MailboxAddress("Project Groep 1 INF1F", "projectgroep1fhr@gmail.com"));
+        email.To.Add(new MailboxAddress(reservation.Name, annulering.EmailAddress));
+        email.Subject = isRejected == true ? "Uw annulering is geweigerd" : "Uw annulering is goedgekeurd";
+        var builder = new BodyBuilder();
+        if (isRejected == true)
+        {
+            builder.HtmlBody = string.Format(@$"<h1>Beste {reservation.Name},</h1>
+            <p> Helaas is uw aanvraag om uw kaartje voor de film {movie.Title} te annuleren geweigerd door 
+            een van onze medewerkers.</p><br> <br>
+            Met vriendelijke groet, <br>
+            Bioscoop Naamloos <br> <br>
+            ----------------Contact gegevens---------------- <br>
+            Telefoon nummer: <br>    
+                <strong>010 123 123 12</strong> <br>
+            Adres: <br>             
+                <strong>Wijnhaven 107</strong> <br>
+            Postcode: <br>       
+                <strong>3011 WN in Rotterdam</strong>  <br>
+            Openings tijd: <br>     
+                <strong> Wij zijn dertig minuten voor de eerste film geopend <br>
+                De bioscoop sluit vijftien minuten na de laatste film. </strong></p>
+            <p><strong> Deze mail is automatisch gegenereerd, u kunt hier niet op reageren. </strong></p>");
+        }
+        else
+        {
+            builder.HtmlBody = string.Format(@$"<h1>Beste {reservation.Name},</h1>
+            <p> Uw aanvraag om de film {movie.Title} te annuleren is geaccepteerd door een van onze medewerkers.<br>
+            U kunt uw geld binnen een schappelijke tijd terug verwachten.<br>
+            Uw reserveringscode is: {reservation.ReserveringsCode} <br>
+            Uw bedrag wat u terug krijgt is: €{price} <br>
+            </p><br> <br>
+            Met vriendelijke groet, <br>
+            Bioscoop Naamloos <br> <br>
+            ----------------Contact gegevens---------------- <br>
+            Telefoon nummer: <br>    
+                <strong>010 123 123 12</strong> <br>
+            Adres: <br>             
+                <strong>Wijnhaven 107</strong> <br>
+            Postcode: <br>       
+                <strong>3011 WN in Rotterdam</strong>  <br>
+            Openings tijd: <br>     
+                <strong> Wij zijn dertig minuten voor de eerste film geopend <br>
+                De bioscoop sluit vijftien minuten na de laatste film. </strong></p>
+            <p><strong> Deze mail is automatisch gegenereerd, u kunt hier niet op reageren. </strong></p>");
+        }
+
+        email.Body = builder.ToMessageBody();
+
+        using (var smtp = new SmtpClient())
+        {
+            smtp.Connect("smtp.gmail.com", 587, false);
+
+            smtp.Authenticate("projectgroep1fhr@gmail.com", "gadaklozkmjfzcih");
+            smtp.Send(email);
+            Console.WriteLine("The mail has been sent successfully !!");
+            smtp.Disconnect(true);
+        }
+    }
 }
