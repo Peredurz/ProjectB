@@ -4,7 +4,7 @@ class Annulering : IPresentation
 
     public static void Start()
     {
-        
+
         PresentationLogic.CurrentPresentation = "annulering";
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
 
@@ -64,9 +64,17 @@ class Annulering : IPresentation
         annuleringLogic.ShowAnnulering();
         System.Console.WriteLine("Kies de ID die je wilt Gebruiken.");
         Console.Write(">");
-        int idUser = Convert.ToInt32(Console.ReadLine());
-        AnnuleringModel annuleringsModel = annuleringLogic.GetAnnulering(idUser);
-        bool acceptedAnnulering = annuleringLogic.AnnuleringAccept(idUser);
-        Menu.Start();
+        int idUser = -1;
+        try
+        {
+            idUser = Convert.ToInt32(Console.ReadLine());
+            AnnuleringModel annuleringsModel = annuleringLogic.GetAnnulering(idUser);
+            bool acceptedAnnulering = annuleringLogic.AnnuleringAccept(idUser);
+            Menu.Start();
+        }
+        catch (Exception e)
+        {
+            Menu.Start();
+        }
     }
 }
