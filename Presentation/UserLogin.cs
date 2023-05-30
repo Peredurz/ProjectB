@@ -21,7 +21,27 @@ public class UserLogin : IPresentation
 
                     Console.WriteLine("Voer uw wachtwoord in");
                     Console.Write("> ");
-                    string password = Console.ReadLine();
+
+                    // Om het wachtwoord niet te laten zien op het scherm
+                    var password = string.Empty;
+                    ConsoleKey key;
+                    do
+                    {
+                        var keyInfo = Console.ReadKey(intercept: true);
+                        key = keyInfo.Key;
+
+                        if (key == ConsoleKey.Backspace && password.Length > 0)
+                        {
+                            Console.Write("\b \b");
+                            password = password[0..^1];
+                        }
+                        else if (!char.IsControl(keyInfo.KeyChar))
+                        {
+                            Console.Write("*");
+                            password += keyInfo.KeyChar;
+                        }
+                    } while (key != ConsoleKey.Enter);
+                    Console.WriteLine();
 
                     AccountModel acc = accountsLogic.CheckLogin(email, password);
                     if (acc != null)
