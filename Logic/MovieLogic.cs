@@ -59,7 +59,7 @@ public class MovieLogic
                     }
                     else if (prop.Name == "Description")
                     {
-                        continue;   
+                        continue;
                     }
                     else
                     {
@@ -72,7 +72,7 @@ public class MovieLogic
         }
         return output;
     }
-    
+
     public string ShowFutureMovies()
     {
         string output = "";
@@ -85,7 +85,7 @@ public class MovieLogic
                 {
                     if (prop.Name == "Description")
                     {
-                        continue;   
+                        continue;
                     }
                     else if (prop.Name == "AuditoriumID")
                     {
@@ -105,7 +105,7 @@ public class MovieLogic
             }
         }
         return output;
-    }   
+    }
 
     /// <summary>
     /// Deze method zoekt een film op basis van de titel of de ID.
@@ -253,5 +253,73 @@ public class MovieLogic
         }
         output += Environment.NewLine;
         return output;
+    }
+
+    /// <summary>
+    /// Deze method filtert de films op basis van de input van de gebruiker.
+    /// 
+    /// </summary>
+    /// <param name="userInput"></param>
+    /// <returns></returns>
+    public string FilterMovies(string userInput)
+    {
+        string filteredMovies = "";
+        IEnumerable<MovieModel> movies;
+        if (int.TryParse(userInput, out int duration))
+        {
+            // Als de gebruiker een getal invoert dan wordt er gekeken of het getal kleiner is dan 18 (leeftijdsgrens) 
+            if (duration <= 18)
+            {
+                movies =
+                from movie in _movies
+                where movie.AgeRestriction <= duration
+                select movie;
+            }
+            else
+            {
+                movies =
+                from movie in _movies
+                where movie.Duration == duration
+                select movie;
+            }
+
+        }
+        else if (DateTime.TryParse(userInput, out DateTime date))
+        {
+            movies =
+            from movie in _movies
+            where movie.Time.Date == date.Date
+            select movie;
+        }
+        else
+        {
+            movies =
+            from movie in _movies
+            where movie.Genre.ToLower() == userInput.ToLower()
+            select movie;
+        }
+        movies = movies.ToList();
+
+        foreach (MovieModel movie in movies)
+        {
+            foreach (var prop in movie.GetType().GetProperties())
+            {
+                if (prop.Name == "AuditoriumID")
+                {
+                    filteredMovies += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                }
+                else if (prop.Name == "Description")
+                {
+                    continue;
+                }
+                else
+                {
+                    filteredMovies += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                }
+
+            }
+            filteredMovies += Environment.NewLine;
+        }
+        return filteredMovies;
     }
 }
