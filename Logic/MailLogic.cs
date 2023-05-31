@@ -230,4 +230,43 @@ class MailLogic
             smtp.Disconnect(true);
         }
     }
+
+    public static void SendTempPassword(string password)
+    {
+        var emailMessage = new MimeMessage();
+
+        emailMessage.From.Add(new MailboxAddress("Project Groep 1 INF1F", "projectgroep1fhr@gmail.com"));
+        emailMessage.To.Add(new MailboxAddress(Name, EmailAddress));
+        emailMessage.Subject = "Uw tijdelijke wachtwoord";
+        var builder = new BodyBuilder();
+        builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
+        <p> Uw tijdelijke wachtwoord is: {password} <br>
+        U kunt uw wachtwoord veranderen in uw account instellingen. <br>
+        </p><br> <br>
+        Met vriendelijke groet, <br>
+        Bioscoop Naamloos <br> <br>
+        ----------------Contact gegevens---------------- <br>
+        Telefoon nummer: <br>    
+            <strong>010 123 123 12</strong> <br>
+        Adres: <br>
+            <strong>Wijnhaven 107</strong> <br>
+        Postcode: <br>
+            <strong>3011 WN in Rotterdam</strong>  <br> 
+        Openings tijd: <br>
+            <strong> Wij zijn dertig minuten voor de eerste film geopend <br>
+            De bioscoop sluit vijftien minuten na de laatste film. </strong></p>
+        <p><strong> Deze mail is automatisch gegenereerd, u kunt hier niet op reageren. </strong></p>");
+        emailMessage.Body = builder.ToMessageBody();
+
+        using (var smtp = new SmtpClient())
+        {
+            smtp.Connect("smtp.gmail.com", 587, false);
+
+            smtp.Authenticate("projectgroep1fhr@gmail.com", "gadaklozkmjfzcih");
+            smtp.Send(emailMessage);
+            smtp.Disconnect(true);
+        }
+        return;
+    }
+
 }
