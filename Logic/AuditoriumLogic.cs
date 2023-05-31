@@ -98,10 +98,11 @@ class AuditoriumLogic
         int width = _auditoriums[Movie.AuditoriumID].TotalRows;
         Console.WriteLine();
         int[,] chairs2d = {};
+        chairs2d = new int[length, width];
         int idx = 0;
-        for (int r = 0; r != length; r++)
+        for (int r = 0; r < length; r++)
         {
-            for (int c = 0; c != width; c++)
+            for (int c = 0; c < width; c++)
             {
                 chairs2d[r, c] = chairs[idx];
                 idx++;
@@ -138,12 +139,13 @@ class AuditoriumLogic
         }
         Console.Write("\n");
 
+        idx = 0;
         for (int r = 0; r < chairs2d.GetLength(0); r++)
         {
             for (int c = 0; c < chairs2d.GetLength(1); c++)
             {
                 // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
-                ChairModel chair = _chairLogic.Chairs[(r * c) - 1];
+                ChairModel chair = _chairLogic.Chairs[idx];
                 // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
                 // Want je wilt geen stoelen uit een andere zaal printen
                 if (chairs.Contains(chair.ID))
@@ -200,6 +202,7 @@ class AuditoriumLogic
                     }
 
                 }
+                idx++;
             }
         }
 
