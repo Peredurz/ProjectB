@@ -92,11 +92,10 @@ class AuditoriumLogic
         int chairsAmount = this._chairLogic.Chairs.Count;
         // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
         // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
-        List<int> chairs = _auditoriums[--Movie.AuditoriumID].Chairs;
+        List<int> chairs = _auditoriums[Movie.AuditoriumID - 1].Chairs; 
         // Lengte van het auditorium
-        int length = _auditoriums[Movie.AuditoriumID].TotalCols;
-        int width = _auditoriums[Movie.AuditoriumID].TotalRows;
-        Console.WriteLine();
+        int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
+        int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
         int[,] chairs2d = {};
         chairs2d = new int[length, width];
         int idx = 0;
