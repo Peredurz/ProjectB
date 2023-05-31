@@ -167,6 +167,7 @@ class AuditoriumLogic
                             pos = 0;
                             rij++;
                         }
+                        idx++;
                         continue;
                     }
                     // Op basis van de status van de stoel wordt er een andere string toegevoegd aan chairPrint
@@ -186,9 +187,18 @@ class AuditoriumLogic
                         "white" => ConsoleColor.Black,
                         _ => ConsoleColor.Black,
                     };
-
-                    Console.ForegroundColor = color;
-                    Console.Write(result);
+                    if (r == --x && c == --y)
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = color;
+                        Console.Write(result);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = color;
+                        Console.Write(result);
+                    }
 
                     pos++;
                     // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
@@ -206,60 +216,6 @@ class AuditoriumLogic
             }
         }
 
-        //// Loopen totdat je bij de chairsamount komt.
-        //for (int i = 0; i < chairsAmount + 1; i++)
-        //{
-
-
-        //    // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
-        //    // Want je wilt geen stoelen uit een andere zaal printen
-        //    if (chairs.Contains(chair.ID))
-        //    {
-        //        // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-        //        if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
-        //        {
-        //            // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
-        //            ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
-        //            // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-        //            Console.ForegroundColor = ConsoleColor.Gray;
-        //            Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
-        //            pos++;
-        //            // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
-        //            if (pos == length)
-        //            {
-        //                Console.Write($"{rij}");
-        //                Console.Write("\n");
-        //                pos = 0;
-        //                rij++;
-        //            }
-        //            continue;
-        //        }
-        //        // De kleur van de stoel wordt bepaald op basis van de kleur van de stoel
-        //        ConsoleColor color = chair.Color.ToLower() switch
-        //        {
-        //            "red" => ConsoleColor.Red,
-        //            "blue" => ConsoleColor.Blue,
-        //            "orange" => ConsoleColor.DarkYellow,
-        //            "white" => ConsoleColor.Black,
-        //            _ => ConsoleColor.Black,
-        //        };
-
-        //        Console.ForegroundColor = color;
-        //        Console.Write(result);
-
-        //        pos++;
-        //        // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
-        //        if (pos == length)
-        //        {
-        //            // Verandert de kleur van de rij zodat het wit blijft 
-        //            Console.ForegroundColor = ConsoleColor.White;
-        //            Console.Write($"{rij++}");
-        //            Console.Write("\n");
-        //            pos = 0;
-        //        }
-
-        //    }
-        //}
         Console.WriteLine();
     }
     

@@ -40,17 +40,14 @@ class Auditorium : IPresentation
         int indexX = 2;
         int indexY = 2;
         List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
-        // Write the menu out
         _auditoriumLogic.ChairPrint(indexX, indexY);
         List<string> list = new List<string>();
-        // Store key info in here
         ConsoleKeyInfo keyinfo;
         do
         {
             keyinfo = Console.ReadKey();
 
             // Handle each key input (down arrow will write the menu again with a different selected item)
-
             switch (keyinfo.Key)
             {
                 case ConsoleKey.DownArrow:
