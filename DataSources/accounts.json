@@ -33,5 +33,12 @@
     "password": "$2a$10$MEP9EShJ3J6yJP.viIsYHOGpSqQF0aLBT/4IYJYuDFrReCE2ASONq",
     "fullName": "Redwan Ettalby",
     "userType": "Customer"
+  },
+  {
+    "id": 6,
+    "emailAddress": "sidimo2001@gmail.com",
+    "password": "$2a$10$ZOim0BBYSc6DwhOM2/m92ez3vJ.jFj6hJgi.9Hk8YfAiAgiyi7.v2",
+    "fullName": "Sidi Chattou",
+    "userType": "Customer"
   }
 ]

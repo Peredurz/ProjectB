@@ -118,4 +118,39 @@ class AccountsLogic
         }
         MailLogic.SendTempPassword(tempPassword);
     }
+
+    // Wachtwoord veranderen
+    public void ChangePassword(string email, string password)
+    {
+        // controleert of de wachtwoord klopt bij true gaaat die door
+        bool result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
+        bool checker = false;
+        // het systeem vraagt de gebruiker om een nieuw wachtwoord tot dat de gebruiker het goed heeft. Het systeem veranderd het direct.  
+        while(!checker)
+        {
+            if (result == true)
+            {
+                Console.WriteLine("Nieuw Wachtwoord");
+                Console.Write("> ");
+                string password1 = Console.ReadLine();
+                Console.WriteLine("Herhaal niew wachtwoord");
+                Console.Write("> ");
+                string passwordCheck = Console.ReadLine();
+                if (password1 == passwordCheck)
+                {
+
+                    var passwordHash = BCrypt.Net.BCrypt.HashPassword(passwordCheck,workFactor:10);
+                    CurrentAccount.Password = passwordHash;
+                    UpdateList(CurrentAccount);
+                    Console.WriteLine("Wachtwoord succesvol gewijzigd! ");
+                    checker = true;
+                } 
+            }
+            else
+            {
+                Console.WriteLine("Verkeerde Wachtwoord ingevoert probeer het opnieuw."); 
+                break;
+            }
+        }
+    }
 }
