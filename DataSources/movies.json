@@ -5,7 +5,9 @@
     "title": "The Matrix",
     "description": "Neo heeft het gevoel dat er iets niet klopt in het leven. Hij wordt benaderd door Morpheus, die hem verteld dat de wereld zoals iedereen die kent een gesimuleerde werkelijkheid is. Morpheus denkt dat Neo uitverkoren is om dat te veranderen.",
     "time": "2024-03-24T12:00:00",
-    "duration": 140
+    "duration": 140,
+    "genre": "Actie",
+    "age_restriction": 12
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "title": "The Matrix Reloaded",
     "description": "De laatste menselijke stad Zion is ontdekt door de machines die de mensheid in hun macht hebben. Morpheus is er echter van overtuigd dat Neo in staat is de Matrix te vernietigen, maar de herboren agent Smith denkt daar anders over.",
     "time": "2023-05-24T12:00:00",
-    "duration": 132
+    "duration": 132,
+    "genre": "Actie",
+    "age_restriction": 12
   },
   {
     "id": 5,
@@ -21,6 +25,8 @@
     "title": "The Lord of the Rings: The Fellowship of the Ring",
     "description": "Een jonge hobbit genaamd Frodo krijgt een magische ring in zijn bezit. Deze ring moet vernietigd worden voordat de duistere heerser Sauron hem in handen krijgt.",
     "time": "1970-01-01T00:00:00",
-    "duration": 178
+    "duration": 178,
+    "genre": "Actie",
+    "age_restriction": 12
   }
 ]

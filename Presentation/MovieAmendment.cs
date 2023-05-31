@@ -187,6 +187,23 @@ public class MovieAmendment : IPresentation
                         string title = Console.ReadLine();
                         movie.Title = title;
                         break;
+                    case "g":
+                        Console.WriteLine("Geef de nieuwe genre van de film.");
+                        Console.Write("> ");
+                        string genre = Console.ReadLine();
+                        movie.Genre = genre;
+                        break;
+                    case "l":
+                        Console.WriteLine("Geef de nieuwe leeftijdbeperking van de film.");
+                        Console.Write("> ");
+                        int age = int.TryParse(Console.ReadLine(), out age) ? age : -1;
+                        if (age < 0)
+                        {
+                            Console.WriteLine("Verkeerde invoer");
+                            break;
+                        }
+                        movie.AgeRestriction = age;
+                        break;
                     case "e":
                         loop = false;
                         continue;
@@ -285,7 +302,7 @@ public class MovieAmendment : IPresentation
             Console.WriteLine("Geef het zaal ID waarin de film draait.");
             Console.Write("> ");
             int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
-            MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, movie.Title, movie.Description, time, movie.Duration);
+            MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, movie.Title, movie.Description, time, movie.Duration, movie.Genre, movie.AgeRestriction);
             if (_movieLogic.StartTimeInterference(time, auditoriumID, Movie) || _movieLogic.TimeInterference(movie.Duration, auditoriumID, Movie))
             {
                 Console.WriteLine("Deze tijd is al bezet.");
@@ -362,8 +379,17 @@ public class MovieAmendment : IPresentation
 
         Console.WriteLine("Geef het zaal ID waarin de film draait.");
         Console.Write("> ");
+
+        Console.WriteLine("Geef het genre van de film.");
+        Console.Write("> ");
+
+        Console.WriteLine("Geef de leeftijdsbeperking van de film.");
+        Console.Write("> ");
+        int ageRestriction = int.TryParse(Console.ReadLine(), out ageRestriction) ? ageRestriction : 0;
+
+        string genre = Console.ReadLine();
         int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
-        MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, title, description, new DateTime(1970, 1, 1), duration);
+        MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, title, description, new DateTime(1970, 1, 1), duration, genre, ageRestriction);
         Console.WriteLine("De datum en tijd waarop de film draait moet u later nog zetten met de functie om een film aan te passen.");
         Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
         Console.Write("> ");

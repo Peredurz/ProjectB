@@ -39,6 +39,10 @@ class Movie : IPresentation
                 Movie.Start();
             }
         }
+        else if (userOption.ToLower() == "a")
+        {
+            Movie.FilterMovie();
+        }
         else if (userOption.ToLower() == "b")
         {
             Menu.Start();
@@ -78,6 +82,58 @@ class Movie : IPresentation
         else
         {
             Console.WriteLine("De film met dit ID bestaat niet");
+            Movie.Start();
+        }
+    }
+
+    public static void FilterMovie()
+    {
+        Console.WriteLine("Geef iets wat je wilt filteren.(leeftijdgrens, genre, duur van de film, speeldatum(YYYY-MM-DD))");
+        Console.Write("> ");
+        string userInput = Console.ReadLine();
+        string movieOutput = _movieLogic.FilterMovies(userInput);
+        Console.WriteLine("==================================================");
+        Console.WriteLine(movieOutput);
+        PresentationLogic.CurrentPresentation = "movies";
+        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+        string userOption = Console.ReadLine();
+        if (int.TryParse(userOption, out _) == true)
+        {
+            ChooseMovie(Convert.ToInt32(userOption));
+        }
+        else if (userOption.ToLower() == "f")
+        {
+            PresentationLogic.CurrentPresentation = "moviesFuture";
+            string futureMovieOutput = _movieLogic.ShowFutureMovies();
+            Console.WriteLine();
+            Console.WriteLine(futureMovieOutput);
+            PresentationLogic.WriteMenu(Menu.presentationModels, true);
+            string userFutureOption = Console.ReadLine();
+            if (int.TryParse(userFutureOption, out _) == true)
+            {
+                ChooseMovie(Convert.ToInt32(userFutureOption));
+            }
+            else if (userFutureOption.ToLower() == "b")
+            {
+                Movie.Start();
+            }
+            else
+            {
+                Console.WriteLine("Geen geldige invoer.");
+                Movie.Start();
+            }
+        }
+        else if (userOption.ToLower() == "a")
+        {
+            Movie.FilterMovie();
+        }
+        else if (userOption.ToLower() == "b")
+        {
+            Menu.Start();
+        }
+        else
+        {
+            Console.WriteLine("Geen geldige invoer.");
             Movie.Start();
         }
     }

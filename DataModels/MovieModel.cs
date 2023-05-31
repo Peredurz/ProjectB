@@ -21,7 +21,12 @@ public class MovieModel
     [JsonPropertyName("duration")]
     public int Duration { get; set; }
 
-    public MovieModel(int id, int auditoriumID, string title, string description, DateTime time, int duration)
+    [JsonPropertyName("genre")]
+    public string Genre { get; set; }
+
+    [JsonPropertyName("age_restriction")]
+    public int AgeRestriction { get; set; }
+    public MovieModel(int id, int auditoriumID, string title, string description, DateTime time, int duration, string genre, int ageRestriction)
     {
         ID = id;
         AuditoriumID = auditoriumID;
@@ -29,6 +34,8 @@ public class MovieModel
         Description = description;
         Time = time;
         Duration = duration;
+        Genre = genre;
+        AgeRestriction = ageRestriction;
     }
 
 }
