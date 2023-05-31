@@ -68,4 +68,54 @@ class AccountsLogic
             return CurrentAccount;
         return null;
     }
+
+    // tijdelijk wachtwoord wordt aangemaakt en naar het emailadres gestuurd
+    public void GenerateTempPassword()
+    {
+        var allAccounts = AccountsAccess.LoadAll();
+        bool exists = false;
+
+        var info = Mail.AskInfo();
+        string email = info.Item1;
+        string name = info.Item2;
+
+        // update email and name in MailLogic
+        MailLogic.Name = name;
+        MailLogic.EmailAddress = email;
+       foreach (var account in allAccounts)
+            {
+                if (account.EmailAddress == email)
+                {
+                    exists = true;
+                }
+            }
+
+            if (exists == false)
+            {
+                Console.WriteLine("Account does not exist. Try again.");
+                GenerateTempPassword();
+            }
+        
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        char[] stringChars = new char[8];
+        Random random = new Random();
+
+        for (int i = 0; i < stringChars.Length; i++)
+        {
+            stringChars[i] = chars[random.Next(chars.Length)];
+        }
+        
+        string tempPassword = new String(stringChars);
+        string tempPasswordHash = BCrypt.Net.BCrypt.HashPassword(tempPassword, workFactor: 10);
+        // change password for account associated with email
+        foreach (var account in allAccounts)
+        {
+            if (account.EmailAddress == email)
+            {
+                account.Password = tempPasswordHash;
+                UpdateList(account);
+            }
+        }
+        MailLogic.SendTempPassword(tempPassword);
+    }
 }

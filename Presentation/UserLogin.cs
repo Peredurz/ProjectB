@@ -63,6 +63,10 @@ public class UserLogin : IPresentation
                     string _password = Console.ReadLine();
                     accountsLogic.NewAccount(fullName, emailAddress, _password);
                     break;
+                case "f":
+                    loop = false;
+                    accountsLogic.GenerateTempPassword();
+                    break;
                 case "b":
                     loop = false;
                     break;

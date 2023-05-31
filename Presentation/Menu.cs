@@ -17,6 +17,7 @@ public class Menu : IPresentation
         new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
         new PresentationModel("L", "Login", _allClearance, "login", true),
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
+        new PresentationModel("F", "Wachtwoord vergeten", _allClearance, "login", true),
         new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
         new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
         new PresentationModel("D", "Films verwijderen", _managerClearance, "movie_editor", true),
