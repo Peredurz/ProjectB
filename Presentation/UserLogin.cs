@@ -111,6 +111,23 @@ public class UserLogin : IPresentation
                         Console.WriteLine("Verkeerde invoer");
                     }
                     break;
+                case "o": 
+                    if (AccountsLogic.CurrentAccount != null)
+                    {
+                         Console.WriteLine("Weet u zeker dat u wilt uitloggen. (Y/N)");
+                         Console.Write("> ");
+                        string inputUser = Console.ReadLine().ToLower();
+                        if (inputUser == "y")
+                        {
+                            AccountsLogic.CurrentAccount = null;
+                            Console.WriteLine("Je bent uitgelogd.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Verkeerde invoer");
+                        }
+                    }
+                    break;
                 default:
                     Console.WriteLine("Verkeerde invoer");
                     break;
