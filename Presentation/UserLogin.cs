@@ -5,7 +5,14 @@ public class UserLogin : IPresentation
 
     public static void Start()
     {
-        PresentationLogic.CurrentPresentation = "login";
+        if (AccountsLogic.CurrentAccount != null)
+        {
+            PresentationLogic.CurrentPresentation = "loginSub";
+        }
+        else
+        {
+            PresentationLogic.CurrentPresentation = "login";
+        }
 
         bool loop = true;
         while (loop)
@@ -89,6 +96,20 @@ public class UserLogin : IPresentation
                     break;
                 case "b":
                     loop = false;
+                    break;
+                case "a":
+                    if (AccountsLogic.CurrentAccount != null)
+                    {
+                    Console.WriteLine("Huidige Wachtwoord");
+                    Console.Write("> ");
+                    string passwordCheck = Console.ReadLine();
+                
+                    accountsLogic.ChangePassword(AccountsLogic.CurrentAccount.EmailAddress,passwordCheck);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Verkeerde invoer");
+                    }
                     break;
                 default:
                     Console.WriteLine("Verkeerde invoer");
