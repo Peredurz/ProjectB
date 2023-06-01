@@ -155,8 +155,18 @@ class AuditoriumLogic
                         // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
                         ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
                         // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
+                        if (r == (x - 1) && c == (y - 1))
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
+                            Console.BackgroundColor = ConsoleColor.Black;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
+                        }
                         pos++;
                         // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
                         if (pos == length)
@@ -186,7 +196,8 @@ class AuditoriumLogic
                         "white" => ConsoleColor.Black,
                         _ => ConsoleColor.Black,
                     };
-                    if (r == --x && c == --y)
+
+                    if (r == (x - 1) && c == (y - 1))
                     {
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = color;

@@ -41,6 +41,7 @@ class Auditorium : IPresentation
         int indexY = 2;
         List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
         _auditoriumLogic.ChairPrint(indexX, indexY);
+        AuditoriumModel auditoriumModel = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
         List<string> list = new List<string>();
         ConsoleKeyInfo keyinfo;
         do
@@ -51,32 +52,20 @@ class Auditorium : IPresentation
             switch (keyinfo.Key)
             {
                 case ConsoleKey.DownArrow:
-                    if (indexX + 1 < 5)
-                    {
+                    if (indexX + 1 < auditoriumModel.TotalRows + 1)
                         indexX++;
-                        _auditoriumLogic.ChairPrint(indexX, indexY);
-                    }
                     break;
                 case ConsoleKey.UpArrow:
                     if (indexX - 1 >= 0)
-                    {
                         indexX--;
-                        _auditoriumLogic.ChairPrint(indexX, indexY);
-                    }
                     break;
                 case ConsoleKey.RightArrow:
-                    if (indexY + 1 < 5)
-                    {
+                    if (indexY + 1 < auditoriumModel.TotalCols + 1)
                         indexY++;
-                        _auditoriumLogic.ChairPrint(indexX, indexY);
-                    }
                     break;
                 case ConsoleKey.LeftArrow:
                     if (indexY - 1 >= 0)
-                    {
                         indexY--;
-                        _auditoriumLogic.ChairPrint(indexX, indexY);
-                    }
                     break;
                 case ConsoleKey.S:
                     //Console.WriteLine("You selected " + options[indexX, indexY]);
@@ -91,6 +80,11 @@ class Auditorium : IPresentation
                     //list.Add(options[indexX, indexY]);
                     break;
             }
+            Console.Clear();
+            _auditoriumLogic.ChairPrint(indexX, indexY);
+            AudistoriumScreen();
+            PrintLegenda();
+            Console.WriteLine($"{indexX}; {indexY}");
         }
         while (keyinfo.Key != ConsoleKey.X);
 
