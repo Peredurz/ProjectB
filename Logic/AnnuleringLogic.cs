@@ -12,7 +12,7 @@
 /// en de <see cref="Movie"/> zorgt ervoor dat de <see cref="_movies"/> buiten de class nog kan worden gezien."
 /// </para>
 /// </summary>
-class AnnuleringLogic
+public class AnnuleringLogic
 {
     private List<ChairReservationModel> _chairReservation = new List<ChairReservationModel>();
     protected static List<MovieModel> _movies = new();
@@ -200,7 +200,7 @@ class AnnuleringLogic
     {
         DateTime timeNow = annulering.AnnuleringDatum;
         DateTime dateTime = movie.Time;
-        TimeSpan difference = timeNow - dateTime;
+        TimeSpan difference = dateTime - timeNow;
         if (difference.TotalHours >= 24)
         {
             return reservation.TotaalPrijs;
