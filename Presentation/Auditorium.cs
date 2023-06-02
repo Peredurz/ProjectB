@@ -1,4 +1,4 @@
-class Auditorium : IPresentation
+public class Auditorium : IPresentation
 {
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
     private static ChairReservationLogic _chairReservationLogic = new ChairReservationLogic();
@@ -8,7 +8,7 @@ class Auditorium : IPresentation
     {
         PresentationLogic.CurrentPresentation = "auditorium";
 
-        PrintChairs();
+        _auditoriumLogic.ChairPrint(0, 0);
         //scherm weergeven
         AudistoriumScreen();
         //legenda weergeven
@@ -28,11 +28,6 @@ class Auditorium : IPresentation
             Console.WriteLine("Incorrecte invoer.");
             Menu.Start();
         }
-    }
-
-    public static void PrintChairs()
-    {
-        _auditoriumLogic.ChairPrint(0, 0);
     }
 
     public static void ChooseChair()
@@ -120,6 +115,8 @@ class Auditorium : IPresentation
         {
             //Maakt een reservering terwel die de gegevens controleert 
             bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, _chair);
+            // als een van de stoelen al gereserveerd is oid, ga je terug naar het menu want de stoel is niet meer
+            // beschikbaar.
             if (ret == false)
             {
                 areGoodToReserve = false;
@@ -205,6 +202,9 @@ class Auditorium : IPresentation
         Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\n om uw keuze op te slaan.");
     }
 
+    /// <summary>
+    /// Method om de geselecteerde stoelen te printen, als de lijst met chairs vol is.
+    /// </summary>
     public static void PrintChosenChairs(List<ChairModel> chairs)
     {
         if (chairs.Count() <= 0)
