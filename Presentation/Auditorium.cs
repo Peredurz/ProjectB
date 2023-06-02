@@ -88,7 +88,14 @@ public class Auditorium : IPresentation
                     }
                     // stoel model om te gebruiken in de lijst die uiteindelijk gereserveerd wordt.
                     ChairModel chair = _chairLogic.GetChairModel(chairID);
-                    if (chosenChairs.Contains(chair) || chair.Color.ToLower() == "white")
+                    // als een stoel weer word gekozen kan die uit de lijst gehaald worden.
+                    if (chosenChairs.Contains(chair))
+                    {
+                        chosenChairs.Remove(chair);
+                        break;
+                    }
+                    // als de kleur wit is mag die niet gekozen worden door de gebruiker
+                    if (chair.Color == "White")
                         break;
                     chosenChairs.Add(chair);
                     break;
@@ -198,8 +205,10 @@ public class Auditorium : IPresentation
         Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
         Console.WriteLine("De stoelen waar X op staat zijn bezet.");
         Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
+        Console.WriteLine("+------------------------------------------------------------------------+");
+        Console.WriteLine("Info over het selecteren: ");
         Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
-        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\n om uw keuze op te slaan.");
+        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\nom uw keuze op te slaan.");
     }
 
     /// <summary>
