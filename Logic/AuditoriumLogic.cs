@@ -97,11 +97,11 @@ class AuditoriumLogic
         int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
         int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
         int[,] chairs2d = {};
-        chairs2d = new int[length, width];
+        chairs2d = new int[width, length];
         int idx = 0;
-        for (int r = 0; r < length; r++)
+        for (int r = 0; r < width; r++)
         {
-            for (int c = 0; c < width; c++)
+            for (int c = 0; c < length; c++)
             {
                 chairs2d[r, c] = chairs[idx];
                 idx++;

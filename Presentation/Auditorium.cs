@@ -40,12 +40,19 @@ class Auditorium : IPresentation
         int indexX = 2;
         int indexY = 2;
         List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
-        _auditoriumLogic.ChairPrint(indexX, indexY);
+        _auditoriumLogic.ChairPrint(indexY, indexX);
         AuditoriumModel auditoriumModel = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
         List<string> list = new List<string>();
         ConsoleKeyInfo keyinfo;
+        bool isBackKey = false;
         do
         {
+            Console.Clear();
+            _auditoriumLogic.ChairPrint(indexX, indexY);
+            AudistoriumScreen();
+            PrintLegenda();
+            Console.WriteLine($"{indexX}; {indexY}");
+
             keyinfo = Console.ReadKey();
 
             // Handle each key input (down arrow will write the menu again with a different selected item)
@@ -79,14 +86,13 @@ class Auditorium : IPresentation
                     // indexY = 2;
                     //list.Add(options[indexX, indexY]);
                     break;
+                case ConsoleKey.B:
+                    isBackKey = true;
+                    Movie.Start();
+                    break;
             }
-            Console.Clear();
-            _auditoriumLogic.ChairPrint(indexX, indexY);
-            AudistoriumScreen();
-            PrintLegenda();
-            Console.WriteLine($"{indexX}; {indexY}");
         }
-        while (keyinfo.Key != ConsoleKey.X);
+        while (keyinfo.Key != ConsoleKey.X || isBackKey == false);
 
         Console.ReadKey();
         //try
