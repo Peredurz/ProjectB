@@ -72,7 +72,7 @@ class Auditorium : IPresentation
                         indexX++;
                     break;
                 case ConsoleKey.UpArrow:
-                    if (indexX - 1 >= 0)
+                    if (indexX - 1 >= 1)
                         indexX--;
                     break;
                 case ConsoleKey.RightArrow:
@@ -80,7 +80,7 @@ class Auditorium : IPresentation
                         indexY++;
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (indexY - 1 >= 0)
+                    if (indexY - 1 >= 1)
                         indexY--;
                     break;
                 // enter om een keuze te kunnen maken
@@ -117,7 +117,7 @@ class Auditorium : IPresentation
         foreach (ChairModel _chair in chosenChairs)
         {
             //Maakt een reservering terwel die de gegevens controleert 
-            bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, _chair.Row, _chair.Column);
+            bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, _chair);
             if (ret == false)
             {
                 areGoodToReserve = false;
@@ -199,13 +199,15 @@ class Auditorium : IPresentation
         Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
         Console.WriteLine("De stoelen waar X op staat zijn bezet.");
         Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
+        Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
+        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden om uw keuze op te slaan.");
     }
 
     public static void PrintChosenChairs(List<ChairModel> chairs)
     {
         if (chairs.Count() <= 0)
             return;
-        Console.Write("Geselecteerd: ");
+        Console.Write("Geselecteerde stoelen: ");
         foreach (ChairModel _chair in chairs)
         {
             char col;

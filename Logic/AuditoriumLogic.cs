@@ -155,6 +155,7 @@ class AuditoriumLogic
                         // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
                         ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
                         // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
+                        // als het de stoel is met de cursor geef dat dan ook een kleurtje
                         if (r == (x - 1) && c == (y - 1))
                         {
                             Console.BackgroundColor = ConsoleColor.White;
@@ -242,5 +243,5 @@ class AuditoriumLogic
         return null;
     }
 
-    public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID].Chairs;
+    public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID - 1].Chairs;
 }

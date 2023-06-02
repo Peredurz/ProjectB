@@ -15,29 +15,22 @@ class ChairReservationLogic
         ChairReservationAccess.WriteAll(_chairReservation);
     }
 
-    public bool ReserveChair(int auditoriumID, int movieID, int chairRow, int chairCol)
+    public bool ReserveChair(int auditoriumID, int movieID, ChairModel chair)
     {
-        int chairID = ChairLogic.FindChairID(chairRow, chairCol, auditoriumID);
-        if (chairID == 0)
-        {
-            Console.WriteLine("Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.");
-            return false;
-        }
-        ChairModel chair = _chairLogic.GetChairModel(chairID);
         AccountsLogic.TotaalPrijs += chair.Price;
         DateTime movieTime = MovieLogic.GetMovie(movieID).Time;
         string userEmail = "";
         if (AccountsLogic.CurrentAccount != null)
             userEmail = AccountsLogic.CurrentAccount.EmailAddress;
 
-        if (CheckChairAvailability(chairID, movieTime, auditoriumID) == false)
+        if (CheckChairAvailability(chair.ID, movieTime, auditoriumID) == false)
         {
             Console.WriteLine("Deze stoel is al gereserveerd.");
             return false;
         }
         else
         {
-            _chairReservation.Add(new ChairReservationModel(userEmail, chairID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
+            _chairReservation.Add(new ChairReservationModel(userEmail, chair.ID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
 
             ChairReservationAccess.WriteAll(_chairReservation);
             return true;
