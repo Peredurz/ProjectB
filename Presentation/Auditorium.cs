@@ -31,64 +31,126 @@ class Auditorium : IPresentation
 
     public static void PrintChairs()
     {
-        _auditoriumLogic.ChairPrint();
+        _auditoriumLogic.ChairPrint(0, 0);
     }
 
     public static void ChooseChair()
     {
-        try
+        // Set the default index of the selected item to be the first
+        int indexX = 2;
+        int indexY = 2;
+        List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
+        // Write the menu out
+        _auditoriumLogic.ChairPrint(indexX, indexY);
+        List<string> list = new List<string>();
+        // Store key info in here
+        ConsoleKeyInfo keyinfo;
+        do
         {
-            bool finalDecision = false;
-            int chosenRow;
-            char chosenChair;
-            do
+            keyinfo = Console.ReadKey();
+
+            // Handle each key input (down arrow will write the menu again with a different selected item)
+
+            switch (keyinfo.Key)
             {
-                Console.WriteLine("Kies een rij (1, 2, 3, ...):");
-                Console.Write("> ");
-                chosenRow = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Kies een stoel (A, B, C, ...):");
-                Console.Write("> ");
-                chosenChair = Convert.ToChar(Console.ReadLine());
-                Console.WriteLine("Weet je zeker dat je deze stoelen wilt selecteren? Y/N");
-                string userOption = Console.ReadLine().ToLower();
-                if (userOption == "y")
-                {
-                    Console.WriteLine($"Je hebt gekozen voor stoel: {chosenChair}-{chosenRow}");
-                    finalDecision = true;
-                }
-                else if (userOption == "n")
-                {
-                    continue;
-                }
-                else
-                {
-                    Console.WriteLine("Geen correcte invoer, vul uw rij en stoel opnieuw in.");
-                    continue;
-                }
-            }
-            while (finalDecision == false);
-            // Convert de ascii karakter naar een getal.
-            int chosenChairNumber = (int)chosenChair - 64;
-            // Als het kleine letters is moet het een ander getal zijn om er af te halen
-            if (chosenChairNumber > 26)
-                chosenChairNumber = (int)chosenChair - 70;
-            //Maakt een reservering terwel die de gegevens controleert 
-            bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, chosenRow - 1, chosenChairNumber);
-            if (ret == false)
-            {
-                Console.WriteLine("Stoel is niet beschikbaar");
-                Menu.Start();
-            }
-            else
-            {
-                Console.WriteLine("Stoel gereserveerd!");
-                Auditorium.ChooseCombi();
+                case ConsoleKey.DownArrow:
+                    if (indexX + 1 < 5)
+                    {
+                        indexX++;
+                        _auditoriumLogic.ChairPrint(indexX, indexY);
+                    }
+                    break;
+                case ConsoleKey.UpArrow:
+                    if (indexX - 1 >= 0)
+                    {
+                        indexX--;
+                        _auditoriumLogic.ChairPrint(indexX, indexY);
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (indexY + 1 < 5)
+                    {
+                        indexY++;
+                        _auditoriumLogic.ChairPrint(indexX, indexY);
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (indexY - 1 >= 0)
+                    {
+                        indexY--;
+                        _auditoriumLogic.ChairPrint(indexX, indexY);
+                    }
+                    break;
+                case ConsoleKey.S:
+                    //Console.WriteLine("You selected " + options[indexX, indexY]);
+                    // indexX = 2;
+                    // indexY = 2;
+                    //list.Add();
+                    break;
+                case ConsoleKey.Enter:
+                    Console.WriteLine($"You selected {string.Join(" ", list)}");
+                    // indexX = 2;
+                    // indexY = 2;
+                    //list.Add(options[indexX, indexY]);
+                    break;
             }
         }
-        catch (FormatException ex)
-        {
-            Console.WriteLine("Je moet een nummer invoeren");
-        }
+        while (keyinfo.Key != ConsoleKey.X);
+
+        Console.ReadKey();
+        //try
+        //{
+        //    bool finalDecision = false;
+        //    int chosenRow;
+        //    char chosenChair;
+        //    do
+        //    {
+        //        Console.WriteLine("Kies een rij (1, 2, 3, ...):");
+        //        Console.Write("> ");
+        //        chosenRow = Convert.ToInt32(Console.ReadLine());
+        //        Console.WriteLine("Kies een stoel (A, B, C, ...):");
+        //        Console.Write("> ");
+        //        chosenChair = Convert.ToChar(Console.ReadLine());
+        //        Console.WriteLine("Weet je zeker dat je deze stoelen wilt selecteren? Y/N");
+        //        string userOption = Console.ReadLine().ToLower();
+        //        if (userOption == "y")
+        //        {
+        //            Console.WriteLine($"Je hebt gekozen voor stoel: {chosenChair}-{chosenRow}");
+        //            finalDecision = true;
+        //        }
+        //        else if (userOption == "n")
+        //        {
+        //            continue;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Geen correcte invoer, vul uw rij en stoel opnieuw in.");
+        //            continue;
+        //        }
+        //    }
+        //    while (finalDecision == false);
+        //    // Convert de ascii karakter naar een getal.
+        //    int chosenChairNumber = (int)chosenChair - 64;
+        //    // Als het kleine letters is moet het een ander getal zijn om er af te halen
+        //    if (chosenChairNumber > 26)
+        //        chosenChairNumber = (int)chosenChair - 70;
+        //    //Maakt een reservering terwel die de gegevens controleert 
+        //    bool ret = _chairReservationLogic.ReserveChair(Movie.AuditoriumID, Movie.MovieID, chosenRow - 1, chosenChairNumber);
+        //    if (ret == false)
+        //    {
+        //        Console.WriteLine("Stoel is niet beschikbaar");
+        //        Menu.Start();
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Stoel gereserveerd!");
+        //        Auditorium.ChooseCombi();
+        //    }
+        //}
+        //catch (FormatException ex)
+        //{
+        //    Console.WriteLine("Je moet een nummer invoeren");
+        //}
     }
     public static void ChooseCombi()
     {
