@@ -34,5 +34,17 @@
     "totaalPrijs": 15,
     "reserveringsCode": 1838645017,
     "isCompleted": true
+  },
+  {
+    "id": 7,
+    "name": "Gilian",
+    "emailAdress": "gilkranendonk@gmail.com",
+    "chairId": 207,
+    "movieId": 2,
+    "auditoriumId": 1,
+    "time": "2023-05-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 1373603769,
+    "isCompleted": true
   }
 ]
