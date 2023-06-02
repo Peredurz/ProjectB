@@ -61,6 +61,14 @@ public class MovieLogic
                     {
                         continue;
                     }
+                    else if (prop.Name == "AgeRestriction")
+                    {
+                        output += "Minimum Leeftijd" + ": " + prop.GetValue(movie) + " Jaar" + Environment.NewLine;
+                    }
+                    else if (prop.Name == "Time")
+                    {
+                        output += "Tijd" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
                     else
                     {
                         output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
@@ -93,7 +101,11 @@ public class MovieLogic
                     }
                     else if (prop.Name == "Time")
                     {
-                        output += prop.Name + ": " + "Nog niet bekend" + Environment.NewLine;
+                        output += "Tijd" + ": " + "Nog niet bekend" + Environment.NewLine;
+                    }
+                    else if (prop.Name == "AgeRestriction")
+                    {
+                        output += "Minimum Leeftijd" + ": " + prop.GetValue(movie) + " Jaar" + Environment.NewLine;
                     }
                     else
                     {
