@@ -14,6 +14,7 @@ class AccountsLogic
     public static List<PresentationModel> UserPresentationModels = new List<PresentationModel>();
     public static double TotaalPrijs = 0;
     public static int CurrentReservationCode = MailLogic.GenerateCode();
+    public static List<ChairModel> ChosenChairs = new List<ChairModel>();
 
     public AccountsLogic()
     {

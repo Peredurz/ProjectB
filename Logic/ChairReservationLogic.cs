@@ -56,7 +56,7 @@ class ChairReservationLogic
     {
         foreach (ChairReservationModel _reservation in _chairReservation)
         {
-            if (_reservation.ID == codeOrID || _reservation.ReserveringsCode == codeOrID)
+            if (_reservation.ID == codeOrID || _reservation.ReserveringsCode == codeOrID || _reservation.ChairID == codeOrID)
                 return Tuple.Create(_reservation, _reservation.ID);
         }
         return null;
@@ -74,17 +74,21 @@ class ChairReservationLogic
 
     public static void UpdateChairReservation()
     {
-        ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
-        var chairReservationModel = chairReservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
-        chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
-        chairReservationModel.Item1.IsCompleted = true;
-        chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
-        chairReservationModel.Item1.Name = MailLogic.Name;
-        int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
-        chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+	    ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+        foreach (ChairModel _chair in AccountsLogic.ChosenChairs)
+        {
+            var chairReservationModel = chairReservationLogic.GetChairReservation(_chair.ID);
+            chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
+            chairReservationModel.Item1.IsCompleted = true;
+            chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
+            chairReservationModel.Item1.Name = MailLogic.Name;
+            int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
+            chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+        }
         chairReservationLogic.RemoveNotCompletedReservations();
         chairReservationLogic.WriteAll();
         AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
+        AccountsLogic.ChosenChairs = new List<ChairModel>();
     }
 
     public void RemoveNotCompletedReservations()

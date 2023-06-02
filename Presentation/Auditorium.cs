@@ -112,6 +112,9 @@ class Auditorium : IPresentation
         if (isBackKey == true)
             Movie.Start();
 
+        // stop de chosenChairs in een public static variable om te gebruiken in andere classes
+        AccountsLogic.ChosenChairs = chosenChairs;
+
         bool areGoodToReserve = true;
         // loop door alle stoelen heen om die te reserveren.
         foreach (ChairModel _chair in chosenChairs)
