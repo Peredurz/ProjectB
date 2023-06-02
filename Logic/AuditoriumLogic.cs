@@ -96,8 +96,6 @@ class AuditoriumLogic
         // Lengte van het auditorium
         int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
         int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
-        Console.WriteLine(length);
-        Console.WriteLine(width);
         int[,] chairs2d = {};
         chairs2d = new int[width, length];
         int idx = 0;
@@ -140,7 +138,7 @@ class AuditoriumLogic
         }
         Console.Write("\n");
 
-        idx = 0;
+        idx = _chairLogic.Chairs.IndexOf(_chairLogic.Chairs.Where(x => x.ID == chairs.First()).ToList().First());
         for (int r = 0; r < chairs2d.GetLength(0); r++)
         {
             for (int c = 0; c < chairs2d.GetLength(1); c++)
@@ -222,7 +220,6 @@ class AuditoriumLogic
                         Console.Write("\n");
                         pos = 0;
                     }
-
                 }
                 idx++;
             }
