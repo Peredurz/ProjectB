@@ -197,6 +197,8 @@ class AuditoriumLogic
                         _ => ConsoleColor.Black,
                     };
 
+                    // x en y zijn de cursor, als deze gelijk zijn aan de row en column kan je het een andere achtergrond
+                    // geven om aan te geven dat het gekozen is.
                     if (r == (x - 1) && c == (y - 1))
                     {
                         Console.BackgroundColor = ConsoleColor.White;

@@ -37,29 +37,36 @@ class Auditorium : IPresentation
 
     public static void ChooseChair()
     {
-        // Set the default index of the selected item to be the first
+        // de beginende axises. 
         int indexX = 2;
         int indexY = 2;
+        // de stoelen van dit auditorium om te kunnen gebruiken om te weten op welke je op
+        // dit moment zit met je cursor.
         List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
         _auditoriumLogic.ChairPrint(indexY, indexX);
         AuditoriumModel auditoriumModel = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
+        // lijst met de gekozen stoelen van de gebruiker om ze allemaal te kunnen reserveren
         List<ChairModel> chosenChairs = new List<ChairModel>();
         ConsoleKeyInfo keyinfo;
         bool isBackKey = false;
         do
         {
+            // clear de console en print alle belangrijke dingen.
             Console.Clear();
             _auditoriumLogic.ChairPrint(indexX, indexY);
             AudistoriumScreen();
             PrintLegenda();
+            // zodat de gebruiker kan weten wat hij/zij geselecteerd heeft
             PrintChosenChairs(chosenChairs);
             Console.WriteLine($"{indexX}; {indexY}");
 
+            // lees de key om te bepalen wat de gebruiker doet.
             keyinfo = Console.ReadKey();
 
-            // Handle each key input (down arrow will write the menu again with a different selected item)
             switch (keyinfo.Key)
             {
+                // alle up/down/left/right dingen checken of die kan bewegen
+                // zo niet doe niks
                 case ConsoleKey.DownArrow:
                     if (indexX + 1 < auditoriumModel.TotalRows + 1)
                         indexX++;
@@ -76,30 +83,37 @@ class Auditorium : IPresentation
                     if (indexY - 1 >= 0)
                         indexY--;
                     break;
+                // enter om een keuze te kunnen maken
                 case ConsoleKey.Enter:
+                    // zoek de id van de stoel die gebruikt kan worden om de daadwerklijke stoel te vinden.
                     int chairID = ChairLogic.FindChairID(indexX - 1, indexY, Movie.AuditoriumID);
                     if (chairID == 0)
                     {
                         Console.WriteLine("Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.");
                         break;
                     }
+                    // stoel model om te gebruiken in de lijst die uiteindelijk gereserveerd wordt.
                     ChairModel chair = _chairLogic.GetChairModel(chairID);
                     if (chosenChairs.Contains(chair) || chair.Color.ToLower() == "white")
                         break;
                     chosenChairs.Add(chair);
                     break;
+                // s is om op te slaan
                 case ConsoleKey.S:
                     break;
+                // b is om terug te gaan.
                 case ConsoleKey.B:
                     isBackKey = true;
                     break;
             }
         }
         while (keyinfo.Key != ConsoleKey.B && keyinfo.Key != ConsoleKey.S);
+        // als je b hebt gedrukt moet je terug naar het film overzicht.
         if (isBackKey == true)
             Movie.Start();
 
         bool areGoodToReserve = true;
+        // loop door alle stoelen heen om die te reserveren.
         foreach (ChairModel _chair in chosenChairs)
         {
             //Maakt een reservering terwel die de gegevens controleert 
