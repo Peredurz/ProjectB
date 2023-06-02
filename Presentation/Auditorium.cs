@@ -115,6 +115,7 @@ public class Auditorium : IPresentation
 
         // stop de chosenChairs in een public static variable om te gebruiken in andere classes
         AccountsLogic.ChosenChairs = chosenChairs;
+        _chairReservationLogic = new ChairReservationLogic();
 
         bool areGoodToReserve = true;
         // loop door alle stoelen heen om die te reserveren.

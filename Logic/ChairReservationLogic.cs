@@ -88,7 +88,8 @@ class ChairReservationLogic
         chairReservationLogic.RemoveNotCompletedReservations();
         chairReservationLogic.WriteAll();
         AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
-        AccountsLogic.ChosenChairs = new List<ChairModel>();
+        AccountsLogic.ChosenChairs.Clear();
+        AccountsLogic.TotaalPrijs = 0;
     }
 
     public void RemoveNotCompletedReservations()
