@@ -58,7 +58,6 @@ class Auditorium : IPresentation
             PrintLegenda();
             // zodat de gebruiker kan weten wat hij/zij geselecteerd heeft
             PrintChosenChairs(chosenChairs);
-            Console.WriteLine($"{indexX}; {indexY}");
 
             // lees de key om te bepalen wat de gebruiker doet.
             keyinfo = Console.ReadKey();
@@ -203,7 +202,7 @@ class Auditorium : IPresentation
         Console.WriteLine("De stoelen waar X op staat zijn bezet.");
         Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
         Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
-        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden om uw keuze op te slaan.");
+        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\n om uw keuze op te slaan.");
     }
 
     public static void PrintChosenChairs(List<ChairModel> chairs)
