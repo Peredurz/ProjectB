@@ -21,22 +21,24 @@ class Movie : IPresentation
         {
             PresentationLogic.CurrentPresentation = "moviesFuture";
             string futureMovieOutput = _movieLogic.ShowFutureMovies();
-            Console.WriteLine();
-            Console.WriteLine(futureMovieOutput);
-            PresentationLogic.WriteMenu(Menu.presentationModels, true);
-            string userFutureOption = Console.ReadLine();
-            if (int.TryParse(userFutureOption, out _) == true)
+            bool loop = true;
+            while (loop)
             {
-                ChooseMovie(Convert.ToInt32(userFutureOption));
-            }
-            else if (userFutureOption.ToLower() == "b")
-            {
-                Movie.Start();
-            }
-            else
-            {
-                Console.WriteLine("Geen geldige invoer.");
-                Movie.Start();
+                Console.WriteLine();
+                Console.WriteLine(futureMovieOutput);
+                Console.WriteLine("Omdat er geen datum bekend is kunnen deze films niet worden geboekt.");
+
+                PresentationLogic.WriteMenu(Menu.presentationModels, true);
+                string userFutureOption = Console.ReadLine();
+                if (userFutureOption.ToLower() == "b")
+                {
+                    loop = false;
+                    Movie.Start();
+                }
+                else
+                {
+                    Console.WriteLine("Geen geldige invoer.");
+                }
             }
         }
         else if (userOption.ToLower() == "a")
