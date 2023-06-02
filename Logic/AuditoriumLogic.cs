@@ -86,13 +86,27 @@ class AuditoriumLogic
     /// Dit gebeurt door de statische <see cref="Movie.MovieID"/> variabele die iederekeer opnieuw wordt aangepast.
     /// Als iemand een andere film kiest in het keuzemenu voor de <see cref="Movie"/> objecten.
     /// </remarks>
-    public void ChairPrint()
+    public void ChairPrint(int x, int y)
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
         int chairsAmount = this._chairLogic.Chairs.Count;
         // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
         // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
-        List<int> chairs = _auditoriums[--Movie.AuditoriumID].Chairs;
+        List<int> chairs = _auditoriums[Movie.AuditoriumID - 1].Chairs; 
+        // Lengte van het auditorium
+        int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
+        int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
+        int[,] chairs2d = {};
+        chairs2d = new int[width, length];
+        int idx = 0;
+        for (int r = 0; r < width; r++)
+        {
+            for (int c = 0; c < length; c++)
+            {
+                chairs2d[r, c] = chairs[idx];
+                idx++;
+            }
+        }
 
         List<MovieModel> movies = MovieAccess.LoadAll();
 
@@ -103,8 +117,6 @@ class AuditoriumLogic
         DateTime time = movie.Time;
         // Alle stoelreserveringen voor een bepaalde film en tijd in een lijst zetten
         List<ChairReservationModel> chairReservationsForMovie = chairReservations.FindAll(x => x.Time == time);
-        // Lengte van het auditorium
-        int length = _auditoriums[Movie.AuditoriumID].TotalCols;
         // Positie van de rij zet ik op 0 omdat je begint met kolom 1 maar de eerste keer dat je een stoel print is de positie 0 (nog geen stoel geprint)
         int pos = 0;
         // String dat uiteindelijk wordt gereturned
@@ -112,87 +124,110 @@ class AuditoriumLogic
 
         // Rij bijhouden van de stoelen
         int rij = 1;
-
-        // Loopen totdat je bij de chairsamount komt.
-        for (int i = 0; i < chairsAmount + 1; i++)
+        for (int j = 1; j <= length; j++)
         {
-            if (i == 0)
+            if (j > 26)
             {
-                for (int j = 1; j <= length; j++)
-                {
-                    if (j > 26)
-                    {
-                        Console.Write($"{Convert.ToChar(j + 70)} ");
+                Console.Write($"{Convert.ToChar(j + 70)} ");
 
+            }
+            else
+            {
+                Console.Write($"{Convert.ToChar(j + 64)} ");
+            }
+        }
+        Console.Write("\n");
+
+        idx = _chairLogic.Chairs.IndexOf(_chairLogic.Chairs.Where(x => x.ID == chairs.First()).ToList().First());
+        for (int r = 0; r < chairs2d.GetLength(0); r++)
+        {
+            for (int c = 0; c < chairs2d.GetLength(1); c++)
+            {
+                // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
+                ChairModel chair = _chairLogic.Chairs[idx];
+                // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
+                // Want je wilt geen stoelen uit een andere zaal printen
+                if (chairs.Contains(chair.ID))
+                {
+                    // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
+                    if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
+                    {
+                        // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
+                        ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
+                        // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
+                        // als het de stoel is met de cursor geef dat dan ook een kleurtje
+                        if (r == (x - 1) && c == (y - 1))
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
+                            Console.BackgroundColor = ConsoleColor.Black;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
+                        }
+                        pos++;
+                        // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
+                        if (pos == length)
+                        {
+                            Console.Write($"{rij}");
+                            Console.Write("\n");
+                            pos = 0;
+                            rij++;
+                        }
+                        idx++;
+                        continue;
+                    }
+                    // Op basis van de status van de stoel wordt er een andere string toegevoegd aan chairPrint
+                    string result = chair.Status switch
+                    {
+                        Status.Available => "∩ ",
+                        Status.Pending => "? ",
+                        Status.Reserved => "X ",
+                        _ => " ",
+                    };
+                    // De kleur van de stoel wordt bepaald op basis van de kleur van de stoel
+                    ConsoleColor color = chair.Color.ToLower() switch
+                    {
+                        "red" => ConsoleColor.Red,
+                        "blue" => ConsoleColor.Blue,
+                        "orange" => ConsoleColor.DarkYellow,
+                        "white" => ConsoleColor.Black,
+                        _ => ConsoleColor.Black,
+                    };
+
+                    // x en y zijn de cursor, als deze gelijk zijn aan de row en column kan je het een andere achtergrond
+                    // geven om aan te geven dat het gekozen is.
+                    if (r == (x - 1) && c == (y - 1))
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = color;
+                        Console.Write(result);
+                        Console.BackgroundColor = ConsoleColor.Black;
                     }
                     else
                     {
-                        Console.Write($"{Convert.ToChar(j + 64)} ");
+                        Console.ForegroundColor = color;
+                        Console.Write(result);
                     }
-                }
-                Console.Write("\n");
-                continue;
-            }
 
-            // Stoel pakken uit de lijst van stoelen van de json file chairs.json op positie i.
-            ChairModel chair = _chairLogic.Chairs[i - 1];
-
-            // Als de chairID overeenkomt met een van de chairID's in de chairs lijst
-            // Want je wilt geen stoelen uit een andere zaal printen
-            if (chairs.Contains(chair.ID))
-            {
-                // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-                if (chairReservationsForMovie.Contains(chairReservations.Find(x => x.ChairID == chair.ID)))
-                {
-                    // zoek het daadwerkelijke reserveringsmodel om aan te kunnen geven of het een ? moet zijn of een X.
-                    ChairReservationModel foundChairReservation = chairReservations.Find(x => x.ChairID == chair.ID);
-                    // Als de stoel in de lijst van gereserveerde stoelen zit wordt er een X geprint
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.Write(foundChairReservation.IsCompleted == true ? "X " : "? ");
                     pos++;
                     // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
                     if (pos == length)
                     {
-                        Console.Write($"{rij}");
+                        // Verandert de kleur van de rij zodat het wit blijft 
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write($"{rij++}");
                         Console.Write("\n");
                         pos = 0;
-                        rij++;
                     }
-                    continue;
                 }
-                // Op basis van de status van de stoel wordt er een andere string toegevoegd aan chairPrint
-                string result = chair.Status switch
-                {
-                    Status.Available => "∩ ",
-                    Status.Pending => "? ",
-                    Status.Reserved => "X ",
-                    _ => " ",
-                };
-                // De kleur van de stoel wordt bepaald op basis van de kleur van de stoel
-                ConsoleColor color = chair.Color.ToLower() switch
-                {
-                    "red" => ConsoleColor.Red,
-                    "blue" => ConsoleColor.Blue,
-
-                    "orange" => ConsoleColor.DarkYellow,
-                    "white" => ConsoleColor.Black,
-                    _ => ConsoleColor.Black,
-                };
-                Console.ForegroundColor = color;
-                Console.Write(result);
-                pos++;
-                // Als de lengte van de rij is behaald wordt er een nieuwe regel gestart en wordt de positie weer op 0 gezet en word de rij nummer geprint
-                if (pos == length)
-                {
-                    // Verandert de kleur van de rij zodat het wit blijft 
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"{rij++}");
-                    Console.Write("\n");
-                    pos = 0;
-                }
-
+                idx++;
             }
         }
+
         Console.WriteLine();
     }
     
@@ -208,5 +243,5 @@ class AuditoriumLogic
         return null;
     }
 
-    public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID].Chairs;
+    public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID - 1].Chairs;
 }

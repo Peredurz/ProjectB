@@ -15,29 +15,22 @@ class ChairReservationLogic
         ChairReservationAccess.WriteAll(_chairReservation);
     }
 
-    public bool ReserveChair(int auditoriumID, int movieID, int chairRow, int chairCol)
+    public bool ReserveChair(int auditoriumID, int movieID, ChairModel chair)
     {
-        int chairID = ChairLogic.FindChairID(chairRow, chairCol, auditoriumID);
-        if (chairID == 0)
-        {
-            Console.WriteLine("Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.");
-            return false;
-        }
-        ChairModel chair = _chairLogic.GetChairModel(chairID);
         AccountsLogic.TotaalPrijs += chair.Price;
         DateTime movieTime = MovieLogic.GetMovie(movieID).Time;
         string userEmail = "";
         if (AccountsLogic.CurrentAccount != null)
             userEmail = AccountsLogic.CurrentAccount.EmailAddress;
 
-        if (CheckChairAvailability(chairID, movieTime, auditoriumID) == false)
+        if (CheckChairAvailability(chair.ID, movieTime, auditoriumID) == false)
         {
             Console.WriteLine("Deze stoel is al gereserveerd.");
             return false;
         }
         else
         {
-            _chairReservation.Add(new ChairReservationModel(userEmail, chairID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
+            _chairReservation.Add(new ChairReservationModel(userEmail, chair.ID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
 
             ChairReservationAccess.WriteAll(_chairReservation);
             return true;
@@ -63,7 +56,7 @@ class ChairReservationLogic
     {
         foreach (ChairReservationModel _reservation in _chairReservation)
         {
-            if (_reservation.ID == codeOrID || _reservation.ReserveringsCode == codeOrID)
+            if (_reservation.ID == codeOrID || _reservation.ReserveringsCode == codeOrID || _reservation.ChairID == codeOrID)
                 return Tuple.Create(_reservation, _reservation.ID);
         }
         return null;
@@ -81,17 +74,22 @@ class ChairReservationLogic
 
     public static void UpdateChairReservation()
     {
-        ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
-        var chairReservationModel = chairReservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
-        chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
-        chairReservationModel.Item1.IsCompleted = true;
-        chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
-        chairReservationModel.Item1.Name = MailLogic.Name;
-        int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
-        chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+	    ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+        foreach (ChairModel _chair in AccountsLogic.ChosenChairs)
+        {
+            var chairReservationModel = chairReservationLogic.GetChairReservation(_chair.ID);
+            chairReservationModel.Item1.TotaalPrijs = AccountsLogic.TotaalPrijs;
+            chairReservationModel.Item1.IsCompleted = true;
+            chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
+            chairReservationModel.Item1.Name = MailLogic.Name;
+            int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
+            chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+        }
         chairReservationLogic.RemoveNotCompletedReservations();
         chairReservationLogic.WriteAll();
         AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
+        AccountsLogic.ChosenChairs.Clear();
+        AccountsLogic.TotaalPrijs = 0;
     }
 
     public void RemoveNotCompletedReservations()
