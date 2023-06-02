@@ -96,6 +96,8 @@ class AuditoriumLogic
         // Lengte van het auditorium
         int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
         int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
+        Console.WriteLine(length);
+        Console.WriteLine(width);
         int[,] chairs2d = {};
         chairs2d = new int[width, length];
         int idx = 0;

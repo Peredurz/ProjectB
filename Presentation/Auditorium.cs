@@ -2,6 +2,7 @@ class Auditorium : IPresentation
 {
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
     private static ChairReservationLogic _chairReservationLogic = new ChairReservationLogic();
+    private static ChairLogic _chairLogic = new ChairLogic();
 
     public static void Start()
     {
@@ -42,7 +43,7 @@ class Auditorium : IPresentation
         List<int> chairIDs = AuditoriumLogic.GetChairIDs(Movie.AuditoriumID);
         _auditoriumLogic.ChairPrint(indexY, indexX);
         AuditoriumModel auditoriumModel = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
-        List<string> list = new List<string>();
+        List<ChairModel> chosenChairs = new List<ChairModel>();
         ConsoleKeyInfo keyinfo;
         bool isBackKey = false;
         do
@@ -51,6 +52,7 @@ class Auditorium : IPresentation
             _auditoriumLogic.ChairPrint(indexX, indexY);
             AudistoriumScreen();
             PrintLegenda();
+            PrintChosenChairs(chosenChairs);
             Console.WriteLine($"{indexX}; {indexY}");
 
             keyinfo = Console.ReadKey();
@@ -75,26 +77,31 @@ class Auditorium : IPresentation
                         indexY--;
                     break;
                 case ConsoleKey.S:
-                    //Console.WriteLine("You selected " + options[indexX, indexY]);
-                    // indexX = 2;
-                    // indexY = 2;
-                    //list.Add();
-                    break;
-                case ConsoleKey.Enter:
-                    Console.WriteLine($"You selected {string.Join(" ", list)}");
                     // indexX = 2;
                     // indexY = 2;
                     //list.Add(options[indexX, indexY]);
                     break;
+                case ConsoleKey.Enter:
+                    int chairID = ChairLogic.FindChairID(indexX - 1, indexY, Movie.AuditoriumID);
+                    if (chairID == 0)
+                    {
+                        Console.WriteLine("Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.");
+                        break;
+                    }
+                    ChairModel chair = _chairLogic.GetChairModel(chairID);
+                    if (chosenChairs.Contains(chair) || chair.Color.ToLower() == "white")
+                        break;
+                    chosenChairs.Add(chair);
+                    break;
                 case ConsoleKey.B:
                     isBackKey = true;
-                    Movie.Start();
                     break;
             }
         }
-        while (keyinfo.Key != ConsoleKey.X || isBackKey == false);
+        while (keyinfo.Key != ConsoleKey.B);
+        if (isBackKey == true)
+            Movie.Start();
 
-        Console.ReadKey();
         //try
         //{
         //    bool finalDecision = false;
@@ -215,5 +222,21 @@ class Auditorium : IPresentation
         Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
         Console.WriteLine("De stoelen waar X op staat zijn bezet.");
         Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
+    }
+
+    public static void PrintChosenChairs(List<ChairModel> chairs)
+    {
+        if (chairs.Count() <= 0)
+            return;
+        Console.Write("Geselecteerd: ");
+        foreach (ChairModel _chair in chairs)
+        {
+            char col;
+            if (_chair.Column > 26)
+                col = Convert.ToChar(_chair.Column + 71);
+            else
+                col = Convert.ToChar(_chair.Column + 65);
+            Console.Write($"{col}, {_chair.Row + 1}; ");
+        }
     }
 }
