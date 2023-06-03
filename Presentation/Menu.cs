@@ -52,6 +52,10 @@ public class Menu : IPresentation
     //You could edit this to show different menus depending on the user's role
     public static void Start()
     {
+        // als de app is gecrashed, of de gebruiker heeft het eerder afgesloten moet de totaalprijs sws naar
+        // 0 gezet worden anders zou dat andere reserveringen kunnen verpesten.
+        if (AccountsLogic.TotaalPrijs != 0)
+            AccountsLogic.TotaalPrijs = 0;
         // Aan het begin van de start method aangeven in welk menu je zit.
         PresentationLogic.CurrentPresentation = "menu";
         // maak de stoelen voor de zalen
