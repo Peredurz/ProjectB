@@ -35,11 +35,50 @@ public class CombiDealLogic
 
 
     // Voegd items toe aan de CombiDeals lijst
-    public void AddProduct(int id, string product, double price)
+    public bool AddCombi(string product, double price)
     {
-        CombiDealModel item = new CombiDealModel(id, product, price);
+        CombiDealModel item = new CombiDealModel(product, price);
         _productList.Add(item);
         CombiDealAccess.WriteAll(_productList);
+        return true;
+    }
+
+    // Combideals verwijderen
+    public bool DeleteCombi(int id)
+    {
+        foreach (CombiDealModel combi in _productList)
+        {
+            if (combi.ID == id)
+            {
+                ShowCombiDeal(combi.ID);
+                Console.WriteLine("Weet u zeker dat u het wilt verwijderen. Y/N");
+                Console.Write("> ");
+                string input = Console.ReadLine().ToUpper();
+                if (input == "Y")
+                {
+                    _productList.Remove(combi);
+                    CombiDealAccess.WriteAll(_productList);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //Combideals bewerken
+    public bool EditCombi(int id, string product, double price)
+    {
+        foreach (CombiDealModel combi in _productList)
+        {
+            if (combi.ID == id)
+            {
+                combi.Product = product;
+                combi.Price = price;
+                CombiDealAccess.WriteAll(_productList);
+                return true;
+            }
+        }        
+        return false;
     }
 
     // laat alle CombiDeals zien

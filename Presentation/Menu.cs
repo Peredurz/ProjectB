@@ -1,3 +1,4 @@
+
 public class Menu : IPresentation
 {
     private static AuditoriumLogic _auditoriumLogic = new AuditoriumLogic();
@@ -16,15 +17,21 @@ public class Menu : IPresentation
         new PresentationModel("A", "Filteren", _allClearance, "movies", true),
         new PresentationModel("R", "Annulering", _allClearance, "menu"),
         new PresentationModel("A", "Film Toevoegen of aanpassen", _managerClearance, "menu"),
+        new PresentationModel("C", "Combideal", _managerClearance, "menu"),
+        new PresentationModel("A", "Combideal toevoegen", _managerClearance, "combideals", true),
+        new PresentationModel("E", "Combideal bewerken", _managerClearance, "combideals", true),
+        new PresentationModel("R", "Combideal verwijderen", _managerClearance, "combideals", true),
+        new PresentationModel("O", "Combideal overzicht", _managerClearance, "combideals", true),
         new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
         new PresentationModel("L", "Login", _allClearance, "login", true),
         new PresentationModel("A", "Niew wachtwoord", _allClearance, "loginSub", true),
-        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),
+        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),        
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
         new PresentationModel("F", "Wachtwoord vergeten", _allClearance, "login", true),
         new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
         new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
         new PresentationModel("D", "Films verwijderen", _managerClearance, "movie_editor", true),
+        new PresentationModel("R", "Anuleringen", _nonCustomerClearance, "menu"),
         new PresentationModel("F", "Toekomstige Films", _allClearance, "movies", true),
         new PresentationModel("H", "Aankoop geschiedenis", _allClearance, "loginSub", true),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
@@ -54,10 +61,6 @@ public class Menu : IPresentation
     //You could edit this to show different menus depending on the user's role
     public static void Start()
     {
-        // als de app is gecrashed, of de gebruiker heeft het eerder afgesloten moet de totaalprijs sws naar
-        // 0 gezet worden anders zou dat andere reserveringen kunnen verpesten.
-        if (AccountsLogic.TotaalPrijs != 0)
-            AccountsLogic.TotaalPrijs = 0;
         // Aan het begin van de start method aangeven in welk menu je zit.
         PresentationLogic.CurrentPresentation = "menu";
         // maak de stoelen voor de zalen
@@ -104,6 +107,10 @@ public class Menu : IPresentation
         else if (inputUser == "R")
         {
             Annulering.Start();
+        }
+        else if (inputUser == "C")
+        {
+            CombiDeal.StartManager();
         }
         else if (inputUser == "A")
         {
