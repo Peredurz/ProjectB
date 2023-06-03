@@ -12,7 +12,7 @@ public class CombiDealModel
 
     private static int _idCounter = 0;
     
-    public CombiDealModel(int id, string product, double price)
+    public CombiDealModel(string product, double price)
 
     {
         ID = ++_idCounter;

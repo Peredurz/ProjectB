@@ -1,3 +1,6 @@
+
+
+
 class CombiDeal : IPresentation
 {
     private static List<CombiDeal> _productList = new List<CombiDeal>();
@@ -44,9 +47,99 @@ class CombiDeal : IPresentation
             else
             {
                 Console.WriteLine("Bestaat niet probeer het opnieuw.");
+            }             
+        }
+    }
+    public static void StartManager()
+    {
+        bool askUser = false;
+        while(askUser == false)
+        {
+            PresentationLogic.CurrentPresentation = "combideals";
+            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+            string inputUser = Console.ReadLine().ToLower();
+
+            switch(inputUser)
+            {
+                case "a":
+
+                    Console.WriteLine("Product beschrijving. ");
+                    Console.Write("> ");
+                    string productDescription = Console.ReadLine();
+                    
+                    Console.WriteLine("Product prijs. ");
+                    Console.Write("> ");
+                    double priceDescription = Convert.ToDouble(Console.ReadLine());
+                    bool add = _combiDeal.AddCombi(productDescription, priceDescription);
+                    if (add == true)
+                        {
+                            Console.WriteLine("Succesvol toegevoegd.");
+                        }
+                    break;
+                case "r":
+                    _combiDeal.PrintCombiDeals();
+                    try
+                    {
+                        Console.WriteLine("ID van de Combideal die u wilt verwijderen.  ");
+                        Console.Write("> ");
+                        int idUser = Convert.ToInt32(Console.ReadLine());
+                        _combiDeal.ShowCombiDeal(idUser);
+                        bool delete = _combiDeal.DeleteCombi(idUser);
+                        if (delete == true)
+                        {
+                            Console.WriteLine("Succesvol Verwijderd.");
+                        }
+                        else if (delete = false)
+                        {
+                            Console.WriteLine("ID niet gevonden.");
+                        }
+                    }
+                    catch(Exception)
+                    {
+                        Console.WriteLine("geen geldige invoer. ");
+                    }
+                    break;
+                case "e":
+                    _combiDeal.PrintCombiDeals();
+                    Console.WriteLine("ID van de Combideal die u wilt bewerken.  ");
+                    Console.Write("> ");
+                    try
+                    {
+                        int id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Product beschrijving. ");
+                        Console.Write("> ");
+                        string newProductDescription = Console.ReadLine();
+
+                        Console.WriteLine("Product prijs. ");
+                        Console.Write("> ");
+                        double newPriceDescription = Convert.ToDouble(Console.ReadLine());
+                        bool edit = _combiDeal.EditCombi(id, newProductDescription, newPriceDescription);
+                        if (edit == true)
+                        {
+                            Console.WriteLine("Succesvol bewerkt.");
+                        }
+                        else if (edit = false)
+                        {
+                            Console.WriteLine("ID niet gevonden.");
+                        }
+                    }
+                    catch(Exception)
+                    {
+                        Console.WriteLine("Geen geldige invoer");
+                    }
+                    break;
+                case "o":
+                    _combiDeal.PrintCombiDeals();
+                    break;
+                case "b": 
+                    askUser = true;
+                    Menu.Start();
+                    break;
+                default:
+                    Console.WriteLine("Verkeerde invoer");
+                    Menu.Start();
+                    break;
             }
-            
-             
         }
     }
 }
