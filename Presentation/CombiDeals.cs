@@ -25,7 +25,7 @@ class CombiDeal : IPresentation
                 CombiDealModel selectedCombiDeal = _combiDeal.GetCombiDeal(idUser);
                 _combiDeal.ShowCombiDeal(idUser);
                 Console.WriteLine();
-                AccountsLogic.TotaalPrijs += selectedCombiDeal.Price;
+                AccountsLogic.TotaalPrijs += Math.Round(selectedCombiDeal.Price, 2);
                 Console.WriteLine($"Saldo is {AccountsLogic.TotaalPrijs}.");
                 Console.WriteLine();
                 Console.WriteLine("Weet u zeker dat u deze combideal wilt Y/N. ");
