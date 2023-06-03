@@ -26,7 +26,7 @@ public class Auditorium : IPresentation
         else
         {
             Console.WriteLine("Incorrecte invoer.");
-            Menu.Start();
+            Movie.Start();
         }
     }
 
@@ -112,6 +112,17 @@ public class Auditorium : IPresentation
         // als je b hebt gedrukt moet je terug naar het film overzicht.
         if (isBackKey == true)
             Movie.Start();
+
+        Console.Clear();
+        _auditoriumLogic.ChairPrint(0, 0);
+        // de gebruiker laten weten dat hij/zij wel een stoel moet kiezen en dus niet verder kan.
+        if (chosenChairs.Count() <= 0)
+        {
+            Console.WriteLine("U heeft geen stoelen geselecteerd, u moet of minimaal een selecteren.");
+            Console.WriteLine();
+            Movie.Start();
+            return;
+        }
 
         // stop de chosenChairs in een public static variable om te gebruiken in andere classes
         AccountsLogic.ChosenChairs = chosenChairs;
