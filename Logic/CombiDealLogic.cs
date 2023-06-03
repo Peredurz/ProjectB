@@ -2,7 +2,7 @@ public class CombiDealLogic
 {
     private List<CombiDealModel> _productList = new List<CombiDealModel>();
 
-    
+    private static CombiDealAccess CombiDealAccess = new CombiDealAccess();
     public CombiDealLogic()
     {
         _productList = CombiDealAccess.LoadAll();
@@ -33,7 +33,7 @@ public class CombiDealLogic
         }
     }
 
-    
+
     // Voegd items toe aan de CombiDeals lijst
     public void AddProduct(int id, string product, double price)
     {

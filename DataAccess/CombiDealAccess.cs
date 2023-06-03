@@ -1,9 +1,9 @@
 using System.Text.Json;
-public class CombiDealAccess
+class CombiDealAccess : AbstractAccess<CombiDealModel>
 {
     static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/combideals.json"));
 
-    public static List<CombiDealModel> LoadAll()
+    public override List<CombiDealModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<CombiDealModel>>(json);
@@ -14,7 +14,7 @@ public class CombiDealAccess
         // return JsonConvert.DeserializeObject<List<CombiDealModel>>(jsonString)!;
     }
 
-    public static void WriteAll(List<CombiDealModel> combiDeals)
+    public override void WriteAll(List<CombiDealModel> combiDeals)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(combiDeals, options);

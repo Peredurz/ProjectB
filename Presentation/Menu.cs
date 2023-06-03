@@ -6,6 +6,7 @@ public class Menu : IPresentation
     private static List<string> _allClearance = new List<string>() { "Manager", "Worker", "Customer" };
     private static List<string> _managerClearance = new List<string>() { "Manager" };
     private static List<string> _nonCustomerClearance = new List<string>() { "Manager", "Worker" };
+    private static ChairAccess ChairAccess = new ChairAccess();
     // definieer alle menu items die wij in onze applicatie hebben
     public static List<PresentationModel> presentationModels = new List<PresentationModel>()
     {

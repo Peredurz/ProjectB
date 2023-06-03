@@ -16,6 +16,9 @@ public class AnnuleringLogic
 {
     private List<ChairReservationModel> _chairReservation = new List<ChairReservationModel>();
     protected static List<MovieModel> _movies = new();
+    private static ChairReservationAccess ChairReservationAccess = new ChairReservationAccess();
+    private static MovieAccess MovieAccess = new MovieAccess();
+    private static AnnuleringAccess AnnuleringAccess = new AnnuleringAccess();
 
     private List<AnnuleringModel> _annulering = new List<AnnuleringModel>();
     private static MovieLogic _movieLogic = new MovieLogic();
@@ -170,7 +173,7 @@ public class AnnuleringLogic
                             double moneyReturn = AnnuleringCalculator(movie, annulering, reservationModel);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geaccepteerd.\n");
-                            MailLogic.SendCancelationMail(annulering, movie, reservationModel,  moneyReturn);
+                            MailLogic.SendCancelationMail(annulering, movie, reservationModel, moneyReturn);
                             AnnuleringAccess.WriteAll(_annulering);
                             return true;
                         }

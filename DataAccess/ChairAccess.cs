@@ -1,10 +1,10 @@
 using System.Text.Json;
 
-static class ChairAccess
+class ChairAccess : AbstractAccess<ChairModel>
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairs.json"));
 
-    public static List<ChairModel> LoadAll()
+    public override List<ChairModel> LoadAll()
     {
 
         string json = File.ReadAllText(path);
@@ -13,7 +13,7 @@ static class ChairAccess
         return JsonSerializer.Deserialize<List<ChairModel>>(json);
     }
 
-    public static void WriteAll(List<ChairModel> chairs)
+    public override void WriteAll(List<ChairModel> chairs)
     {
 
         var options = new JsonSerializerOptions { WriteIndented = true };

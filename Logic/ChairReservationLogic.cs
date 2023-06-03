@@ -5,6 +5,7 @@ class ChairReservationLogic
     private List<ChairReservationModel> _chairReservation = new List<ChairReservationModel>();
     private ChairLogic _chairLogic = new ChairLogic();
 
+    private static ChairReservationAccess ChairReservationAccess = new ChairReservationAccess();
     public ChairReservationLogic()
     {
         _chairReservation = ChairReservationAccess.LoadAll();
@@ -30,7 +31,7 @@ class ChairReservationLogic
         }
         else
         {
-            _chairReservation.Add(new ChairReservationModel(userEmail, chair.ID, movieID ,auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
+            _chairReservation.Add(new ChairReservationModel(userEmail, chair.ID, movieID, auditoriumID, movieTime, AccountsLogic.TotaalPrijs, AccountsLogic.CurrentReservationCode));
 
             ChairReservationAccess.WriteAll(_chairReservation);
             return true;
@@ -52,7 +53,7 @@ class ChairReservationLogic
         return available;
     }
 
-    public Tuple<ChairReservationModel,int> GetChairReservation(int codeOrID)
+    public Tuple<ChairReservationModel, int> GetChairReservation(int codeOrID)
     {
         foreach (ChairReservationModel _reservation in _chairReservation)
         {
@@ -67,14 +68,14 @@ class ChairReservationLogic
         return _chairReservation.FindIndex(x => x.ID == reservationID);
     }
 
-    public void UpdateChairReservationAtIndex(Tuple<ChairReservationModel,int> reservationInfo)
+    public void UpdateChairReservationAtIndex(Tuple<ChairReservationModel, int> reservationInfo)
     {
         _chairReservation[reservationInfo.Item2] = reservationInfo.Item1;
     }
 
     public static void UpdateChairReservation()
     {
-	    ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+        ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
         foreach (ChairModel _chair in AccountsLogic.ChosenChairs)
         {
             var chairReservationModel = chairReservationLogic.GetChairReservation(_chair.ID);
@@ -83,7 +84,7 @@ class ChairReservationLogic
             chairReservationModel.Item1.EmailAdress = MailLogic.EmailAddress;
             chairReservationModel.Item1.Name = MailLogic.Name;
             int reservationIndex = chairReservationLogic.GetChairReservationIndex(chairReservationModel.Item2);
-            chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1,reservationIndex));
+            chairReservationLogic.UpdateChairReservationAtIndex(Tuple.Create(chairReservationModel.Item1, reservationIndex));
         }
         chairReservationLogic.RemoveNotCompletedReservations();
         chairReservationLogic.WriteAll();

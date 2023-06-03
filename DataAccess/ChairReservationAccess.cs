@@ -1,16 +1,16 @@
 using System.Text.Json;
 
-static class ChairReservationAccess
+class ChairReservationAccess : AbstractAccess<ChairReservationModel>
 {
     static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairreservation.json"));
 
-    public static List<ChairReservationModel> LoadAll()
+    public override List<ChairReservationModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<ChairReservationModel>>(json);
     }
 
-    public static void WriteAll(List<ChairReservationModel> chairReservations)
+    public override void WriteAll(List<ChairReservationModel> chairReservations)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(chairReservations, options);

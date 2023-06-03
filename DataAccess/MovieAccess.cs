@@ -1,17 +1,17 @@
 using System.Text.Json;
 
-static class MovieAccess
+class MovieAccess : AbstractAccess<MovieModel>
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
 
-    public static List<MovieModel> LoadAll()
+    public override List<MovieModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         List<MovieModel> movieList = JsonSerializer.Deserialize<List<MovieModel>>(json)!;
         return movieList;
     }
 
-    public static void WriteAll(List<MovieModel> movies)
+    public override void WriteAll(List<MovieModel> movies)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(movies, options);

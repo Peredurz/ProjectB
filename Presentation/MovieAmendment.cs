@@ -8,6 +8,7 @@ public class MovieAmendment : IPresentation
 {
     private static MovieLogic _movieLogic = new MovieLogic();
     private static List<MovieModel> _movies = MovieLogic.GetMovies();
+    private static MovieAccess MovieAccess = new MovieAccess();
 
     /// <summary>
     /// Dit is de start method om deze class te starten. En uiteindelijk als gebruiker films aan te kunnen passen.

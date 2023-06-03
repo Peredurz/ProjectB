@@ -9,17 +9,17 @@ using System.Text.Json;
 /// <see cref="AccountsAccess.WriteAll"/> kan je aanroepen door een lijst van <see cref="AccountModel"/> objecten mee te geven.
 /// </para>
 /// </summary>
-static class AccountsAccess
+class AccountsAccess : AbstractAccess<AccountModel>
 {
     static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 
-    public static List<AccountModel> LoadAll()
+    public override List<AccountModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<AccountModel>>(json);
     }
 
-    public static void WriteAll(List<AccountModel> accounts)
+    public override void WriteAll(List<AccountModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(accounts, options);

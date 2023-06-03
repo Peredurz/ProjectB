@@ -9,11 +9,11 @@ using System.Text.Json;
 /// <see cref="AnnuleringAccess.WriteAll"/> kan je aanroepen door een lijst van <see cref="AnnuleringModel"/> objecten mee te geven.
 /// </para>
 /// </summary>
-static class AnnuleringAccess
+class AnnuleringAccess : AbstractAccess<AnnuleringModel>
 {
     static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/annulering.json"));
 
-    public static List<AnnuleringModel> LoadAll()
+    public override List<AnnuleringModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         if (json == "")
@@ -21,7 +21,7 @@ static class AnnuleringAccess
         return JsonSerializer.Deserialize<List<AnnuleringModel>>(json);
     }
 
-    public static void WriteAll(List<AnnuleringModel> accounts)
+    public override void WriteAll(List<AnnuleringModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(accounts, options);

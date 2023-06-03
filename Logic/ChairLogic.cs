@@ -2,6 +2,7 @@ class ChairLogic
 {
     public List<ChairModel> Chairs = new List<ChairModel>();
 
+    private static ChairAccess ChairAccess = new ChairAccess();
     public ChairLogic()
     {
         Chairs = ChairAccess.LoadAll();
