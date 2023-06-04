@@ -1,7 +1,7 @@
 using System.Text.Json;
 class CombiDealAccess : AbstractAccess<CombiDealModel>
 {
-    static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/combideals.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/combideals.json"));
 
     public override List<CombiDealModel> LoadAll()
     {

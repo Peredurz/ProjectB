@@ -11,7 +11,7 @@ using System.Text.Json;
 /// </summary>
 class AnnuleringAccess : AbstractAccess<AnnuleringModel>
 {
-    static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/annulering.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/annulering.json"));
 
     public override List<AnnuleringModel> LoadAll()
     {

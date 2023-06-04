@@ -11,7 +11,7 @@ using System.Text.Json;
 /// </summary>
 class AccountsAccess : AbstractAccess<AccountModel>
 {
-    static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 
     public override List<AccountModel> LoadAll()
     {

@@ -2,7 +2,7 @@ using System.Text.Json;
 
 class ChairReservationAccess : AbstractAccess<ChairReservationModel>
 {
-    static readonly string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairreservation.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairreservation.json"));
 
     public override List<ChairReservationModel> LoadAll()
     {

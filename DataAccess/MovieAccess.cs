@@ -2,7 +2,7 @@ using System.Text.Json;
 
 class MovieAccess : AbstractAccess<MovieModel>
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
 
     public override List<MovieModel> LoadAll()
     {

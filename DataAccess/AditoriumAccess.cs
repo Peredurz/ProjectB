@@ -2,7 +2,7 @@ using System.Text.Json;
 
 class AuditoriumAccess : AbstractAccess<AuditoriumModel>
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/auditoriums.json"));
+    public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/auditoriums.json"));
 
     public override List<AuditoriumModel> LoadAll()
     {
