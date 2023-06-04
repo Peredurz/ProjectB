@@ -13,13 +13,13 @@ class AccountsAccess : AbstractAccess<AccountModel>
 {
     public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 
-    public override List<AccountModel> LoadAll()
+    public List<AccountModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<AccountModel>>(json);
     }
 
-    public override void WriteAll(List<AccountModel> accounts)
+    public void WriteAll(List<AccountModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(accounts, options);

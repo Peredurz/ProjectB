@@ -4,13 +4,13 @@ class AuditoriumAccess : AbstractAccess<AuditoriumModel>
 {
     public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/auditoriums.json"));
 
-    public override List<AuditoriumModel> LoadAll()
+    public List<AuditoriumModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<AuditoriumModel>>(json);
     }
 
-    public override void WriteAll(List<AuditoriumModel> accounts)
+    public void WriteAll(List<AuditoriumModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(accounts, options);

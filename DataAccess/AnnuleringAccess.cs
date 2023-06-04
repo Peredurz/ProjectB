@@ -13,7 +13,7 @@ class AnnuleringAccess : AbstractAccess<AnnuleringModel>
 {
     public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/annulering.json"));
 
-    public override List<AnnuleringModel> LoadAll()
+    public List<AnnuleringModel> LoadAll()
     {
         string json = File.ReadAllText(path);
         if (json == "")
@@ -21,7 +21,7 @@ class AnnuleringAccess : AbstractAccess<AnnuleringModel>
         return JsonSerializer.Deserialize<List<AnnuleringModel>>(json);
     }
 
-    public override void WriteAll(List<AnnuleringModel> accounts)
+    public void WriteAll(List<AnnuleringModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(accounts, options);

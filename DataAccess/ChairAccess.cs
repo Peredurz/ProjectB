@@ -4,7 +4,7 @@ class ChairAccess : AbstractAccess<ChairModel>
 {
     public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/chairs.json"));
 
-    public override List<ChairModel> LoadAll()
+    public List<ChairModel> LoadAll()
     {
 
         string json = File.ReadAllText(path);
@@ -13,7 +13,7 @@ class ChairAccess : AbstractAccess<ChairModel>
         return JsonSerializer.Deserialize<List<ChairModel>>(json);
     }
 
-    public override void WriteAll(List<ChairModel> chairs)
+    public void WriteAll(List<ChairModel> chairs)
     {
 
         var options = new JsonSerializerOptions { WriteIndented = true };
