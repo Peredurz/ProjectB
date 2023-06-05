@@ -102,4 +102,14 @@ class ChairReservationLogic
 
         _chairReservation = chairReservations;
     }
+
+    public List<ChairReservationModel> GetUserReservations(string emailAddress)
+    {
+        List<ChairReservationModel> chairReservations = new List<ChairReservationModel>();
+        foreach (ChairReservationModel _reservation in _chairReservation)
+            if (_reservation.EmailAdress == emailAddress)
+                chairReservations.Add(_reservation);
+
+        return chairReservations;
+    }
 }
