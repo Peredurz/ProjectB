@@ -38,8 +38,8 @@ class MailLogic
         int chairID = reservation.Item1.ChairID;
         var chairLogic = new ChairLogic();
         var chair = chairLogic.GetChairModel(chairID);
-        int chairRow = chair.Row;
-        int chairColumn = chair.Column;
+        int chairRow = chair.Row +1 ;
+        int chairColumn = chair.Column + 1;
         double totaalPrijs = AccountsLogic.TotaalPrijs;
         bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
         int movieId = reservation.Item1.MovieID;
