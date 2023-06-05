@@ -87,7 +87,53 @@ public class UserLogin : IPresentation
                     }
                     Console.WriteLine("Wachtwoord");
                     Console.Write("> ");
-                    string _password = Console.ReadLine();
+
+                    var _password = string.Empty;
+                    ConsoleKey k1;
+                    do
+                    {
+                        var keyInfo = Console.ReadKey(intercept: true);
+                        k1 = keyInfo.Key;
+
+                        if (k1 == ConsoleKey.Backspace && _password.Length > 0)
+                        {
+                            Console.Write("\b \b");
+                            password = _password[0..^1];
+                        }
+                        else if (!char.IsControl(keyInfo.KeyChar))
+                        {
+                            Console.Write("*");
+                            _password += keyInfo.KeyChar;
+                        }
+                    } while (k1 != ConsoleKey.Enter);
+
+                    Console.WriteLine("\nHerhaal het wactwoord.");
+                    Console.Write("> ");
+                    var _password2 = string.Empty;
+                    ConsoleKey k2 = 0;
+                    do
+                    {
+                        var keyInfo = Console.ReadKey(intercept: true);
+                        k2 = keyInfo.Key;
+
+                        if (k2 == ConsoleKey.Backspace && _password2.Length > 0)
+                        {
+                            Console.Write("\b \b");
+                            _password2 = _password2[0..^1];
+                        }
+                        else if (!char.IsControl(keyInfo.KeyChar))
+                        {
+                            Console.Write("*");
+                            _password2 += keyInfo.KeyChar;
+                        }
+                    } while (k2 != ConsoleKey.Enter);
+
+                    if (_password != _password2)
+                    {
+                        Console.WriteLine("\nWachtwoorden komen niet overeen\n");
+                        break;
+                    }
+                    Console.WriteLine();
                     accountsLogic.NewAccount(fullName, emailAddress, _password);
                     break;
                 case "f":
@@ -100,22 +146,40 @@ public class UserLogin : IPresentation
                 case "a":
                     if (AccountsLogic.CurrentAccount != null)
                     {
-                    Console.WriteLine("Huidige Wachtwoord");
-                    Console.Write("> ");
-                    string passwordCheck = Console.ReadLine();
-                
-                    accountsLogic.ChangePassword(AccountsLogic.CurrentAccount.EmailAddress,passwordCheck);
+                        Console.WriteLine("Huidige Wachtwoord");
+                        Console.Write("> ");
+
+                        var _password3 = string.Empty;
+                        ConsoleKey k3;
+                        do
+                        {
+                            var keyInfo = Console.ReadKey(intercept: true);
+                            k3 = keyInfo.Key;
+
+                            if (k3 == ConsoleKey.Backspace && _password3.Length > 0)
+                            {
+                                Console.Write("\b \b");
+                                _password3 = _password3[0..^1];
+                            }
+                            else if (!char.IsControl(keyInfo.KeyChar))
+                            {
+                                Console.Write("*");
+                                _password3 += keyInfo.KeyChar;
+                            }
+                        } while (k3 != ConsoleKey.Enter);
+
+                        accountsLogic.ChangePassword(AccountsLogic.CurrentAccount.EmailAddress, _password3);
                     }
                     else
                     {
                         Console.WriteLine("Verkeerde invoer");
                     }
                     break;
-                case "o": 
+                case "o":
                     if (AccountsLogic.CurrentAccount != null)
                     {
-                         Console.WriteLine("Weet u zeker dat u wilt uitloggen. (Y/N)");
-                         Console.Write("> ");
+                        Console.WriteLine("Weet u zeker dat u wilt uitloggen. (Y/N)");
+                        Console.Write("> ");
                         string inputUser = Console.ReadLine().ToLower();
                         if (inputUser == "y")
                         {
