@@ -161,6 +161,7 @@ class AccountsLogic
         string output = "";
         ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
         ChairLogic chairLogic = new ChairLogic();
+        MovieLogic movieLogic = new MovieLogic();
         List<ChairReservationModel> userReservations = chairReservationLogic.GetUserReservations(AccountsLogic.CurrentAccount.EmailAddress);
         if (userReservations.Count <= 0)
         {
@@ -173,8 +174,8 @@ class AccountsLogic
             output += "\n";
             output += $"Film: {movie.Title}\n";
             output += $"Zaal: {_userReservation.AuditoriumID}\n";
-            output += $"Stoel: {chair}\n";
-            output += $"Prijs: {_userReservation.TotaalPrijs}\n";
+            output += $"Rij: {chair.Row}, Stoel: {chair.Column}\n";
+            output += $"Prijs: €{_userReservation.TotaalPrijs}\n";
             output += $"Reserveringscode: {_userReservation.ReserveringsCode}\n";
             output += $"Datum: {_userReservation.Time}\n";
         }
