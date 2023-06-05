@@ -26,6 +26,7 @@ public class Menu : IPresentation
         new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
         new PresentationModel("D", "Films verwijderen", _managerClearance, "movie_editor", true),
         new PresentationModel("F", "Toekomstige Films", _allClearance, "movies", true),
+        new PresentationModel("H", "Aankoop geschiedenis", _allClearance, "loginSub", true),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
         new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
         new PresentationModel("R", "Annulering", _allClearance, "annulering", true),

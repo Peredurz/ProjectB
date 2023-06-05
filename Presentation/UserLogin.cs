@@ -128,6 +128,17 @@ public class UserLogin : IPresentation
                         }
                     }
                     break;
+                case "h": 
+                    if (AccountsLogic.CurrentAccount != null)
+                    {
+                        Console.WriteLine("Uw aankoop geschiedenis:");
+                        Console.WriteLine(accountsLogic.AankoopGeschiedenis());
+                    }
+                    else
+                    {
+                        Console.WriteLine("U moet ingelogd zijn om uw geschiednis te kunnen zien.");
+                    }
+                    break;
                 default:
                     Console.WriteLine("Verkeerde invoer");
                     break;

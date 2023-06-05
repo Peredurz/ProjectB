@@ -155,4 +155,29 @@ class AccountsLogic
             }
         }
     }
+
+    public string AankoopGeschiedenis()
+    {
+        string output = "";
+        ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+        ChairLogic chairLogic = new ChairLogic();
+        List<ChairReservationModel> userReservations = chairReservationLogic.GetUserReservations(AccountsLogic.CurrentAccount.EmailAddress);
+        if (userReservations.Count <= 0)
+        {
+            return "U heeft geen aankopen gedaan.";
+        }
+        foreach (ChairReservationModel  _userReservation in userReservations)
+        {
+            MovieModel movie = MovieLogic.GetMovie(_userReservation.MovieID);
+            ChairModel chair = chairLogic.GetChairModel(_userReservation.ChairID);
+            output += "\n";
+            output += $"Film: {movie.Title}\n";
+            output += $"Zaal: {_userReservation.AuditoriumID}\n";
+            output += $"Stoel: {chair}\n";
+            output += $"Prijs: {_userReservation.TotaalPrijs}\n";
+            output += $"Reserveringscode: {_userReservation.ReserveringsCode}\n";
+            output += $"Datum: {_userReservation.Time}\n";
+        }
+        return output;
+    }
 }
