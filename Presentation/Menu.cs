@@ -18,13 +18,12 @@ public class Menu : IPresentation
         new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
         new PresentationModel("L", "Login", _allClearance, "login", true),
         new PresentationModel("A", "Niew wachtwoord", _allClearance, "loginSub", true),
-        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),        
+        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
         new PresentationModel("F", "Wachtwoord vergeten", _allClearance, "login", true),
         new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
         new PresentationModel("R", "Films aanpassen", _managerClearance, "movie_editor", true),
         new PresentationModel("D", "Films verwijderen", _managerClearance, "movie_editor", true),
-        new PresentationModel("R", "Anuleringen", _nonCustomerClearance, "menu"),
         new PresentationModel("F", "Toekomstige Films", _allClearance, "movies", true),
         new PresentationModel("0-9", "Kies een ID van een film", _allClearance, "movies", true),
         new PresentationModel("S", "Stoel kiezen", _allClearance, "auditorium", true),
@@ -53,6 +52,10 @@ public class Menu : IPresentation
     //You could edit this to show different menus depending on the user's role
     public static void Start()
     {
+        // als de app is gecrashed, of de gebruiker heeft het eerder afgesloten moet de totaalprijs sws naar
+        // 0 gezet worden anders zou dat andere reserveringen kunnen verpesten.
+        if (AccountsLogic.TotaalPrijs != 0)
+            AccountsLogic.TotaalPrijs = 0;
         // Aan het begin van de start method aangeven in welk menu je zit.
         PresentationLogic.CurrentPresentation = "menu";
         // maak de stoelen voor de zalen
