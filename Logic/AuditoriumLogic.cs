@@ -3,6 +3,10 @@ using System.Drawing;
 
 class AuditoriumLogic
 {
+    private static AuditoriumAccess AuditoriumAccess = new AuditoriumAccess();
+    private static ChairAccess ChairAccess = new ChairAccess();
+    private static ChairReservationAccess ChairReservationAccess = new ChairReservationAccess();
+    private static MovieAccess MovieAccess = new MovieAccess();
     private ChairLogic _chairLogic = new ChairLogic();
     private static List<AuditoriumModel> _auditoriums = new List<AuditoriumModel>();
 
@@ -92,11 +96,11 @@ class AuditoriumLogic
         int chairsAmount = this._chairLogic.Chairs.Count;
         // De lijst van integers in de Auditorium.json file met de key chairs meegeven waarbij is gesorteerd op het AuditoriumID
         // Dus alleen de lijst met stoelID's van een bepaald Auditorium wordt meegegeven
-        List<int> chairs = _auditoriums[Movie.AuditoriumID - 1].Chairs; 
+        List<int> chairs = _auditoriums[Movie.AuditoriumID - 1].Chairs;
         // Lengte van het auditorium
         int length = _auditoriums[Movie.AuditoriumID - 1].TotalCols;
         int width = _auditoriums[Movie.AuditoriumID - 1].TotalRows;
-        int[,] chairs2d = {};
+        int[,] chairs2d = { };
         chairs2d = new int[width, length];
         int idx = 0;
         for (int r = 0; r < width; r++)
@@ -230,7 +234,7 @@ class AuditoriumLogic
 
         Console.WriteLine();
     }
-    
+
     public AuditoriumModel GetAuditoriumModel(int auditoriumID)
     {
         foreach (AuditoriumModel auditorium in _auditoriums)

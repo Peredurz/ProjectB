@@ -7,7 +7,7 @@ public class MovieLogic
 {
     private static List<MovieModel> _movies;
     public const int RULE_LENGTH = 45;
-
+    private static MovieAccess MovieAccess = new MovieAccess();
     public MovieLogic()
     {
         _movies = MovieAccess.LoadAll();

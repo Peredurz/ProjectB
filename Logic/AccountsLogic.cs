@@ -12,6 +12,7 @@ class AccountsLogic
 
     public static AccountModel? CurrentAccount { get; set; } = null;
     public static List<PresentationModel> UserPresentationModels = new List<PresentationModel>();
+    public static AccountsAccess AccountsAccess = new AccountsAccess();
     public static double TotaalPrijs = 0;
     public static int CurrentReservationCode = MailLogic.GenerateCode();
     public static List<ChairModel> ChosenChairs = new List<ChairModel>();
@@ -83,20 +84,20 @@ class AccountsLogic
         // update email and name in MailLogic
         MailLogic.Name = name;
         MailLogic.EmailAddress = email;
-       foreach (var account in allAccounts)
+        foreach (var account in allAccounts)
+        {
+            if (account.EmailAddress == email)
             {
-                if (account.EmailAddress == email)
-                {
-                    exists = true;
-                }
+                exists = true;
             }
+        }
 
-            if (exists == false)
-            {
-                Console.WriteLine("Account does not exist. Try again.");
-                GenerateTempPassword();
-            }
-        
+        if (exists == false)
+        {
+            Console.WriteLine("Account does not exist. Try again.");
+            GenerateTempPassword();
+        }
+
         string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         char[] stringChars = new char[8];
         Random random = new Random();
@@ -105,7 +106,7 @@ class AccountsLogic
         {
             stringChars[i] = chars[random.Next(chars.Length)];
         }
-        
+
         string tempPassword = new String(stringChars);
         string tempPasswordHash = BCrypt.Net.BCrypt.HashPassword(tempPassword, workFactor: 10);
         // change password for account associated with email
@@ -127,7 +128,7 @@ class AccountsLogic
         bool result = BCrypt.Net.BCrypt.Verify(password, CurrentAccount.Password);
         bool checker = false;
         // het systeem vraagt de gebruiker om een nieuw wachtwoord tot dat de gebruiker het goed heeft. Het systeem veranderd het direct.  
-        while(!checker)
+        while (!checker)
         {
             if (result == true)
             {
@@ -140,16 +141,16 @@ class AccountsLogic
                 if (password1 == passwordCheck)
                 {
 
-                    var passwordHash = BCrypt.Net.BCrypt.HashPassword(passwordCheck,workFactor:10);
+                    var passwordHash = BCrypt.Net.BCrypt.HashPassword(passwordCheck, workFactor: 10);
                     CurrentAccount.Password = passwordHash;
                     UpdateList(CurrentAccount);
                     Console.WriteLine("Wachtwoord succesvol gewijzigd! ");
                     checker = true;
-                } 
+                }
             }
             else
             {
-                Console.WriteLine("Verkeerde Wachtwoord ingevoert probeer het opnieuw."); 
+                Console.WriteLine("Verkeerde Wachtwoord ingevoert probeer het opnieuw.");
                 break;
             }
         }
