@@ -104,20 +104,23 @@ public class Auditorium : IPresentation
                     break;
                 // b is om terug te gaan.
                 case ConsoleKey.B:
-                    isBackKey = true;
                     break;
             }
         }
-        while (keyinfo.Key != ConsoleKey.B && keyinfo.Key != ConsoleKey.S);
+        while (keyinfo.Key != ConsoleKey.S && keyinfo.Key != ConsoleKey.B);
         // als je b hebt gedrukt moet je terug naar het film overzicht.
-        if (isBackKey == true)
+        bool areGoodToReserve = true;
+        if (keyinfo.Key == ConsoleKey.B)
+        {
+            areGoodToReserve = false;
             Movie.Start();
+        }
 
         // stop de chosenChairs in een public static variable om te gebruiken in andere classes
         AccountsLogic.ChosenChairs = chosenChairs;
         _chairReservationLogic = new ChairReservationLogic();
 
-        bool areGoodToReserve = true;
+        //areGoodToReserve = true;
         // loop door alle stoelen heen om die te reserveren.
         foreach (ChairModel _chair in chosenChairs)
         {
@@ -132,12 +135,6 @@ public class Auditorium : IPresentation
                 Menu.Start();
                 return;
             }
-        }
-
-        if (areGoodToReserve == true)
-        {
-            Console.WriteLine("Stoel of stoelen gereserveerd!");
-            Auditorium.ChooseCombi();
         }
     }
     public static void ChooseCombi()
