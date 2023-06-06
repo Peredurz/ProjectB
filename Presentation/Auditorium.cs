@@ -17,7 +17,7 @@ public class Auditorium : IPresentation
         string chosenOption = Console.ReadLine().ToLower();
         if (chosenOption == "b")
         {
-            Menu.Start();
+            Movie.Start();
         }
         else if (chosenOption == "s")
         {
@@ -142,7 +142,7 @@ public class Auditorium : IPresentation
             {
                 areGoodToReserve = false;
                 Console.WriteLine("Stoel is niet beschikbaar");
-                Menu.Start();
+                Auditorium.Start();
                 return;
             }
         }
@@ -200,7 +200,7 @@ public class Auditorium : IPresentation
 
     public static void AudistoriumScreen()
     {
-        AuditoriumModel auditorium = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID + 1);
+        AuditoriumModel auditorium = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
         if (auditorium != null)
         {
             Console.Write("\\");
