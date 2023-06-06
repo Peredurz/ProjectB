@@ -7,7 +7,7 @@ class Annulering : IPresentation
 
         PresentationLogic.CurrentPresentation = "annulering";
 
-        string input = PresentationLogic.GetUserInputFromMenu(true);
+        string input = PresentationLogic.GetUserInputFromMenu(true).ToLower();
         switch (input)
         {
             case "r":
