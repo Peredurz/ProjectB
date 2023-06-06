@@ -62,7 +62,12 @@ class Movie : IPresentation
         Console.WriteLine(movieOuput);
         Console.WriteLine("Kies een film door het ID in te voeren.");
         Console.Write("> ");
-        int userMovieID = Convert.ToInt32(Console.ReadLine());
+        int choice = Int32.TryParse(Console.ReadLine(), out int userMovieID) ? userMovieID : -1;
+        if (userMovieID == -1)
+        {
+            Console.WriteLine("Geen geldige invoer.");
+            Movie.Start();
+        }
         PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
