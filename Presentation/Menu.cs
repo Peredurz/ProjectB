@@ -25,7 +25,7 @@ public class Menu : IPresentation
         new PresentationModel("Q", "Afsluiten", _allClearance, "menu"),
         new PresentationModel("L", "Login", _allClearance, "login", true),
         new PresentationModel("A", "Niew wachtwoord", _allClearance, "loginSub", true),
-        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),        
+        new PresentationModel("O", "Loguit", _allClearance, "loginSub", true),
         new PresentationModel("N", "Nieuwe Gebruiker", _allClearance, "login", true),
         new PresentationModel("F", "Wachtwoord vergeten", _allClearance, "login", true),
         new PresentationModel("A", "Film toevoegen", _managerClearance, "movie_editor", true),
@@ -38,8 +38,6 @@ public class Menu : IPresentation
         new PresentationModel("R", "Annulering", _allClearance, "annulering", true),
         new PresentationModel("O", "Overzicht", _nonCustomerClearance, "annulering", true),
         new PresentationModel("I", "betalen met IDeal", _allClearance, "payment", true),
-        new PresentationModel("P", "betalen met PayPal", _allClearance, "payment", true),
-        new PresentationModel("C", "betalen met Creditcard", _allClearance, "payment", true),
         new PresentationModel("A", "AuditoriumID", _managerClearance, "editor_submenu", true),
         new PresentationModel("B", "Tijd van hoe lang de fim duurt", _managerClearance, "editor_submenu", true),
         new PresentationModel("C", "Tijd van wanneer de film begint", _managerClearance, "editor_submenu", true),
@@ -82,7 +80,7 @@ public class Menu : IPresentation
             PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
 
-        string inputUser = Console.ReadLine().ToUpper();
+        string inputUser = PresentationLogic.GetUserInputFromMenu(false);
         if (inputUser == "L")
         {
             UserLogin.Start();
@@ -95,8 +93,11 @@ public class Menu : IPresentation
             adres:              Wijnhaven 107.
             postcode:           3011 WN in Rotterdam.
             Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
-                                De bioscoop sluit vijftien minuten na de laatste film");
-            Menu.Start();
+                                De bioscoop sluit vijftien minuten na de laatste film
+            Je kan enter of b drukken om verder te gaan.");
+            ConsoleKeyInfo keyinfo = Console.ReadKey();
+            if (keyinfo.Key == ConsoleKey.B || keyinfo.Key == ConsoleKey.Enter)
+                Menu.Start();
         }
         else if (inputUser == "M")
         {

@@ -40,13 +40,9 @@ public class Payment : IPresentation
                     }
                 }
                 break;
-            
-            case "p":
-                Console.WriteLine("Niet beschikbaar");
-                break;
-            
-            case "c":
-                Console.WriteLine("Niet beschikbaar");
+
+            case "b":
+                Movie.Start();
                 break;
         }
     }

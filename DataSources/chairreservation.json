@@ -84,9 +84,6 @@
     "isCompleted": true
   },
   {
-    "id": 152,
-    "name": "thom",
-    "emailAdress": "thomveldhuis03@gmail.com",
     "id": 9,
     "name": null,
     "emailAdress": "redwane1999@live.nl",
@@ -216,18 +213,6 @@
     "time": "2023-05-24T12:00:00",
     "totaalPrijs": 10,
     "reserveringsCode": 1899013609,
-    "isCompleted": true
-  },
-  {
-    "id": 23,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 340,
-    "movieId": 4,
-    "auditoriumId": 1,
-    "time": "2023-06-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 1739566218,
     "isCompleted": true
   }
 ]

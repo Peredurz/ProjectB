@@ -12,12 +12,8 @@ class Movie : IPresentation
         string movieOuput = Movie._movieLogic.ShowMovies();
         Console.WriteLine(movieOuput);
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string userOption = Console.ReadLine();
-        if (int.TryParse(userOption, out _) == true)
-        {
-            ChooseMovie(Convert.ToInt32(userOption));
-        }
-        else if (userOption.ToLower() == "f")
+        string userOption = PresentationLogic.GetUserInputFromMenu(true);
+        if (userOption.ToLower() == "f")
         {
             PresentationLogic.CurrentPresentation = "moviesFuture";
             string futureMovieOutput = _movieLogic.ShowFutureMovies();
@@ -45,6 +41,10 @@ class Movie : IPresentation
         {
             Movie.FilterMovie();
         }
+        else if (userOption.ToLower() == "0-9")
+        {
+            ChooseMovie();
+        }
         else if (userOption.ToLower() == "b")
         {
             Menu.Start();
@@ -56,8 +56,23 @@ class Movie : IPresentation
         }
     }
 
-    public static void ChooseMovie(int userMovieID)
+    public static void ChooseMovie([System.Runtime.CompilerServices.CallerMemberName] string memberName = "")
     {
+        // Als de gebruiker niet vanuit de filter komt, laat dan alle films zien.
+        if (memberName != "FilterMovie")
+        {
+            string movieOuput = Movie._movieLogic.ShowMovies();
+            Console.WriteLine(movieOuput);
+        }
+
+        Console.WriteLine("Kies een film door het ID in te voeren.");
+        Console.Write("> ");
+        int choice = Int32.TryParse(Console.ReadLine(), out int userMovieID) ? userMovieID : -1;
+        if (userMovieID == -1)
+        {
+            Console.WriteLine("Geen geldige invoer.");
+            Movie.Start();
+        }
         PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
@@ -96,47 +111,17 @@ class Movie : IPresentation
         string movieOutput = _movieLogic.FilterMovies(userInput);
         Console.WriteLine("==================================================");
         Console.WriteLine(movieOutput);
-        PresentationLogic.CurrentPresentation = "movies";
-        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string userOption = Console.ReadLine();
-        if (int.TryParse(userOption, out _) == true)
+        if (movieOutput == "")
         {
-            ChooseMovie(Convert.ToInt32(userOption));
-        }
-        else if (userOption.ToLower() == "f")
-        {
-            PresentationLogic.CurrentPresentation = "moviesFuture";
-            string futureMovieOutput = _movieLogic.ShowFutureMovies();
-            Console.WriteLine();
-            Console.WriteLine(futureMovieOutput);
-            PresentationLogic.WriteMenu(Menu.presentationModels, true);
-            string userFutureOption = Console.ReadLine();
-            if (int.TryParse(userFutureOption, out _) == true)
-            {
-                ChooseMovie(Convert.ToInt32(userFutureOption));
-            }
-            else if (userFutureOption.ToLower() == "b")
-            {
-                Movie.Start();
-            }
-            else
-            {
-                Console.WriteLine("Geen geldige invoer.");
-                Movie.Start();
-            }
-        }
-        else if (userOption.ToLower() == "a")
-        {
-            Movie.FilterMovie();
-        }
-        else if (userOption.ToLower() == "b")
-        {
-            Menu.Start();
+            Console.WriteLine("Er zijn geen films gevonden met deze filter.");
+            Console.WriteLine("Klik op een toets om terug te gaan naar het menu.");
+            Console.ReadLine();
+            Movie.Start();
         }
         else
         {
-            Console.WriteLine("Geen geldige invoer.");
-            Movie.Start();
+            Console.WriteLine("==================================================");
+            Movie.ChooseMovie();
         }
     }
 }

@@ -13,8 +13,7 @@ public class Auditorium : IPresentation
         AudistoriumScreen();
         //legenda weergeven
         PrintLegenda();
-        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string chosenOption = Console.ReadLine().ToLower();
+        string chosenOption = PresentationLogic.GetUserInputFromMenu(true).ToLower();
         if (chosenOption == "b")
         {
             Movie.Start();
@@ -43,6 +42,8 @@ public class Auditorium : IPresentation
         // lijst met de gekozen stoelen van de gebruiker om ze allemaal te kunnen reserveren
         List<ChairModel> chosenChairs = new List<ChairModel>();
         ConsoleKeyInfo keyinfo;
+        // clear keyboard buffer
+
         bool isBackKey = false;
         do
         {
@@ -114,6 +115,7 @@ public class Auditorium : IPresentation
         {
             areGoodToReserve = false;
             Movie.Start();
+            return;
         }
 
         Console.Clear();
