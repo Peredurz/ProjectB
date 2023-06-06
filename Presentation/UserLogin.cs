@@ -17,8 +17,7 @@ public class UserLogin : IPresentation
         bool loop = true;
         while (loop)
         {
-            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-            string input = Console.ReadLine();
+            string input = PresentationLogic.GetUserInputFromMenu(true);
             switch (input.ToLower())
             {
                 case "l":

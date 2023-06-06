@@ -6,9 +6,8 @@ class Annulering : IPresentation
     {
 
         PresentationLogic.CurrentPresentation = "annulering";
-        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
 
-        string input = Console.ReadLine().ToLower();
+        string input = PresentationLogic.GetUserInputFromMenu(true);
         switch (input)
         {
             case "r":
