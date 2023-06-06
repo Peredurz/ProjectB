@@ -13,11 +13,7 @@ class Movie : IPresentation
         Console.WriteLine(movieOuput);
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string userOption = PresentationLogic.GetUserInputFromMenu(true);
-        if (int.TryParse(userOption, out _) == true)
-        {
-            ChooseMovie(Convert.ToInt32(userOption));
-        }
-        else if (userOption.ToLower() == "f")
+        if (userOption.ToLower() == "f")
         {
             PresentationLogic.CurrentPresentation = "moviesFuture";
             string futureMovieOutput = _movieLogic.ShowFutureMovies();
@@ -45,6 +41,10 @@ class Movie : IPresentation
         {
             Movie.FilterMovie();
         }
+        else if (userOption.ToLower() == "0-9")
+        {
+            ChooseMovie();
+        }
         else if (userOption.ToLower() == "b")
         {
             Menu.Start();
@@ -56,8 +56,13 @@ class Movie : IPresentation
         }
     }
 
-    public static void ChooseMovie(int userMovieID)
+    public static void ChooseMovie()
     {
+        string movieOuput = Movie._movieLogic.ShowMovies();
+        Console.WriteLine(movieOuput);
+        Console.WriteLine("Kies een film door het ID in te voeren.");
+        Console.Write("> ");
+        int userMovieID = Convert.ToInt32(Console.ReadLine());
         PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
@@ -101,7 +106,7 @@ class Movie : IPresentation
         string userOption = Console.ReadLine();
         if (int.TryParse(userOption, out _) == true)
         {
-            ChooseMovie(Convert.ToInt32(userOption));
+            ChooseMovie();
         }
         else if (userOption.ToLower() == "f")
         {
@@ -113,7 +118,7 @@ class Movie : IPresentation
             string userFutureOption = Console.ReadLine();
             if (int.TryParse(userFutureOption, out _) == true)
             {
-                ChooseMovie(Convert.ToInt32(userFutureOption));
+                ChooseMovie();
             }
             else if (userFutureOption.ToLower() == "b")
             {
