@@ -84,9 +84,6 @@
     "isCompleted": true
   },
   {
-    "id": 152,
-    "name": "thom",
-    "emailAdress": "thomveldhuis03@gmail.com",
     "id": 9,
     "name": null,
     "emailAdress": "redwane1999@live.nl",
@@ -229,5 +226,41 @@
     "totaalPrijs": 15,
     "reserveringsCode": 1739566218,
     "isCompleted": true
+  },
+  {
+    "id": 172,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 27,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 1440464891,
+    "isCompleted": false
+  },
+  {
+    "id": 381,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 62,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 175111626,
+    "isCompleted": false
+  },
+  {
+    "id": 547,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 19,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 1653022364,
+    "isCompleted": false
   }
 ]
