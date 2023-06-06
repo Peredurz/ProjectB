@@ -40,20 +40,67 @@ public class PresentationLogic
 		return userMenuOptions;
 	}
 
-	public static void WriteMenu(List<PresentationModel> presentations, bool inSubMenu)
+	public static void WriteMenu(List<PresentationModel> presentations, bool inSubMenu, string menuName = null)
 	{
 		// als je in een submenu ziet zoals het login ding toon dan alleen die menu items
-		presentations = presentations
-		              .Where(x => x.IsSubMenu == inSubMenu && (CurrentPresentation == x.PresentationName || x.PresentationName == "all"))
-		              .ToList();
+		presentations = GetPresentationModels(inSubMenu);
 
 		foreach (PresentationModel _presentation in presentations)
 		{
-			Console.WriteLine($"{_presentation.Name}: {_presentation.Description}");
+			if (menuName == _presentation.Name)
+			{
+				Console.WriteLine($"> {_presentation.Name}: {_presentation.Description}");
+			}
+			else
+			{
+				Console.WriteLine($"{_presentation.Name}: {_presentation.Description}");
+			}
 		}
-
-		Console.Write("> ");
 	}
 
 	public static bool IsEmpty() => _presentations.Any() != true;
+
+	public static List<PresentationModel> GetPresentationModels(bool inSubMenu)
+	{
+		return AccountsLogic.UserPresentationModels
+		      .Where(x => x.IsSubMenu == inSubMenu && (CurrentPresentation == x.PresentationName || x.PresentationName == "all"))
+		      .ToList();
+	}
+
+	public static string GetUserInputFromMenu(bool isSubMenu)
+	{
+        List<PresentationModel> presentations = GetPresentationModels(isSubMenu);
+        int index = 0;
+        string inputUser = "";
+
+        ConsoleKeyInfo keyinfo;
+        do
+        {
+            Console.Clear();
+            PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
+            keyinfo = Console.ReadKey();
+
+            if (keyinfo.Key == ConsoleKey.DownArrow)
+            {
+                if (index + 1 < presentations.Count)
+                {
+                    index++;
+                }
+            }
+            if (keyinfo.Key == ConsoleKey.UpArrow)
+            {
+                if (index - 1 >= 0)
+                {
+                    index--;
+                }
+            }
+            if (keyinfo.Key == ConsoleKey.Enter)
+            {
+                inputUser = presentations[index].Name.ToUpper();
+            }
+        }
+        while (keyinfo.Key != ConsoleKey.Enter);
+
+		return inputUser;
+	}
 }

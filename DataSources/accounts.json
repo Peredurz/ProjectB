@@ -40,5 +40,12 @@
     "password": "$2a$10$ndN7VWlhd2k00pxviXG4OOmGfGaZWSmwU0B6/fxtE977rcIm6PxY6",
     "fullName": "Sidi Chattou",
     "userType": "Customer"
+  },
+  {
+    "id": 7,
+    "emailAddress": "thomveldhuis03@gmail.com",
+    "password": "$2a$10$8vYEhQfwi5LO5sBUpIqNLOaK057N3RQtRFsR7yBgZo3ZfbzIfy/p6",
+    "fullName": "Thom Veldhuis",
+    "userType": "Customer"
   }
 ]

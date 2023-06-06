@@ -80,7 +80,7 @@ public class Menu : IPresentation
             PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, false);
         }
 
-        string inputUser = Console.ReadLine().ToUpper();
+        string inputUser = PresentationLogic.GetUserInputFromMenu(false);
         if (inputUser == "L")
         {
             UserLogin.Start();
@@ -93,8 +93,11 @@ public class Menu : IPresentation
             adres:              Wijnhaven 107.
             postcode:           3011 WN in Rotterdam.
             Openings tijd:      Wij zijn dertig minuten voor de eerste film geopend 
-                                De bioscoop sluit vijftien minuten na de laatste film");
-            Menu.Start();
+                                De bioscoop sluit vijftien minuten na de laatste film
+            Je kan enter of b drukken om verder te gaan.");
+            ConsoleKeyInfo keyinfo = Console.ReadKey();
+            if (keyinfo.Key == ConsoleKey.B || keyinfo.Key == ConsoleKey.Enter)
+                Menu.Start();
         }
         else if (inputUser == "M")
         {
