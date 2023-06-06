@@ -87,7 +87,7 @@ public class PresentationLogic
                 //ClearLastLine();
             }
             PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
-            keyinfo = Console.ReadKey();
+            keyinfo = Console.ReadKey(true);
 
             if (keyinfo.Key == ConsoleKey.DownArrow)
             {
