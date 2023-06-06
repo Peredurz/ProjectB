@@ -69,6 +69,7 @@ public class PresentationLogic
 
 	public static string GetUserInputFromMenu(bool isSubMenu)
 	{
+		Console.CursorVisible = false;
         List<PresentationModel> presentations = GetPresentationModels(isSubMenu);
         int index = 0;
         string inputUser = "";
@@ -101,6 +102,7 @@ public class PresentationLogic
         }
         while (keyinfo.Key != ConsoleKey.Enter);
 
+		Console.CursorVisible = true;
 		return inputUser;
 	}
 }
