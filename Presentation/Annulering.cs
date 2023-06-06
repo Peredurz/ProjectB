@@ -62,7 +62,7 @@ class Annulering : IPresentation
     public static void AnnuleringAccepted()
     {
         annuleringLogic.ShowAnnulering();
-        System.Console.WriteLine("Kies de ID die je wilt Gebruiken.");
+        Console.WriteLine("Kies de ID die je wilt Gebruiken.");
         Console.Write(">");
         int idUser = -1;
         try
