@@ -12,7 +12,7 @@ class Movie : IPresentation
         string movieOuput = Movie._movieLogic.ShowMovies();
         Console.WriteLine(movieOuput);
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string userOption = Console.ReadLine();
+        string userOption = PresentationLogic.GetUserInputFromMenu(true);
         if (int.TryParse(userOption, out _) == true)
         {
             ChooseMovie(Convert.ToInt32(userOption));
