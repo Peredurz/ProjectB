@@ -13,8 +13,7 @@ public class Auditorium : IPresentation
         AudistoriumScreen();
         //legenda weergeven
         PrintLegenda();
-        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string chosenOption = Console.ReadLine().ToLower();
+        string chosenOption = PresentationLogic.GetUserInputFromMenu(true);
         if (chosenOption == "b")
         {
             Movie.Start();
