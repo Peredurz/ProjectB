@@ -120,7 +120,6 @@ public class Auditorium : IPresentation
         AccountsLogic.ChosenChairs = chosenChairs;
         _chairReservationLogic = new ChairReservationLogic();
 
-        //areGoodToReserve = true;
         // loop door alle stoelen heen om die te reserveren.
         foreach (ChairModel _chair in chosenChairs)
         {
@@ -135,6 +134,12 @@ public class Auditorium : IPresentation
                 Menu.Start();
                 return;
             }
+        }
+
+        if (areGoodToReserve == true)
+        {
+            Console.WriteLine("Stoel of stoelen gereserveerd!");
+            Auditorium.ChooseCombi();
         }
     }
     public static void ChooseCombi()
