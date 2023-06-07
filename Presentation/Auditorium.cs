@@ -17,6 +17,7 @@ public class Auditorium : IPresentation
         if (chosenOption == "b")
         {
             Movie.Start();
+            return;
         }
         else if (chosenOption == "s")
         {
@@ -26,6 +27,7 @@ public class Auditorium : IPresentation
         {
             Console.WriteLine("Incorrecte invoer.");
             Movie.Start();
+            return;
         }
     }
 
@@ -153,6 +155,7 @@ public class Auditorium : IPresentation
         {
             Console.WriteLine("Stoel of stoelen gereserveerd!");
             Auditorium.ChooseCombi();
+            return;
         }
     }
     public static void ChooseCombi()
@@ -163,14 +166,17 @@ public class Auditorium : IPresentation
         if (choisCombiDeals == "y")
         {
             CombiDeal.Start();
+            return;
         }
         else if (choisCombiDeals == "n")
         {
             Auditorium.ChooseParkingTicket();
+            return;
         }
         else
         {
             Auditorium.ChooseCombi();
+            return;
         }
     }
 
@@ -191,11 +197,13 @@ public class Auditorium : IPresentation
                 AccountsLogic.TotaalPrijs += 2;
                 Console.WriteLine("U heeft een parkeer ticket gekocht.");
                 Payment.Start();
+                return;
             }
             else if (choiseParkingTicket == "n")
             {
                 choice = true;
                 Payment.Start();
+                return;
             }
             else
             {

@@ -36,17 +36,19 @@ class CombiDeal : IPresentation
                     AccountsLogic.TotaalPrijs += selectedCombiDeal.Price;
                     choice = true;
                     Auditorium.ChooseParkingTicket();
-                    break;
+                    return;
                 }
                 // bij verkeerde keuze kan de gebruiker dit opniew doen.
                 else if (inputUser == "N")
                 {
                     CombiDeal.Start();
+                    return;
                 }
                 else
                 {
                     Console.WriteLine("Verkeerde invoer probeer het opnieuw. ");
                     CombiDeal.Start();
+                    return;
                 }
             }
             else
@@ -139,11 +141,11 @@ class CombiDeal : IPresentation
                 case "b": 
                     askUser = true;
                     Menu.Start();
-                    break;
+                    return;
                 default:
                     Console.WriteLine("Verkeerde invoer");
                     Menu.Start();
-                    break;
+                    return;
             }
         }
     }

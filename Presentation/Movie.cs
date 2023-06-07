@@ -30,6 +30,7 @@ class Movie : IPresentation
                 {
                     loop = false;
                     Movie.Start();
+                    return;
                 }
                 else
                 {
@@ -40,19 +41,23 @@ class Movie : IPresentation
         else if (userOption.ToLower() == "a")
         {
             Movie.FilterMovie();
+            return;
         }
         else if (userOption.ToLower() == "0-9")
         {
             ChooseMovie();
+            return;
         }
         else if (userOption.ToLower() == "b")
         {
             Menu.Start();
+            return;
         }
         else
         {
             Console.WriteLine("Geen geldige invoer.");
             Movie.Start();
+            return;
         }
     }
 
@@ -72,6 +77,7 @@ class Movie : IPresentation
         {
             Console.WriteLine("Geen geldige invoer.");
             Movie.Start();
+            return;
         }
         PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
@@ -85,21 +91,25 @@ class Movie : IPresentation
             if (userInput == "b")
             {
                 Movie.Start();
+                return;
             }
             else if (userInput == "c")
             {
                 Auditorium.Start();
+                return;
             }
             else
             {
                 Console.WriteLine("Geen correcte invoer");
                 Movie.Start();
+                return;
             }
         }
         else
         {
             Console.WriteLine("De film met dit ID bestaat niet");
             Movie.Start();
+            return;
         }
     }
 
@@ -117,11 +127,13 @@ class Movie : IPresentation
             Console.WriteLine("Klik op een toets om terug te gaan naar het menu.");
             Console.ReadLine();
             Movie.Start();
+            return;
         }
         else
         {
             Console.WriteLine("==================================================");
             Movie.ChooseMovie();
+            return;
         }
     }
 }

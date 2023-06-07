@@ -20,6 +20,7 @@ public class Payment : IPresentation
                     MailLogic.SendMail();
                     ChairReservationLogic.UpdateChairReservation();
                     Menu.Start();
+                    return;
                 }
                 else if (validIBAN == false)
                 {
@@ -34,16 +35,18 @@ public class Payment : IPresentation
                             MailLogic.SendMail();
                             ChairReservationLogic.UpdateChairReservation();
                             Menu.Start();
+                            return;
                         }
                         Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
                         Menu.Start();
+                        return;
                     }
                 }
                 break;
 
             case "b":
                 Movie.Start();
-                break;
+                return;
         }
     }
 }

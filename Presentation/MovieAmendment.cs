@@ -52,7 +52,7 @@ public class MovieAmendment : IPresentation
                 break;
             case "b":
                 Menu.Start();
-                break;
+                return;
             case "d":
                 Console.WriteLine(movieOuput);
                 Console.WriteLine(_movieLogic.ShowFutureMovies());
@@ -64,7 +64,7 @@ public class MovieAmendment : IPresentation
             default:
                 Console.WriteLine("Verkeerde invoer");
                 Menu.Start();
-                break;
+                return;
         }
     }
 
@@ -112,6 +112,7 @@ public class MovieAmendment : IPresentation
         {
             Console.WriteLine("Deze film bestaat niet.");
             MovieAmendment.Start();
+            return;
         }
         Console.WriteLine($"Wilt u de film {movie.Title} aanpassen? (Y/N)");
         Console.Write("> ");
@@ -235,15 +236,18 @@ public class MovieAmendment : IPresentation
                 }
             }
             MovieAmendment.Start();
+            return;
         }
         else if (choice == "n")
         {
             MovieAmendment.Start();
+            return;
         }
         else
         {
             Console.WriteLine("Verkeerde invoer.");
             MovieAmendment.Start();
+            return;
         }
     }
 
@@ -268,11 +272,11 @@ public class MovieAmendment : IPresentation
                 break;
             case "b":
                 MovieAmendment.Start();
-                break;
+                return;
             default:
                 Console.WriteLine("Verkeerde invoer.");
                 MovieAmendment.Start();
-                break;
+                return;
         }
     }
 
@@ -285,6 +289,7 @@ public class MovieAmendment : IPresentation
         {
             Console.WriteLine("Deze film bestaat niet.");
             MovieAdd();
+            return;
         }
         Console.WriteLine($"Wilt u de film {movie.Title} overkopiëren? (Y/N)");
         Console.Write("> ");
@@ -298,6 +303,7 @@ public class MovieAmendment : IPresentation
             {
                 Console.WriteLine("Verkeerde invoer");
                 MovieAmendment.Start();
+                return;
             }
 
             Console.WriteLine("Geef het zaal ID waarin de film draait.");
@@ -308,11 +314,13 @@ public class MovieAmendment : IPresentation
             {
                 Console.WriteLine("Deze tijd is al bezet.");
                 MovieAmendment.Start();
+                return;
             }
             if (auditoriumID == 0)
             {
                 Console.WriteLine("Zaal bestaat niet.");
                 MovieAmendment.Start();
+                return;
             }
 
             Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
@@ -324,21 +332,25 @@ public class MovieAmendment : IPresentation
                 MovieAccess.WriteAll(_movies);
                 Console.WriteLine("De film is toegevoegd.");
                 MovieAmendment.Start();
+                return;
             }
             else if (inputUser2 == "n")
             {
                 Console.WriteLine("De film is niet toegevoegd.");
                 MovieAmendment.Start();
+                return;
             }
             else
             {
                 Console.WriteLine("Verkeerde invoer.");
                 MovieAmendment.Start();
+                return;
             }
         }
         else if (choice == "n")
         {
             MovieAmendment.Start();
+            return;
         }
     }
 
@@ -401,16 +413,19 @@ public class MovieAmendment : IPresentation
             MovieAccess.WriteAll(_movies);
             Console.WriteLine("De film is toegevoegd.");
             MovieAmendment.Start();
+            return;
         }
         else if (inputUser == "n")
         {
             Console.WriteLine("De film is niet toegevoegd.");
             MovieAmendment.Start();
+            return;
         }
         else
         {
             Console.WriteLine("Verkeerde invoer.");
             MovieAmendment.Start();
+            return;
         }
     }
 
@@ -431,15 +446,18 @@ public class MovieAmendment : IPresentation
             MovieLogic.RemoveMovie(movie.ID);
             Console.WriteLine("Film succesvol verwijderd");
             MovieAmendment.Start();
+            return;
         }
         else if (choice == "n")
         {
             MovieAmendment.Start();
+            return;
         }
         else
         {
             Console.WriteLine("Verkeerde invoer.");
             MovieAmendment.Start();
+            return;
         }
     }
 }

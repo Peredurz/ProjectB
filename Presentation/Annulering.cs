@@ -18,14 +18,14 @@ class Annulering : IPresentation
                 break;
             case "b":
                 Menu.Start();
-                break;
+                return;
             case "o":
                 AnnuleringAccepted();
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
                 Menu.Start();
-                break;
+                return;
         }
     }
 
@@ -56,6 +56,7 @@ class Annulering : IPresentation
         if (isValid)
         {
             Menu.Start();
+            return;
         }
     }
     public static void AnnuleringAccepted()
@@ -70,10 +71,12 @@ class Annulering : IPresentation
             AnnuleringModel annuleringsModel = annuleringLogic.GetAnnulering(idUser);
             bool acceptedAnnulering = annuleringLogic.AnnuleringAccept(idUser);
             Menu.Start();
+            return;
         }
         catch (Exception e)
         {
             Menu.Start();
+            return;
         }
     }
 }
