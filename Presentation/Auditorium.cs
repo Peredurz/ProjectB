@@ -26,6 +26,7 @@ public class Auditorium : IPresentation
         else
         {
             Console.WriteLine("Incorrecte invoer.");
+            PresentationLogic.CurrentMessage = "Incorrecte invoer.";
             Movie.Start();
             return;
         }
@@ -86,6 +87,7 @@ public class Auditorium : IPresentation
                     if (chairID == 0)
                     {
                         Console.WriteLine("Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.");
+                        PresentationLogic.CurrentMessage = "Stoel met die coordinaten is niet gevonden. Of is niet te kiezen omdat het wit is.";
                         break;
                     }
                     // stoel model om te gebruiken in de lijst die uiteindelijk gereserveerd wordt.
@@ -128,6 +130,7 @@ public class Auditorium : IPresentation
         {
             Console.WriteLine("U heeft geen stoelen geselecteerd, u moet of minimaal een selecteren.");
             Console.WriteLine();
+            PresentationLogic.CurrentMessage = "U heeft geen stoelen geselecteerd, u moet of minimaal een selecteren.";
             Movie.Start();
             return;
         }
@@ -147,6 +150,7 @@ public class Auditorium : IPresentation
             {
                 areGoodToReserve = false;
                 Console.WriteLine("Stoel is niet beschikbaar");
+                PresentationLogic.CurrentMessage = "Stoel is niet beschikbaar";
                 Auditorium.Start();
                 return;
             }
@@ -155,6 +159,7 @@ public class Auditorium : IPresentation
         if (areGoodToReserve == true)
         {
             Console.WriteLine("Stoel of stoelen gereserveerd!");
+            PresentationLogic.CurrentMessage = "Stoel of stoelen zijn gereserveerd!";
             Auditorium.ChooseCombi();
             return;
         }
@@ -197,6 +202,7 @@ public class Auditorium : IPresentation
                 choice = true;
                 AccountsLogic.TotaalPrijs += 2;
                 Console.WriteLine("U heeft een parkeer ticket gekocht.");
+                PresentationLogic.CurrentMessage = "U heeft een parkeer ticket gekocht.";
                 Payment.Start();
                 return;
             }
@@ -209,6 +215,7 @@ public class Auditorium : IPresentation
             else
             {
                 Console.WriteLine("Geen correcte invoer.");
+                PresentationLogic.CurrentMessage = "Geen correcte invoer.";
             }
         }
     }

@@ -57,6 +57,7 @@ public class AnnuleringLogic
         if (!_chairReservation.Any(item => item.ReserveringsCode == id))
         {
             Console.WriteLine("Deze reserveringscode bestaat niet.");
+            PresentationLogic.CurrentMessage = "Deze reserveringscode bestaat niet.";
             return false;
         }
         foreach (ChairReservationModel reservation in _chairReservation)
@@ -69,6 +70,7 @@ public class AnnuleringLogic
                 if (containItem)
                 {
                     Console.WriteLine("U heeft voor deze film al een annulering aangemaakt.");
+                    PresentationLogic.CurrentMessage = "U heeft voor deze film al een annulering aangemaakt.";
                     return false;
                 }
                 _annulering.Add(ann);
@@ -173,6 +175,7 @@ public class AnnuleringLogic
                             double moneyReturn = AnnuleringCalculator(movie, annulering, reservationModel);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geaccepteerd.\n");
+                            PresentationLogic.CurrentMessage = "Annulering succesvol geaccepteerd";
                             MailLogic.SendCancelationMail(annulering, movie, reservationModel, moneyReturn);
                             AnnuleringAccess.WriteAll(_annulering);
                             return true;
@@ -185,6 +188,7 @@ public class AnnuleringLogic
                             MovieModel movie = MovieLogic.GetMovie(reservationModel.MovieID);
                             _annulering.Remove(annulering);
                             Console.WriteLine("Annulering succesvol geweigerd.\n");
+                            PresentationLogic.CurrentMessage = "Annulering succesvol geweigerd";
                             MailLogic.SendCancelationMail(annulering, movie, reservationModel, isRejected: true);
                             AnnuleringAccess.WriteAll(_annulering);
                             return false;

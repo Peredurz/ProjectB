@@ -286,5 +286,29 @@
     "totaalPrijs": 18.990000000000002,
     "reserveringsCode": 428793507,
     "isCompleted": true
+  },
+  {
+    "id": 577,
+    "name": "thom",
+    "emailAdress": "thomveldhuis03@gmail.com",
+    "chairId": 32,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 195790546,
+    "isCompleted": true
+  },
+  {
+    "id": 578,
+    "name": "thom",
+    "emailAdress": "thomveldhuis03@gmail.com",
+    "chairId": 33,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 195790546,
+    "isCompleted": true
   }
 ]

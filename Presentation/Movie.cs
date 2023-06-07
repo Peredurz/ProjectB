@@ -108,6 +108,7 @@ class Movie : IPresentation
         else
         {
             Console.WriteLine("De film met dit ID bestaat niet");
+            PresentationLogic.CurrentMessage = "De film met dit ID bestaat niet.";
             Movie.Start();
             return;
         }

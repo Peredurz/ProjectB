@@ -67,8 +67,7 @@ class CombiDeal : IPresentation
         while(askUser == false)
         {
             PresentationLogic.CurrentPresentation = "combideals";
-            PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-            string inputUser = Console.ReadLine().ToLower();
+            string inputUser = PresentationLogic.GetUserInputFromMenu(true).ToLower();
 
             switch(inputUser)
             {
@@ -85,6 +84,7 @@ class CombiDeal : IPresentation
                     if (add == true)
                         {
                             Console.WriteLine("Succesvol toegevoegd.");
+                            PresentationLogic.CurrentMessage = "Succesvol toegevoegd";
                         }
                     break;
                 case "r":
@@ -99,15 +99,18 @@ class CombiDeal : IPresentation
                         if (delete == true)
                         {
                             Console.WriteLine("Succesvol Verwijderd.");
+                            PresentationLogic.CurrentMessage = "Succesvol Verwijderd";
                         }
                         else if (delete = false)
                         {
                             Console.WriteLine("ID niet gevonden.");
+                            PresentationLogic.CurrentMessage = "ID niet gevonden";
                         }
                     }
                     catch(Exception)
                     {
                         Console.WriteLine("geen geldige invoer. ");
+                        PresentationLogic.CurrentMessage = "Geen geldige invoer.";
                     }
                     break;
                 case "e":
@@ -128,15 +131,18 @@ class CombiDeal : IPresentation
                         if (edit == true)
                         {
                             Console.WriteLine("Succesvol bewerkt.");
+                            PresentationLogic.CurrentMessage = "Succesvol Bewerkt";
                         }
                         else if (edit = false)
                         {
                             Console.WriteLine("ID niet gevonden.");
+                            PresentationLogic.CurrentMessage = "ID niet gevonden";
                         }
                     }
                     catch(Exception)
                     {
                         Console.WriteLine("Geen geldige invoer");
+                        PresentationLogic.CurrentMessage = "Geen geldige invoer";
                     }
                     break;
                 case "o":
@@ -148,6 +154,7 @@ class CombiDeal : IPresentation
                     return;
                 default:
                     Console.WriteLine("Verkeerde invoer");
+                    PresentationLogic.CurrentMessage = "Verkeerde invoer";
                     Menu.Start();
                     return;
             }

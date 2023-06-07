@@ -24,6 +24,7 @@ class Annulering : IPresentation
                 break;
             default:
                 Console.WriteLine("Verkeerde invoer");
+                PresentationLogic.CurrentMessage = "Verkeerde invoer";
                 Menu.Start();
                 return;
         }
@@ -43,11 +44,15 @@ class Annulering : IPresentation
             if (id < 0)
             {
                 Console.WriteLine("Verkeerde invoer");
+                PresentationLogic.CurrentMessage = "Verkeerde invoer";
             }
             else
             {
                 if (annuleringLogic.AnnuleringID(id, email))
+                {
                     Console.WriteLine("Uw annulering wordt verwerkt.");
+                    PresentationLogic.CurrentMessage = "Uw annulering wordt verwerkt.";
+                }
                 isValid = true;
             }
         }

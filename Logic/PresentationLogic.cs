@@ -21,6 +21,7 @@ public class PresentationLogic
 {
     private static List<PresentationModel> _presentations = new List<PresentationModel>();
     public static string CurrentPresentation = "menu";
+    public static string CurrentMessage = "Welkom bij ons bioscoop!";
 
     public static void SetPresentations(List<PresentationModel> presentations)
     {
@@ -86,6 +87,7 @@ public class PresentationLogic
                 ClearLastLine();
                 //ClearLastLine();
             }
+            Menu.PrintCurrentMessage();
             PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
             keyinfo = Console.ReadKey(true);
 

@@ -127,4 +127,19 @@ public class Menu : IPresentation
         }
 
     }
+
+    public static void PrintCurrentMessage()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            Console.Write("+");
+            for (int j = 0; j < PresentationLogic.CurrentMessage.Length; j++)
+            {
+                Console.Write("-");
+            }
+            Console.Write("+\n");
+            if (i == 0)
+                Console.Write($"{PresentationLogic.CurrentMessage}\n");
+        }
+    }
 }
