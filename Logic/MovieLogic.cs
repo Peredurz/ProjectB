@@ -47,9 +47,10 @@ public class MovieLogic
     {
         string output = "";
         DateTime futureDate = new DateTime(1970, 1, 1);
+        DateTime currentDate = DateTime.Now;
         foreach (MovieModel movie in _movies)
         {
-            if (movie.Time != futureDate)
+            if (movie.Time != futureDate && !(movie.Time < currentDate))
             {
                 foreach (var prop in movie.GetType().GetProperties())
                 {
@@ -311,7 +312,8 @@ public class MovieLogic
             select movie;
         }
         movies = movies.ToList();
-
+        // remove movies that are in the past
+        movies = movies.Where(m => m.Time > DateTime.Now).ToList();
         foreach (MovieModel movie in movies)
         {
             foreach (var prop in movie.GetType().GetProperties())
