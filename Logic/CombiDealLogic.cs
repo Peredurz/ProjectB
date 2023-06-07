@@ -103,4 +103,6 @@ public class CombiDealLogic
         }
         return false;
     }
+    
+    public List<CombiDealModel> Deals => _productList;
 }

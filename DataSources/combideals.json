@@ -1,17 +1,17 @@
 [
-    {
-        "id": 1,
-        "product": "Kleine popcorn en drankje na keuze.",
-        "price": 4.99
-    },
-    {
-        "id": 2,
-        "product": "Medium popcorn en drankje na keuze. ",
-        "price": 5.99
-    },   
-    {
-        "id": 3,
-        "product": "Grote popcorn en drankje na keuze. ",
-        "price": 6.99
-    }
+  {
+    "id": 1,
+    "product": "Kleine popcorn en drankje na keuze.",
+    "price": 4.99
+  },
+  {
+    "id": 2,
+    "product": "Medium popcorn en drankje na keuze. ",
+    "price": 5.99
+  },
+  {
+    "id": 3,
+    "product": "Grote popcorn en drankje na keuze. ",
+    "price": 6.99
+  }
 ]

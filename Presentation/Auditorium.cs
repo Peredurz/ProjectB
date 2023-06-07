@@ -164,16 +164,21 @@ public class Auditorium : IPresentation
         {
             Auditorium.ChooseParkingTicket();
         }
+        else
+        {
+            Auditorium.ChooseCombi();
+        }
     }
 
     public static void ChooseParkingTicket()
     {
-        Console.WriteLine($"Wilt u een parkeer ticket kopen. Y/N");
-        Console.Write(">");
         bool choice = false;
-        string choiseParkingTicket = Console.ReadLine().ToLower();
         while (choice == false)
         {
+            Console.WriteLine($"Wilt u een parkeer ticket kopen. Y/N");
+            Console.Write(">");
+            string choiseParkingTicket = Console.ReadLine().ToLower();
+
             if (choiseParkingTicket == "y")
             {
                 ParkingTicketLogic.choiseParkingTicket = true;
@@ -191,7 +196,6 @@ public class Auditorium : IPresentation
             else
             {
                 Console.WriteLine("Geen correcte invoer.");
-                continue;
             }
         }
     }
