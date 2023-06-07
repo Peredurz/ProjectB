@@ -3,7 +3,7 @@ public class Payment : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "payment";
-        Console.WriteLine($"Het totaal bedrag is {AccountsLogic.TotaalPrijs}");
+        Console.WriteLine($"Het totaal bedrag is {Math.Round(AccountsLogic.TotaalPrijs, 2)}");
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         switch (chosenOption)
@@ -11,8 +11,8 @@ public class Payment : IPresentation
             case "i":
                 Console.WriteLine("Vul hier jou Iban in.");
                 Console.Write(">");
-                string UserIBAN = Console.ReadLine();
-                bool validIBAN = PaymentLogic.ValidateIBAN(UserIBAN);
+                string userIBAN = Console.ReadLine();
+                bool validIBAN = PaymentLogic.ValidateIBAN(userIBAN);
                 if (validIBAN == true)
                 {
                     Console.WriteLine("Betaling voltooid");
@@ -22,12 +22,14 @@ public class Payment : IPresentation
                     Menu.Start();
                     return;
                 }
-                else if (validIBAN == false)
+                else
                 {
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 1; i < 3; i++)
                     {
                         Console.WriteLine("Invalid invoer");
-                        bool checkIBAN = PaymentLogic.ValidateIBAN(UserIBAN);
+                        Console.Write(">");
+                        string userIBAN1 = Console.ReadLine();
+                        bool checkIBAN = PaymentLogic.ValidateIBAN(userIBAN1);
                         if (checkIBAN == true)
                         {
                             Console.WriteLine("Betaling voltooid");
@@ -37,13 +39,17 @@ public class Payment : IPresentation
                             Menu.Start();
                             return;
                         }
-                        Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
-                        Menu.Start();
-                        return;
                     }
+                    ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+                    chairReservationLogic.RemoveNotCompletedReservations();
+                    chairReservationLogic.WriteAll();
+                    AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
+                    AccountsLogic.ChosenChairs.Clear();
+                    AccountsLogic.TotaalPrijs = 0;
+                    Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
+                    Menu.Start();
+                    return;
                 }
-                break;
-
             case "b":
                 Movie.Start();
                 return;

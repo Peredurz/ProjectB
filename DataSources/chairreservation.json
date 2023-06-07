@@ -264,39 +264,27 @@
     "isCompleted": true
   },
   {
-    "id": 617,
-    "name": "thom",
-    "emailAdress": "thomveldhuis03@gmail.com",
-    "chairId": 56,
+    "id": 481,
+    "name": "aisi",
+    "emailAdress": "sidimo2001@gmail.com",
+    "chairId": 86,
     "movieId": 1,
     "auditoriumId": 1,
     "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 25,
-    "reserveringsCode": 1233043305,
+    "totaalPrijs": 18.990000000000002,
+    "reserveringsCode": 428793507,
     "isCompleted": true
   },
   {
-    "id": 618,
-    "name": "thom",
-    "emailAdress": "thomveldhuis03@gmail.com",
-    "chairId": 57,
+    "id": 482,
+    "name": "aisi",
+    "emailAdress": "sidimo2001@gmail.com",
+    "chairId": 87,
     "movieId": 1,
     "auditoriumId": 1,
     "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 25,
-    "reserveringsCode": 1233043305,
-    "isCompleted": true
-  },
-  {
-    "id": 619,
-    "name": "thom",
-    "emailAdress": "thomveldhuis03@gmail.com",
-    "chairId": 55,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 25,
-    "reserveringsCode": 1233043305,
+    "totaalPrijs": 18.990000000000002,
+    "reserveringsCode": 428793507,
     "isCompleted": true
   }
 ]
