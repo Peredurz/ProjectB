@@ -90,7 +90,7 @@ class AuditoriumLogic
     /// Dit gebeurt door de statische <see cref="Movie.MovieID"/> variabele die iederekeer opnieuw wordt aangepast.
     /// Als iemand een andere film kiest in het keuzemenu voor de <see cref="Movie"/> objecten.
     /// </remarks>
-    public void ChairPrint(int x, int y)
+    public void ChairPrint(int x, int y, List<int> chairIDs = null)
     {
         // Hoeveelheid stoelen in de lijst met stoelen checken
         int chairsAmount = this._chairLogic.Chairs.Count;
@@ -207,6 +207,14 @@ class AuditoriumLogic
                     if (r == (x - 1) && c == (y - 1))
                     {
                         Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = color;
+                        Console.Write(result);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                    }
+                    // als de id van de stoel is gekozen door de gebruiker maar die dan groen.
+                    else if (chairIDs != null && chairIDs.Contains(chair.ID))
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
                         Console.ForegroundColor = color;
                         Console.Write(result);
                         Console.BackgroundColor = ConsoleColor.Black;
