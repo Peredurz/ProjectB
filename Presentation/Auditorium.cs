@@ -43,6 +43,7 @@ public class Auditorium : IPresentation
         AuditoriumModel auditoriumModel = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
         // lijst met de gekozen stoelen van de gebruiker om ze allemaal te kunnen reserveren
         List<ChairModel> chosenChairs = new List<ChairModel>();
+        List<int> chosenChairsIDs = new List<int>();
         ConsoleKeyInfo keyinfo;
         // clear keyboard buffer
 
@@ -51,11 +52,9 @@ public class Auditorium : IPresentation
         {
             // clear de console en print alle belangrijke dingen.
             Console.Clear();
-            _auditoriumLogic.ChairPrint(indexX, indexY);
+            _auditoriumLogic.ChairPrint(indexX, indexY, chosenChairsIDs);
             AudistoriumScreen();
             PrintLegenda();
-            // zodat de gebruiker kan weten wat hij/zij geselecteerd heeft
-            PrintChosenChairs(chosenChairs);
 
             // lees de key om te bepalen wat de gebruiker doet.
             keyinfo = Console.ReadKey();
@@ -95,12 +94,14 @@ public class Auditorium : IPresentation
                     if (chosenChairs.Contains(chair))
                     {
                         chosenChairs.Remove(chair);
+                        chosenChairsIDs.Remove(chair.ID);
                         break;
                     }
                     // als de kleur wit is mag die niet gekozen worden door de gebruiker
                     if (chair.Color == "White")
                         break;
                     chosenChairs.Add(chair);
+                    chosenChairsIDs.Add(chair.ID);
                     break;
                 // s is om op te slaan
                 case ConsoleKey.S:
@@ -237,24 +238,5 @@ public class Auditorium : IPresentation
         Console.WriteLine("Info over het selecteren: ");
         Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
         Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\nom uw keuze op te slaan.");
-    }
-
-    /// <summary>
-    /// Method om de geselecteerde stoelen te printen, als de lijst met chairs vol is.
-    /// </summary>
-    public static void PrintChosenChairs(List<ChairModel> chairs)
-    {
-        if (chairs.Count() <= 0)
-            return;
-        Console.Write("Geselecteerde stoelen: ");
-        foreach (ChairModel _chair in chairs)
-        {
-            char col;
-            if (_chair.Column > 26)
-                col = Convert.ToChar(_chair.Column + 71);
-            else
-                col = Convert.ToChar(_chair.Column + 65);
-            Console.Write($"{col}, {_chair.Row + 1}; ");
-        }
     }
 }
