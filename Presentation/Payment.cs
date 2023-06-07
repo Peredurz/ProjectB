@@ -16,6 +16,7 @@ public class Payment : IPresentation
                 if (validIBAN == true)
                 {
                     Console.WriteLine("Betaling voltooid");
+                    PresentationLogic.CurrentMessage = "Betaling voltooid";
                     MailLogic.GenerateQRCode();
                     MailLogic.SendMail();
                     ChairReservationLogic.UpdateChairReservation();
@@ -33,6 +34,7 @@ public class Payment : IPresentation
                         if (checkIBAN == true)
                         {
                             Console.WriteLine("Betaling voltooid");
+                            PresentationLogic.CurrentMessage = "Betaling voltooid";
                             MailLogic.GenerateQRCode();
                             MailLogic.SendMail();
                             ChairReservationLogic.UpdateChairReservation();
@@ -47,6 +49,7 @@ public class Payment : IPresentation
                     AccountsLogic.ChosenChairs.Clear();
                     AccountsLogic.TotaalPrijs = 0;
                     Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
+                    PresentationLogic.CurrentMessage = "U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd";
                     Menu.Start();
                     return;
                 }
