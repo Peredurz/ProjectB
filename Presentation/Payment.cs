@@ -40,12 +40,16 @@ public class Payment : IPresentation
                             return;
                         }
                     }
+                    ChairReservationLogic chairReservationLogic = new ChairReservationLogic();
+                    chairReservationLogic.RemoveNotCompletedReservations();
+                    chairReservationLogic.WriteAll();
+                    AccountsLogic.CurrentReservationCode = MailLogic.GenerateCode();
+                    AccountsLogic.ChosenChairs.Clear();
+                    AccountsLogic.TotaalPrijs = 0;
                     Console.WriteLine("U heeft het te vaak verkeerd gedaan.\n Reservering Gannuleerd");
                     Menu.Start();
                     return;
                 }
-                break;
-
             case "b":
                 Movie.Start();
                 return;
