@@ -32,14 +32,15 @@ public class PaymentLogic
     /// </remarks>
     public static bool ValidateIBAN(string iban)
     {
-        Regex ibanRegex = new Regex(@"\b[A-Z]{2}[0-9]{2}(?:[ ]?[0-9]{4}){4}(?!(?:[ ]?[0-9]){3})(?:[ ]?[0-9]{1,2})?\bgm",
-                                    RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        string regexp = @"^([A-Z]{2}[ \-]?[0-9]{2})(?=(?:[ \-]?[A-Z0-9]){9,30}$)((?:[ \-]?[A-Z0-9]{3,5}){2,7})([ \-]?[A-Z0-9]{1,3})?$";
+        RegexOptions options = RegexOptions.Multiline;
         // verwijder spaties is makkelijker te parsen
         iban = iban.Trim().Replace(" ", "");
 
         // check via regex of het een geldig iban nummer is
         // maar we gaan onder ook nog echt het hele ding individueel checken
-        if (ibanRegex.IsMatch(iban) == true)
+        Match match = Regex.Match(iban, regexp, options);
+        if (iban != string.Empty && !match.Success)
             return false;
 
         // pak de land code om te checken of die goed is.
