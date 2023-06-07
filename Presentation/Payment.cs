@@ -3,7 +3,7 @@ public class Payment : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "payment";
-        Console.WriteLine($"Het totaal bedrag is {AccountsLogic.TotaalPrijs}");
+        Console.WriteLine($"Het totaal bedrag is {Math.Round(AccountsLogic.TotaalPrijs, 2)}");
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
         string chosenOption = Console.ReadLine().ToLower();
         switch (chosenOption)
@@ -21,7 +21,7 @@ public class Payment : IPresentation
                     ChairReservationLogic.UpdateChairReservation();
                     Menu.Start();
                 }
-                else if (validIBAN == false)
+                else
                 {
                     for (int i = 0; i < 3; i++)
                     {
