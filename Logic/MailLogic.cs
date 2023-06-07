@@ -106,7 +106,6 @@ class MailLogic
         Uw reservering is voor de film: {movieTitle} <br>
         Uw film vind plaats in zaal: {auditorium} <br>
         Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
-        Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
         Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
         Uw totaalprijs is: €{totaalPrijs} <br>
         U kunt uw reservering annuleren tot half uur voor de film begint. <br>
