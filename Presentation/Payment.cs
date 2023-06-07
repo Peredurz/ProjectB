@@ -21,7 +21,7 @@ public class Payment : IPresentation
                     ChairReservationLogic.UpdateChairReservation();
                     Menu.Start();
                 }
-                else
+                else if (validIBAN == false)
                 {
                     for (int i = 0; i < 3; i++)
                     {

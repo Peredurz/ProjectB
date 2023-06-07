@@ -25,8 +25,7 @@ class CombiDeal : IPresentation
                 CombiDealModel selectedCombiDeal = _combiDeal.GetCombiDeal(idUser);
                 _combiDeal.ShowCombiDeal(idUser);
                 Console.WriteLine();
-                AccountsLogic.TotaalPrijs += Math.Round(selectedCombiDeal.Price, 2);
-                Console.WriteLine($"Saldo is {AccountsLogic.TotaalPrijs}.");
+                Console.WriteLine($"Saldo is {AccountsLogic.TotaalPrijs + selectedCombiDeal.Price}.");
                 Console.WriteLine();
                 Console.WriteLine("Weet u zeker dat u deze combideal wilt Y/N. ");
                 Console.Write("> ");
@@ -34,6 +33,7 @@ class CombiDeal : IPresentation
                 // bij de juiste handelingen gaat de gebruiker door naar betalingen
                 if (inputUser == "Y")
                 {
+                    AccountsLogic.TotaalPrijs += selectedCombiDeal.Price;
                     choice = true;
                     Auditorium.ChooseParkingTicket();
                     break;
@@ -41,7 +41,12 @@ class CombiDeal : IPresentation
                 // bij verkeerde keuze kan de gebruiker dit opniew doen.
                 else if (inputUser == "N")
                 {
-                    AccountsLogic.TotaalPrijs -= selectedCombiDeal.Price;
+                    CombiDeal.Start();
+                }
+                else
+                {
+                    Console.WriteLine("Verkeerde invoer probeer het opnieuw. ");
+                    CombiDeal.Start();
                 }
             }
             else

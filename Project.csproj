@@ -14,5 +14,4 @@
     <PackageReference Include="SkiaSharp.QrCode" Version="0.6.0" />
     <PackageReference Include="Terminal.Gui" Version="1.12.1" />
   </ItemGroup>
-
 </Project>
