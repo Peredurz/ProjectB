@@ -97,6 +97,7 @@ class MailLogic
 
         qrImage.ContentId = MimeUtils.GenerateMessageId();
 
+
         builder.HtmlBody = string.Format(@$"<h1>Beste {Name},</h1>
         <p>Bedankt voor uw reservering bij Bioscoop Naamloos. <br>
         Uw reserveringscode is de onderstaande QR-code. <br>
@@ -104,6 +105,7 @@ class MailLogic
         Uw reserveringscode is: {reservationCode} <br>
         Uw reservering is voor de film: {movieTitle} <br>
         Uw film vind plaats in zaal: {auditorium} <br>
+        Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
         Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
         Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
         Uw totaalprijs is: €{totaalPrijs} <br>
@@ -159,6 +161,11 @@ class MailLogic
     public static void GenerateQRCode()
     {
         string reservationCode = Convert.ToString(AccountsLogic.CurrentReservationCode);
+        string dir = Path.Combine("DataDocs/QrTicket");
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
         using var output = new FileStream(Path.Combine("DataDocs/QrTicket", "qr-code.png"), FileMode.Create);
         var qrCode = new QrCode(reservationCode, new Vector2Slim(200, 200), SKEncodedImageFormat.Png);
         qrCode.GenerateImage(output);
