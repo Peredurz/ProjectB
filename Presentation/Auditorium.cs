@@ -54,7 +54,7 @@ public class Auditorium : IPresentation
             Console.Clear();
             _auditoriumLogic.ChairPrint(indexX, indexY, chosenChairsIDs);
             AudistoriumScreen();
-            PrintLegenda();
+            PrintLegenda(true);
 
             // lees de key om te bepalen wat de gebruiker doet.
             keyinfo = Console.ReadKey();
@@ -227,16 +227,19 @@ public class Auditorium : IPresentation
         }
     }
 
-    public static void PrintLegenda()
+    public static void PrintLegenda(bool printSelectionInfo = false)
     {
         Console.WriteLine("Stoelkosten:");
         Console.WriteLine("Blauw: 5,-  | Oranje: 10,-");
         Console.WriteLine("Rood : 15,- | Grijs : Niet beschikbaar.");
         Console.WriteLine("De stoelen waar X op staat zijn bezet.");
         Console.WriteLine("De stoelen waar ? op staat zijn tijdelijk bezet.");
-        Console.WriteLine("+------------------------------------------------------------------------+");
-        Console.WriteLine("Info over het selecteren: ");
-        Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
-        Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\nom uw keuze op te slaan.");
+        if (printSelectionInfo == true)
+        {
+            Console.WriteLine("+------------------------------------------------------------------------+");
+            Console.WriteLine("Info over het selecteren: ");
+            Console.WriteLine("Met de pijltjes kunnen er stoelen gekozen worden door op enter te drukken");
+            Console.WriteLine("als u tevreden bent met de selectie kan er op 'S' gedrukt worden\nom uw keuze op te slaan.");
+        }
     }
 }
