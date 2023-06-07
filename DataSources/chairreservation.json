@@ -264,87 +264,27 @@
     "isCompleted": true
   },
   {
-    "id": 201,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 26,
+    "id": 481,
+    "name": "aisi",
+    "emailAdress": "sidimo2001@gmail.com",
+    "chairId": 86,
     "movieId": 1,
     "auditoriumId": 1,
     "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1242791679,
-    "isCompleted": false
+    "totaalPrijs": 18.990000000000002,
+    "reserveringsCode": 428793507,
+    "isCompleted": true
   },
   {
-    "id": 295,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 14,
+    "id": 482,
+    "name": "aisi",
+    "emailAdress": "sidimo2001@gmail.com",
+    "chairId": 87,
     "movieId": 1,
     "auditoriumId": 1,
     "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1039768167,
-    "isCompleted": false
-  },
-  {
-    "id": 296,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 18,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 1039768167,
-    "isCompleted": false
-  },
-  {
-    "id": 297,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 19,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 15,
-    "reserveringsCode": 1039768167,
-    "isCompleted": false
-  },
-  {
-    "id": 289,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 38,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1040179428,
-    "isCompleted": false
-  },
-  {
-    "id": 290,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 39,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 1040179428,
-    "isCompleted": false
-  },
-  {
-    "id": 365,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 32,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1737457563,
-    "isCompleted": false
+    "totaalPrijs": 18.990000000000002,
+    "reserveringsCode": 428793507,
+    "isCompleted": true
   }
 ]
