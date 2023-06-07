@@ -63,19 +63,19 @@ public class Auditorium : IPresentation
             {
                 // alle up/down/left/right dingen checken of die kan bewegen
                 // zo niet doe niks
-                case ConsoleKey.DownArrow:
+                case ConsoleKey.DownArrow: case ConsoleKey.J:
                     if (indexX + 1 < auditoriumModel.TotalRows + 1)
                         indexX++;
                     break;
-                case ConsoleKey.UpArrow:
+                case ConsoleKey.UpArrow: case ConsoleKey.K:
                     if (indexX - 1 >= 1)
                         indexX--;
                     break;
-                case ConsoleKey.RightArrow:
+                case ConsoleKey.RightArrow: case ConsoleKey.L:
                     if (indexY + 1 < auditoriumModel.TotalCols + 1)
                         indexY++;
                     break;
-                case ConsoleKey.LeftArrow:
+                case ConsoleKey.LeftArrow: case ConsoleKey.H:
                     if (indexY - 1 >= 1)
                         indexY--;
                     break;

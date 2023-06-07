@@ -89,14 +89,14 @@ public class PresentationLogic
             PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
             keyinfo = Console.ReadKey(true);
 
-            if (keyinfo.Key == ConsoleKey.DownArrow)
+            if (keyinfo.Key == ConsoleKey.DownArrow || keyinfo.Key == ConsoleKey.J)
             {
                 if (index + 1 < presentations.Count)
                 {
                     index++;
                 }
             }
-            if (keyinfo.Key == ConsoleKey.UpArrow)
+            if (keyinfo.Key == ConsoleKey.UpArrow || keyinfo.Key == ConsoleKey.K)
             {
                 if (index - 1 >= 0)
                 {
