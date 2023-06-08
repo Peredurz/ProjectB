@@ -62,6 +62,17 @@ class ChairReservationLogic
         }
         return null;
     }
+    public List<Tuple<ChairReservationModel, int>> GetChairReservations(int codeOrID)
+    {
+        List<Tuple<ChairReservationModel, int>> chairReservations = new List<Tuple<ChairReservationModel, int>>();
+        foreach (ChairReservationModel _reservation in _chairReservation)
+        {
+            // check if the codeOrID is equal to the ID, ReserveringsCode or ChairID and if its not already in the list of chairReservations add it to the list
+            if (_reservation.ID == codeOrID || _reservation.ReserveringsCode == codeOrID || _reservation.ChairID == codeOrID && !chairReservations.Contains(Tuple.Create(_reservation, _reservation.ID)))
+                chairReservations.Add(Tuple.Create(_reservation, _reservation.ID));
+        }
+        return chairReservations;
+    }
 
     public int GetChairReservationIndex(int reservationID)
     {
