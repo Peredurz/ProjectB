@@ -128,6 +128,9 @@ public class Menu : IPresentation
 
     }
 
+    /// <summary>
+    /// Functie om een message te printen boven het menu.
+    /// </summary>
     public static void PrintCurrentMessage()
     {
         for (int i = 0; i < 2; i++)

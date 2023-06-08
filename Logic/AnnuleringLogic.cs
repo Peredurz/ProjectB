@@ -177,6 +177,7 @@ public class AnnuleringLogic
                             Console.WriteLine("Annulering succesvol geaccepteerd.\n");
                             PresentationLogic.CurrentMessage = "Annulering succesvol geaccepteerd";
                             MailLogic.SendCancelationMail(annulering, movie, reservationModel, moneyReturn);
+                            AnnuleringLogic.DeleteCanceledChair(annulering.ReservationID);
                             AnnuleringAccess.WriteAll(_annulering);
                             return true;
                         }
@@ -230,5 +231,17 @@ public class AnnuleringLogic
         }
         return null;
     }
-
+    // Verwijdert de stoel in chairreservation
+    public static void DeleteCanceledChair(int reserveringsCode)
+    {
+        List<ChairReservationModel> _chairReservations = ChairReservationAccess.LoadAll();
+        List<ChairReservationModel> chairReservations = new List<ChairReservationModel>();
+        foreach (ChairReservationModel chair in _chairReservations)
+        {
+            if (chair.ReserveringsCode != reserveringsCode)
+                chairReservations.Add(chair);
+        }
+        _chairReservations = chairReservations;
+        ChairReservationAccess.WriteAll(_chairReservations);
+    }
 }
