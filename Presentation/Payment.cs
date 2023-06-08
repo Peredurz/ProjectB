@@ -14,9 +14,18 @@ public class Payment : IPresentation
                 string userIBAN = Console.ReadLine();
                 bool validIBAN;
                 if (userIBAN.Length <= 0)
+                {
                     validIBAN = false;
+                }
+                else if (userIBAN.Length == 1 && userIBAN.ToLower() == "b")
+                {
+                    Movie.Start();
+                    return;
+                }
                 else
+                {
                     validIBAN = PaymentLogic.ValidateIBAN(userIBAN);
+                }
                 if (validIBAN == true)
                 {
                     Console.WriteLine("Betaling voltooid");
