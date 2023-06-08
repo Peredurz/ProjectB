@@ -32,16 +32,14 @@ public class MovieAmendment : IPresentation
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "movie_editor";
-        PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-
-
-        string input = Console.ReadLine().ToLower();
-        string movieOuput = _movieLogic.ShowMovies();
+        PresentationLogic.CurrentMessage = "Welkom bij de film editor";
+        string input = PresentationLogic.GetUserInputFromMenu(true).ToLower();
+        string futuremovie = _movieLogic.ShowAllMovies();
         string inputUser;
         switch (input)
         {
             case "r":
-                Console.WriteLine(movieOuput);
+                Console.Write(futuremovie);
                 Console.WriteLine("Geef een film ID of een titel");
                 Console.Write("> ");
                 inputUser = Console.ReadLine().ToLower();
@@ -54,8 +52,8 @@ public class MovieAmendment : IPresentation
                 Menu.Start();
                 return;
             case "d":
-                Console.WriteLine(movieOuput);
-                Console.WriteLine(_movieLogic.ShowFutureMovies());
+                //Console.WriteLine(futuremovie);
+                Console.WriteLine(_movieLogic.ShowAllMovies());
                 Console.WriteLine("Geef een film ID of een titel die u wilt verwijderen");
                 Console.Write("> ");
                 inputUser = Console.ReadLine().ToLower();
@@ -107,6 +105,7 @@ public class MovieAmendment : IPresentation
     public static void MovieAmendments(string input)
     {
         PresentationLogic.CurrentPresentation = "editor_submenu";
+        PresentationLogic.CurrentMessage = "Hier kan je films aanpassen";
         MovieModel movie = MovieLogic.SearchMovie(input);
         if (movie == null)
         {
@@ -123,7 +122,7 @@ public class MovieAmendment : IPresentation
             while (loop)
             {
                 PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-                string inputUser = Console.ReadLine().ToLower();
+                string inputUser = PresentationLogic.GetUserInputFromMenu(true).ToLower();
                 switch (inputUser)
                 {
                     case "a":
@@ -143,7 +142,7 @@ public class MovieAmendment : IPresentation
                         movie.AuditoriumID = auditoriumID;
                         Console.WriteLine("De nieuwe zaal ID van de film is: " + movie.AuditoriumID);
                         break;
-                    case "b":
+                    case "e":
                         Console.WriteLine("Geef de nieuwe tijd van hoe lang de film duurt in minuten.");
                         Console.Write("> ");
                         int duration = int.TryParse(Console.ReadLine(), out duration) ? duration : -1;
@@ -206,9 +205,6 @@ public class MovieAmendment : IPresentation
                         }
                         movie.AgeRestriction = age;
                         break;
-                    case "e":
-                        loop = false;
-                        continue;
                     default:
                         loop = false;
                         Console.WriteLine("Verkeerde invoer.");
@@ -216,6 +212,18 @@ public class MovieAmendment : IPresentation
                 }
                 _movies[movie.ID - 1] = movie;
                 MovieAccess.WriteAll(_movies);
+                Console.WriteLine();
+                Console.WriteLine(@$"De aangepaste film heeft de volgende gegevens:
+
+    Titel: {movie.Title}
+    Beschrijving: {movie.Description}
+    Duur: {movie.Duration}
+    Tijd en datum: {movie.Time}
+    Zaal ID: {movie.AuditoriumID}
+    Genre: {movie.Genre}
+    Leeftijdsbeperking: {movie.AgeRestriction}");
+                Console.WriteLine();
+
                 Console.WriteLine("Wilt u nog andere dingen van de huidige gekozen film aanpassen? (Y/N)");
                 Console.Write("> ");
                 string inputUser2 = Console.ReadLine().ToLower();
@@ -255,18 +263,37 @@ public class MovieAmendment : IPresentation
     {
         Console.WriteLine("Wilt u een nieuwe film toevoegen of een film dat al draait op een andere tijd/zaal overkopiëren? (N/O)");
         PresentationLogic.CurrentPresentation = "editor_movieAdd";
+        PresentationLogic.CurrentMessage = "Films toevoegen";
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
-        string inputUser = Console.ReadLine().ToLower();
+        string inputUser = PresentationLogic.GetUserInputFromMenu(true).ToLower();
         switch (inputUser)
         {
             case "n":
-                NewMovie();
+                Console.WriteLine("Weet u zeker dat u een nieuwe film wilt toevoegen? (Y/N)");
+                Console.Write("> ");
+                string inputUser2 = Console.ReadLine().ToLower();
+                if (inputUser2 == "y")
+                {
+                    NewMovie();
+                    break;
+                }
+                else if (inputUser2 == "n")
+                {
+                    MovieAmendment.Start();
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Verkeerde invoer.");
+                    MovieAmendment.Start();
+                    return;
+                }
                 break;
             case "o":
                 // De volgende twee regels zijn nodig om de films te laten zien. Maar dit laad ook de films opnieuw in.
                 // Waardoor het in PresentationLogic bij GetMovieByTitle een lijst heeft waar doorheen gezocht kan worden.
                 // Als dit wordt weggehaald werkt het niet meer.
-                string movieOuput = _movieLogic.ShowMovies();
+                string movieOuput = _movieLogic.ShowAllMovies();
                 Console.WriteLine(movieOuput);
                 CopyMovie();
                 break;
@@ -283,7 +310,9 @@ public class MovieAmendment : IPresentation
     public static void CopyMovie()
     {
         Console.WriteLine("Geef de titel of het ID van de film die u wilt overkopiëren naar een nieuwe datum en tijd.");
+        Console.Write("> ");
         string input = Console.ReadLine().ToLower();
+        PresentationLogic.CurrentMessage = "Films overkopiëren";
         MovieModel movie = MovieLogic.SearchMovie(input);
         if (movie == null)
         {
@@ -323,6 +352,18 @@ public class MovieAmendment : IPresentation
                 return;
             }
 
+            Console.WriteLine();
+            Console.WriteLine(@$"De overgekopieerde film heeft de volgende gegevens:
+
+    Titel: {Movie.Title}
+    Beschrijving: {Movie.Description}
+    Duur: {Movie.Duration}
+    Tijd en datum: {Movie.Time}
+    Zaal ID: {Movie.AuditoriumID}
+    Genre: {Movie.Genre}
+    Leeftijdsbeperking: {Movie.AgeRestriction}");
+            Console.WriteLine();
+
             Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
             Console.Write("> ");
             string inputUser2 = Console.ReadLine().ToLower();
@@ -356,6 +397,7 @@ public class MovieAmendment : IPresentation
 
     public static void NewMovie()
     {
+        PresentationLogic.CurrentMessage = "Nieuwe film toevoegen";
         Console.WriteLine("Geef de titel van de film.");
         Console.Write("> ");
         string title = Console.ReadLine();
@@ -363,24 +405,6 @@ public class MovieAmendment : IPresentation
         Console.WriteLine("Geef een beschrijving van de film.");
         Console.Write("> ");
         string description = Console.ReadLine();
-
-        // bool correct = false;
-        // DateTime dateTime;
-        // do
-        // {
-        //     Console.WriteLine("Geef de datum van de dag waarop deze film in de bioscoop gaat draaien in dit formaat: YYYY-MM-DD.");
-        //     Console.Write("> ");
-        //     string date = Console.ReadLine();
-        //     Console.WriteLine("Geef de tijd waarop de film draait in het volgende formaat: HH:MM:SS");
-        //     Console.Write("> ");
-        //     string time = Console.ReadLine();
-        //     string dateTimeString = $"{date}T{time}";
-        //     dateTime = DateTime.TryParse(dateTimeString, out dateTime) ? dateTime : DateTime.Now;
-        //     if (dateTime > DateTime.Now)
-        //     {
-        //         correct = true;
-        //     }
-        // } while (!correct);
 
         int duration;
         do
@@ -392,17 +416,31 @@ public class MovieAmendment : IPresentation
 
         Console.WriteLine("Geef het zaal ID waarin de film draait.");
         Console.Write("> ");
+        int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
+        if (auditoriumID > 3 || auditoriumID < 1)
+        {
+            auditoriumID = 0;
+        }
 
         Console.WriteLine("Geef het genre van de film.");
         Console.Write("> ");
+        string genre = Console.ReadLine();
 
         Console.WriteLine("Geef de leeftijdsbeperking van de film.");
         Console.Write("> ");
         int ageRestriction = int.TryParse(Console.ReadLine(), out ageRestriction) ? ageRestriction : 0;
 
-        string genre = Console.ReadLine();
-        int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
         MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, title, description, new DateTime(1970, 1, 1), duration, genre, ageRestriction);
+        Console.WriteLine();
+        Console.WriteLine(@$"De toegevoegde film heeft de volgende gegevens:
+
+    Titel: {Movie.Title}
+    Beschrijving: {Movie.Description}
+    Duur: {Movie.Duration}
+    Zaal ID: {Movie.AuditoriumID}
+    Genre: {Movie.Genre}
+    Leeftijdsbeperking: {Movie.AgeRestriction}");
+        Console.WriteLine();
         Console.WriteLine("De datum en tijd waarop de film draait moet u later nog zetten met de functie om een film aan te passen.");
         Console.WriteLine("Wilt u de film toevoegen? (Y/N)");
         Console.Write("> ");
@@ -433,6 +471,7 @@ public class MovieAmendment : IPresentation
     {
         string movieOuput = _movieLogic.ShowMovies();
         MovieModel movie = MovieLogic.SearchMovie(inputUser);
+        PresentationLogic.CurrentMessage = "Films verwijderen";
         if (movie == null)
         {
             Console.WriteLine("Deze film bestaat niet.");
