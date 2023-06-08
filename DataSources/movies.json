@@ -20,7 +20,7 @@
     "age_restriction": 12
   },
   {
-    "id": 5,
+    "id": 6,
     "auditorium_id": 1,
     "title": "The Lord of the Rings: The Fellowship of the Ring",
     "description": "Een jonge hobbit genaamd Frodo krijgt een magische ring in zijn bezit. Deze ring moet vernietigd worden voordat de duistere heerser Sauron hem in handen krijgt.",
@@ -37,6 +37,16 @@
     "time": "2023-07-21T00:00:00",
     "duration": 126,
     "genre": "Drama",
+    "age_restriction": 12
+  },
+  {
+    "id": 5,
+    "auditorium_id": 3,
+    "title": "Chungking Express",
+    "description": "Two melancholy Hong Kong policemen fall in love: one with a mysterious female underworld figure, the other with a beautiful and ethereal waitress at a late-night restaurant he frequents.",
+    "time": "2023-09-28T00:00:00",
+    "duration": 102,
+    "genre": "Romance",
     "age_restriction": 12
   }
 ]
