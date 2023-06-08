@@ -84,8 +84,8 @@ public class PresentationLogic
             }
             else
             {
-                ClearLastLine();
                 //ClearLastLine();
+                ClearLastFour();
             }
             Menu.PrintCurrentMessage();
             PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
@@ -116,8 +116,14 @@ public class PresentationLogic
         return inputUser;
     }
 
-    public static void ClearLastLine()
+    public static void ClearLastFour()
     {
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write(new string(' ', Console.BufferWidth));
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write(new string(' ', Console.BufferWidth));
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write(new string(' ', Console.BufferWidth));
         Console.SetCursorPosition(0, Console.CursorTop - 1);
         Console.Write(new string(' ', Console.BufferWidth));
         Console.SetCursorPosition(0, Console.CursorTop - 1);
