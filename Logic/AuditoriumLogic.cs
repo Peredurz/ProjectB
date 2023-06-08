@@ -202,17 +202,21 @@ class AuditoriumLogic
                         _ => ConsoleColor.Black,
                     };
 
+                    bool containsChair = chairIDs != null ? chairIDs.Contains(chair.ID) : false;
                     // x en y zijn de cursor, als deze gelijk zijn aan de row en column kan je het een andere achtergrond
                     // geven om aan te geven dat het gekozen is.
                     if (r == (x - 1) && c == (y - 1))
                     {
-                        Console.BackgroundColor = ConsoleColor.White;
+                        if (containsChair == true)
+                            Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        else
+                            Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = color;
                         Console.Write(result);
                         Console.BackgroundColor = ConsoleColor.Black;
                     }
                     // als de id van de stoel is gekozen door de gebruiker maar die dan groen.
-                    else if (chairIDs != null && chairIDs.Contains(chair.ID))
+                    else if (containsChair == true)
                     {
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.ForegroundColor = color;
