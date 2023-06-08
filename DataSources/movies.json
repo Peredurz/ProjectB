@@ -28,5 +28,15 @@
     "duration": 178,
     "genre": "Actie",
     "age_restriction": 12
+  },
+  {
+    "id": 4,
+    "auditorium_id": 2,
+    "title": "Good Will Hunting",
+    "description": "Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.",
+    "time": "2023-07-21T00:00:00",
+    "duration": 126,
+    "genre": "Drama",
+    "age_restriction": 12
   }
 ]

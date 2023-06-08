@@ -276,15 +276,15 @@
     "isCompleted": true
   },
   {
-    "id": 369,
-    "name": null,
-    "emailAdress": "",
-    "chairId": 56,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 10,
-    "reserveringsCode": 12259649,
-    "isCompleted": false
+    "id": 889,
+    "name": "thom",
+    "emailAdress": "thomveldhuis03@gmail.com",
+    "chairId": 338,
+    "movieId": 4,
+    "auditoriumId": 2,
+    "time": "2023-07-21T00:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 1371154192,
+    "isCompleted": true
   }
 ]
