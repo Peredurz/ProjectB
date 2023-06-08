@@ -47,5 +47,12 @@
     "password": "$2a$10$8vYEhQfwi5LO5sBUpIqNLOaK057N3RQtRFsR7yBgZo3ZfbzIfy/p6",
     "fullName": "Thom Veldhuis",
     "userType": "Customer"
+  },
+  {
+    "id": 8,
+    "emailAddress": "Medewerker@admin.nl",
+    "password": "$2a$10$/eqa4CPzeiG6vBwxKxifJ.VmuGb4tZL5W8kuPXM2kUDbRtrdLK.l2",
+    "fullName": "Medewerker",
+    "userType": "Worker"
   }
 ]
