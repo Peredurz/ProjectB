@@ -11,10 +11,40 @@ class Annulering : IPresentation
         switch (input)
         {
             case "r":
-                Console.WriteLine("Email");
-                Console.Write("> ");
-                string email = Console.ReadLine().ToLower();
-                AnnuleringCode(email);
+                Console.WriteLine("Weet u zeker dat u een annulering aan wilt vragen? y/n");
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.Write("> ");
+                    string inputUser = Console.ReadLine().ToLower();
+                    if (inputUser == "y")
+                    {
+                        Console.WriteLine("Uw annulering wordt verwerkt.");
+                        PresentationLogic.CurrentMessage = "Uw annulering wordt verwerkt.";
+                        Console.WriteLine("Email");
+                        Console.Write("> ");
+                        string email = Console.ReadLine().ToLower();
+                        AnnuleringCode(email);
+                        return;
+                    }
+                    else if (inputUser == "n")
+                    {
+                        Console.WriteLine("Uw annulering wordt niet verwerkt.");
+                        PresentationLogic.CurrentMessage = "Annulering niet verwerkt";
+                        Menu.Start();
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Verkeerde invoer");
+                        PresentationLogic.CurrentMessage = "Verkeerde invoer";
+                    }
+                }
+                Menu.Start();
+                return;
+                // Console.WriteLine("Email");
+                // Console.Write("> ");
+                // string email = Console.ReadLine().ToLower();
+                // AnnuleringCode(email);
                 break;
             case "b":
                 Menu.Start();
