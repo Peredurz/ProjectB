@@ -21,7 +21,7 @@ public class PresentationLogic
 {
     private static List<PresentationModel> _presentations = new List<PresentationModel>();
     public static string CurrentPresentation = "menu";
-    public static string CurrentMessage = "Welkom bij ons bioscoop!";
+    public static string CurrentMessage = "Welkom bij onze bioscoop!";
 
     public static void SetPresentations(List<PresentationModel> presentations)
     {
