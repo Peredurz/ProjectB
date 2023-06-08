@@ -29,7 +29,7 @@ class Annulering : IPresentation
                     else if (inputUser == "n")
                     {
                         Console.WriteLine("Uw annulering wordt niet verwerkt.");
-                        PresentationLogic.CurrentMessage = "Uw annulering wordt niet verwerkt.";
+                        PresentationLogic.CurrentMessage = "Annulering niet verwerkt";
                         Menu.Start();
                         return;
                     }
