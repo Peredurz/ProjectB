@@ -137,7 +137,27 @@ public class UserLogin : IPresentation
                     break;
                 case "f":
                     loop = false;
-                    accountsLogic.GenerateTempPassword();
+                    Console.WriteLine("Met deze keuze gaat u het wachtwoord van uw account resetten. Weet u dit zeker? (y/n)");
+                    bool valid = false;
+                    while (valid == false)
+                    {
+                        Console.Write("> ");
+                        string pwChoice = Console.ReadLine().ToLower();
+                        if (pwChoice == "y")
+                        {
+                            accountsLogic.GenerateTempPassword();
+                            valid = true;
+                        }
+                        else if (pwChoice == "n")
+                        {
+                            Console.WriteLine("U gaat terug naar het inlogscherm.");
+                            valid = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Verkeerde invoer");
+                        }
+                    }
                     break;
                 case "b":
                     loop = false;
