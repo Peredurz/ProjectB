@@ -82,6 +82,48 @@ public class MovieLogic
         return output;
     }
 
+    public string ShowAllMovies()
+    {
+        string output = "";
+        //DateTime futureDate = new DateTime(1970, 1, 1);
+        DateTime currentDate = DateTime.Now;
+        foreach (MovieModel movie in _movies)
+        {
+            foreach (var prop in movie.GetType().GetProperties())
+            {
+                if (prop.Name == "AuditoriumID")
+                {
+                    output += "Zaal" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                }
+                else if (prop.Name == "Description")
+                {
+                    continue;
+                }
+                else if (prop.Name == "AgeRestriction")
+                {
+                    output += "Minimum Leeftijd" + ": " + prop.GetValue(movie) + " Jaar" + Environment.NewLine;
+                }
+                else if (prop.Name == "Time")
+                {
+                    if (movie.Time == new DateTime(1970, 1, 1))
+                    {
+                        output += "Tijd" + ": " + "Nog niet bekend" + Environment.NewLine;
+                    }
+                    else
+                    {
+                        output += "Tijd" + ": " + prop.GetValue(movie) + Environment.NewLine;
+                    }
+                }
+                else
+                {
+                    output += prop.Name + ": " + prop.GetValue(movie) + Environment.NewLine;
+                }
+            }
+            output += Environment.NewLine;
+        }
+        return output;
+    }
+
     public string ShowFutureMovies()
     {
         string output = "";
