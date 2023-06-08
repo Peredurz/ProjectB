@@ -196,6 +196,8 @@ public class UserLogin : IPresentation
                     {
                         Console.WriteLine("Uw aankoop geschiedenis:");
                         Console.WriteLine(accountsLogic.AankoopGeschiedenis());
+                        Console.WriteLine("Druk een toets om verder te gaan");
+                        Console.ReadKey();
                     }
                     else
                     {
