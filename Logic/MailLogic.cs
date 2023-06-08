@@ -31,18 +31,25 @@ class MailLogic
     public static void SendMail()
     {
         var reservationLogic = new ChairReservationLogic();
-        var reservation = reservationLogic.GetChairReservation(AccountsLogic.CurrentReservationCode);
-        int auditorium = reservation.Item1.AuditoriumID + 1;
-        DateTime time = reservation.Item1.Time;
-        int reservationCode = reservation.Item1.ReserveringsCode;
-        int chairID = reservation.Item1.ChairID;
+        // get all reservations with the same reservationcode
+
+        var reservation = reservationLogic.GetChairReservations(AccountsLogic.CurrentReservationCode);
+        int auditorium = reservation[0].Item1.AuditoriumID + 1;
+        DateTime time = reservation[0].Item1.Time;
+        int reservationCode = reservation[0].Item1.ReserveringsCode;
         var chairLogic = new ChairLogic();
-        var chair = chairLogic.GetChairModel(chairID);
-        int chairRow = chair.Row +1 ;
-        int chairColumn = chair.Column + 1;
+        string chairString = "<br>";
+        foreach (var chairRes in reservation)
+        {
+            int chairID = chairRes.Item1.ChairID;
+            var chair = chairLogic.GetChairModel(chairID);
+            int chairRow = chair.Row + 1;
+            int chairColumn = chair.Column + 1;
+            chairString += $"<strong>Rij {chairRow} Stoel {chairColumn}</strong><br>";
+        }
         double totaalPrijs = AccountsLogic.TotaalPrijs;
         bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
-        int movieId = reservation.Item1.MovieID;
+        int movieId = reservation[0].Item1.MovieID;
         string movieTitle = MovieLogic.GetMovie(movieId).Title;
         int movieDuration = MovieLogic.GetMovie(movieId).Duration;
         string DayinDutch = time.DayOfWeek switch
@@ -106,7 +113,7 @@ class MailLogic
         Uw reservering is voor de film: {movieTitle} <br>
         Uw film vind plaats in zaal: {auditorium} <br>
         Uw film speelt op {DayinDutch.ToLower()} {time.Day} {MonthinDutch.ToLower()} om {startTime} tot {endTime} <br>
-        Uw stoel is: Rij {chairRow}, Stoel {chairColumn} <br>
+        Uw stoel(en) is/zijn: {chairString} <br>
         Uw totaalprijs is: €{totaalPrijs} <br>
         U kunt uw reservering annuleren tot half uur voor de film begint. <br>
         Wij wensen u veel plezier bij de film. <br> <br>
