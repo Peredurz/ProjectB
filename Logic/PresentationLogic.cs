@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 /// <summary>
 /// Dit is de <c>PresentationLogic</c> class, deze class zorgt er voor dat menu's goed worden opgebouwd.
 /// <example>
@@ -84,8 +85,7 @@ public class PresentationLogic
             }
             else
             {
-                //ClearLastLine();
-                ClearLastFour();
+                ClearConsoleLines();
             }
             Menu.PrintCurrentMessage();
             PresentationLogic.WriteMenu(presentations, isSubMenu, presentations[index].Name);
@@ -116,7 +116,23 @@ public class PresentationLogic
         return inputUser;
     }
 
-    public static void ClearLastFour()
+    public static void ClearConsoleLines()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            ClearConsoleLineWindows();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            ClearConsoleLineUnix();
+        }
+        else
+        {
+            throw new NotSupportedException("Unsupported operating system.");
+        }
+    }
+
+    private static void ClearConsoleLineWindows()
     {
         Console.SetCursorPosition(0, Console.CursorTop - 1);
         Console.Write(new string(' ', Console.BufferWidth));
@@ -126,6 +142,19 @@ public class PresentationLogic
         Console.Write(new string(' ', Console.BufferWidth));
         Console.SetCursorPosition(0, Console.CursorTop - 1);
         Console.Write(new string(' ', Console.BufferWidth));
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+    }
+
+    private static void ClearConsoleLineUnix()
+    {
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write("\u001b[2K"); // Clear the entire line
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write("\u001b[2K"); // Clear the entire line
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write("\u001b[2K"); // Clear the entire line
+        Console.SetCursorPosition(0, Console.CursorTop - 1);
+        Console.Write("\u001b[2K"); // Clear the entire line
         Console.SetCursorPosition(0, Console.CursorTop - 1);
     }
 }
