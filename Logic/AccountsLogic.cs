@@ -171,6 +171,8 @@ class AccountsLogic
         {
             MovieModel movie = MovieLogic.GetMovie(_userReservation.MovieID);
             ChairModel chair = chairLogic.GetChairModel(_userReservation.ChairID);
+            if (movie == null)
+                continue;
             output += "\n";
             output += $"Film: {movie.Title}\n";
             output += $"Zaal: {_userReservation.AuditoriumID}\n";
