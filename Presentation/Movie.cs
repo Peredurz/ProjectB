@@ -45,7 +45,7 @@ public class Movie : IPresentation
             Movie.FilterMovie();
             return;
         }
-        else if (userOption.ToLower() == "0-9")
+        else if (userOption.ToLower() == "c")
         {
             ChooseMovie();
             return;
