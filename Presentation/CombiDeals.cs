@@ -1,11 +1,11 @@
-
-
-
 class CombiDeal : IPresentation
 {
     private static List<CombiDeal> _productList = new List<CombiDeal>();
     private static CombiDealLogic _combiDeal = new CombiDealLogic();
-    // Laat de gebruiker de opties zien waar uit hin kan kiezen
+
+    /// <summary>
+    /// Laat de gebruiker de opties zien waar uit hin kan kiezen
+    /// </summary>
     public static void Start()
     {
         bool choice = false;
@@ -61,6 +61,10 @@ class CombiDeal : IPresentation
             }             
         }
     }
+
+    /// <summary>
+    /// Aparte start functie voor de manager want die heeft andere opties.
+    /// </summary>
     public static void StartManager()
     {
         bool askUser = false;
