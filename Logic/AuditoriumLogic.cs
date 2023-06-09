@@ -16,6 +16,9 @@ class AuditoriumLogic
         _chairLogic = new ChairLogic();
     }
 
+    /// <summary>
+    /// Method om als die er nog niet zijn de stoelen te maken voor alle zalen.
+    /// </summary>
     public void InitializeSeats()
     {
         List<ChairModel> chairModels = new List<ChairModel>();
@@ -38,6 +41,9 @@ class AuditoriumLogic
         ChairAccess.WriteAll(chairModels);
     }
 
+    /// <summary>
+    /// Parser om de pixels uit de zalen PNG uit te lezen en daar stoelen van te maken.
+    /// </summary>
     public static List<ChairModel> ParsePNG(int auditoriumID)
     {
         // maak een string van de filepath waar de plattegrond van de zaal zit.
@@ -74,6 +80,9 @@ class AuditoriumLogic
         return chairModels;
     }
 
+    /// <summary>
+    /// Schrijf de lijst van stoelen en zalen naar de JSON
+    /// </summary>
     public void Write(List<AuditoriumModel> auditoriums)
     {
         // De meegegeven lijst van auditoriums schrijven naar de json file via AuditoriumAccess
@@ -247,6 +256,9 @@ class AuditoriumLogic
         Console.WriteLine();
     }
 
+    /// <summary>
+    /// Method om een zaal model te zoeken in de lijst
+    /// </summary>
     public AuditoriumModel GetAuditoriumModel(int auditoriumID)
     {
         foreach (AuditoriumModel auditorium in _auditoriums)
@@ -259,5 +271,8 @@ class AuditoriumLogic
         return null;
     }
 
+    /// <summary>
+    /// Om alle IDs van de stoelen van 1 zaal te krijgen.
+    /// </summary>
     public static List<int> GetChairIDs(int auditoriumID) => _auditoriums[auditoriumID - 1].Chairs;
 }
