@@ -9,7 +9,7 @@ using System.Text.Json;
 /// <see cref="AccountsAccess.WriteAll"/> kan je aanroepen door een lijst van <see cref="AccountModel"/> objecten mee te geven.
 /// </para>
 /// </summary>
-class AccountsAccess : AbstractAccess<AccountModel>
+public class AccountsAccess : AbstractAccess<AccountModel>
 {
     public override string path { get; } = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 }
