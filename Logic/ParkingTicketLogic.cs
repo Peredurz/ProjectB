@@ -1,9 +1,13 @@
 using System;
 using SkiaSharp;
 
-static class ParkingTicketLogic
+public static class ParkingTicketLogic
 {
     public static bool choiseParkingTicket = false;
+
+    /// <summary>
+    /// Om een barcode te maken die op de parkeer kaart komt te staan.
+    /// </summary>
     public static void GenerateBarCode()
     {
         int surfaceWidth = 300;
@@ -42,6 +46,10 @@ static class ParkingTicketLogic
             data.SaveTo(stream);
         }
     }
+
+    /// <summary>
+    /// Om een parkeer kaart te genereren die in de mail als bijlage kan komen.
+    /// </summary>
     public static void GenerateParkingTicket()
     {
         GenerateBarCode();
