@@ -259,6 +259,9 @@ public class MovieAmendment : IPresentation
         }
     }
 
+    /// <summary>
+    /// Om een film als admin toe te kunnen voegen, deze data word dan in de JSON gestopt zodat een klant deze film kan bekijken.
+    /// </summary>
     public static void MovieAdd()
     {
         Console.WriteLine("Wilt u een nieuwe film toevoegen of een film dat al draait op een andere tijd/zaal overkopiëren? (N/O)");
@@ -307,6 +310,9 @@ public class MovieAmendment : IPresentation
         }
     }
 
+    /// <summary>
+    /// om de data van een film te kunnen kopieren zodat je deze makkelijk kan aanpassen als er bijvoorbeeld een deel 2 uit komt.
+    /// </summary>
     public static void CopyMovie()
     {
         Console.WriteLine("Geef de titel of het ID van de film die u wilt overkopiëren naar een nieuwe datum en tijd.");
@@ -468,6 +474,9 @@ public class MovieAmendment : IPresentation
         }
     }
 
+    /// <summary>
+    /// Om als admin een film te kunnen verwijderen.
+    /// </summary>
     public static void MovieDeletion(string inputUser)
     {
         string movieOuput = _movieLogic.ShowMovies();
