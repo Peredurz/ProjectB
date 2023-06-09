@@ -1,5 +1,8 @@
-class Mail
+public class Mail
 {
+    /// <summary>
+    /// Om de info van de gebruiker te vragen voor de mail, dit is het email adres en de naam van de gebruiker.
+    /// </summary>
     public static Tuple<string, string> AskInfo()
     {
         bool loop = true;
