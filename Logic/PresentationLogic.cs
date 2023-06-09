@@ -24,12 +24,19 @@ public class PresentationLogic
     public static string CurrentPresentation = "menu";
     public static string CurrentMessage = "Welkom bij onze bioscoop!";
 
+    /// <summary>
+    /// Om de presentations te maken die uiteindelijk aan de gebruiker gekoppeld worden.
+    /// </summary>
     public static void SetPresentations(List<PresentationModel> presentations)
     {
         foreach (PresentationModel _presentation in presentations)
             _presentations.Add(_presentation);
     }
 
+    /// <summary>
+    /// Deze method maakt een lijst van PresentationModels die gekoppeld zijn aan de clearance van de gebruiker, dus een manager
+    /// ziet alleen degene die hij als clearance heeft. En dat is ook voor de medewerker en klant.
+    /// </summary>
     public static List<PresentationModel> GetUserOptions(string userType)
     {
         List<PresentationModel> userMenuOptions = new List<PresentationModel>();
@@ -42,6 +49,9 @@ public class PresentationLogic
         return userMenuOptions;
     }
 
+    /// <summary>
+    /// Om het menu te schrijven, je moet ook aangeven of dit in een submenu is of niet.
+    /// </summary>
     public static void WriteMenu(List<PresentationModel> presentations, bool inSubMenu, string menuName = null)
     {
         // als je in een submenu ziet zoals het login ding toon dan alleen die menu items
@@ -60,8 +70,14 @@ public class PresentationLogic
         }
     }
 
+    /// <summary>
+    /// Om te kijken of de list van PresentationModels leeg is.
+    /// </summary>
     public static bool IsEmpty() => _presentations.Any() != true;
 
+    /// <summary>
+    /// Om een lijst van PresentationModels te krijgen die gekoppeld zijn aan de gebruiker en ook aan het menu.
+    /// </summary>
     public static List<PresentationModel> GetPresentationModels(bool inSubMenu)
     {
         return AccountsLogic.UserPresentationModels
@@ -69,6 +85,9 @@ public class PresentationLogic
               .ToList();
     }
 
+    /// <summary>
+    /// Om de input te krijgen van de gebruiker die die krijgt via de pijltjes (of vi keys :) ).
+    /// </summary>
     public static string GetUserInputFromMenu(bool isSubMenu)
     {
         Console.CursorVisible = false;
@@ -116,6 +135,9 @@ public class PresentationLogic
         return inputUser;
     }
 
+    /// <summary>
+    /// Om console lines te clearen aan de onderkant van het scherm op basis van je platform is dit anders.
+    /// </summary>
     public static void ClearConsoleLines()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -132,6 +154,9 @@ public class PresentationLogic
         }
     }
 
+    /// <summary>
+    /// Clear lines aan de onderkant op Windows.
+    /// </summary>
     private static void ClearConsoleLineWindows()
     {
         Console.SetCursorPosition(0, Console.CursorTop - 1);
@@ -145,6 +170,9 @@ public class PresentationLogic
         Console.SetCursorPosition(0, Console.CursorTop - 1);
     }
 
+    /// <summary>
+    /// Clear lines aan de onderkant op unix.
+    /// </summary>
     private static void ClearConsoleLineUnix()
     {
         Console.SetCursorPosition(0, Console.CursorTop - 1);
