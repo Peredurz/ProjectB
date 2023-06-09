@@ -96,7 +96,9 @@ public class AnnuleringLogic
     /// <returns>List<see cref="MovieModel"/></returns>
     public List<MovieModel> Movie() => _movies;
 
-    // optie om alle annuleringen te zien
+    /// <summary>
+    /// optie om alle annuleringen te zien
+    /// </summary>
     public void ShowAnnulering()
     {
         foreach (AnnuleringModel annulering in _annulering)
@@ -140,7 +142,9 @@ public class AnnuleringLogic
         Console.WriteLine("Meer dan 24 uur van te voren geannuleerd.\n");
     }
 
-    //controleerd of annuleringen bestaat 
+    /// <summary>
+    /// controleerd of annuleringen bestaat
+    /// </summary>
     public AnnuleringModel GetAnnulering(int id)
     {
         foreach (AnnuleringModel annulering in _annulering)
@@ -154,7 +158,9 @@ public class AnnuleringLogic
         return null;
     }
 
-    //annuleringen accepteren
+    /// <summary>
+    /// annuleringen accepteren
+    /// </summary>
     public bool AnnuleringAccept(int id)
     {
         string movieOuput = _movieLogic.ShowMovies();
@@ -203,7 +209,9 @@ public class AnnuleringLogic
         }
     }
 
-    // Berekening terug geven van het geld
+    /// <summary>
+    /// Berekening terug geven van het geld
+    /// </summary>
     public double AnnuleringCalculator(MovieModel movie, AnnuleringModel annulering, ChairReservationModel reservation)
     {
         DateTime timeNow = annulering.AnnuleringDatum;
@@ -219,7 +227,9 @@ public class AnnuleringLogic
         }
     }
 
-    // Het verkijgen van de Resservation ID
+    /// <summary>
+    /// Het verkijgen van de Resservation ID
+    /// </summary>
     public ChairReservationModel GetResservationByID(AnnuleringModel annulering)
     {
         foreach (ChairReservationModel reservation in _chairReservation)
@@ -231,7 +241,10 @@ public class AnnuleringLogic
         }
         return null;
     }
-    // Verwijdert de stoel in chairreservation
+
+    /// <summary>
+    /// Verwijdert de stoel in chairreservation
+    /// </summary>
     public static void DeleteCanceledChair(int reserveringsCode)
     {
         List<ChairReservationModel> _chairReservations = ChairReservationAccess.LoadAll();
