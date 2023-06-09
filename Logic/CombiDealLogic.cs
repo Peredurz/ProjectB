@@ -8,7 +8,9 @@ public class CombiDealLogic
         _productList = CombiDealAccess.LoadAll();
     }
 
-    // return de juiste com combideal 
+    /// <summary>
+    /// return de juiste com combideal
+    /// </summary>
     public CombiDealModel GetCombiDeal(int id)
     {
         foreach (CombiDealModel combi in _productList)
@@ -21,7 +23,9 @@ public class CombiDealLogic
         return null;
     }
 
-    // laat de juiste combideal zien
+    /// <summary>
+    /// laat de juiste combideal zien
+    /// </summary>
     public void ShowCombiDeal(int id)
     {
         foreach (CombiDealModel combi in _productList)
@@ -34,7 +38,9 @@ public class CombiDealLogic
     }
 
 
-    // Voegd items toe aan de CombiDeals lijst
+    /// <summary>
+    /// Voegd items toe aan de CombiDeals lijst
+    /// </summary>
     public bool AddCombi(string product, double price)
     {
         CombiDealModel item = new CombiDealModel(product, price);
@@ -43,7 +49,9 @@ public class CombiDealLogic
         return true;
     }
 
-    // Combideals verwijderen
+    /// <summary>
+    /// Combideals verwijderen
+    /// </summary>
     public bool DeleteCombi(int id)
     {
         foreach (CombiDealModel combi in _productList)
@@ -65,7 +73,9 @@ public class CombiDealLogic
         return false;
     }
 
-    //Combideals bewerken
+    /// <summary>
+    /// Combideals bewerken
+    /// </summary>
     public bool EditCombi(int id, string product, double price)
     {
         foreach (CombiDealModel combi in _productList)
@@ -81,7 +91,9 @@ public class CombiDealLogic
         return false;
     }
 
-    // laat alle CombiDeals zien
+    /// <summary>
+    /// laat alle CombiDeals zien
+    /// </summary>
     public void PrintCombiDeals()
     {
         foreach (CombiDealModel combi in _productList)
@@ -91,7 +103,9 @@ public class CombiDealLogic
         }
     }
 
-    // Controleert of de combideal bestaat  
+    /// <summary>
+    /// Controleert of de combideal bestaat
+    /// </summary>
     public bool ExistCombiDeal(int id)
     {
         foreach (CombiDealModel combi in _productList)
@@ -104,5 +118,8 @@ public class CombiDealLogic
         return false;
     }
     
+    /// <summary>
+    /// Om de lijst met combideals terug te krijgen, zodat je deze kan tonen aan de gebruiker.
+    /// </summary>
     public List<CombiDealModel> Deals => _productList;
 }
