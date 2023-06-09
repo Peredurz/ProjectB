@@ -1,5 +1,9 @@
 public class Payment : IPresentation
 {
+
+    /// <summary>
+    /// Generieke start functie.
+    /// </summary>
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "payment";
