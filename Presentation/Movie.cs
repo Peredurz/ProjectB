@@ -1,10 +1,12 @@
-class Movie : IPresentation
+public class Movie : IPresentation
 {
     public static int AuditoriumID;
     public static int MovieID;
     static private MovieLogic _movieLogic = new MovieLogic();
 
-    //Laat de gebruiker zien welke films er draaien. Laat de gebruiker kiezen welke film die wilt bekijken en print de zaal uit.  
+    /// <summary>
+    /// Laat de gebruiker zien welke films er draaien. Laat de gebruiker kiezen welke film die wilt bekijken en print de zaal uit. 
+    /// </summary>
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "movies";
@@ -61,6 +63,9 @@ class Movie : IPresentation
         }
     }
 
+    /// <summary>
+    /// Laat de gebruiker een film kunnen kiezen.
+    /// </summary>
     public static void ChooseMovie([System.Runtime.CompilerServices.CallerMemberName] string memberName = "")
     {
         // Als de gebruiker niet vanuit de filter komt, laat dan alle films zien.
@@ -122,6 +127,9 @@ class Movie : IPresentation
         }
     }
 
+    /// <summary>
+    /// Om de gebruiker te kunnen vragen om te filteren op bepaalde attributen van een film.
+    /// </summary>
     public static void FilterMovie()
     {
         Console.WriteLine("Geef iets wat je wilt filteren.(leeftijdgrens, genre, duur van de film, speeldatum(YYYY-MM-DD))");
