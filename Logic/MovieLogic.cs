@@ -13,7 +13,9 @@ public class MovieLogic
         _movies = MovieAccess.LoadAll();
     }
 
-    // deze functie controleerd of de input van de user overeen komen met de movieID. 
+    /// <summary>
+    /// deze functie controleerd of de input van de user overeen komen met de movieID.
+    /// </summary>
     public bool MovieExist(int movieID)
     {
         foreach (MovieModel movie in _movies)
@@ -26,7 +28,9 @@ public class MovieLogic
         return false;
     }
 
-    // Deze functie return de zaal nadat die is gecontroleerd door MovieExist. Als het false is return je 0
+    /// <summary>
+    /// Deze functie return de zaal nadat die is gecontroleerd door MovieExist. Als het false is return je 0
+    /// </summary>
     public int GetAuditoriumID(int movieID)
     {
         bool movieExist = MovieExist(movieID);
@@ -43,6 +47,9 @@ public class MovieLogic
         return 0;
     }
 
+    /// <summary>
+    /// Om alle films uit de lijst aan de gebruiker te tonen.
+    /// </summary>
     public string ShowMovies()
     {
         string output = "";
@@ -82,6 +89,9 @@ public class MovieLogic
         return output;
     }
 
+    /// <summary>
+    /// Om alle films te laten zien.
+    /// </summary>
     public string ShowAllMovies()
     {
         string output = "";
@@ -124,6 +134,9 @@ public class MovieLogic
         return output;
     }
 
+    /// <summary>
+    /// Om alle toekomstige films te laten zien aan de gebruiker
+    /// </summary>
     public string ShowFutureMovies()
     {
         string output = "";
@@ -162,6 +175,9 @@ public class MovieLogic
         return output;
     }
 
+    /// <summary>
+    /// Om te bepalen of het een toekomstige film is.
+    /// </summary>
     public bool IsFutureMovie(int MovieID)
     {
         DateTime futureDate = new DateTime(1970, 1, 1);
@@ -258,6 +274,9 @@ public class MovieLogic
     /// <returns><see cref="MovieModel"/></returns>
     public static MovieModel GetMovieByTitle(string movie) => _movies.Find(m => m.Title.ToLower() == movie.ToLower()) ?? null;
 
+    /// <summary>
+    /// Om een movie model te krijgen via een ID.
+    /// </summary>
     public static MovieModel GetMovie(int movieID)
     {
         foreach (MovieModel _movie in _movies)
@@ -266,6 +285,9 @@ public class MovieLogic
         return null;
     }
 
+    /// </summary>
+    /// Om een film uit het aanbod te verwijderen.
+    /// </summary>
     public static void RemoveMovie(int movieID)
     {
         List<MovieModel> nonDeletedMovies = new List<MovieModel>();
