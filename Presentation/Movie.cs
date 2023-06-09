@@ -94,6 +94,7 @@ class Movie : IPresentation
             Movie.MovieID = userMovieID;
             Console.WriteLine(Movie._movieLogic.ShowMovieDetails(userMovieID));
             PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+            Console.Write("> ");
             string userInput = Console.ReadLine().ToLower();
             if (userInput == "b")
             {

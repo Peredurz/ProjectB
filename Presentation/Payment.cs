@@ -5,6 +5,7 @@ public class Payment : IPresentation
         PresentationLogic.CurrentPresentation = "payment";
         Console.WriteLine($"Het totaal bedrag is {Math.Round(AccountsLogic.TotaalPrijs, 2)}");
         PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+        Console.Write(">");
         string chosenOption = Console.ReadLine().ToLower();
         switch (chosenOption)
         {
