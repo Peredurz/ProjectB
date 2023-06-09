@@ -69,6 +69,7 @@ public class Payment : IPresentation
                     return;
                 }
             case "b":
+                PresentationLogic.CurrentMessage = "Reserveringsproces geannuleerd";
                 Movie.Start();
                 return;
         }

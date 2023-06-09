@@ -20,11 +20,19 @@ class Annulering : IPresentation
                     {
                         Console.WriteLine("Uw annulering wordt verwerkt.");
                         PresentationLogic.CurrentMessage = "Uw annulering wordt verwerkt.";
-                        Console.WriteLine("Email");
-                        Console.Write("> ");
-                        string email = Console.ReadLine().ToLower();
-                        AnnuleringCode(email);
-                        return;
+                        if (AccountsLogic.CurrentAccount != null)
+                        {
+                            AnnuleringCode(AccountsLogic.CurrentAccount.EmailAddress);
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Email");
+                            Console.Write("> ");
+                            string email = Console.ReadLine().ToLower();
+                            AnnuleringCode(email);
+                            return;
+                        }
                     }
                     else if (inputUser == "n")
                     {
