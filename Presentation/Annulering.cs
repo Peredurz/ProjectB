@@ -21,8 +21,6 @@ class Annulering : IPresentation
                     string inputUser = Console.ReadLine().ToLower();
                     if (inputUser == "y")
                     {
-                        Console.WriteLine("Uw annulering wordt verwerkt.");
-                        PresentationLogic.CurrentMessage = "Uw annulering wordt verwerkt.";
                         if (AccountsLogic.CurrentAccount != null)
                         {
                             AnnuleringCode(AccountsLogic.CurrentAccount.EmailAddress);
