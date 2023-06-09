@@ -52,9 +52,9 @@ public class Menu : IPresentation
     };
 
 
-    //This shows the menu. You can call back to this method to show the menu again
-    //after another presentation method is completed.
-    //You could edit this to show different menus depending on the user's role
+    /// <summary>
+    /// Het begin van het menu, deze gaat naar allerlei submenu's met verschillende functionaliteiten.
+    /// </summary>
     public static void Start()
     {
         // Aan het begin van de start method aangeven in welk menu je zit.
