@@ -3,6 +3,9 @@ public class UserLogin : IPresentation
     static private AccountsLogic accountsLogic = new AccountsLogic();
 
 
+    /// <summary>
+    /// Generieke start functie.
+    /// </summary>
     public static void Start()
     {
         if (AccountsLogic.CurrentAccount != null)
