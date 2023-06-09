@@ -8,12 +8,18 @@ class ChairLogic
         Chairs = ChairAccess.LoadAll();
     }
 
+    /// <summary>
+    /// Funcie om een stoel aan de lijst toe te voegen en die gelijk naar de JSON te schrijven.
+    /// </summary>
     public void AddChair(ChairModel chair)
     {
         Chairs.Add(chair);
         ChairAccess.WriteAll(Chairs);
     }
 
+    /// <summary>
+    /// Method om met de rij en kolom een stoel te vinden in een bepaalde zaal.
+    /// </summary>
     public static int FindChairID(int row, int col, int auditoriumID)
     {
         // maak een lijst met alle stoelen die we kunnen bekijken.
@@ -38,6 +44,9 @@ class ChairLogic
         return 0;
     }
 
+    /// <summary>
+    /// Om een stoel model te krijgen via een ID.
+    /// </summary>
     public ChairModel GetChairModel(int chairID)
     {
         foreach (ChairModel chair in Chairs)
