@@ -22,12 +22,18 @@ class MailLogic
         set { _name = value; }
     }
 
+    /// <summary>
+    /// Om een code te genereren om bijv. reserveringen mee te kunnen annuleren.
+    /// </summary>
     public static int GenerateCode()
     {
         Random RandomInt = new Random();
         return RandomInt.Next();
     }
 
+    /// <summary>
+    /// Om de bevestigingsmail te sturen naar de gebruiker na een reservering gedaan te hebben.
+    /// </summary>
     public static void SendMail()
     {
         var reservationLogic = new ChairReservationLogic();
@@ -151,6 +157,9 @@ class MailLogic
         ParkingTicketLogic.choiseParkingTicket = false;
     }
 
+    /// <summary>
+    /// Zodat je de email adres van de gebruiker kan valideren om te gebruiken.
+    /// </summary>
     public static bool ValidateMailAddress(string mailAddress)
     {
         try
@@ -164,6 +173,9 @@ class MailLogic
         }
     }
 
+    /// <summary>
+    /// Functie om de QR code voor in de mail te genereren.
+    /// </summary>
     public static void GenerateQRCode()
     {
         string reservationCode = Convert.ToString(AccountsLogic.CurrentReservationCode);
@@ -177,6 +189,10 @@ class MailLogic
         qrCode.GenerateImage(output);
     }
 
+    /// <summary>
+    /// Om een mail te sturen over een annulering, deze kan geaccepteerd of geweigerd worden, dit word aangegeven via een optional
+    /// boolean genaam isRejected.
+    /// </summary>
     public static void SendCancelationMail(AnnuleringModel annulering,
                                            MovieModel movie,
                                            ChairReservationModel reservation,
@@ -244,6 +260,9 @@ class MailLogic
         }
     }
 
+    /// <summary>
+    /// Om een Temporary wachtwoord naar de gebruiker te sturen.
+    /// </summary>
     public static void SendTempPassword(string password)
     {
         var emailMessage = new MimeMessage();
