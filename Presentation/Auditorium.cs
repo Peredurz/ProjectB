@@ -4,6 +4,9 @@ public class Auditorium : IPresentation
     private static ChairReservationLogic _chairReservationLogic = new ChairReservationLogic();
     private static ChairLogic _chairLogic = new ChairLogic();
 
+    /// <summary>
+    /// Generieke start functie.
+    /// </summary>
     public static void Start()
     {
         PresentationLogic.CurrentPresentation = "auditorium";
@@ -32,6 +35,10 @@ public class Auditorium : IPresentation
         }
     }
 
+    /// <summary> 
+    /// Om via de de pijltjes en vi keys een stoel of meerdere stoelen te kunnen selecteren om die te kunnen reserveren,
+    /// dit wordt via een view gedaan die elke keer gecleared word bij elke update.
+    /// </summary>
     public static void ChooseChair()
     {
         // de beginende axises. 
@@ -48,7 +55,6 @@ public class Auditorium : IPresentation
         ConsoleKeyInfo keyinfo;
         // clear keyboard buffer
 
-        bool isBackKey = false;
         do
         {
             // clear de console en print alle belangrijke dingen.
@@ -164,6 +170,10 @@ public class Auditorium : IPresentation
             return;
         }
     }
+
+    /// <summary>
+    /// vraag aan de gebruiker of die combi deals wilt bekijken die kunnen dan aan de prijs toegevoegd worden.
+    /// </summary>
     public static void ChooseCombi()
     {
         Console.WriteLine($"Wilt u de Combi deals bekijken. Y/N");
@@ -186,12 +196,15 @@ public class Auditorium : IPresentation
         }
     }
 
+    /// <summary>
+    /// Vraag de gebruiker of die een parkeer kaartje wilt kopen.
+    /// </summary>
     public static void ChooseParkingTicket()
     {
         bool choice = false;
         while (choice == false)
         {
-            Console.WriteLine($"Wilt u een parkeer ticket kopen. Y/N");
+            Console.WriteLine($"Wilt u een parkeer ticket kopen voor 2 euro? Y/N");
             Console.Write(">");
             string choiseParkingTicket = Console.ReadLine().ToLower();
 
@@ -220,6 +233,9 @@ public class Auditorium : IPresentation
         }
     }
 
+    /// <summary>
+    /// Om het scherm van de zaal te printen zodat de gebruiker weet waar het scherm is.
+    /// </summary>
     public static void AudistoriumScreen()
     {
         AuditoriumModel auditorium = _auditoriumLogic.GetAuditoriumModel(Movie.AuditoriumID);
@@ -234,6 +250,9 @@ public class Auditorium : IPresentation
         }
     }
 
+    /// <summary>
+    /// Print een legenda met uitleg over de zaal en het selecteren van stoelen.
+    /// </summary>
     public static void PrintLegenda(bool printSelectionInfo = false)
     {
         Console.WriteLine("Stoelkosten:");
