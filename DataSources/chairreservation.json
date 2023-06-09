@@ -382,5 +382,65 @@
     "totaalPrijs": 15,
     "reserveringsCode": 1914733824,
     "isCompleted": true
+  },
+  {
+    "id": 737,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 125,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 5,
+    "reserveringsCode": 835106551,
+    "isCompleted": false
+  },
+  {
+    "id": 738,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 126,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 15,
+    "reserveringsCode": 835106551,
+    "isCompleted": false
+  },
+  {
+    "id": 739,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 127,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 25,
+    "reserveringsCode": 835106551,
+    "isCompleted": false
+  },
+  {
+    "id": 876,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 115,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 10,
+    "reserveringsCode": 1445036876,
+    "isCompleted": false
+  },
+  {
+    "id": 877,
+    "name": null,
+    "emailAdress": "",
+    "chairId": 116,
+    "movieId": 1,
+    "auditoriumId": 1,
+    "time": "2024-03-24T12:00:00",
+    "totaalPrijs": 20,
+    "reserveringsCode": 1445036876,
+    "isCompleted": false
   }
 ]

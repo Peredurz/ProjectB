@@ -55,13 +55,12 @@ public class UserLogin : IPresentation
                         AccountsLogic.CurrentAccount = acc;
                         Console.WriteLine("Welkom terug " + acc.FullName);
                         Console.WriteLine("Jou email is " + acc.EmailAddress);
-                        PresentationLogic.CurrentMessage = "Welkom terug " + acc.FullName + "\nJouw email is " + acc.EmailAddress; 
+                        PresentationLogic.CurrentMessage = "Welkom terug " + acc.FullName;
                         loop = false;
                     }
                     else
                     {
                         Console.WriteLine("Geen account gevonden met dat e-mailadres en wachtwoord");
-                        PresentationLogic.CurrentMessage = "Geen account gevonden met dat e-mailadres en wachtwoord";
                     }
                     break;
                 case "n":
@@ -79,7 +78,6 @@ public class UserLogin : IPresentation
                         if (!MailLogic.ValidateMailAddress(emailAddress))
                         {
                             Console.WriteLine("Email is niet geldig");
-                            PresentationLogic.CurrentMessage = "Email is niet geldig";
                             continue;
                         }
                         else
@@ -133,7 +131,6 @@ public class UserLogin : IPresentation
                     if (_password != _password2)
                     {
                         Console.WriteLine("\nWachtwoorden komen niet overeen\n");
-                        PresentationLogic.CurrentMessage = "Wachtwoorden komen niet overeen";
                         break;
                     }
                     Console.WriteLine();
@@ -207,8 +204,8 @@ public class UserLogin : IPresentation
                         if (inputUser == "y")
                         {
                             AccountsLogic.CurrentAccount = null;
+                            PresentationLogic.CurrentPresentation = "login";
                             Console.WriteLine("Je bent uitgelogd.");
-                            PresentationLogic.CurrentMessage = "U bent uitgelogd";
                         }
                         else
                         {
@@ -227,7 +224,6 @@ public class UserLogin : IPresentation
                     else
                     {
                         Console.WriteLine("U moet ingelogd zijn om uw geschiednis te kunnen zien.");
-                        PresentationLogic.CurrentMessage = "U moet ingelogd zijn om uw geschiedenis te kunnen zien.";
                     }
                     break;
                 default:

@@ -132,7 +132,7 @@ class AccountsLogic
         {
             if (result == true)
             {
-                Console.WriteLine("Nieuw Wachtwoord");
+                Console.WriteLine("\nNieuw Wachtwoord");
                 Console.Write("> ");
                 string password1 = Console.ReadLine();
                 Console.WriteLine("Herhaal niew wachtwoord");

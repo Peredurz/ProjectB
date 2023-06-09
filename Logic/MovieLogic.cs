@@ -162,6 +162,22 @@ public class MovieLogic
         return output;
     }
 
+    public bool IsFutureMovie(int MovieID)
+    {
+        DateTime futureDate = new DateTime(1970, 1, 1);
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.ID == MovieID)
+            {
+                if (movie.Time == futureDate)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /// <summary>
     /// Deze method zoekt een film op basis van de titel of de ID.
     /// En geeft dan een <see cref="MovieModel"/> terug.
@@ -299,6 +315,10 @@ public class MovieLogic
                     }
                     output += prop.Name + ": " + DescriptionOutput + Environment.NewLine;
                 }
+            }
+            else if (prop.Name == "AgeRestriction")
+            {
+                output += "Minimum Leeftijd" + ": " + prop.GetValue(movie) + " Jaar" + Environment.NewLine;
             }
             else
             {
