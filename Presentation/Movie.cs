@@ -79,6 +79,13 @@ class Movie : IPresentation
             Movie.Start();
             return;
         }
+        // when user enters an future movie id, show "geen geldige invoer"
+        if (Movie._movieLogic.IsFutureMovie(userMovieID))
+        {
+            Console.WriteLine("Geen geldige invoer.");
+            Movie.Start();
+            return;
+        }
         PresentationLogic.CurrentPresentation = "movie_submenu";
         int auditoriumID = Movie._movieLogic.GetAuditoriumID(userMovieID);
         if (auditoriumID != 0)
@@ -87,6 +94,7 @@ class Movie : IPresentation
             Movie.MovieID = userMovieID;
             Console.WriteLine(Movie._movieLogic.ShowMovieDetails(userMovieID));
             PresentationLogic.WriteMenu(AccountsLogic.UserPresentationModels, true);
+            Console.Write("> ");
             string userInput = Console.ReadLine().ToLower();
             if (userInput == "b")
             {

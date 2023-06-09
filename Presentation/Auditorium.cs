@@ -201,8 +201,8 @@ public class Auditorium : IPresentation
                 ParkingTicketLogic.GenerateParkingTicket();
                 choice = true;
                 AccountsLogic.TotaalPrijs += 2;
-                Console.WriteLine("U heeft een parkeer ticket gekocht.");
-                PresentationLogic.CurrentMessage = "U heeft een parkeer ticket gekocht.";
+                Console.WriteLine("U heeft een parkeerkaart gekocht.");
+                PresentationLogic.CurrentMessage = "U heeft een parkeerkaart gekocht.";
                 Payment.Start();
                 return;
             }
