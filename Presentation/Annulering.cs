@@ -2,6 +2,9 @@ class Annulering : IPresentation
 {
     private static AnnuleringLogic annuleringLogic = new AnnuleringLogic();
 
+    /// <summary>
+    /// Generieke start functie.
+    /// </summary>
     public static void Start()
     {
 
@@ -68,6 +71,9 @@ class Annulering : IPresentation
         }
     }
 
+    /// <summary>
+    /// Gebruiker input gebruiken om een reserveringscode te kunnen verwerken.
+    /// </summary>
     public static void AnnuleringCode(string email)
     {
         List<ChairReservationModel> annulering = annuleringLogic.Annuleringen(email);
@@ -102,6 +108,10 @@ class Annulering : IPresentation
             return;
         }
     }
+
+    /// <summary>
+    /// Een lijst van annuleringen gebruiken om te bepalen welke annulering geaccepteerd/geweigerd kan worden.
+    /// </summary>
     public static void AnnuleringAccepted()
     {
         annuleringLogic.ShowAnnulering();
