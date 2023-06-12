@@ -285,7 +285,7 @@ public class MovieLogic
         return null;
     }
 
-    /// </summary>
+    /// <summary>
     /// Om een film uit het aanbod te verwijderen.
     /// </summary>
     public static void RemoveMovie(int movieID)
