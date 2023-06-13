@@ -344,6 +344,13 @@ public class MovieAmendment : IPresentation
             Console.WriteLine("Geef het zaal ID waarin de film draait.");
             Console.Write("> ");
             int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
+            if (auditoriumID > 3 || auditoriumID < 1)
+            {
+                Console.WriteLine("Zaal bestaat niet.");
+                PresentationLogic.CurrentMessage = "Zaal bestaat niet";
+                MovieAmendment.Start();
+                return;
+            }
             MovieModel Movie = new MovieModel(_movies.Count + 1, auditoriumID, movie.Title, movie.Description, time, movie.Duration, movie.Genre, movie.AgeRestriction);
             if (_movieLogic.StartTimeInterference(time, auditoriumID, Movie) || _movieLogic.TimeInterference(movie.Duration, auditoriumID, Movie))
             {
@@ -396,6 +403,12 @@ public class MovieAmendment : IPresentation
         }
         else if (choice == "n")
         {
+            MovieAmendment.Start();
+            return;
+        }
+        else
+        {
+            Console.WriteLine("Verkeerde invoer.");
             MovieAmendment.Start();
             return;
         }
