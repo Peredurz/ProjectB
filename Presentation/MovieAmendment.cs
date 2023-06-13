@@ -423,10 +423,10 @@ public class MovieAmendment : IPresentation
         Console.WriteLine("Geef het zaal ID waarin de film draait.");
         Console.Write("> ");
         int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : 0;
-        Console.WriteLine("Gegeven zaalID valt buiten de range van 1 tot 3. ZaalID wordt automatisch 1.");
         if (auditoriumID > 3 || auditoriumID < 1)
         {
             auditoriumID = 1;
+            Console.WriteLine("Gegeven zaalID valt buiten de range van 1 tot 3. ZaalID wordt automatisch 1.");
         }
 
         Console.WriteLine("Geef het genre van de film.");
