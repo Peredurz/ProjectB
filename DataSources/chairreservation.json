@@ -240,18 +240,6 @@
     "isCompleted": true
   },
   {
-    "id": 507,
-    "name": "Gilian",
-    "emailAdress": "gilkranendonk@gmail.com",
-    "chairId": 160,
-    "movieId": 1,
-    "auditoriumId": 1,
-    "time": "2024-03-24T12:00:00",
-    "totaalPrijs": 5,
-    "reserveringsCode": 1830454696,
-    "isCompleted": true
-  },
-  {
     "id": 481,
     "name": "aisi",
     "emailAdress": "sidimo2001@gmail.com",

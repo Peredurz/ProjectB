@@ -138,6 +138,13 @@ class Annulering : IPresentation
         {
             idUser = Convert.ToInt32(Console.ReadLine());
             AnnuleringModel annuleringsModel = annuleringLogic.GetAnnulering(idUser);
+            if (annuleringsModel == null)
+            {
+                Console.WriteLine("Verkeerde invoer");
+                PresentationLogic.CurrentMessage = "Verkeerde invoer";
+                Annulering.Start();
+                return;
+            }
             bool acceptedAnnulering = annuleringLogic.AnnuleringAccept(idUser);
             Menu.Start();
             return;
