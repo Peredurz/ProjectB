@@ -129,7 +129,7 @@ public class MovieAmendment : IPresentation
                         Console.WriteLine("Geef het nieuwe zaal ID");
                         Console.Write("> ");
                         int auditoriumID = int.TryParse(Console.ReadLine(), out auditoriumID) ? auditoriumID : -1;
-                        if (auditoriumID < 0)
+                        if (auditoriumID < 1 || auditoriumID > 3)
                         {
                             Console.WriteLine("Verkeerde invoer");
                             break;
