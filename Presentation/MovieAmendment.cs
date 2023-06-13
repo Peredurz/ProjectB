@@ -486,6 +486,7 @@ public class MovieAmendment : IPresentation
         {
             Console.WriteLine("Deze film bestaat niet.");
             MovieAmendment.Start();
+            return;
         }
         Console.WriteLine($"Wilt u de film {movie.Title} verwijderen? (Y/N)");
         Console.Write("> ");
