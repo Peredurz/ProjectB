@@ -29,9 +29,25 @@ class Annulering : IPresentation
                         else
                         {
                             Console.WriteLine("Email");
-                            Console.Write("> ");
-                            string email = Console.ReadLine().ToLower();
-                            AnnuleringCode(email);
+                            string email = "";
+                            for (int j = 0; j < 3; j++)
+                            {
+                                Console.Write("> ");
+                                email = Console.ReadLine().ToLower();
+                                if (MailLogic.ValidateMailAddress(email))
+                                {
+                                    AnnuleringCode(email);
+                                    return;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Geen geldig email adres");
+                                    PresentationLogic.CurrentMessage = "Geen geldig email adres";
+                                }
+                            }
+                            Console.WriteLine("Geen geldig email adres");
+                            PresentationLogic.CurrentMessage = "Geen geldig email adres";
+                            Menu.Start();
                             return;
                         }
                     }
@@ -87,6 +103,8 @@ class Annulering : IPresentation
             {
                 Console.WriteLine("Verkeerde invoer");
                 PresentationLogic.CurrentMessage = "Verkeerde invoer";
+                Menu.Start();
+                return;
             }
             else
             {
