@@ -58,14 +58,14 @@ public static class ParkingTicketLogic
         string beginTimeString = beginTime.ToString("HH:mm");
         GenerateBarCode();
         // Create new skiasharp surface for the ticket
-        SKSurface surface = SKSurface.Create(new SKImageInfo(300, 400));
+        SKSurface surface = SKSurface.Create(new SKImageInfo(400, 400));
         // Create new canvas to draw on
         SKCanvas canvas = surface.Canvas;
         // Create new paint to draw with
         SKPaint paint = new SKPaint();
         // Draw the background
         paint.Color = SKColors.White;
-        canvas.DrawRect(0, 0, 300, 400, paint);
+        canvas.DrawRect(0, 0, 400, 400, paint);
         // Draw the title
         paint.Color = SKColors.Black;
         paint.TextSize = 30;
