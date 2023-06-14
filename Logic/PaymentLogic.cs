@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using System.Numerics;
 
-public class PaymentLogic
+public static class PaymentLogic
 {
     // alle afkortingen voor geldige land codes op een iban
     private static string[] _validLandCodes = {
