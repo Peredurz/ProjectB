@@ -53,7 +53,7 @@ class MailLogic
             int chairColumn = chair.Column + 1;
             chairString += $"<strong>Rij {chairRow} Stoel {chairColumn}</strong><br>";
         }
-        double totaalPrijs = AccountsLogic.TotaalPrijs;
+        double totaalPrijs = Math.Round(AccountsLogic.TotaalPrijs, 2);
         bool parkingticket = ParkingTicketLogic.choiseParkingTicket;
         int movieId = reservation[0].Item1.MovieID;
         string movieTitle = MovieLogic.GetMovie(movieId).Title;
